@@ -10,6 +10,7 @@ https://github.com/e1r0nd/LearnWords
 
     npm init
     npm install jasmine --save
+    jasmine init
 
 added .gitignore file.
 
