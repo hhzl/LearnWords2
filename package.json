@@ -4,7 +4,7 @@
   "description": "A component LWleiterbox to be used in a vocabulary learning program",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node scripts/test.js"
   },
   "repository": {
     "type": "git",
@@ -13,12 +13,22 @@
   "keywords": [
     "Leitner_system"
   ],
-  "author": "Hannes Hirzel",
+  "contributors": [
+    {
+      "name": "Hannes Hirzel",
+      "email": "hannes_hirzel@wycliffe.ch"
+    },
+    {
+      "name": "Kersing Huang",
+      "email": "kersingh@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hhzl/LearnWords2/issues"
   },
-  "dependencies": {
-    "jasmine": "~2.5.2"
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine": "^2.5.2"
   }
 }

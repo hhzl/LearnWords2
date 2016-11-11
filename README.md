@@ -8,10 +8,8 @@ https://github.com/e1r0nd/LearnWords
 
 ## Setup done so far
 
-    npm init
-    npm install jasmine --save
-    jasmine init
-    jasmine examples
+    npm install
+    npm test
 
 added .gitignore file.
 
