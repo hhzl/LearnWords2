@@ -1,3 +1,6 @@
+var LWdb = require('../../src/LWdb');
+var BoxOfQuestions = require('../../src/BoxOfQuestions');
+
 // test data
 var wordList = [
   {

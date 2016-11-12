@@ -177,3 +177,4 @@ LWdb.prototype.init = function(key) {
   throw new Error("not yet implemented");
 };
 
+module.exports = LWdb;
