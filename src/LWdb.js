@@ -137,8 +137,9 @@ LWdb.prototype.removeWords = function() {
 				localStorage.removeItem(key)};
 				keyDeleted = true;
 			};
-			if (keyDeleted) {this.removeWords()};
-			
+			// if (keyDeleted) {this.removeWords()};
+			// this is a hack, not fine - too much recursion.
+                        // instead get all keys first into an array, then delete.
 			key = this.name+'-numberOfWords';
 			localStorage.setItem(key,'0');
 
