@@ -1,5 +1,12 @@
 "use strict";
 
+
+if (typeof localStorage === "undefined" || localStorage === null) {
+  var LocalStorage = require('node-localstorage').LocalStorage;
+  var localStorage = new LocalStorage('./scratch');
+}
+
+
 function BoxOfQuestions(name) {
 	this.name = name;
 	this.db = new LWdb(name);
@@ -126,7 +133,6 @@ LWdb.prototype.removeWords = function() {
 			var st; 
 			var stIndex = '';
 			var keyDeleted = false;
-                        console.log('removeWords');
 			// go through all keys starting with 'learnWords'
 			for (var i = 0; i < localStorage.length; i++){
 			  key = localStorage.key(i);
@@ -137,7 +143,7 @@ LWdb.prototype.removeWords = function() {
 				localStorage.removeItem(key)};
 				keyDeleted = true;
 			};
-			if (keyDeleted) {this.removeWords()};
+			// if (keyDeleted) {this.removeWords()};
 			
 			key = this.name+'-numberOfWords';
 			localStorage.setItem(key,'0');
