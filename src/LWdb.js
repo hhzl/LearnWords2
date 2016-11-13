@@ -1,13 +1,5 @@
 "use strict";
 
-function BoxOfQuestions(name) {
-	this.name = name;
-	this.db = new LWdb(name);
-}
-
-
-// ===========================================================================
-
 function LWdb(name) {
 	this.name = name;
         try {this.isOK = 'localStorage' in window && window['localStorage'] !== null;
@@ -19,7 +11,6 @@ LWdb.prototype.open = function() {
   // something 
   throw new Error("not yet implemented");
 };
-
 
 
 LWdb.prototype.persistenStorageOK = function() {
@@ -126,7 +117,7 @@ LWdb.prototype.removeWords = function() {
 			var st; 
 			var stIndex = '';
 			var keyDeleted = false;
-                        console.log('removeWords');
+      console.log('removeWords');
 			// go through all keys starting with 'learnWords'
 			for (var i = 0; i < localStorage.length; i++){
 			  key = localStorage.key(i);
@@ -178,3 +169,4 @@ LWdb.prototype.init = function(key) {
   throw new Error("not yet implemented");
 };
 
+module.exports = LWdb;
