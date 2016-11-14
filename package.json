@@ -29,6 +29,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "jasmine": "^2.5.2"
+    "browserify": "^13.1.1",
+    "jasmine": "^2.5.2",
+    "jasmine-expect": "^3.0.1"
   }
 }
