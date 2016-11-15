@@ -13,8 +13,27 @@ https://github.com/e1r0nd/LearnWords
 
 added .gitignore file.
 
+## Intended usage
+
+      var myApp = new LW.BoxWithQuestions('learnwords', {"loadWordsFrom" : "aRelativePathToJSONfile"});
+
+or
+
+    var myApp = new LW.BoxWithQuestions('learnwords', {"loadWordsFrom" : "aRelativePathToJSONfile", 
+                                                "reinitializeDB" : "true"});
+
+or
+
+    var myApp = new LW.BoxWithQuestions({"dbName": "John-learnwords", 
+                                  "loadWordsFrom" : "aRelativePathToJSONfile", 
+                                  "reinitializeDB" : "true"});
+
+
+
 ## Status
 
-Project has just started. Not ready for any use.
+* Jasmine specs have started, see branch [JasmineInBrowser](https://github.com/hhzl/LearnWords2/tree/JasmineInBrowser), run ``SpecRunner.html``
+* Work towards [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1) in progress. The release will be about specification set up and some first specs implemented. No fully working code.
+* So the project has just started and is not ready for any use.
 
 
