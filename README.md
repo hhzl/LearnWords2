@@ -10,7 +10,7 @@ https://github.com/e1r0nd/LearnWords
 	
 	npm install
 	npm install -g grunt-cli
-    grunt test
+    grunt
 
 added .gitignore file.
 
