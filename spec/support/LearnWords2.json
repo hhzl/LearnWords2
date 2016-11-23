@@ -5,7 +5,7 @@
   ],
   "helpers": [
   	"../node_modules/jasmine-expect/index.js",
-    "helpers/**/*.js"
+    "helpers/learnwords2/**/*.js"
   ],
   "stopSpecOnExpectationFailure": false,
   "random": false

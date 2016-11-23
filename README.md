@@ -7,9 +7,10 @@ This project aims at implementing the Non-GUI part of a system like
 https://github.com/e1r0nd/LearnWords
 
 ## Setup done so far
-
-    npm install
-    npm test
+	
+	npm install
+	npm install -g grunt-cli
+    grunt
 
 added .gitignore file.
 
