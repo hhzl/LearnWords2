@@ -140,7 +140,19 @@ describe("Database LWdb", function() {
       for(var i = 0; i < r.length; i++){
         var tmp = this.wordList[i];
         tmp._id = i+1;
-        expect(r[i]).toBe(tmp);
+        
+        expect(r[i]).toHaveString("word");
+        expect(tmp).toHaveString("word");
+        expect(r[i].word).toBeString(tmp.word);
+
+        expect(r[i]).toHaveString("translate");
+        expect(tmp).toHaveString("translate");
+        expect(r[i].translate).toBeString(tmp.translate);
+
+        expect(r[i]).toHaveNumber("_id");
+        expect(tmp).toHaveNumber("_id");
+        expect(r[i]._id).toBeNumber(tmp._id);
+
       }
 
     });
