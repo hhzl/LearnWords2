@@ -31,6 +31,7 @@
   "devDependencies": {
     "browserify": "^13.1.1",
     "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "jasmine": "^2.5.2",
     "jasmine-expect": "^3.0.1"

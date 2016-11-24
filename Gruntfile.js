@@ -6,9 +6,17 @@ var Jasmine = require('jasmine');
 
 module.exports = function(grunt) {
 
+  var BUILD_DIR = 'build';
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    clean: {
+      options: {
+        force: true
+      },
+      test: [BUILD_DIR + '/**']
+    },
     watch:{
       options: {
         livereload: true,
@@ -20,16 +28,35 @@ module.exports = function(grunt) {
     }
   });
 
+  // Load grunt tasks
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.event.on('watch', function(action, filepath) {
-    grunt.config('jshint.all.src', filepath);
-  });
+  // Custom tasks
+
+  function mkDirs(p){
+    function f(dir,i){
+      if(i < dir.length){
+        var cwd = dir.slice(0,i+1);
+        try{
+          fs.accessSync(cwd.join(path.sep));
+        }catch(e){
+          // directory doesn't exist
+          fs.mkdirSync(cwd.join(path.sep));
+          console.log("mkdir " + cwd.join(path.sep));
+        } 
+        f(dir,i+1);
+      }
+    }
+    f(p.split(path.sep),0);
+  }
 
   grunt.registerTask('test',function(){
 
-    var output = path.join('build','jasmine-app-bundle.js');
+    var output = path.join(BUILD_DIR,'jasmine-app-bundle.js');
     var config = path.join('spec','support','LearnWords2.json');
+
+    mkDirs(path.dirname(output));
 
     var runner = new Jasmine();
     runner.loadConfigFile(config);
@@ -53,6 +80,6 @@ module.exports = function(grunt) {
   });
 
   // Default task(s).
-  grunt.registerTask('default', ['test','watch']);
+  grunt.registerTask('default', ['clean:test','test','watch']);
 
 };
