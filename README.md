@@ -15,25 +15,28 @@ added .gitignore file.
 
 ## Intended usage
 
-      var myApp = new LW.BoxWithQuestions('learnwords', {"loadWordsFrom" : "aRelativePathToJSONfile"});
+````JavaScript
+var LW = function(){
 
-or
+	var db = new LWdb('learnWords');
 
-    var myApp = new LW.BoxWithQuestions('learnwords', {"loadWordsFrom" : "aRelativePathToJSONfile", 
-                                                "reinitializeDB" : "true"});
+	db.loadWords(....)
 
-or
+	var box = new LWBoxOfQuestions(db);
 
-    var myApp = new LW.BoxWithQuestions({"dbName": "John-learnwords", 
-                                  "loadWordsFrom" : "aRelativePathToJSONfile", 
-                                  "reinitializeDB" : "true"});
+	return box
+}();
+````
+
+- LWdb is the data access layer.
+- LWBoxOfQuestions contains the application logic for a Leitner box
 
 
 
 ## Status
 
 * Jasmine specs have started, see branch [JasmineInBrowser](https://github.com/hhzl/LearnWords2/tree/JasmineInBrowser), run ``SpecRunner.html``
-* Work towards [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1) in progress. The release will be about specification set up and some first specs implemented. No fully working code.
-* So the project has just started and is not ready for any use.
+* Work towards [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1) in progress. The release will be about the LWdb specification set up and a MVP set of specs implemented. 
+* The project is not ready for use.
 
 
