@@ -54,7 +54,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test',function(){
 
     var output = path.join(BUILD_DIR,'jasmine-app-bundle.js');
-    var config = path.join('spec','support','LearnWords2.json');
+    var config = path.join('spec','support','jasmine.json');
 
     mkDirs(path.dirname(output));
 
