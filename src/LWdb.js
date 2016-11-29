@@ -1,154 +1,159 @@
 "use strict";
 
 
-if (typeof localStorage === "undefined" || localStorage === null) {
-  var LocalStorage = require('node-localstorage').LocalStorage;
-  var localStorage = new LocalStorage('./scratch');
-}
+var LocalStorage = require('node-localstorage').LocalStorage;
+var localStorage = new LocalStorage('./scratch');
 
-
-function BoxOfQuestions(name) {
-	this.name = name;
-	this.db = new LWdb(name);
-}
-
-
-// ===========================================================================
 
 function LWdb(name) {
-	this.name = name;
-        try {this.isOK = 'localStorage' in window && window['localStorage'] !== null;
-        } catch (e) {this.isOK = false;}
+    this.name = name;
 }
+
 
 
 LWdb.prototype.open = function() {
-  // something 
-  throw new Error("not yet implemented");
+    // something 
+    throw new Error("not yet implemented");
 };
 
 
 
-LWdb.prototype.persistenStorageOK = function() {
-	return this.isOK
+LWdb.prototype.persistentStorageOK = function() {
+    return this.isOK;
 };
+
 
 
 LWdb.prototype.numberOfWords = function() {
-  // something 
-  var key = this.name+'-numberOfWords';
-  var r = 0;
+    // something 
+    var key = this.name+'-numberOfWords';
+    var r = 0;
 
-  if (this.isOK) {r = localStorage.getItem(key);
-		  if (r == null) {localStorage.setItem(key,'0'); r = '0'};
-		  r = parseInt(r);
-  }; 
-  return r
+    if (this.isOK) {
+        r = localStorage.getItem(key);
+        if (r == null) {
+            localStorage.setItem(key,'0'); 
+            r = '0';
+        };
+      r = parseInt(r);
+    }; 
+    return r;
 };
+
+
+
+LWdb.prototype.setNumberOfWords = function(n) {
+    var key = this.name+'-numberOfWords';
+    localStorage.setItem(key,n);
+};
+
 
 
 LWdb.prototype.incNumberOfWords = function() {
-  // something 
-  var n = this.numberOfWords();
-  n = n + 1;
-  var key = this.name+'-numberOfWords';
-  localStorage.setItem(key,n);
-};
-
-
-LWdb.prototype.wdKeyFor = function(anInteger) {
-  // 
-  return this.name+'-wd-'+anInteger;
-};
-
-
-LWdb.prototype.putWord = function(anInteger, anObject) {
-  // 
-  var storageKey = this.wdKeyFor(anInteger);
-  // try to get the word to check if it already exists
-  var value = localStorage.getItem(storageKey); 
-
-  // save the word
-  localStorage.setItem(storageKey, JSON.stringify(anObject));
-
-  // if the word has not existed before increment the number of words
-  if (value == null) {this.incNumberOfWords()} 
+    // something 
+    var n = this.numberOfWords();
+    this.setNumberOfWords(n + 1);
 };
 
 
 
-LWdb.prototype.postWord = function(anObject) {
-  // something 
-  throw new Error("not yet implemented");  
+LWdb.prototype.wdKeyFor = function(anInteger) { 
+    return this.name+'-wd-'+anInteger;
 };
+
+
+
+LWdb.prototype.put = function(word) {
+
+    var anInteger = this.numberOfWords()+1;
+
+    // FIXME: Should this be a deep clone?
+    var copy = {};
+    for(var key in word){
+        copy[key] = word[key];
+    }
+    copy._id = anInteger;
+
+    // get storage key 
+    var storageKey = this.wdKeyFor(anInteger);
+    // try to get the word to check if it already exists
+    var value = localStorage.getItem(storageKey); 
+
+    // save the word
+    localStorage.setItem(storageKey, JSON.stringify(copy));
+
+    // if the word has not existed before increment the number of words
+    if (value == null) {
+        this.incNumberOfWords();
+    } 
+};
+
 
 
 LWdb.prototype.getWord = function(anInteger) {
-  var storageKey = this.wdKeyFor(anInteger);
-  return JSON.parse(localStorage.getItem(storageKey)); 
-  
+    var storageKey = this.wdKeyFor(anInteger);
+    return JSON.parse(localStorage.getItem(storageKey)); 
 };
 
 
 
-LWdb.prototype.keysOfAllWords = function(anObject) {
-  // something 
-  throw new Error("not yet implemented");  
+LWdb.prototype.keysOfAllWords = function() {
+    var keys = [];
+    var keyRegex = new RegExp("^"+this.name+"\\-wd\\-\\d+$");
+    for (var i = 0; i < localStorage.length; i++){
+        var key = localStorage.key(i);
+        // check it starts with <name>-wd-
+        if(keyRegex.test(key)){
+            keys.push(key);
+        }
+    }
+    return keys;
 };
 
 
-LWdb.prototype.allWords = function(anObject) {
-  // something 
-  throw new Error("not yet implemented");  
+
+LWdb.prototype.allWords = function() {
+    var keys = this.keysOfAllWords();
+    var words = [];
+    for(var i = 0; i < keys.length; i++){
+        var str = localStorage.getItem(keys[i]);
+        words.push(JSON.parse(str));
+    }
+    return words;
 };
-
-
 
 
 
 LWdb.prototype.getSettings = function() {
-  // IMPLEMENTATION NEEDS ATTENTION
-  var key = this.name + '-settings';
+    // IMPLEMENTATION NEEDS ATTENTION
+    var key = this.name + '-settings';
 
-  var value = localStorage.getItem(key);
-  if (value==null) { value = '{"anAttribute": "value"}'};
-  var res = JSON.parse(value);
-  console.log('LWdb getSettings', res); 
-  return res;
+    var value = localStorage.getItem(key);
+    if (value==null) { value = '{"anAttribute": "value"}'};
+    var res = JSON.parse(value);
+    console.log('LWdb getSettings', res); 
+    return res;
 };
 
 
 
 LWdb.prototype.storeSettings = function(anObject) {
-  var key = this.name + '-settings';
-  return localStorage.setItem(key,JSON.stringify(anObject));  
+    
+    var key = this.name + '-settings';
+    return localStorage.setItem(key,JSON.stringify(anObject));  
 };
 
 
 
 
 LWdb.prototype.removeWords = function() {
-                        // needs attention
-			var key;
-			var st; 
-			var stIndex = '';
-			var keyDeleted = false;
-			// go through all keys starting with 'learnWords'
-			for (var i = 0; i < localStorage.length; i++){
-			  key = localStorage.key(i);
-    			  st = localStorage.getItem(key);
-                          // check for st.startsWith
-			  if (key.lastIndexOf(this.name+'-wd',0) === 0) {
-				console.log(key);
-				localStorage.removeItem(key)};
-				keyDeleted = true;
-			};
-			// if (keyDeleted) {this.removeWords()};
-			
-			key = this.name+'-numberOfWords';
-			localStorage.setItem(key,'0');
+    var keys = this.keysOfAllWords(); 
+    for (var i = 0; i < keys.length; i++){
+        localStorage.removeItem(keys);
+    }
+    this.setNumberOfWords(0);
 
-		}
+};
 
 
 
@@ -184,3 +189,4 @@ LWdb.prototype.init = function(key) {
 };
 
 module.exports = LWdb;
+
