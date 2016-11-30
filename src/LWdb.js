@@ -221,18 +221,23 @@ LWdb.prototype.getSettings = function() {
     var value = localStorage.getItem(key);
 
     // lazy initialisation
-    // FIXME: where should the initialisation values come from?
-    if (value==null) { value = '{"anAttribute": "value"}'};
-    var res = JSON.parse(value);
-     
-    return res;
+    if (value==null) { 
+        // define default value for settings    
+        value = {"factorForDelayValue": [0,1,3,7]};
+        // this is used to calculate the new date after a
+        // word has been answered correctly.
+        this.putSettings(value);
+        return value
+    } else {
+        return JSON.parse(value)
+    }
 };
 
 
 
 
 
-LWdb.prototype.storeSettings = function(anObject) {
+LWdb.prototype.putSettings = function(anObject) {
     
     var key = this.dbName + '-settings';
     return localStorage.setItem(key,JSON.stringify(anObject));  

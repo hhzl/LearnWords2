@@ -221,16 +221,17 @@ describe("Database LWdb", function() {
     it("should be able to answer settings", function() {
       var settings = this.db.getSettings();
       expect(settings).not.toBe(null);
+      expect(settings).toBeObject();
     });
 
 
     it("should be able to store settings", function() {
       // test needs improvement
       var settings = this.db.getSettings();
-      settings.anAttribute2 = "something";
-      this.db.storeSettings(settings);
+      settings.factorForDelayValue[3] = 6;
+      this.db.putSettings(settings);
       settings = this.db.getSettings();
-      expect(settings.anAttribute2).toBe("something");
+      expect(settings.factorForDelayValue[3]).toBe(6);
     });
 
   });
