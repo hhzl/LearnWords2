@@ -154,10 +154,11 @@ LWdb.prototype.importFrom = function(theWords) {
       var n = theWords.length;
 
       var aWord;
-      
+      console.log('importFrom: theWords[0]', theWords[0]);
       for(var i = 0; i < n; i++){
         aWord = theWords[i];
 	key = this.put(aWord);
+        // console.log('importFrom key=',key, aWord);
       }
 
 

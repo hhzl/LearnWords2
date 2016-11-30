@@ -2,9 +2,16 @@
 
 var LWdb = require('./LWdb');
 
-function BoxOfQuestions(db) {
-	this.name = db.name;
-	this.db = db;
+/**
+ *
+ * options:
+ * 	loadWordsFrom: path to JSON file
+ * 	reinitializeDB: true or false
+ * 	dbName: database name
+ */
+function BoxOfQuestions(name, options) {
+	this.name = name;
+	this.db = new LWdb(name);
 }
 
 

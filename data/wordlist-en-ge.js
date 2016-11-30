@@ -1,4 +1,3 @@
-// test data
 var wordList = [
   {
     "word": "apple",
@@ -39,19 +38,16 @@ var wordList = [
   {
     "word": "pawpaw",
     "translate": "die Papaya"
+  },
+  {
+    "word": "apricot",
+    "translate": "die Aprikose"
+  },
+  {
+    "word": "melon",
+    "translate": "die Melone"
   }
 ];
 
 
-var aWord =   {
-    "word": "melon",
-    "translate": "die Melone"
-  };
-
-var anotherWord =
-  {
-    "word": "apricot",
-    "translate": "die Aprikose"
-  }
-;
-
+module.exports = wordList;

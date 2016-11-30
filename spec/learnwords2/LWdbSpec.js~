@@ -196,7 +196,7 @@ describe("Database LWdb", function() {
     });
 
 
-    xit("should be able to maintain an index", function() {
+    it("should be able to maintain an index", function() {
       this.db.removeWords();
       expect(this.db.numberOfWords).toBe(0);
       

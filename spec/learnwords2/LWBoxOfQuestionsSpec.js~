@@ -40,13 +40,18 @@ describe("BoxOfQuestions", function() {
 
   it("should be able to load questions", function() {
 
-    var previousNumberOfWords = LW.db.numberOfWords();
+    var n = LW.db.numberOfWords();
+    console.log('LW.db.numberOfWords()=', LW.db.numberOfWords());  
+   // FIXME: pass data
   
+    console.log('wordlist.length=', wordlist.length);  
     LW.db.loadWords(wordlist);
 
-    expect(LW.db.numberOfWords()).toBe(previousNumberOfWords + wordlist.length);
+    console.log('LW.db.numberOfWords()=', LW.db.numberOfWords());  
+    expect(LW.db.numberOfWords()).toBe(n + wordlist.length);
 
-  
+    // Note: the problem is not here but in LWdb.js    
+
   });
 
 
