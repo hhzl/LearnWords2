@@ -11,21 +11,19 @@ https://github.com/e1r0nd/LearnWords
 ````	
 git clone https://github.com/hhzl/LearnWords2.git
 cd LearnWords2
-git status
 npm install
 npm install -g grunt-cli
-sudo npm install -g grunt-cli
-git checkout JasmineInBrowser 
-npm install
-grunt
 ````
 
-This will be simplified and merged later.
+Note that maybe you have to do
+
+    sudo npm install -g grunt-cli
 
 
 ## Intended usage
 
 ````JavaScript
+"use strict";
 var LW = function(){
 
 	var db = new LWdb('learnWords');
@@ -41,31 +39,37 @@ var LW = function(){
 - LWdb is the data access layer.
 - LWBoxOfQuestions contains the application logic for a Leitner box
 
+The construction above is an IIFE.
+This is a function without a name which is only run once, just after the definition.
+The return value of the function is of interest. It is assigned to the global LW object.
+
+So the access to everything goes through ``LW.subobject``  or ``LW.method()``.
+ 
+TODO: add examples
 
 
-## Intended usage
 
-````JavaScript
-var LW = function(){
+## Specification and tests with Jasmine
 
-	var db = new LWdb('learnWords');
+### In the browser
 
-	db.loadWords(....)
+- on the command line do
 
-	var box = new LWBoxOfQuestions(db);
+     npm test
 
-	return box
-}();
-````
+- then open ``SpecRunner.html``
 
-- LWdb is the data access layer.
-- LWBoxOfQuestions contains the application logic for a Leitner box
 
+### On the command line with node
+
+     clear
+     node scripts/test.js
 
 
 ## Status
 
-* Jasmine specs have started, see branch [JasmineInBrowser](https://github.com/hhzl/LearnWords2/tree/JasmineInBrowser), run ``SpecRunner.html``
-* Work towards [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1) in progress. The release will be about the LWdb specification set up and a MVP set of specs implemented. 
-* The project is not ready for use.
+* Jasmine specs are set up.
+* Work towards [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1) in progress. 
+* The LWdb specification set is mostly set up and a MVP set of specs implemented. 
+* The project will soon be ready for use.
 

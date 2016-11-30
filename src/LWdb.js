@@ -5,8 +5,10 @@ var LocalStorage = require('node-localstorage').LocalStorage;
 var localStorage = new LocalStorage('./scratch');
 
 
-function LWdb(name) {
-    this.name = name;
+function LWdb(dbName) {
+    this.dbName = dbName;
+    this._keysOfAllWords = [];
+    this.recalculateIndex = true;
 }
 
 
@@ -35,7 +37,7 @@ LWdb.prototype.isOK = function() {
 
 LWdb.prototype.numberOfWords = function() {
  
-   var key = this.name+'-numberOfWords';
+   var key = this.dbName+'-numberOfWords';
     var r = 0;
 
     if (this.isOK) {
@@ -54,7 +56,7 @@ LWdb.prototype.numberOfWords = function() {
 
 
 LWdb.prototype.setNumberOfWords = function(n) {
-    var key = this.name+'-numberOfWords';
+    var key = this.dbName+'-numberOfWords';
     localStorage.setItem(key,n);
 };
 
@@ -73,7 +75,7 @@ LWdb.prototype.incNumberOfWords = function() {
 
 
 LWdb.prototype.wdKeyFor = function(anInteger) { 
-    return this.name+'-wd-'+anInteger;
+    return this.dbName+'-wd-'+anInteger;
 };
 
 
@@ -160,6 +162,7 @@ LWdb.prototype.importFrom = function(theWords) {
 	key = this.put(aWord);
       }
 
+      this.invalidateIndex();
 
 }
 
@@ -169,20 +172,28 @@ LWdb.prototype.loadWords = function(theWords) {
 
 
 
+LWdb.prototype.invalidateIndex = function() {
+   this.recalculateIndex = true;
+}
+
 
 
 
 LWdb.prototype.keysOfAllWords = function() {
-    var keys = [];
-    var keyRegex = new RegExp("^"+this.name+"\\-wd\\-\\d+$");
-    for (var i = 0; i < localStorage.length; i++){
-        var key = localStorage.key(i);
-        // check it starts with <name>-wd-
-        if(keyRegex.test(key)){
-            keys.push(key);
-        }
-    }
-    return keys;
+    if (this.recalculateIndex) {
+        // calculate index
+    	this._keysOfAllWords = [];
+    	var keyRegex = new RegExp("^"+this.dbName+"\\-wd\\-\\d+$");
+    	for (var i = 0; i < localStorage.length; i++){
+        	var key = localStorage.key(i);
+        	// check it starts with <name>-wd-
+        	if(keyRegex.test(key)){
+            	this._keysOfAllWords.push(key);
+        	}
+    	}
+    };
+    this.recalculateIndex = false;
+    return this._keysOfAllWords;
 };
 
 
@@ -205,7 +216,7 @@ LWdb.prototype.allWords = function() {
 
 LWdb.prototype.getSettings = function() {
     
-    var key = this.name + '-settings';
+    var key = this.dbName + '-settings';
 
     var value = localStorage.getItem(key);
 
@@ -223,7 +234,7 @@ LWdb.prototype.getSettings = function() {
 
 LWdb.prototype.storeSettings = function(anObject) {
     
-    var key = this.name + '-settings';
+    var key = this.dbName + '-settings';
     return localStorage.setItem(key,JSON.stringify(anObject));  
 };
 
@@ -245,7 +256,7 @@ LWdb.prototype.removeWords = function() {
 
 LWdb.prototype.destroy = function(anObject) {
 
-     var aKeyPrefix = this.name;  
+     var aKeyPrefix = this.dbName;  
      this.removeObjects(aKeyPrefix);
 };
 

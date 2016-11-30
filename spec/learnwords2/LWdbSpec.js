@@ -31,8 +31,12 @@ describe("Database LWdb", function() {
 
     expect(this.db).toBeObject();
     
-    expect(this.db).toHaveString("name");
-    expect(this.db.name).toBeString("LearnWords");
+    expect(this.db).toHaveString("dbName");
+    expect(this.db.dbName).toBeString("LearnWords");
+
+    expect(this.db).toHaveArray("_keysOfAllWords");
+
+
 
   });
 
@@ -196,12 +200,15 @@ describe("Database LWdb", function() {
     });
 
 
-    xit("should be able to maintain an index", function() {
+    it("should be able to maintain an index", function() {
       this.db.removeWords();
-      expect(this.db.numberOfWords).toBe(0);
+      expect(this.db.numberOfWords()).toBe(0);
       
-      this.db.importFrom(wordlist);
-      expect(this.db.numberOfWords).toBe(10);
+      this.db.importFrom(this.wordList);
+      expect(this.db.numberOfWords()).toBe(10);
+
+      expect(this.db.keysOfAllWords()).toBeArray();
+
     });
 
 

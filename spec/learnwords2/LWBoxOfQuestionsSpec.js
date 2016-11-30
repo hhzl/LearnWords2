@@ -13,8 +13,8 @@ describe("BoxOfQuestions", function() {
     	LW = function(){
 
 		var db = new LWdb('learnWords');
-        	// FIXME
-		// db.loadWords(....)
+
+		db.loadWords(wordlist);
 
 		var box = new BoxOfQuestions(db);
 
@@ -31,14 +31,15 @@ describe("BoxOfQuestions", function() {
 
     expect(LW).toBeObject();
 
-    expect(LW.db.name).toBeString("learnWords");
-    expect(LW.db.numberOfWords()).toBeNumber(0);
+    expect(LW.db.dbName).toBeString("learnWords");
+    expect(LW.db.numberOfWords()).toBeNumber(10);
 
   });
 
 
 
-  it("should be able to load questions", function() {
+
+  xit("should be able to load additional questions", function() {
 
     var previousNumberOfWords = LW.db.numberOfWords();
   
@@ -50,16 +51,44 @@ describe("BoxOfQuestions", function() {
   });
 
 
+  it("should be able to have the number of steps set", function() {
 
-  xit("should be able to process configuration information", function() {
+    expect(LW.noOfSteps).toBe(3); // the default
+
+    LW.setNumberOfSteps(7);
+
+    expect(LW.noOfSteps).toBe(7); 
+
+  });
+
+
+
+  xit("should be able to process configuration information", function(aConfigObj) {
     // the configuration 
-    var aConfigObj = {"algorithm": "Leiter", "boxes": 5};
+    // aConfigObj = {"algorithm": "Leitner", "noOfSteps": 5};
     LW.config(aConfigObj);     
 
     // expect code here
     fail("Implement me!");
   });
 
+
+
+  xit("should be able to choose a next question", function() {
+    var q ;
+
+    q = LW.currQuestion();
+
+    expect(q).not.toBe(null);
+    expect(q).not.toBe(undefined);
+    expect(q).toBeObject();    
+
+    expect(q).toHaveString("date");
+  
+    // add expect code here
+    // date should be >= today
+
+  });
 
 
 
