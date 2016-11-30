@@ -22,6 +22,14 @@ Note that maybe you have to do
 
 ## Intended usage
 
+![learnwords2-layers](docs/learnwords2-layers.png)
+
+- LWdb is the data access layer.
+- LWBoxOfQuestions contains the application logic for a Leitner box
+
+
+Code:
+
 ````JavaScript
 "use strict";
 var LW = function(){
@@ -36,14 +44,15 @@ var LW = function(){
 }();
 ````
 
-- LWdb is the data access layer.
-- LWBoxOfQuestions contains the application logic for a Leitner box
 
 The construction above is an IIFE.
 This is a function without a name which is only run once, just after the definition.
 The return value of the function is of interest. It is assigned to the global LW object.
 
 So the access to everything goes through ``LW.subobject``  or ``LW.method()``.
+
+
+
  
 TODO: add examples
 
