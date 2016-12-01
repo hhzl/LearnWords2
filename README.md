@@ -6,6 +6,9 @@ A vocabulary learning component using the Leitner system
 This project aims at implementing the Non-GUI part of a system like 
 https://github.com/e1r0nd/LearnWords
 
+![learnwords2-layers](docs/LW2-context.png)
+
+
 ## Setup for branch 'JasmineInBrowser'
 
 ````	
@@ -77,8 +80,8 @@ TODO: add examples
 
 ## Status
 
-* Jasmine specs are set up.
+* Jasmine specs are set up. 
 * Work towards [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1) in progress. 
 * The LWdb specification set is mostly set up and a MVP set of specs implemented. 
-* The project will soon be ready for use.
+* Currently ``SpecRunner.html`` is broken. Use ``node scripts/test.js`` from the command line.
 
