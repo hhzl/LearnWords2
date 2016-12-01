@@ -1,8 +1,10 @@
 "use strict";
 
 
-var LocalStorage = require('node-localstorage').LocalStorage;
-var localStorage = new LocalStorage('./scratch');
+if (typeof localStorage === "undefined" || localStorage === null) {
+  var LocalStorage = require('node-localstorage').LocalStorage;
+  global.localStorage = new LocalStorage('./scratch');
+}
 
 
 function LWdb(dbName) {

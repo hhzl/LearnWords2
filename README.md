@@ -67,7 +67,7 @@ TODO: add examples
 
 - on the command line do
 
-     npm test
+     grunt
 
 - then open ``SpecRunner.html``
 
