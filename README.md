@@ -9,7 +9,7 @@ https://github.com/e1r0nd/LearnWords
 ![learnwords2-layers](docs/LW2-context.png)
 
 
-## Setup for branch 'JasmineInBrowser'
+## Setup 
 
 ````	
 git clone https://github.com/hhzl/LearnWords2.git
@@ -20,8 +20,10 @@ npm install -g grunt-cli
 
 Note that maybe you have to do
 
-    sudo npm install -g grunt-cli
-
+````
+sudo npm install
+sudo npm install -g grunt-cli
+````
 
 ## Intended usage
 
@@ -74,14 +76,15 @@ TODO: add examples
 
 ### On the command line with node
 
-     clear
-     node scripts/test.js
+     npm test
 
 
 ## Status
 
-* Jasmine specs are set up. 
-* Work towards [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1) in progress. 
+* Jasmine specs are set up and work both in the browser and on the command line.
 * The LWdb specification set is mostly set up and a MVP set of specs implemented. 
-* Currently ``SpecRunner.html`` is broken. Use ``node scripts/test.js`` from the command line.
+* Only few issues left for [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1).
+* The release will focus on LWdb
+
+
 
