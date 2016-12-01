@@ -69,6 +69,9 @@ module.exports = function(grunt) {
       debug: true
     });
 
+    // prevents file from being loaded into bundle
+    b.external("node-localstorage");
+
     var done = this.async();
     var outputFile = fs.createWriteStream(output);
     outputFile.on('finish',function(){

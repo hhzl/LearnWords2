@@ -1,20 +1,18 @@
 "use strict";
 
 var LWdb = require('../../src/LWdb');
-var LocalStorage = require('node-localstorage').LocalStorage;
-var localStorage = new LocalStorage('./scratch');
+var wordList = require('../../data/wordlist-en-ge.js'); 
 
-
+if (typeof localStorage === "undefined" || localStorage === null) {
+  var LocalStorage = require('node-localstorage').LocalStorage;
+  global.localStorage = new LocalStorage('./scratch');
+}
 
 describe("Database LWdb", function() {
 
   beforeAll(function(){
-    // Randomly select a word list (see SpecHelper for details)
-    var codes = this.getWordListCodes();
-    var i = parseInt(Math.floor(Math.random()*codes.length));
-    this.wordList = this.getWordList(codes[i]);
+    this.wordList = wordList;
   });
-
 
   beforeEach(function() {
     localStorage.clear();
@@ -36,8 +34,6 @@ describe("Database LWdb", function() {
 
     expect(this.db).toHaveArray("_keysOfAllWords");
 
-
-
   });
 
 
@@ -58,12 +54,12 @@ describe("Database LWdb", function() {
   });
 
 
+
   describe("deals with words;", function() {
 
     it("should be able to answer the number of words", function() {
       expect(this.db.numberOfWords()).toBeNumber(0);
     });
-
 
 
     it("should be able to store a new word", function() {
@@ -76,8 +72,8 @@ describe("Database LWdb", function() {
     });
 
 
+    it("should be able to get a word", function() {  
 
-    it("should be able to get a word", function() {      
       var newWord = {
         "word": "melon",
         "translate": "die Melone"
@@ -101,7 +97,6 @@ describe("Database LWdb", function() {
     });
 
 
-
     it("should be able to remove all words", function() {
       // insert first n words from wordList
       var n = parseInt(Math.floor(Math.random()*this.wordList.length));
@@ -115,8 +110,6 @@ describe("Database LWdb", function() {
     });
 
 
-
-
     it("should be able to answer a list of all keys of all words", function() {
       // insert first n words from wordList
       // n is a random number of words
@@ -124,7 +117,6 @@ describe("Database LWdb", function() {
       var n = parseInt(Math.floor(Math.random()*this.wordList.length));
 
       var aWord;
-
       for(var i = 0; i < n; i++){
         aWord = this.wordList[i];
         this.db.put(aWord);
@@ -135,8 +127,8 @@ describe("Database LWdb", function() {
       expect(r).toBeArrayOfStrings();
       expect(r.length).toBeNumber(this.db.numberOfWords());
        
-      for(var i = 0; i < r.length; r++){
-        expect(r[i]).toBeString("");
+      for(var i = 0; i < r.length; i++){
+        expect(r[i]).toBeString("LearnWords-wd-"+(i+1));
       }
 
     });
@@ -205,7 +197,7 @@ describe("Database LWdb", function() {
       expect(this.db.numberOfWords()).toBe(0);
       
       this.db.importFrom(this.wordList);
-      expect(this.db.numberOfWords()).toBe(10);
+      expect(this.db.numberOfWords()).toBe(this.wordList.length);
 
       expect(this.db.keysOfAllWords()).toBeArray();
 
@@ -213,7 +205,6 @@ describe("Database LWdb", function() {
 
 
   });
-
 
 
   describe("LWdb deals with settings", function() {
@@ -231,8 +222,11 @@ describe("Database LWdb", function() {
       settings.factorForDelayValue[3] = 6;
       this.db.putSettings(settings);
       settings = this.db.getSettings();
+      expect(settings).toBeObject();
+      expect(settings).toHaveArray("factorForDelayValue");
       expect(settings.factorForDelayValue[3]).toBe(6);
     });
+
 
   });
 

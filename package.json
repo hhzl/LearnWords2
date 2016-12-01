@@ -4,7 +4,7 @@
   "description": "A component LWleiterbox to be used in a vocabulary learning program",
   "main": "index.js",
   "scripts": {
-    "test": "grunt watch"
+    "test": "node scripts/test.js"
   },
   "repository": {
     "type": "git",
