@@ -1,5 +1,36 @@
 # Developer notes
 
+## 2016-12-01 LWdb 1 API
+
+
+Part of LearnWords1 LWdb API (master branch)
+
+````JavaScript
+// API as provided by LearnWords1
+LWdb.prototype.readItem = function(key) {
+  // something 
+  throw new Error("not yet implemented");
+
+};
+
+LWdb.prototype.removeItem = function(key) {
+  // something 
+  throw new Error("not yet implemented");
+
+};
+
+LWdb.prototype.storeItem = function(key, value) {
+  // something 
+  throw new Error("not yet implemented");
+};
+
+LWdb.prototype.init = function(key) {
+  // something 
+  throw new Error("not yet implemented");
+};
+````
+
+
 ## 2016-12-01 LWdb API
 
 From: https://github.com/e1r0nd/LearnWords/issues/58 and wiki page
@@ -116,7 +147,7 @@ For differences see https://github.com/e1r0nd/LearnWords/issues/58
 grep "function(" LWdb.js | sort
 ````
 
-24 methods
+15 methods
 
 ````
 LWdb.prototype.allWords = function() {
@@ -124,10 +155,6 @@ LWdb.prototype.destroy = function(anObject) {
 LWdb.prototype.getSettings = function() {
 LWdb.prototype.getWord = function(anInteger) {
 LWdb.prototype.importFrom = function(theWords) {
-LWdb.prototype.importFrom = function(theWords) {
-LWdb.prototype.incNumberOfWords = function() {
-LWdb.prototype.init = function(key) {
-LWdb.prototype.invalidateIndex = function() {
 LWdb.prototype.isOK = function() {
 LWdb.prototype.keysOfAllWords = function() {
 LWdb.prototype.loadWords = function(theWords) {
@@ -136,12 +163,7 @@ LWdb.prototype.open = function() {
 LWdb.prototype.persistentStorageOK = function() {
 LWdb.prototype.put = function(word) {
 LWdb.prototype.putSettings = function(anObject) {
-LWdb.prototype.readItem = function(key) {
-LWdb.prototype.removeItem = function(key) {
-LWdb.prototype.removeObjects = function(aKeyPrefix){
 LWdb.prototype.removeWords = function() {
-LWdb.prototype.setNumberOfWords = function(n) {
-LWdb.prototype.storeItem = function(key, value) {
 LWdb.prototype.wdKeyFor = function(anInteger) { 
 ````
 
@@ -152,11 +174,9 @@ DB related
 
 ````
 LWdb.prototype.destroy = function(anObject) {
-LWdb.prototype.init = function(key) {
 LWdb.prototype.isOK = function() {
 LWdb.prototype.open = function() {
 LWdb.prototype.persistentStorageOK = function() {
-LWdb.prototype.removeObjects = function(aKeyPrefix){
 ````
 
 Words related
@@ -165,14 +185,11 @@ Words related
 LWdb.prototype.allWords = function() {
 LWdb.prototype.getWord = function(anInteger) {
 LWdb.prototype.importFrom = function(theWords) {
-LWdb.prototype.incNumberOfWords = function() {
-LWdb.prototype.invalidateIndex = function() {
 LWdb.prototype.keysOfAllWords = function() {
 LWdb.prototype.loadWords = function(theWords) {
 LWdb.prototype.numberOfWords = function() {
 LWdb.prototype.put = function(word) {
 LWdb.prototype.removeWords = function() {
-LWdb.prototype.setNumberOfWords = function(n) {
 LWdb.prototype.wdKeyFor = function(anInteger) { 
 ````
 
@@ -185,7 +202,7 @@ LWdb.prototype.putSettings = function(anObject) {
 ````
 
 
-Compatibility with LW1
+Compatibility with LW1 (not included anymore)
 ````
 LWdb.prototype.readItem = function(key) {
 LWdb.prototype.removeItem = function(key) {

@@ -199,8 +199,9 @@ describe("Database LWdb", function() {
       this.db.importFrom(this.wordList);
       expect(this.db.numberOfWords()).toBe(this.wordList.length);
 
-      expect(this.db.keysOfAllWords()).toBeArray();
-
+      var keys = this.db.keysOfAllWords();
+      expect(keys).toBeArray();
+      expect(keys.length).toBe(this.wordList.length);
     });
 
 

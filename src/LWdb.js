@@ -10,8 +10,63 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 function LWdb(dbName) {
     this.dbName = dbName;
     this._keysOfAllWords = [];
-    this.recalculateIndex = true;
-}
+    
+    // private
+    var recalculateIndex = true; 
+
+    var that = this;
+
+    this._setNumberOfWords = function(n) {
+         var key = that.dbName+'-numberOfWords';
+         localStorage.setItem(key,n);
+         that.recalculateIndex = true;
+    };
+
+
+    this._incNumberOfWords = function() {
+         var n = that.numberOfWords();
+         that._setNumberOfWords(n + 1);
+         that.recalculateIndex = true;
+    };
+
+    this._invalidateIndex = function() {
+         that.recalculateIndex = true;
+    };
+
+    this._indexNeedsRecalculation = function() {
+         return that.recalculateIndex
+    };
+
+
+    this._indexHasBeenUpdated = function() {
+         that.recalculateIndex = false;
+    };
+
+
+    this._removeObjects = function(aKeyPrefix){
+		if (that.isOK) {
+			var key;
+			var st; 
+			var keysToDelete = [];
+
+			// find all keys starting with aKeyPrefix
+			for (var i = 0; i < localStorage.length; i++){
+				key = localStorage.key(i);
+				st = localStorage.getItem(key);                             
+
+				if (key.lastIndexOf(aKeyPrefix,0) === 0) {
+				    keysToDelete.push(key);
+				}
+			}
+			
+			keysToDelete.forEach(function(aKey){
+				localStorage.removeItem(aKey);
+		 	});
+        	}
+	};
+
+
+};
 
 
 
@@ -57,24 +112,6 @@ LWdb.prototype.numberOfWords = function() {
 
 
 
-LWdb.prototype.setNumberOfWords = function(n) {
-    var key = this.dbName+'-numberOfWords';
-    localStorage.setItem(key,n);
-};
-
-
-
-
-
-LWdb.prototype.incNumberOfWords = function() {
-
-    var n = this.numberOfWords();
-    this.setNumberOfWords(n + 1);
-};
-
-
-
-
 
 LWdb.prototype.wdKeyFor = function(anInteger) { 
     return this.dbName+'-wd-'+anInteger;
@@ -104,7 +141,7 @@ LWdb.prototype.put = function(word) {
 
     // if the word has not existed before increment the number of words
     if (value == null) {
-         this.incNumberOfWords();
+         this._incNumberOfWords();
     };
     // console.log('storageKey is=', storageKey, 'word is=', copy.word);
     return storageKey;
@@ -164,7 +201,7 @@ LWdb.prototype.importFrom = function(theWords) {
 	key = this.put(aWord);
       }
 
-      this.invalidateIndex();
+      this._invalidateIndex();
 
 }
 
@@ -174,16 +211,9 @@ LWdb.prototype.loadWords = function(theWords) {
 
 
 
-LWdb.prototype.invalidateIndex = function() {
-   this.recalculateIndex = true;
-}
-
-
-
 
 LWdb.prototype.keysOfAllWords = function() {
-    if (this.recalculateIndex) {
-        // calculate index
+    if (this._indexNeedsRecalculation()) {
     	this._keysOfAllWords = [];
     	var keyRegex = new RegExp("^"+this.dbName+"\\-wd\\-\\d+$");
     	for (var i = 0; i < localStorage.length; i++){
@@ -194,7 +224,7 @@ LWdb.prototype.keysOfAllWords = function() {
         	}
     	}
     };
-    this.recalculateIndex = false;
+    this._indexHasBeenUpdated();
     return this._keysOfAllWords;
 };
 
@@ -253,73 +283,22 @@ LWdb.prototype.removeWords = function() {
     for (var i = 0; i < keys.length; i++){
         localStorage.removeItem(keys);
     }
-    this.setNumberOfWords(0);
+    this._setNumberOfWords(0);
 
 };
-
-
 
 
 
 LWdb.prototype.destroy = function(anObject) {
 
      var aKeyPrefix = this.dbName;  
-     this.removeObjects(aKeyPrefix);
+     this._removeObjects(aKeyPrefix);
 };
 
 
 
-LWdb.prototype.removeObjects = function(aKeyPrefix){
-		if (this.isOK) {
-			var key;
-			var st; 
-			var keysToDelete = [];
-
-			// go through all keys starting with the name
-			// of the database, i.e 'learnWords-index14'
-			for (var i = 0; i < localStorage.length; i++){
-				key = localStorage.key(i);
-				st = localStorage.getItem(key);                             
-
-				if (key.lastIndexOf(aKeyPrefix,0) === 0) {
-				    keysToDelete.push(key);
-				}
-			}
-			// now we have all the keys which should be deleted
-			// in the array keysToDelete.
-			
-			keysToDelete.forEach(function(aKey){
-				localStorage.removeItem(aKey);
-		 	});
-        }
-	},
 
 
-
-
-// -------------------------------------------------------------
-// API as provided by LearnWords1
-LWdb.prototype.readItem = function(key) {
-  // something 
-  throw new Error("not yet implemented");
-
-};
-
-LWdb.prototype.removeItem = function(key) {
-  // something 
-  throw new Error("not yet implemented");
-
-};
-
-LWdb.prototype.storeItem = function(key, value) {
-  // something 
-  throw new Error("not yet implemented");
-};
-
-LWdb.prototype.init = function(key) {
-  // something 
-  throw new Error("not yet implemented");
-};
 
 module.exports = LWdb;
 
