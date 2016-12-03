@@ -7,7 +7,8 @@ var Jasmine = require('jasmine');
 module.exports = function(grunt) {
 
   var BUILD_DIR = 'build';
-
+  var DIST_DIR = 'dist';
+  
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -15,7 +16,30 @@ module.exports = function(grunt) {
       options: {
         force: true
       },
-      test: [BUILD_DIR + '/**']
+      build: [path.join(DIST_DIR,'**')],
+      test: [path.join(BUILD_DIR,'**')]
+    },
+    "jasmine":{
+      browser: {
+        src: path.join('spec','support','jasmine.json'),
+        dest: path.join(BUILD_DIR,'jasmine-bundle.js')
+      }
+    },
+    js:{
+      dist: {
+        options:{
+          debug: false
+        },
+        src: [path.join("src","**.js")],
+        dest: path.join(DIST_DIR,"LW-lib.js")
+      },
+      debug: {
+        options: {
+          debug: true
+        },
+        src: [path.join("src","**.js")],
+        dest: path.join(DIST_DIR,"LW-lib-debug.js")
+      }
     },
     watch:{
       options: {
@@ -51,19 +75,61 @@ module.exports = function(grunt) {
     f(p.split(path.sep),0);
   }
 
-  grunt.registerTask('test',function(){
+  grunt.registerMultiTask('js','Builds bundle for JavaScript component', function(){
 
-    var output = path.join(BUILD_DIR,'jasmine-app-bundle.js');
-    var config = path.join('spec','support','jasmine.json');
+    var opts = this.options({ 
+      debug: false 
+    });
+    
+    console.log("debug: " + opts.debug);
+
+    //var output = path.join(DIST_DIR,'app-bundle'+ (opts.debug ? '-debug' : '')+'.js');
+    var output = this.files[0].dest;
+
+    mkDirs(DIST_DIR);
+
+    console.log("files:\t" + this.filesSrc.join('\n\t'));
+
+    var b = browserify({
+      basedir: '.',
+      entries: this.filesSrc,
+      noParse: [],
+      browserField: false,
+      debug: opts.debug
+    });
+
+    // prevents file from being loaded into bundle
+    b.external("node-localstorage");
+
+    var done = this.async();
+    var outputFile = fs.createWriteStream(output);
+    outputFile.on('finish',function(){
+      console.log('Wrote ' + output);
+      done();
+    });
+    b.bundle().pipe(outputFile);    
+
+  });
+
+  grunt.registerMultiTask('jasmine','Creates bundle for Jasmine tests',function(){
+
+    var output = this.files[0].dest;
+    var config = this.filesSrc[0];
+
+    console.log("config: " + config);
 
     mkDirs(path.dirname(output));
 
     var runner = new Jasmine();
     runner.loadConfigFile(config);
 
+    var entries = runner.helperFiles.concat(runner.specFiles);
+
+    console.log("files:\t" + entries.join('\n\t'));
+
     var b = browserify({
       basedir: '.',
-      entries: runner.helperFiles.concat(runner.specFiles),
+      entries: entries,
       noParse: [],
       browserField: false,
       debug: true
@@ -75,14 +141,17 @@ module.exports = function(grunt) {
     var done = this.async();
     var outputFile = fs.createWriteStream(output);
     outputFile.on('finish',function(){
-      console.log('\tWrote ' + output);
+      console.log('Wrote ' + output);
       done();
     });
     b.bundle().pipe(outputFile);    
 
   });
 
+  grunt.registerTask('build', ['clean:build','js']);
+  grunt.registerTask('test', ['clean:test','jasmine']);
+
   // Default task(s).
-  grunt.registerTask('default', ['clean:test','test','watch']);
+  grunt.registerTask('default', ['build','test','watch']);
 
 };
