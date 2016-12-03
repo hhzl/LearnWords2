@@ -1,10 +1,28 @@
 "use strict";
+// ----------------------------------------------------------------------
+// LearnWords 2 
+//
+// File: 
+//    LWdb.js
+//
+// Purpose: 
+//    Database layer
+//    Definition of an LWdb object
+//
+// Date:
+//    3rd December 2016
+//
+// ----------------------------------------------------------------------
+
 
 
 if (typeof localStorage === "undefined" || localStorage === null) {
+  // we run in node thus we need to have a simulation of LocalStorage
   var LocalStorage = require('node-localstorage').LocalStorage;
   global.localStorage = new LocalStorage('./scratch');
 }
+
+
 
 
 var LWdb = function(dbName) {
@@ -35,7 +53,7 @@ var LWdb = function(dbName) {
         that.recalculateIndex = true;
     };
 
-    var _invalidateIndex = function() {
+    this._invalidateIndex = function() {
         that.recalculateIndex = true;
     };
 
@@ -47,7 +65,6 @@ var LWdb = function(dbName) {
     var _indexHasBeenUpdated = function() {
         that.recalculateIndex = false;
     };
-
 
     var _removeObjects = function(aKeyPrefix){
         if (that.isOK) {
@@ -73,11 +90,7 @@ var LWdb = function(dbName) {
 
 
 
-    LWdb.prototype.open = function() {
-        // something
-        // start with init code of LW1 
-        throw new Error("not yet implemented");
-    };
+
 
 
 
@@ -159,52 +172,19 @@ var LWdb = function(dbName) {
     };
 
 
-    /*
-    LWdb.prototype.importFrom = function(theWords) {
-               // FIXME: put / post?
-                var i= 0;
-                var arrayOfKeys = [];
-                            var theDB = this;
-                            var key;
+LWdb.prototype.importFrom = function(theWords) {
+      
+      var key;
+      var n = theWords.length;
 
-                theWords.forEach(function(element){
-                    i = i + 1;
-                    // element.index = "index"+i;
-                    // element.step = 0;
-                    // element.date = 0;
-                                    // FIXME
-                    // theDB.put(theDB.name +'-'+element.index, element);
-                                    // XXXX
-                                    key = theDB.put(element);
-                                    console.log('importFrom key=',key);
-                    arrayOfKeys.push(element.index);
-                });
+      var aWord;
+      
+      for(var i = 0; i < n; i++){
+        aWord = theWords[i];
+	key = this.putWord(aWord);
+      }
 
-                // FIXME: what happens when existing words are present?
-                // this is about updating the index  
-                console.log('importFrom theDB.numberOfWords()',theDB.numberOfWords());
-                theDB.put(theDB.name + '-words', arrayOfKeys);
-                theDB.index = arrayOfKeys; 
-
-                console.log(arrayOfKeys.length + " words loaded");
-
-        };
-    */
-
-
-    LWdb.prototype.importFrom = function(theWords) {
-          
-        var key;
-        var n = theWords.length;
-
-        var aWord;
-        for(var i = 0; i < n; i++){
-            aWord = theWords[i];
-            aWord._id = i+1;
-            key = this.putWord(aWord);
-        }
-
-        _invalidateIndex();
+      this._invalidateIndex();
 
     }
 
