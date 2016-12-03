@@ -6,7 +6,7 @@ var wordlist = require('../../data/wordlist-en-ge.js');
 
 var LW;
 
-xdescribe("BoxOfQuestions", function() {
+describe("BoxOfQuestions", function() {
     
   beforeEach(function() {
 
@@ -39,42 +39,37 @@ xdescribe("BoxOfQuestions", function() {
 
 
 
-  xit("should be able to load additional questions", function() {
+  xit("should be able to move a incorrect question back in the box", function() {
 
-    var previousNumberOfWords = LW.db.numberOfWords();
-  
-    LW.db.loadWords(wordlist);
+        // LW.moveBackwards(aWord); issue #65
 
-    expect(LW.db.numberOfWords()).toBe(previousNumberOfWords + wordlist.length);
-
-  
-  });
-
-
-  it("should be able to have the number of steps set", function() {
-
-    expect(LW.noOfSteps).toBe(3); // the default
-
-    LW.setNumberOfSteps(7);
-
-    expect(LW.noOfSteps).toBe(7); 
+         fail("Implement me!");
 
   });
 
 
 
-  xit("should be able to process configuration information", function(aConfigObj) {
-    // the configuration 
-    // aConfigObj = {"algorithm": "Leitner", "noOfSteps": 5};
-    LW.config(aConfigObj);     
+  xit("should be able to indicate eligible questions", function() {
 
-    // expect code here
-    fail("Implement me!");
+        // LW.eligibleWords(); issue #63
+        // returns a collection of eligible words (or objects).
+         fail("Implement me!");
+
+  });
+
+
+  xit("should be able choose a random object from a collection", function() {
+
+        // LW.chooseRandomObject(anArray); issue #59
+        // returns a random object from anArray.
+
+         fail("Implement me!");
+
   });
 
 
 
-  xit("should be able to choose a next question", function() {
+  xit("should be able to give a current question", function() {
     var q ;
 
     q = LW.currQuestion();
@@ -89,6 +84,7 @@ xdescribe("BoxOfQuestions", function() {
     // date should be >= today
 
   });
+
 
 
 
