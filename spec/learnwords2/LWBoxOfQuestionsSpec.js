@@ -51,6 +51,10 @@ describe("BoxOfQuestions", function() {
         expect(updatedWord.date).toBeNumber();
         expect(updatedWord.date).toBeGreaterThan(new Date().valueOf());
 
+        
+        expect(updatedWord.step).toBeNumber(0);
+        // this asuumes we do not have a learn mode yet
+
   });
 
 

@@ -30,6 +30,7 @@ function BoxOfQuestions(db) {
             if (_question) { // we have a question
 
                 _question.date = new Date().valueOf() + (that.db.getSettings()).delay;
+                _question.step = 0;
 
                 that.db.putWord(_question);
 
