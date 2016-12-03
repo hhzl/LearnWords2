@@ -39,11 +39,17 @@ describe("BoxOfQuestions", function() {
 
 
 
-  xit("should be able to move a incorrect question back in the box", function() {
+  it("should be able to move an incorrect question back in the box", function() {
 
-        // LW.moveBackwards(aWord); issue #65
+        var q = LW.question();
+        var question_id = q._id;
+      
+        LW.moveQuestionBackwards(); // issue #65
 
-         fail("Implement me!");
+        var updatedWord = LW.db.getWord(question_id);
+
+        expect(updatedWord.date).toBeNumber();
+        expect(updatedWord.date).toBeGreaterThan(new Date().valueOf());
 
   });
 

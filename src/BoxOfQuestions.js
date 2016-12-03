@@ -2,11 +2,45 @@
 
 var LWdb = require('./LWdb');
 
+
 function BoxOfQuestions(db) {
 	this.name = db.name;
 	this.db = db;
-        this.noOfSteps = 3;
+        var _question = null; // no current question
+        var that = this;
+
+        this.question = function(){
+            // gives back a question to ask
+            // if _question is null then go for a new one.
+
+            // FIXME 
+            // question is hard wired!
+            if (!_question) {
+                 _question = that.db.getWord(1);
+                 return _question
+            } else
+            {
+              return _question // existing value
+            }
+        };
+
+
+
+        this.moveQuestionBackwards = function(){
+            if (_question) { // we have a question
+
+                _question.date = new Date().valueOf() + (that.db.getSettings()).delay;
+
+                that.db.putWord(_question);
+
+                // as the question has a new later date it is no more 
+                // a current question
+               _question = null; 
+            }
+        };
 }
+
+
 
 
 BoxOfQuestions.prototype.config = function(config){
@@ -14,40 +48,8 @@ BoxOfQuestions.prototype.config = function(config){
 };
 
 
-BoxOfQuestions.prototype.setNumberOfSteps = function(aNumber){
 
-  // the following is fine if the number of steps is increased.
-  this.noOfSteps = aNumber;
-
-  // decide what happens when the number of steps is decreased.
-
-  // FIXME
-  // is this necessary here?
-  // the step information actually is only needed for calculating the new delay
-  // and that information is accessible through the index.
-  // trigger more action?.
-  // this.recalculateIndexes();
-  
-};
-
-
-
-BoxOfQuestions.prototype.recalculateIndexes = function(config){
-  throw new Error("not yet implemented");
-};
-
-
-BoxOfQuestions.prototype.size = function(config){
-  throw new Error("not yet implemented");
-};
-
-
-BoxOfQuestions.prototype.currQuestion = function(config){
-  throw new Error("not yet implemented");
-};
-
-
-BoxOfQuestions.prototype.status = function(config){
+BoxOfQuestions.prototype.status = function(){
   throw new Error("not yet implemented");
 };
 
