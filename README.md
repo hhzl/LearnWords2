@@ -14,15 +14,15 @@ https://github.com/e1r0nd/LearnWords
 ````	
 git clone https://github.com/hhzl/LearnWords2.git
 cd LearnWords2
-npm install
 npm install -g grunt-cli
+npm install
 ````
 
 Note that maybe you have to do
 
 ````
-sudo npm install
 sudo npm install -g grunt-cli
+sudo npm install
 ````
 
 ## Intended usage
@@ -82,9 +82,9 @@ TODO: add examples
 ## Status
 
 * Jasmine specs are set up and work both in the browser and on the command line.
-* The LWdb specification set is mostly set up and a MVP set of specs implemented. 
-* Only few issues left for [release 0.1](https://github.com/hhzl/LearnWords2/milestone/1).
-* The release will focus on LWdb
+* The LWdb (database layer) specification is set up and implemented with an MVP set of specs. 
+* [release 0.1beta](https://github.com/hhzl/LearnWords2/milestone/1) released.
+* The [next release 0.2](https://github.com/hhzl/LearnWords2/milestone/2) will focus on the Leitner box.
 
 
 
