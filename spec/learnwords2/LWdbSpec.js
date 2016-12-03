@@ -15,6 +15,16 @@ describe("Database LWdb", function() {
   });
 
   beforeEach(function() {
+    // clear properties that didn't exist in original wordList
+    for(var i = 0; i < this.wordList.length; i++){
+      var aWord = this.wordList[i];
+      for(var key in aWord){
+        if(key != "word" && key != "translate" && key != "_id"){
+          delete aWord[key];
+        }
+      }
+    }
+
     localStorage.clear();
     this.db = new LWdb("LearnWords");
   });
@@ -35,6 +45,7 @@ describe("Database LWdb", function() {
     expect(this.db).toHaveArray("_keysOfAllWords");
 
   });
+
 
 
   it("should be able to answer if persistent storage is available", function() {
@@ -67,7 +78,8 @@ describe("Database LWdb", function() {
       expect(this.db.numberOfWords()).toBeNumber(0);
       var i = parseInt(Math.floor(Math.random()*this.wordList.length));
       var aWord = this.wordList[i];
-      this.db.put(aWord);
+      aWord._id = (i+1);
+      this.db.putWord(aWord);
       expect(this.db.numberOfWords()).toBeNumber(1);
     });
 
@@ -75,12 +87,13 @@ describe("Database LWdb", function() {
     it("should be able to get a word", function() {  
 
       var newWord = {
+        "_id": 1,
         "word": "melon",
         "translate": "die Melone"
       };
 
       expect(this.db.numberOfWords()).toBeNumber(0);
-      this.db.put(newWord);
+      this.db.putWord(newWord);
       expect(this.db.numberOfWords()).toBeNumber(1);
       var r = this.db.getWord(1);
       expect(r).toBeObject();
@@ -94,14 +107,23 @@ describe("Database LWdb", function() {
       expect(r).toHaveString("translate");
       expect(r.translate).toBeString("melon");
 
+      expect(r).toHaveNumber("step");
+      expect(r.step).toBeNumber(0);
+
+      expect(r).toHaveNumber("date");
+      expect(r.date).toBeNumber(0);
+
     });
 
 
     it("should be able to remove all words", function() {
       // insert first n words from wordList
       var n = parseInt(Math.floor(Math.random()*this.wordList.length));
+      var aWord;
       for(var i = 0; i < n; i++){
-        this.db.put(this.wordList[i]);
+        aWord = this.wordList[i];
+        aWord._id = (i+1);
+        this.db.putWord(aWord);
       }
       expect(this.db.numberOfWords()).toBeNumber(n);
       this.db.removeWords();
@@ -123,7 +145,8 @@ describe("Database LWdb", function() {
       var aWord;
       for(var i = 0; i < n; i++){
         aWord = this.wordList[i];
-        this.db.put(aWord);
+        aWord._id = (i+1);
+        this.db.putWord(aWord);
       }
 
 
@@ -155,8 +178,11 @@ describe("Database LWdb", function() {
       // setup
       // insert first n words from wordList
       var n = parseInt(Math.floor(Math.random()*this.wordList.length));
+      var aWord;
       for(var i = 0; i < n; i++){
-        this.db.put(this.wordList[i]);
+        aWord = this.wordList[i];
+        aWord._id = (i+1);
+        this.db.putWord(aWord);
       }
       expect(this.db.numberOfWords()).toBe(n);
 
@@ -189,6 +215,14 @@ describe("Database LWdb", function() {
         expect(r[i]).toHaveNumber("_id");
         expect(tmp).toHaveNumber("_id");
         expect(r[i]._id).toBeNumber(tmp._id);
+
+        expect(r[i]).toHaveNumber("date");
+        expect(tmp).toHaveNumber("date");
+        expect(r[i].date).toBeNumber(tmp.date);
+
+        expect(r[i]).toHaveNumber("step");
+        expect(tmp).toHaveNumber("step");
+        expect(r[i].step).toBeNumber(tmp.step);
 
       }
 
