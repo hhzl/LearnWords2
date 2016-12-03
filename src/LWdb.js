@@ -70,16 +70,6 @@ function LWdb(dbName) {
 
 
 
-
-LWdb.prototype.open = function() {
-    // something
-    // start with init code of LW1 
-    throw new Error("not yet implemented");
-};
-
-
-
-
 LWdb.prototype.persistentStorageOK = function() {
     return !!localStorage;
 };
@@ -156,38 +146,6 @@ LWdb.prototype.getWord = function(anInteger) {
 };
 
 
-/*
-LWdb.prototype.importFrom = function(theWords) {
-           // FIXME: put / post?
-			var i= 0;
-			var arrayOfKeys = [];
-                        var theDB = this;
-                        var key;
-
-			theWords.forEach(function(element){
-				i = i + 1;
-				// element.index = "index"+i;
-				// element.step = 0;
-				// element.date = 0;
-                                // FIXME
-				// theDB.put(theDB.name +'-'+element.index, element);
-                                // XXXX
-                                key = theDB.put(element);
-                                console.log('importFrom key=',key);
-				arrayOfKeys.push(element.index);
-			});
-
-            // FIXME: what happens when existing words are present?
-            // this is about updating the index  
-            console.log('importFrom theDB.numberOfWords()',theDB.numberOfWords());
-            theDB.put(theDB.name + '-words', arrayOfKeys);
-            theDB.index = arrayOfKeys; 
-
-            console.log(arrayOfKeys.length + " words loaded");
-
-	};
-*/
-
 
 LWdb.prototype.importFrom = function(theWords) {
       
@@ -198,6 +156,8 @@ LWdb.prototype.importFrom = function(theWords) {
       
       for(var i = 0; i < n; i++){
         aWord = theWords[i];
+        if (!aWord.step) {aWord.step = 0};
+        if (!aWord.date) {aWord.date = 0};    
 	key = this.put(aWord);
       }
 

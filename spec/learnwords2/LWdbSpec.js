@@ -110,7 +110,11 @@ describe("Database LWdb", function() {
     });
 
 
+
+
+
     it("should be able to answer a list of all keys of all words", function() {
+      // test setup
       // insert first n words from wordList
       // n is a random number of words
 
@@ -122,8 +126,13 @@ describe("Database LWdb", function() {
         this.db.put(aWord);
       }
 
-      // check result
+
+      // run
+
       var r = this.db.keysOfAllWords();
+
+
+      // check result
       expect(r).toBeArrayOfStrings();
       expect(r.length).toBeNumber(this.db.numberOfWords());
        
@@ -136,8 +145,14 @@ describe("Database LWdb", function() {
 
 
 
+
+
+
+
+
     it("should be able to answer a list of all words", function() {
-      
+
+      // setup
       // insert first n words from wordList
       var n = parseInt(Math.floor(Math.random()*this.wordList.length));
       for(var i = 0; i < n; i++){
@@ -145,7 +160,16 @@ describe("Database LWdb", function() {
       }
       expect(this.db.numberOfWords()).toBe(n);
 
+
+
+      // run
+
       var r = this.db.allWords();
+
+
+
+      // check
+
       expect(r).toBeArray();
       expect(r.length).toBe(this.db.numberOfWords());
       expect(r.length).toBe(n);
@@ -172,7 +196,12 @@ describe("Database LWdb", function() {
 
 
 
+
+
+
     it("should be able to import words", function() {
+
+      // setup
       this.db.removeWords();
       expect(this.db.numberOfWords()).toBe(0);
 
@@ -180,32 +209,48 @@ describe("Database LWdb", function() {
       var theWordList = this.wordList;
       expect(theWordList).toBeArrayOfObjects();
 
+
+      // run
+
       this.db.importFrom(theWordList);
-      // console.log('SPEC theWordList=',theWordList);
-      // console.log('SPEC this.db.numberOfWords()=',this.db.numberOfWords());
 
       
+      // check
+
       var keys = this.db.keysOfAllWords(); 
       expect(keys.length).toBe(theWordList.length);
 
-      // expect(this.db.numberOfWords()).toBe(theWordList.length);
     });
 
 
+
+
     it("should be able to maintain an index", function() {
+      // Is this a duplicate?
+
+      // setup
       this.db.removeWords();
       expect(this.db.numberOfWords()).toBe(0);
       
       this.db.importFrom(this.wordList);
       expect(this.db.numberOfWords()).toBe(this.wordList.length);
 
+
+      // run
       var keys = this.db.keysOfAllWords();
+
+
+      // check
       expect(keys).toBeArray();
       expect(keys.length).toBe(this.wordList.length);
     });
 
 
   });
+
+
+
+
 
 
   describe("LWdb deals with settings", function() {
