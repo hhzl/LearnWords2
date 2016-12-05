@@ -42,6 +42,41 @@ function BoxOfQuestions(db) {
 }
 
 
+BoxOfQuestions.prototype.importFrom = function(anArrayOfObjects){
+     this.db.importFrom(anArrayOfObjects);
+};
+
+
+
+
+BoxOfQuestions.prototype.wordsToRepeat = function(){
+  throw new Error("not yet implemented");
+};
+
+
+
+BoxOfQuestions.prototype._chooseRandomObject = function(anArray){
+  throw new Error("not yet implemented");
+};
+
+
+
+BoxOfQuestions.prototype.answer = function(){
+  throw new Error("not yet implemented");
+};
+
+
+
+BoxOfQuestions.prototype.getAnswerOptions = function(numberOfOptions){
+  throw new Error("not yet implemented");
+};
+
+
+
+BoxOfQuestions.prototype.moveQuestionForward = function(){
+  throw new Error("not yet implemented");
+};
+
 
 
 BoxOfQuestions.prototype.config = function(config){
