@@ -1,13 +1,13 @@
-var fs = require('fs');
-var path = require('path');
-
-var browserify = require('browserify');
-var Jasmine = require('jasmine');
+var fs = require('fs'), 
+    path = require('path'), 
+    browserify = require('browserify'),
+    Jasmine = require('jasmine');
 
 module.exports = function(grunt) {
 
-  var BUILD_DIR = 'build';
+  var BUILD_DIR = 'public/js';
   var DIST_DIR = 'dist';
+  var PORT = 8000;
   
   // Project configuration.
   grunt.initConfig({
@@ -43,17 +43,30 @@ module.exports = function(grunt) {
     },
     watch:{
       options: {
-        livereload: true,
+        livereload: true
       },
       test: {
         files: ['src/**/*.js','spec/**/*.js'],
         tasks: ['test']
+      }
+    },
+    connect:{
+      dev: {
+        options: {
+          base: 'public',
+          port: PORT,
+          livereload: true,
+          open: {
+            target: 'http://localhost:'+PORT+'/specRunner.html'
+          }
+        }
       }
     }
   });
 
   // Load grunt tasks
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Custom tasks
@@ -62,13 +75,24 @@ module.exports = function(grunt) {
     function f(dir,i){
       if(i < dir.length){
         var cwd = dir.slice(0,i+1);
-        try{
-          fs.accessSync(cwd.join(path.sep));
-        }catch(e){
-          // directory doesn't exist
-          fs.mkdirSync(cwd.join(path.sep));
-          console.log("mkdir " + cwd.join(path.sep));
-        } 
+        var dirPath = cwd.join(path.sep);
+        if(/v0\.10\.\d+/.test(process.version)){
+          // node version is 0.10.x
+          if(!fs.existsSync(dirPath)){
+            fs.mkdirSync(dirPath);
+          }else{
+            console.log(dirPath + " already exists");
+          }
+        }else{
+          try{
+            fs.accessSync(dirPath, fs.constants.F_OK);
+            console.log(dirPath + " already exists");
+          }catch(e){
+            // directory doesn't exist
+            fs.mkdirSync(dirPath);
+            console.log("mkdir " + dirPath);
+          }
+        }
         f(dir,i+1);
       }
     }
@@ -152,6 +176,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['clean:test','jasmine']);
 
   // Default task(s).
-  grunt.registerTask('default', ['build','test','watch']);
+  grunt.registerTask('default', ['build','test','connect','watch']);
 
 };
