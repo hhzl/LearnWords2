@@ -41,22 +41,43 @@ var LW = function(){
 
 	var db = new LWdb('learnWords');
 
-	db.loadWords(....)
-
 	var box = new LWBoxOfQuestions(db);
 
 	return box
 }();
-````
 
+````
 
 The construction above is an IIFE.
 This is a function without a name which is only run once, just after the definition.
 The return value of the function is of interest. It is assigned to the global LW object.
 
-So the access to everything goes through ``LW.subobject``  or ``LW.method()``.
+If there is no configuration of the db you could as well just do
+
+````JavaScript
+
+var LW = new LWBoxOfQuestions(new LWdb('learnWords'));
 
 
+````
+
+
+Then access to everything goes through  ``LW.method()``.
+
+````JavaScript
+
+LW.importFrom(....);
+
+LW.question();
+
+LW.answer();
+LW.answerOptions();
+
+LW.moveQuestionBackwards();
+
+LW.moveQuestionForward();
+
+````
 
  
 TODO: add examples
