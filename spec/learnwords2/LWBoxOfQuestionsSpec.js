@@ -83,7 +83,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-  xit("should be able to import questions", function(arrayOfQuestions) {
+  xit("should be able to import questions", function() {
 
     expect(LW).not.toBe(null);
 
@@ -92,6 +92,26 @@ describe("BoxOfQuestions", function() {
 
 
   });
+
+
+  it("should have a helper function to get random integers", function(){
+
+    expect(LW).not.toBe(null);
+
+    expect(LW).toHaveMethod("_getRandomInt");
+
+    var n = LW.db.numberOfWords();
+
+    expect(n).toBe(12);
+    expect(LW.db.allWords().length).toBe(12);
+
+    // FIXME add more expect
+
+    expect(LW._getRandomInt(0,n-1)).toBeNumber(); 
+
+  });
+
+
 
 
 

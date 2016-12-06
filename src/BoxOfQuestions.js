@@ -59,6 +59,13 @@ function BoxOfQuestions(db) {
 
 
 
+        this._getRandomInt = function(min, max){
+             // Returns a random integer between min (inclusive) and max (inclusive)
+             // Using Math.round() will give you a non-uniform distribution!
+             
+    		return Math.floor(Math.random() * (max - min + 1)) + min;
+	};
+
 
         this.moveQuestionBackwards = function(){
             if (_question) { // we have a question
