@@ -6,26 +6,19 @@ var wordlist = require('../../data/wordlist-en-ge.js');
 
 var LW;
 
-describe("BoxOfQuestions", function() {
-    
-  beforeEach(function() {
-
-    	LW = function(){
-
-		var db = new LWdb('learnWords');
-
-		db.loadWords(wordlist);
-
-		var box = new BoxOfQuestions(db);
-
-		return box
-        }();
-        
-  });
 
 
-  it("should be able to create a BoxOfQuestions object", function() {
+describe("BoxOfQuestions construction", function() {
 
+
+  it("should be able to create a BoxOfQuestions object (var 1)", function() {
+
+    // construction
+    var LW = new BoxOfQuestions(new LWdb('learnWords'));
+    LW.db.loadWords(wordlist);
+ 
+
+    // checks
     expect(LW).not.toBe(null);
     expect(LW).not.toBe(undefined);
 
@@ -38,13 +31,64 @@ describe("BoxOfQuestions", function() {
 
 
 
+  it("should be able to create a BoxOfQuestions object (var 2)", function() {
+
+    // construction
+
+    var LW = function(){
+
+		var db = new LWdb('learnWords');
+
+		db.loadWords(wordlist);
+
+		var box = new BoxOfQuestions(db);
+
+                // if necessary more configuration later
+
+		return box
+        }();
+
+
+    // checks
+    expect(LW).not.toBe(null);
+    expect(LW).not.toBe(undefined);
+
+    expect(LW).toBeObject();
+
+    expect(LW.db.dbName).toBeString("learnWords");
+    expect(LW.db.numberOfWords()).toBeNumber(10);
+
+  });
+
+
+
+});
+
+
+
+
+
+
+describe("BoxOfQuestions", function() {
+
+    
+  beforeEach(function() {
+
+      LW = new BoxOfQuestions(new LWdb('learnWords'));
+      LW.db.loadWords(wordlist);
+        
+  });
+
+
+
+
 
   xit("should be able to import questions", function(arrayOfQuestions) {
 
     expect(LW).not.toBe(null);
 
-
-    expect(LW).toHaveMethod("importFrom");
+    // FIXME
+    expect(LW.db).toHaveMethod("loadWords");
 
 
   });
@@ -60,8 +104,13 @@ describe("BoxOfQuestions", function() {
     expect(LW).not.toBe(null);
 
 
+    
     expect(LW).toHaveMethod("wordsToRepeat");
 
+    LW.wordsToRepeat();
+
+    // FIXME
+    // What triggers the calculation of wordsToRepeat?
 
   });
 
@@ -70,20 +119,22 @@ describe("BoxOfQuestions", function() {
   it("should be able to give a question", function() {
 
     expect(LW).not.toBe(null);
+    expect(LW).toHaveMethod("question");
 
-/*
-    var q ;
+    var q = LW.question();
 
     expect(q).not.toBe(null);
     expect(q).not.toBe(undefined);
     expect(q).toBeObject();    
 
-    expect(q).toHaveString("date");
-  
+    expect(q).toHaveString("translate");
+    expect(q).toHaveNumber("step");
+    expect(q).toHaveNumber("date");
+
+/*  FIXME
     // add expect code here
     // date should be >= today
 */
-    expect(LW).toHaveMethod("question");
 
 
   });
@@ -99,16 +150,24 @@ describe("BoxOfQuestions", function() {
     expect(LW).toHaveMethod("answer");
 
 
+    var a = LW.answer();
+
+    expect(a).not.toBe(null);
+    expect(a).not.toBe(undefined);
+
+    // FIXME add more expect statements
+
   });
+
 
 
  it("should be able to give answer options", function() {
 
     expect(LW).not.toBe(null);
 
-
     expect(LW).toHaveMethod("getAnswerOptions");
 
+    // FIXME add more expect statements
 
   });
 
@@ -138,12 +197,17 @@ describe("BoxOfQuestions", function() {
 
 
 
-  xit("should be able to move an answer forward", function() {
+  it("should be able to move an answer forward", function() {
 
-        // moveQuestionForward()
+         
+         var q = LW.question();
+         expect(q).toBeObject();
 
-         fail("Implement me!");
+	 expect(LW).toHaveMethod("moveQuestionForward");
 
+         LW.moveQuestionForward();
+         // FIXME add more expect statements
+         // read the question from the db and check for a later date
   });
 
 
@@ -159,14 +223,32 @@ describe("BoxOfQuestions", function() {
 
 
 
- 
-  xit("should be able to give status information", function() {
-    // the configuration 
+
+  it("should be able to make use of settings information", function() {
   
-    var r = LW.status();
+    var s = LW.db.getSettings();
+
+    expect(s.delay).toBeNumber();
    
-    // add expect code here    
-    fail("Implement me!");
+    expect(s.factorForDelayValue).toBeArray();
+    expect(s.factorForDelayValue.length).toBeGreaterThan(0);
+
+    expect(s.offerLearnMode).toBeBoolean();
+
+
+  });
+
+
+ 
+  it("should be able to give status information", function() {
+  
+    var st = LW.status();
+   
+    expect(st).toBeObject();
+    expect(st.numberOfWords).toBe(12);
+
+    // FIXME
+    // add number of words in wordsToRepeat
 
   });
 
