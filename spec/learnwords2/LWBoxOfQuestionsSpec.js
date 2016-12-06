@@ -83,7 +83,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-  xit("should be able to import questions", function() {
+  it("should be able to import questions", function() {
 
     expect(LW).not.toBe(null);
 
@@ -232,13 +232,15 @@ describe("BoxOfQuestions", function() {
 
 
 
-  xit("should be able choose a random object from a collection", function() {
+  it("should be able choose a random object from a collection", function() {
 
         // LW.chooseRandomObject(anArray); issue #59
         // returns a random object from anArray.
 
-         fail("Implement me!");
-
+        expect(wordlist).toBeArray();
+        expect(LW.chooseRandomObject(wordlist)).toBeObject(); 
+        
+        // FIXME add more expect
   });
 
 

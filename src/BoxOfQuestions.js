@@ -24,10 +24,8 @@ function BoxOfQuestions(db) {
             // gives back a question to ask
             // if _question is null then go for a new one.
 
-            // FIXME get RANDOM question
-            // question is currently hard wired!!!!!
             if (!_question) {
-                 _question = that.db.getWord(1);
+                 _question = that.chooseRandomObject(this.wordsToRepeat())
                  return _question
             } else
             {
@@ -65,6 +63,12 @@ function BoxOfQuestions(db) {
              
     		return Math.floor(Math.random() * (max - min + 1)) + min;
 	};
+
+
+	this.chooseRandomObject = function(anArray){
+                return anArray[that._getRandomInt(0,anArray.length-1)];
+	};
+
 
 
         this.moveQuestionBackwards = function(){
@@ -189,11 +193,6 @@ BoxOfQuestions.prototype.importFrom = function(anArrayOfObjects){
 };
 
 
-
-
-BoxOfQuestions.prototype._chooseRandomObject = function(anArray){
-  throw new Error("not yet implemented");
-};
 
 
 
