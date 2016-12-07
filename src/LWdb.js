@@ -43,27 +43,26 @@ var LWdb = function(dbName) {
     var _setNumberOfWords = function(n) {
         var key = that.dbName+'-numberOfWords';
         localStorage.setItem(key,n);
-        that.recalculateIndex = true;
+        recalculateIndex = true;
     };
 
 
     var _incNumberOfWords = function() {
         var n = that.numberOfWords();
         _setNumberOfWords(n + 1);
-        that.recalculateIndex = true;
+        recalculateIndex = true;
     };
 
     this._invalidateIndex = function() {
-        that.recalculateIndex = true;
+        recalculateIndex = true;
     };
 
-    var _indexNeedsRecalculation = function() {
-        return that.recalculateIndex
+    this._indexNeedsRecalculation = function() {
+        return recalculateIndex
     };
-
 
     var _indexHasBeenUpdated = function() {
-        that.recalculateIndex = false;
+        recalculateIndex = false;
     };
 
     var _removeObjects = function(aKeyPrefix){
