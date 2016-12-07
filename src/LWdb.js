@@ -61,7 +61,7 @@ var LWdb = function(dbName) {
         return recalculateIndex
     };
 
-    var _indexHasBeenUpdated = function() {
+    this._indexHasBeenUpdated = function() {
         recalculateIndex = false;
     };
 
