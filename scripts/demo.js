@@ -39,7 +39,6 @@ console.log('');
 // var aWord = {_id: 1, "word": "apple", "translate": "der Apfel"};
 
 var aWord = LW.question();
-console.log(aWord);
 
 
 var rl = readline.createInterface({
