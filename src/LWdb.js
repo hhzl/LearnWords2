@@ -196,7 +196,7 @@ LWdb.prototype.importFrom = function(theWords) {
 
 
     LWdb.prototype.keysOfAllWords = function() {
-        if (_indexNeedsRecalculation()) {
+        if (this._indexNeedsRecalculation()) {
             this._keysOfAllWords = [];
             var keyRegex = new RegExp("^"+this.dbName+"\\-wd\\-\\d+$");
             for (var i = 0; i < localStorage.length; i++){
@@ -207,7 +207,7 @@ LWdb.prototype.importFrom = function(theWords) {
                 }
             }
         };
-        _indexHasBeenUpdated();
+        this._indexHasBeenUpdated();
         return this._keysOfAllWords;
     };
 
