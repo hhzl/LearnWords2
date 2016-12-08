@@ -40,8 +40,7 @@ describe("Database LWdb", function() {
     expect(this.db).toBeObject();
     
     expect(this.db).toHaveString("dbName");
-    expect(this.db.dbName).toBeString("LearnWords");
-
+    expect(this.db.dbName).toBe("LearnWords");
     expect(this.db).toHaveArray("_keysOfAllWords");
 
   });
