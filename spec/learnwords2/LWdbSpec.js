@@ -40,8 +40,7 @@ describe("Database LWdb", function() {
     expect(this.db).toBeObject();
     
     expect(this.db).toHaveString("dbName");
-    expect(this.db.dbName).toBeString("LearnWords");
-
+    expect(this.db.dbName).toBe("LearnWords");
     expect(this.db).toHaveArray("_keysOfAllWords");
 
   });
@@ -102,10 +101,10 @@ describe("Database LWdb", function() {
       expect(r._id).toBe(1);
 
       expect(r).toHaveString("word");
-      expect(r.word).toBeString("melon");
+      expect(r.word).toBe("melon");
 
       expect(r).toHaveString("translate");
-      expect(r.translate).toBeString("melon");
+      expect(r.translate).toBe("die Melone");
 
       expect(r).toHaveNumber("step");
       expect(r.step).toBe(0);
@@ -160,7 +159,7 @@ describe("Database LWdb", function() {
       expect(r.length).toBe(this.db.numberOfWords());
        
       for(var i = 0; i < r.length; i++){
-        expect(r[i]).toBeString("LearnWords-wd-"+(i+1));
+        expect(r[i]).toBe("LearnWords-wd-"+(i+1));
       }
 
     });
@@ -208,11 +207,11 @@ describe("Database LWdb", function() {
         
         expect(r[i]).toHaveString("word");
         expect(tmp).toHaveString("word");
-        expect(r[i].word).toBeString(tmp.word);
+        expect(r[i].word).toBe(tmp.word);
 
         expect(r[i]).toHaveString("translate");
         expect(tmp).toHaveString("translate");
-        expect(r[i].translate).toBeString(tmp.translate);
+        expect(r[i].translate).toBe(tmp.translate);
 
         expect(r[i]).toHaveNumber("_id");
         expect(tmp).toHaveNumber("_id");

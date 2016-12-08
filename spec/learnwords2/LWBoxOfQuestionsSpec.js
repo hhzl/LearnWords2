@@ -24,7 +24,7 @@ describe("BoxOfQuestions construction", function() {
 
     expect(LW).toBeObject();
 
-    expect(LW.db.dbName).toBeString("learnWords");
+    expect(LW.db.dbName).toBe("learnWords");
     expect(LW.db.numberOfWords()).toBeNumber(10);
 
   });
@@ -55,7 +55,7 @@ describe("BoxOfQuestions construction", function() {
 
     expect(LW).toBeObject();
 
-    expect(LW.db.dbName).toBeString("learnWords");
+    expect(LW.db.dbName).toBe("learnWords");
     expect(LW.db.numberOfWords()).toBeNumber(10);
 
   });
