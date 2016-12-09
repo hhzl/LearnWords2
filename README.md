@@ -3,7 +3,7 @@ A vocabulary learning component using the Leitner system
 
 ## Aim
 
-This project supplies a JavaScript object which keeps a collection of vocabulary questions in a database. A vocabulary question may be picted at random and then depending on the answer a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
+This project supplies a JavaScript object which keeps a collection of vocabulary questions in a database. A vocabulary question may be picked at random and then depending on the answer a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
 
 This is known as [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition).
 
