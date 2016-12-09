@@ -18,7 +18,8 @@
 // ----------------------------------------------
 
 "use strict";
-var readline = require('readline');
+var repl = require("repl");
+
 
 
 var LWdb = require('../src/LWdb');
@@ -29,60 +30,96 @@ var wordlist = require('../data/wordlist-en-ge.js');
 
 
 
-// set up the LW (learnwords) object
+
+
+
+// ----------------------------------------------------------
+// Set up the LW (learnwords) object
+// ----------------------------------------------------------
 
 var LW = new BoxOfQuestions(new LWdb('learnWords'));
 
 if (LW.db.numberOfWords() == 0) {LW.db.loadWords(wordlist)};
  
 
-// clear console
+
+
+// ----------------------------------------------------------
+// Clear console and write title
+// ----------------------------------------------------------
+
 console.log('\x1Bc'); 
 
-
-// write title
-console.log('LearnWords2 demo'); 
+function printLWHelp(){
+console.log('LearnWords2 Read-Eval-Print-Loop');
+console.log('Commands');
+console.log('   type .qw for (LW.question()).word');
+console.log('   type .qo for LW.question()');
+console.log('   type .a  for LW.answer()');
+console.log('   type .ok for LW.moveQuestionForward()');
+console.log('   type .nok for LW.moveQuestionBackwards()');
 console.log('');
-
-
-
-// get a question from the box
-
-var aWord = LW.question();
-// gives for example 
-// {_id: 1, "word": "apple", "translate": "der Apfel", "step": 0, "date": 0};
-
-
-
-
-// if we got a question ask for the translation of the word
-
-if (aWord) {
-
-console.log('Type the answers:');
+console.log('JavaScript');
+console.log('   you may also directly evaluate JavaScript expressions such as');
+console.log('   LW.question()                      ');
+console.log('   LW.db.getWord(1)                   ');
 console.log('');
+console.log('Other');
+console.log('   type .help get general help.');
+console.log('   type .lw2help get this text.');
+console.log('   type .exit to terminate.');
+console.log('');
+};
+
+printLWHelp();
 
 
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+
+
+// start Read-Eval-Print-Loop server
+
+var replServer = repl.start({prompt: "--> "});
+
+replServer.context.LW = LW;
+
+
+
+replServer.defineCommand('lw2help', {
+  help: 'LearnWords2 commands',
+  action: function(name) {
+    printLWHelp();
+    this.displayPrompt();
+  }
+});
+
+replServer.defineCommand('qw',{help: '(LW.question()).word', action: function() {
+  console.log((LW.question()).word);
+  this.displayPrompt();
+  }
 });
 
 
-rl.question(aWord.word + " = ", function(answer) {
-     answer = answer.toString().trim();
-
-     if (answer == LW.answer()) 
-		{console.log('OK'); 
-                 LW.moveQuestionForward()}
-     else {console.log('the correct answer is:', LW.answer()); 
-           LW.moveQuestionBackwards()};
-rl.close();
-})
-} else {console.log('As of now there are no more words to repeat.')};
+replServer.defineCommand('qo',{help: 'LW.question()', action: function() {
+  console.log(LW.question());
+  this.displayPrompt();
+  }
+});
 
 
-// currently only one question is asked and then the program quits.
-// you have to restart the program to get the next question.
-// 
-// the db entries are in the 'scratch' subdirectory
+
+replServer.defineCommand('a', function() {
+  console.log(LW.answer());
+  this.displayPrompt();
+});
+
+
+replServer.defineCommand('ok', function() {
+  LW.moveQuestionForward();
+  this.displayPrompt();
+});
+
+
+replServer.defineCommand('nok', function() {
+  LW.moveQuestionBackwards();
+  this.displayPrompt();
+});
