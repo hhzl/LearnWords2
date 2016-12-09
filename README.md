@@ -3,6 +3,11 @@ A vocabulary learning component using the Leitner system
 
 ## Aim
 
+This project supplies an object which keeps a collection of vocabulary questions. A vocabulary question is picked at random and then a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
+
+This is known as [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition).
+
+
 This project aims at implementing the Non-GUI part of a system like 
 https://github.com/e1r0nd/LearnWords
 
