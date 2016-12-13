@@ -15,6 +15,7 @@ describe("BoxOfQuestions construction", function() {
 
     // construction
     var LW = new BoxOfQuestions(new LWdb('learnWords'));
+
     LW.db.loadWords(wordlist);
  
 
@@ -26,6 +27,7 @@ describe("BoxOfQuestions construction", function() {
 
     expect(LW.db.dbName).toBe("learnWords");
     expect(LW.db.numberOfWords()).toBeNumber(10);
+
 
   });
 
@@ -289,9 +291,23 @@ describe("BoxOfQuestions", function() {
         // returns a random object from anArray.
 
         expect(wordlist).toBeArray();
-        expect(LW.chooseRandomObject(wordlist)).toBeObject(); 
+
+        var _id;
+        var sum = 0;
+
+        for(var i = 0; i < 2000; i++){
+        _id = (LW.chooseRandomObject(wordlist))._id;
+
+        expect(_id >=1).toBe(true); 
+        expect(_id <=12).toBe(true);
+        sum = sum + _id;
+        }
+
+        console.log();
+
+        expect(sum/2000 >=6.4).toBe(true); 
+        expect(sum/2000 <=6.6).toBe(true);
         
-        // FIXME add more expect
   });
 
 

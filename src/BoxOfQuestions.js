@@ -26,7 +26,8 @@ function BoxOfQuestions(db) {
             // if _question is null then go for a new one.
 
             if (!_question) {
-                 _question = that.chooseRandomObject(this.wordsToRepeat())
+                 var r = this.wordsToRepeat();
+                 _question = that.chooseRandomObject(r)
                  return _question
             } else
             {
