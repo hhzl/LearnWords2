@@ -7,7 +7,6 @@ module.exports = function(grunt) {
 
   var BUILD_DIR = 'public/js';
   var DIST_DIR = 'dist';
-  var PORT = 8000;
   
   // Project configuration.
   grunt.initConfig({
@@ -21,7 +20,7 @@ module.exports = function(grunt) {
     },
     "jasmine":{
       browser: {
-        src: path.join('spec','support','jasmine.json'),
+        src: path.join('spec','support','Jasmine.json'),
         dest: path.join(BUILD_DIR,'jasmine-bundle.js')
       }
     },
@@ -53,12 +52,16 @@ module.exports = function(grunt) {
     connect:{
       dev: {
         options: {
-          base: 'public',
-          port: PORT,
+          base: {
+            path: 'public',
+            options: {
+              index: 'SpecRunner.html'
+            }
+          },
+          hostname: '*',
           livereload: true,
-          open: {
-            target: 'http://localhost:'+PORT+'/specRunner.html'
-          }
+          open: true,
+          useAvailablePort: true,
         }
       }
     }
