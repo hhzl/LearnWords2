@@ -165,7 +165,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-  xit("should be able to give a question", function() {
+  it("should be able to give a question", function() {
 
     expect(LW).not.toBe(null);
     expect(LW).toHaveMethod("question");
@@ -188,9 +188,7 @@ describe("BoxOfQuestions", function() {
     var id1 = q._id;
     var r1 = LW.wordsToRepeat();
     expect(r1).toBeArray();
-    console.log(r1);
     var n1 = r1.length;
-    console.log("n1=",n1);
 
     LW.moveQuestionForward();
     // This means the question has been answered
@@ -207,13 +205,7 @@ describe("BoxOfQuestions", function() {
     var r2 = LW.wordsToRepeat();
     expect(r2).toBeArray();
     var n2 = r2.length;
-    console.log("n2=",n2);
     expect(n2).toBe(n1-1); 
-
-/*  FIXME
-    // add expect code here
-    // date should be >= today
-*/
 
 
   });

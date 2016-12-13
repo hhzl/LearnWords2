@@ -13,7 +13,9 @@ function BoxOfQuestions(db) {
 
         // initialize values
         var _question = null; // no current question
-        var _wordsToRepeat = []; // words which are eligible to be repeated.
+        var _wordsToRepeat = null; // words which are eligible to be repeated.
+                                   // initialisation to null forces calculation 
+                                   // on first call of wordsToRepeat()
         var that = this;
 
 
@@ -46,12 +48,13 @@ function BoxOfQuestions(db) {
 
         this._questionHasBeenProcessed = function(){
 
-                // This will trigger a new question, when LW.question()
-                // is called the next time.
-
                _question = null; 
 
-	       console.log("_questionHasBeenProcessed, ", (that.wordsToRepeat()).length); // recalculate collection
+               // This will trigger a new question, when LW.question()
+               // is called the next time.
+
+               
+	       
         };
 
 
@@ -173,17 +176,19 @@ function BoxOfQuestions(db) {
                return (aWord.step >= lowestStep) && (todayNow >= aWord.date);
           }
 
-          if (_question) { // we have a question, thus return the cached value
-                           return _wordsToRepeat}
-          else { // re-calculate array
-                            return (that.db.allWords()).filter(isToBeRepeated);
-          }  		
+          
+
+          if (_question == null || _wordsToRepeat == null) { 
+                // _question == null means that either a question has never
+                // been asked before or that a question has been asked and
+                // processed but no new question yet has been picked.
+                // In both cases a new _wordsToRepeat collection is necessary.
+
+                _wordsToRepeat = (that.db.allWords()).filter(isToBeRepeated)
+          };
+
+          return _wordsToRepeat;
        };
-
-
-       var r = this.wordsToRepeat(); // force calculation for the first time.
-       var n = r.length;
-       console.log("creation, n(wordsToRepeat)=",n);
 
 }
 
