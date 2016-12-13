@@ -13,8 +13,7 @@ function BoxOfQuestions(db) {
 
         // initialize values
         var _question = null; // no current question
-        var _wordsToRepeat = []; // words which are eligilbe to be repeated.
-
+        var _wordsToRepeat = []; // words which are eligible to be repeated.
         var that = this;
 
 
@@ -52,7 +51,7 @@ function BoxOfQuestions(db) {
 
                _question = null; 
 
-	       that.wordsToRepeat(); // recalculate collection
+	       console.log("_questionHasBeenProcessed, ", (that.wordsToRepeat()).length); // recalculate collection
         };
 
 
@@ -122,7 +121,6 @@ function BoxOfQuestions(db) {
 
                 // calculate new date. This depends on which step the question is.
                 // And the delay calculation factor for that particular step.
-
                 _question.date = new Date().valueOf() + 
                                  s.delay * s.factorForDelayValue[_question.step];
 
@@ -147,7 +145,6 @@ function BoxOfQuestions(db) {
                
             }  
        };
-
 
 
 
@@ -184,6 +181,9 @@ function BoxOfQuestions(db) {
        };
 
 
+       var r = this.wordsToRepeat(); // force calculation for the first time.
+       var n = r.length;
+       console.log("creation, n(wordsToRepeat)=",n);
 
 }
 

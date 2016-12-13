@@ -94,6 +94,11 @@ describe("BoxOfQuestions", function() {
   });
 
 
+
+
+
+
+
   it("should have a helper function to get random integers", function(){
 
     expect(LW).not.toBe(null);
@@ -116,27 +121,51 @@ describe("BoxOfQuestions", function() {
 
 
 
+
+
+
   it("should be able to indicate which words are to be repeated", function() {
 
 
     // LW.wordsToRepeat(); issue #63
 
-    expect(LW).not.toBe(null);
-
-
-    
+    expect(LW).not.toBe(null);    
     expect(LW).toHaveMethod("wordsToRepeat");
 
-    LW.wordsToRepeat();
+    var r0 = LW.wordsToRepeat();
+    LW.question();
 
-    // FIXME
-    // What triggers the calculation of wordsToRepeat?
+    expect(r0.length).toBeNumber();
+    expect(r0.length).toBe(12);
+
+    LW.moveQuestionForward();
+
+    var r1 = LW.wordsToRepeat();
+    expect(r1.length).toBeNumber();
+    expect(r1.length).toBe(11);
+
+
+    LW.question();
+    LW.moveQuestionForward();
+
+    var r2 = LW.wordsToRepeat();
+    expect(r2.length).toBeNumber();
+    expect(r2.length).toBe(10);
+
+
+    LW.question();
+    LW.moveQuestionForward();
+
+    var r2 = LW.wordsToRepeat();
+    expect(r2.length).toBeNumber();
+    expect(r2.length).toBe(9);
+
 
   });
 
 
 
-  it("should be able to give a question", function() {
+  xit("should be able to give a question", function() {
 
     expect(LW).not.toBe(null);
     expect(LW).toHaveMethod("question");
@@ -150,6 +179,36 @@ describe("BoxOfQuestions", function() {
     expect(q).toHaveString("translate");
     expect(q).toHaveNumber("step");
     expect(q).toHaveNumber("date");
+
+    var todayNow = new Date();
+
+    expect(q.date <= todayNow).toBe(true);
+
+
+    var id1 = q._id;
+    var r1 = LW.wordsToRepeat();
+    expect(r1).toBeArray();
+    console.log(r1);
+    var n1 = r1.length;
+    console.log("n1=",n1);
+
+    LW.moveQuestionForward();
+    // This means the question has been answered
+    // correctly.
+    // Thus we should get a next question
+
+    q = LW.question();
+
+    // which is different from the previous one.
+    expect(q._id).not.toBe(id1);
+
+    // and the number of remaining questions should be
+    // one less.
+    var r2 = LW.wordsToRepeat();
+    expect(r2).toBeArray();
+    var n2 = r2.length;
+    console.log("n2=",n2);
+    expect(n2).toBe(n1-1); 
 
 /*  FIXME
     // add expect code here
