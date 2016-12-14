@@ -26,7 +26,9 @@ describe("BoxOfQuestions construction", function() {
     expect(LW).toBeObject();
 
     expect(LW.db.dbName).toBe("learnWords");
-    expect(LW.db.numberOfWords()).toBeNumber(10);
+    expect(LW.db.numberOfWords()).toBe(12);
+
+    expect((LW.wordsToRepeat()).length).toBe(12);
 
 
   });
@@ -58,7 +60,9 @@ describe("BoxOfQuestions construction", function() {
     expect(LW).toBeObject();
 
     expect(LW.db.dbName).toBe("learnWords");
-    expect(LW.db.numberOfWords()).toBeNumber(10);
+    expect(LW.db.numberOfWords()).toBe(12);
+
+    expect((LW.wordsToRepeat()).length).toBe(12);
 
   });
 
@@ -260,8 +264,8 @@ describe("BoxOfQuestions", function() {
         expect(updatedWord.date).toBeGreaterThan(new Date().valueOf());
 
         
-        expect(updatedWord.step).toBeNumber(0);
-        // this asuumes we do not have a learn mode yet
+        expect(updatedWord.step).toBe(0);
+        // this assumes we do not have a learn mode yet
 
   });
 
@@ -305,8 +309,8 @@ describe("BoxOfQuestions", function() {
 
         console.log();
 
-        expect(sum/2000 >=6.4).toBe(true); 
-        expect(sum/2000 <=6.6).toBe(true);
+        expect(sum/2000 >=6.3).toBe(true); 
+        expect(sum/2000 <=6.7).toBe(true);
         
   });
 
