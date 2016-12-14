@@ -295,9 +295,19 @@ describe("BoxOfQuestions", function() {
 
 	 expect(LW).toHaveMethod("moveQuestionForward");
 
+         var _id = q._id;
+         var step = q.step;
+         var date = q.date;
+
          LW.moveQuestionForward();
-         // FIXME add more expect statements
-         // read the question from the db and check for a later date
+
+         // get updated question object
+         q = LW.db.getWord(_id);
+
+         expect(_id == q._id).toBe(true);
+         expect(step + 1 == q.step).toBe(true);
+         expect(date < q.date).toBe(true);
+
   });
 
 
