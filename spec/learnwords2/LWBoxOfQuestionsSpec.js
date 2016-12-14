@@ -217,6 +217,18 @@ describe("BoxOfQuestions", function() {
   });
 
 
+  it("should be able to give questions until there are no more questions", function() {
+     var q;
+     var noOfQuestions = 0;
+      do {
+       q = LW.question();
+           LW.moveQuestionBackwards();
+           if(q) {// q is not null
+                  noOfQuestions =  noOfQuestions +1};
+      } while (q);
+   
+     expect(noOfQuestions).toBe(12);
+  });
 
 
   it("should be able to give an answer", function() {
