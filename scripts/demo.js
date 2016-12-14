@@ -39,7 +39,7 @@ var wordlist = require('../data/wordlist-en-ge.js');
 
 var LW = new BoxOfQuestions(new LWdb('learnWords'));
 
-if (LW.db.numberOfWords() == 0) {LW.db.loadWords(wordlist)};
+// if (LW.db.numberOfWords() == 0) {LW.db.loadWords(wordlist)};
  
 
 
@@ -53,6 +53,7 @@ console.log('\x1Bc');
 function printLWHelp(){
 console.log('LearnWords2 Read-Eval-Print-Loop');
 console.log('Commands');
+console.log('   type .lw for LW.db.loadWords(wordlist)');
 console.log('   type .qw for (LW.question()).word');
 console.log('   type .qo for LW.question()');
 console.log('   type .a  for LW.answer()');
@@ -91,6 +92,18 @@ replServer.defineCommand('lw2help', {
     this.displayPrompt();
   }
 });
+
+
+
+
+
+replServer.defineCommand('lw',{help: 'LW.db.loadWords(wordlist)', action: function() {
+  console.log(LW.db.loadWords(wordlist));
+  this.displayPrompt();
+  }
+});
+
+
 
 replServer.defineCommand('qw',{help: '(LW.question()).word', action: function() {
   console.log((LW.question()).word);

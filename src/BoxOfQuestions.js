@@ -7,7 +7,7 @@ function BoxOfQuestions(db) {
 
         // assign database
 	this.db = db;
-	this.name = db.name;
+	this.name = db.dbName;
 
 
 
@@ -21,19 +21,22 @@ function BoxOfQuestions(db) {
 
 
 
+
+
+
+
         this.question = function(){
             // gives back a question to ask
-            // if _question is null then go for a new one.
-
-            if (!_question) {
-                 var r = this.wordsToRepeat();
-                 _question = that.chooseRandomObject(r)
-                 return _question
-            } else
-            {
-              return _question // existing value
-            }
+            if (!_question) { 
+                 // _question is null, go for a new one.
+                 var wds = this.wordsToRepeat();
+                 if (!wds ==null) {_question = that.chooseRandomObject(wds)}
+            }; 
+            return _question 
         };
+
+
+
 
 
 

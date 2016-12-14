@@ -25,6 +25,7 @@ describe("BoxOfQuestions construction", function() {
 
     expect(LW).toBeObject();
 
+    expect(LW.name).toBe("learnWords");
     expect(LW.db.dbName).toBe("learnWords");
     expect(LW.db.numberOfWords()).toBe(12);
 
