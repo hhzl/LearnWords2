@@ -30,7 +30,7 @@ function BoxOfQuestions(db) {
             if (!_question) { 
                  // _question is null, go for a new one.
                  var wds = this.wordsToRepeat();
-                 if (!wds ==null) {_question = that.chooseRandomObject(wds)}
+                 if (wds != null) {_question = that.chooseRandomObject(wds)}
             }; 
             return _question 
         };
@@ -123,6 +123,7 @@ function BoxOfQuestions(db) {
 
 
        this.moveQuestionForward = function(){
+ 
             if (_question) { // we have a question
                  var s = that.db.getSettings();
 
@@ -142,8 +143,7 @@ function BoxOfQuestions(db) {
 
 
                 that.db.putWord(_question);
-
-
+ 
                 // As the question has a new later date it is no more 
                 // a current question
 

@@ -140,16 +140,16 @@ describe("BoxOfQuestions", function() {
     expect(LW).toHaveMethod("wordsToRepeat");
 
     var r0 = LW.wordsToRepeat();
-    LW.question();
 
     expect(r0.length).toBeNumber();
     expect(r0.length).toBe(12);
 
+    LW.question();
     LW.moveQuestionForward();
 
     var r1 = LW.wordsToRepeat();
     expect(r1.length).toBeNumber();
-    expect(r1.length).toBe(11);
+    expect("S"+r1.length).toBe("S"+11);
 
 
     LW.question();
