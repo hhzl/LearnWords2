@@ -235,7 +235,7 @@ LWdb.prototype.importFrom = function(theWords) {
         if (value==null) { 
             // define default value for settings    
             value = { "delay": 8640000, 
-                      "factorForDelayValue": [1,1,3,7],
+                      "factorForDelayValue": [1,1,3,7,45,90,360,1000],
                       "offerLearnMode": false
                       };
             // One day = 24h * 60m * 60s * 100μs
