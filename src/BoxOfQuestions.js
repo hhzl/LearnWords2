@@ -156,14 +156,14 @@ function BoxOfQuestions(db) {
                                  s.delay * s.factorForDelayValue[_question.step];
 
                 // With repeated calls to this method 
-                // the following will move the question up 
-                // just one step beyond the last step.
-                // A step value beyond the last step value will prevent the
-                // question appearing in the wordsToRepeat collection
-                // the next time wordsToRepeat is calculated.
+                // the following will move the question up. 
+                // 
 
                 _question.step = _question.step + 1;
 
+                // The assumption is that long delay values for higher steps 
+                // prevent an access error for 
+                //     s.factorForDelayValue[stepNumber]
 
                 this.db.putWord(_question);
  
