@@ -9,7 +9,6 @@ function BoxOfQuestions(db) {
         // private variables
 
         var _question = null; // no current question
-        var _noOfOptions = null;
         var _wordsToRepeat = null; // words which are eligible to be repeated.
                                    // initialisation to null forces calculation 
                                    // on first call of wordsToRepeat()
@@ -43,12 +42,6 @@ function BoxOfQuestions(db) {
 
 
 
-        var _numberOfOptions = function() {
-          if (_noOfOptions == null) {
-              _noOfOptions = (db.getSettings()).numberOfOptions;
-              }
-          return _noOfOptions
-        }
 
 
 
@@ -209,11 +202,11 @@ function BoxOfQuestions(db) {
           // numbers called idsOfOptions and an array of objects called
           // options.
 
-          var n = _numberOfOptions();
+          var n = (db.getSettings()).numberOfOptions;
           
           var options = [];
         
-          if (db.numberOfWords() > n) {
+          if (db.numberOfWords() >= n) {
              
              var q = this.question();
              options.push(q);

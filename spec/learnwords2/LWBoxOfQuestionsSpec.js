@@ -285,6 +285,11 @@ describe("BoxOfQuestions", function() {
     expect((LW.wordsToRepeat()).length > 0).toBe(true);
 
 
+    // default value
+
+    expect((LW.db.getSettings()).numberOfOptions).toBe(4);
+
+
     var question = LW.question();
 
     // check availability of numberOfOptions property
