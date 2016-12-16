@@ -10,6 +10,8 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 describe("Database LWdb", function() {
 
+  var lwdb;
+
   beforeAll(function(){
     this.wordList = wordList;
   });
@@ -26,22 +28,31 @@ describe("Database LWdb", function() {
     }
 
     localStorage.clear();
-    this.db = LWdb("LearnWords");
+    lwdb = LWdb("LearnWords");
   });
 
 
   afterEach(function(){
-    this.db.destroy();
+    lwdb.destroy();
   });
 
 
   it("should be able to create a DB", function() {
 
-    expect(this.db).toBeObject();
+    expect(lwdb).toBeObject();
     
-    expect(this.db).toHaveString("dbName");
-    expect(this.db.dbName).toBe("LearnWords");
-    expect(this.db).toHaveArray("_keysOfAllWords");
+    expect(lwdb).toHaveString("dbName");
+    expect(lwdb.dbName).toBe("LearnWords");
+
+
+    expect(lwdb).toHaveMethod("putWord");
+    expect(lwdb).toHaveMethod("getWord");
+    expect(lwdb).toHaveMethod("importFrom");
+    expect(lwdb).toHaveMethod("loadWords");
+    expect(lwdb).toHaveMethod("keysOfAllWords");
+
+    // FIXME
+    // add more methods
 
   });
 
@@ -49,17 +60,17 @@ describe("Database LWdb", function() {
 
   it("should be able to answer if persistent storage is available", function() {
 
-    expect(this.db).toHaveMethod("persistentStorageOK");
-    expect(this.db.persistentStorageOK()).toBeTrue();
+    expect(lwdb).toHaveMethod("persistentStorageOK");
+    expect(lwdb.persistentStorageOK()).toBeTrue();
 
   });
 
 
   it("should be able to reinitialize the persistent storage", function() {
     
-    this.db.removeWords();
-    expect(this.db).toHaveMethod("numberOfWords");
-    expect(this.db.numberOfWords()).toBe(0);
+    lwdb.removeWords();
+    expect(lwdb).toHaveMethod("numberOfWords");
+    expect(lwdb.numberOfWords()).toBe(0);
 
   });
 
@@ -68,18 +79,18 @@ describe("Database LWdb", function() {
   describe("deals with words;", function() {
 
     it("should be able to answer the number of words", function() {
-      expect(this.db.numberOfWords()).toBe(0);
+      expect(lwdb.numberOfWords()).toBe(0);
     });
 
 
     it("should be able to store a new word", function() {
       // Inserts a new document, or new version of an existing document
-      expect(this.db.numberOfWords()).toBe(0);
+      expect(lwdb.numberOfWords()).toBe(0);
       var i = parseInt(Math.floor(Math.random()*this.wordList.length));
       var aWord = this.wordList[i];
       aWord._id = (i+1);
-      this.db.putWord(aWord);
-      expect(this.db.numberOfWords()).toBe(1);
+      lwdb.putWord(aWord);
+      expect(lwdb.numberOfWords()).toBe(1);
     });
 
 
@@ -91,10 +102,10 @@ describe("Database LWdb", function() {
         "translate": "die Melone"
       };
 
-      expect(this.db.numberOfWords()).toBe(0);
-      this.db.putWord(newWord);
-      expect(this.db.numberOfWords()).toBe(1);
-      var r = this.db.getWord(1);
+      expect(lwdb.numberOfWords()).toBe(0);
+      lwdb.putWord(newWord);
+      expect(lwdb.numberOfWords()).toBe(1);
+      var r = lwdb.getWord(1);
       expect(r).toBeObject();
 
       expect(r).toHaveNumber("_id");
@@ -122,11 +133,11 @@ describe("Database LWdb", function() {
       for(var i = 0; i < n; i++){
         aWord = this.wordList[i];
         aWord._id = (i+1);
-        this.db.putWord(aWord);
+        lwdb.putWord(aWord);
       }
-      expect(this.db.numberOfWords()).toBe(n);
-      this.db.removeWords();
-      expect(this.db.numberOfWords()).toBe(0);
+      expect(lwdb.numberOfWords()).toBe(n);
+      lwdb.removeWords();
+      expect(lwdb.numberOfWords()).toBe(0);
 
     });
 
@@ -145,18 +156,18 @@ describe("Database LWdb", function() {
       for(var i = 0; i < n; i++){
         aWord = this.wordList[i];
         aWord._id = (i+1);
-        this.db.putWord(aWord);
+        lwdb.putWord(aWord);
       }
 
 
       // run
 
-      var r = this.db.keysOfAllWords();
+      var r = lwdb.keysOfAllWords();
 
 
       // check result
       expect(r).toBeArrayOfStrings();
-      expect(r.length).toBe(this.db.numberOfWords());
+      expect(r.length).toBe(lwdb.numberOfWords());
        
       for(var i = 0; i < r.length; i++){
         expect(r[i]).toBe("LearnWords-wd-"+(i+1));
@@ -183,22 +194,22 @@ describe("Database LWdb", function() {
       for(var i = 0; i < n; i++){
         aWord = this.wordList[i];
         aWord._id = (i+1);
-        this.db.putWord(aWord);
+        lwdb.putWord(aWord);
       }
 
-      expect(this.db.numberOfWords()).toBe(n);
+      expect(lwdb.numberOfWords()).toBe(n);
 
 
 
       // run
 
-      var r = this.db.allWords();
+      var r = lwdb.allWords();
 
 
       // check
 
       expect(r).toBeArray();
-      expect(r.length).toBe(this.db.numberOfWords());
+      expect(r.length).toBe(lwdb.numberOfWords());
       expect(r.length).toBe(n);
 
       for(var i = 0; i < r.length; i++){
@@ -237,22 +248,22 @@ describe("Database LWdb", function() {
     it("should be able to import words", function() {
 
       // setup
-      this.db.removeWords();
-      expect(this.db.numberOfWords()).toBe(0);
+      lwdb.removeWords();
+      expect(lwdb.numberOfWords()).toBe(0);
 
-      expect(this.db).toHaveMethod("importFrom");
+      expect(lwdb).toHaveMethod("importFrom");
       var theWordList = this.wordList;
       expect(theWordList).toBeArrayOfObjects();
 
 
       // run
 
-      this.db.importFrom(theWordList);
+      lwdb.importFrom(theWordList);
 
       
       // check
 
-      var keys = this.db.keysOfAllWords(); 
+      var keys = lwdb.keysOfAllWords(); 
       expect(keys.length).toBe(theWordList.length);
 
     });
@@ -264,15 +275,15 @@ describe("Database LWdb", function() {
       // Is this a duplicate?
 
       // setup
-      this.db.removeWords();
-      expect(this.db.numberOfWords()).toBe(0);
+      lwdb.removeWords();
+      expect(lwdb.numberOfWords()).toBe(0);
       
-      this.db.importFrom(this.wordList);
-      expect(this.db.numberOfWords()).toBe(this.wordList.length);
+      lwdb.importFrom(this.wordList);
+      expect(lwdb.numberOfWords()).toBe(this.wordList.length);
 
 
       // run
-      var keys = this.db.keysOfAllWords();
+      var keys = lwdb.keysOfAllWords();
 
 
       // check
@@ -291,7 +302,7 @@ describe("Database LWdb", function() {
   describe("LWdb deals with settings", function() {
 
     it("should be able to answer settings", function() {
-      var settings = this.db.getSettings();
+      var settings = lwdb.getSettings();
       expect(settings).not.toBe(null);
       expect(settings).toBeObject();
     });
@@ -299,10 +310,10 @@ describe("Database LWdb", function() {
 
     it("should be able to store settings", function() {
       // test needs improvement
-      var settings = this.db.getSettings();
+      var settings = lwdb.getSettings();
       settings.factorForDelayValue[3] = 6;
-      this.db.putSettings(settings);
-      settings = this.db.getSettings();
+      lwdb.putSettings(settings);
+      settings = lwdb.getSettings();
       expect(settings).toBeObject();
       expect(settings).toHaveArray("factorForDelayValue");
       expect(settings.factorForDelayValue[3]).toBe(6);

@@ -25,10 +25,19 @@ describe("BoxOfQuestions construction", function() {
 
     expect(LW).toBeObject();
 
-    // FIXME
-    // expect(LW.name).toBe("learnWords");
+    expect(LW.name).toBe("learnWords");
+
+    expect(LW).toHaveObject("db");
     expect(LW.db.dbName).toBe("learnWords");
     expect(LW.db.numberOfWords()).toBe(12);
+
+
+    expect(LW).toHaveMethod("question");
+    expect(LW).toHaveMethod("answer");
+    expect(LW).toHaveMethod("moveQuestionForward");
+    expect(LW).toHaveMethod("moveQuestionBackwards");
+
+    expect(LW).toHaveMethod("wordsToRepeat");
 
     expect((LW.wordsToRepeat()).length).toBe(12);
 

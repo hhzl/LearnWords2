@@ -114,7 +114,7 @@ var LWdb = function(name) {
 
 
     var _removeObjects = function(aKeyPrefix){
-        if (isOK) {
+        if (!!localStorage) {   // this.isOK()
             var key;
             var st; 
             var keysToDelete = [];
@@ -149,6 +149,7 @@ var LWdb = function(name) {
 
     return {
 
+    dbName : name,
 
     putSettings : function(anObject) {
         
@@ -162,7 +163,7 @@ var LWdb = function(name) {
 
 
     removeWords : function() {
-        var keys = keysOfAllWords(); 
+        var keys = this.keysOfAllWords(); 
         for (var i = 0; i < keys.length; i++){
             localStorage.removeItem(keys);
         }
@@ -190,7 +191,7 @@ var LWdb = function(name) {
 
 
       isOK : function() {
-         return persistentStorageOK();
+         return this.persistentStorageOK();
       },
 
 
@@ -203,7 +204,7 @@ var LWdb = function(name) {
        var key = dbName+'-numberOfWords';
         var r = 0;
 
-        if (isOK) {
+        if (this.isOK()) {
             r = localStorage.getItem(key);
             if (r == null) {
                 localStorage.setItem(key,'0'); 
@@ -294,8 +295,6 @@ var LWdb = function(name) {
 
 
     loadWords : function(theWords) {
-        // FIXME
-        console.log ("db.loadWords");
         this.importFrom(theWords);
     },
 
@@ -326,7 +325,7 @@ var LWdb = function(name) {
 
 
     allWords : function() {
-        var keys = keysOfAllWords();
+        var keys = this.keysOfAllWords();
         var words = [];
         for(var i = 0; i < keys.length; i++){
             var str = localStorage.getItem(keys[i]);
@@ -356,7 +355,7 @@ var LWdb = function(name) {
             // the delay has been shortened to 1 day/100 for test purposes.
             // this is used to calculate the new date after a
             // word has been answered correctly.
-            putSettings(value);
+            this.putSettings(value);
             return value
         } else {
             return JSON.parse(value)
