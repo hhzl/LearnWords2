@@ -244,6 +244,11 @@ describe("BoxOfQuestions", function() {
   });
 
 
+
+
+
+
+
   it("should be able to give an answer", function() {
 
     expect(LW).not.toBe(null);
@@ -263,11 +268,62 @@ describe("BoxOfQuestions", function() {
 
 
 
+
+
+
+
+
+
  it("should be able to give answer options", function() {
 
+
+    // Check API
     expect(LW).not.toBe(null);
 
     expect(LW).toHaveMethod("getAnswerOptions");
+
+    expect((LW.wordsToRepeat()).length > 0).toBe(true);
+
+
+    var question = LW.question();
+
+    // check availability of numberOfOptions property
+    var settings = LW.db.getSettings();
+    expect(settings).toBeObject();
+    expect(settings).toHaveNumber("numberOfOptions");
+ 
+
+
+    // check number of options
+
+    var n = settings.numberOfOptions;
+
+    var options = LW.getAnswerOptions();
+
+    expect(options.length).toBe(n);
+
+
+
+    // verify is all _ids of all elements 
+    // in options are different
+
+    var idOptionsSet = new Set();
+
+    options.forEach(function(element) {
+       idOptionsSet.add(element._id);
+    });
+    
+    expect(idOptionsSet.size).toBe(n);
+    
+
+
+
+    // Check it question is included in answerOptions
+   
+    expect(idOptionsSet.has(question._id)).toBe(true);
+
+
+
 
     // FIXME add more expect statements
 

@@ -9,6 +9,7 @@ function BoxOfQuestions(db) {
         // private variables
 
         var _question = null; // no current question
+        var _noOfOptions = null;
         var _wordsToRepeat = null; // words which are eligible to be repeated.
                                    // initialisation to null forces calculation 
                                    // on first call of wordsToRepeat()
@@ -39,6 +40,15 @@ function BoxOfQuestions(db) {
              
     		return Math.floor(Math.random() * (max - min + 1)) + min;
 	};
+
+
+
+        var _numberOfOptions = function() {
+          if (_noOfOptions == null) {
+              _noOfOptions = (db.getSettings()).numberOfOptions;
+              }
+          return _noOfOptions
+        }
 
 
 
@@ -193,7 +203,42 @@ function BoxOfQuestions(db) {
 
 
        getAnswerOptions : function(numberOfOptions){
-          throw new Error("not yet implemented");
+          // simple implementation : choose from all available words
+          // As we use ECMA5script findIndex is not available.
+          // We have to duplicate the effort in keeping an array of id
+          // numbers called idsOfOptions and an array of objects called
+          // options.
+
+          var n = _numberOfOptions();
+          
+          var options = [];
+        
+          if (db.numberOfWords() > n) {
+             
+             var q = this.question();
+             options.push(q);
+
+	     var idsOfOptions = [];
+             idsOfOptions.push(q._id);
+             
+             var anOption;
+             var allWords =  this.db.allWords();  
+            
+             do {
+                // choose option from all words.
+                anOption = this.chooseRandomObject(allWords);
+
+                if (idsOfOptions.indexOf(anOption._id) == -1) {
+                        // the new option is not included yet
+			idsOfOptions.push(anOption._id);
+                        options.push(anOption)
+               }
+           
+             } while (options.length < n);
+
+
+          };
+          return options
        },
 
 

@@ -1,26 +1,8 @@
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // NOTE: pay special attention to how the number of Words is calculated
+// FIXME
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -348,6 +330,7 @@ var LWdb = function(name) {
         if (value==null) { 
             // define default value for settings    
             value = { "delay": 8640000, 
+                      "numberOfOptions": 4,
                       "factorForDelayValue": [1,1,3,7,45,90,360,1000],
                       "offerLearnMode": false
                       };
