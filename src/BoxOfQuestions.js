@@ -6,8 +6,6 @@ var LWdb = require('./LWdb');
 function BoxOfQuestions(db) {
 
         // assign database
-	this.db = db;
-	this.name = db.dbName;
 
 
 
@@ -16,54 +14,19 @@ function BoxOfQuestions(db) {
         var _wordsToRepeat = null; // words which are eligible to be repeated.
                                    // initialisation to null forces calculation 
                                    // on first call of wordsToRepeat()
-        var that = this;
 
-
-
-
-
-
-
-
-        this.question = function(){
-            // gives back a question to ask
-            if (!_question) { 
-                 // _question is null, go for a new one.
-                 var wds = this.wordsToRepeat();
-                 if (wds != null) {_question = that.chooseRandomObject(wds)}
-            }; 
-            return _question 
-        };
-
-
-
-
-
-
-
-        this.answer = function(){
-            return (this.question()).translate;
-        };
-
-
-
-
-
-
-        this._questionHasBeenProcessed = function(){
+        var _questionHasBeenProcessed = function(){
 
                _question = null; 
 
                // This will trigger a new question, when LW.question()
                // is called the next time.
-
-               
 	       
         };
 
 
 
-        this._getRandomInt = function(min, max){
+        var _getRandomInt = function(min, max){
              // Returns a random integer between min (inclusive) and max (inclusive)
              // Using Math.round() will give you a non-uniform distribution!
              
@@ -71,25 +34,72 @@ function BoxOfQuestions(db) {
 	};
 
 
-	this.chooseRandomObject = function(anArray){
-                return anArray[that._getRandomInt(0,anArray.length-1)];
-	};
 
 
 
-        this.moveQuestionBackwards = function(){
+
+
+        // ===============================================================================
+        // literal object
+        // ===============================================================================
+
+
+        return {
+
+
+	db : db,
+
+	name : db.dbName,
+
+
+
+
+
+	chooseRandomObject : function(anArray){
+                return anArray[_getRandomInt(0,anArray.length-1)];
+	},
+
+
+
+
+        question : function(){
+            // gives back a question to ask
+            if (!_question) { 
+                 // _question is null, go for a new one.
+                 var wds = this.wordsToRepeat();
+                 if (wds != null) {_question = this.chooseRandomObject(wds)}
+            }; 
+            return _question 
+        },
+
+
+
+
+
+
+
+
+        answer :function(){
+            return (this.question()).translate;
+        },
+
+
+
+
+
+       moveQuestionBackwards : function(){
             if (_question) { // we have a question
 
 
                 // set new date for asking the question again;
                 // this has to be a a delay period later.
 
-                _question.date = new Date().valueOf() + (that.db.getSettings()).delay;
+                _question.date = new Date().valueOf() + (this.db.getSettings()).delay;
 
 
                 // put the question back at the correct step
 
-                var s = that.db.getSettings();
+                var s = this.db.getSettings();
 
                 if (s.offerLearnMode) { _question.step = 1;
                                        // step 0 is the learnmode, thus do not put
@@ -109,23 +119,22 @@ function BoxOfQuestions(db) {
                 // With the result being not less than 1 or 0 depending on offerLearnMode.
 
 
-                that.db.putWord(_question);
+                this.db.putWord(_question);
 
                 // As the question has a new later date it is no more 
                 // a current question
 
-                that._questionHasBeenProcessed();
+                _questionHasBeenProcessed();
             }
-        };
+        },
 
 
 
 
-
-       this.moveQuestionForward = function(){
+       moveQuestionForward : function(){
  
             if (_question) { // we have a question
-                 var s = that.db.getSettings();
+                 var s = this.db.getSettings();
 
                 // calculate new date. This depends on which step the question is.
                 // And the delay calculation factor for that particular step.
@@ -142,27 +151,61 @@ function BoxOfQuestions(db) {
                 _question.step = _question.step + 1;
 
 
-                that.db.putWord(_question);
+                this.db.putWord(_question);
  
                 // As the question has a new later date it is no more 
                 // a current question
 
-                that._questionHasBeenProcessed();
+                _questionHasBeenProcessed();
 
                
             }  
-       };
+       },
+
+
+
+
+      importFrom : function(anArrayOfObjects){
+       this.db.importFrom(anArrayOfObjects);
+       },
+
+
+
+       getAnswerOptions : function(numberOfOptions){
+          throw new Error("not yet implemented");
+       },
+
+
+
+       config : function(config){
+          throw new Error("not yet implemented");
+       },
+
+
+
+       status : function(){
+         // give the number of words in the whole box
+         // and the number of words in wordsToRepeat
+
+         var status = {};
+         status.numberOfWords = this.db.numberOfWords();
+
+          // FIXME add more content to status
+  
+         return status
+       },
 
 
 
 
 
-       this.wordsToRepeat = function(){
+
+       wordsToRepeat : function(){
 
           var lowestStep;
           var todayNow = new Date().valueOf();
 
-          var s = that.db.getSettings();
+          var s = this.db.getSettings();
 
           if (s.offerLearnMode) { 
                                   lowestStep = 1
@@ -188,47 +231,19 @@ function BoxOfQuestions(db) {
                 // processed but no new question yet has been picked.
                 // In both cases a new _wordsToRepeat collection is necessary.
 
-                _wordsToRepeat = (that.db.allWords()).filter(isToBeRepeated)
+                _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated)
           };
 
           return _wordsToRepeat;
-       };
+       }
+
+
+
+        }
 
 }
 
 
-BoxOfQuestions.prototype.importFrom = function(anArrayOfObjects){
-     this.db.importFrom(anArrayOfObjects);
-};
-
-
-
-
-
-
-BoxOfQuestions.prototype.getAnswerOptions = function(numberOfOptions){
-  throw new Error("not yet implemented");
-};
-
-
-
-BoxOfQuestions.prototype.config = function(config){
-  throw new Error("not yet implemented");
-};
-
-
-
-BoxOfQuestions.prototype.status = function(){
-  // give the number of words in the whole box
-  // and the number of words in wordsToRepeat
-
-  var status = {};
-  status.numberOfWords = this.db.numberOfWords();
-
-  // FIXME add more content to status
-  
-  return status
-};
 
 
 

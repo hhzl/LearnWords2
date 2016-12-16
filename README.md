@@ -46,9 +46,13 @@ Code:
 "use strict";
 var LW = function(){
 
-	var db = new LWdb('learnWords');
+	var db = LWdb('learnWords');
 
-	var box = new LWBoxOfQuestions(db);
+	var box = LWBoxOfQuestions(db);
+         
+        // configuration
+
+        box.importFrom(wordlist);
 
 	return box
 }();
@@ -61,10 +65,10 @@ The return value of the function is of interest. It is assigned to the global LW
 
 If there is no configuration of the db you could as well just do
 
+
 ````JavaScript
-
-var LW = new LWBoxOfQuestions(new LWdb('learnWords'));
-
+var LW = LWBoxOfQuestions(LWdb('learnWords'));
+    LW.importFrom(wordlist);
 
 ````
 
