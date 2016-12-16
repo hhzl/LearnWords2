@@ -1,65 +1,37 @@
 
+
 function BoxOfQuestions(db) {
 
-        // assign database
-	this.db = db;
-	this.name = db.dbName;
 
+        // private variables
 
-
-        // initialize values
         var _question = null; // no current question
+        var _noOfOptions = null;
         var _wordsToRepeat = null; // words which are eligible to be repeated.
                                    // initialisation to null forces calculation 
                                    // on first call of wordsToRepeat()
-        var that = this;
 
 
 
 
 
 
+        // private methods
 
-
-        this.question = function(){
-            // gives back a question to ask
-            if (!_question) { 
-                 // _question is null, go for a new one.
-                 var wds = this.wordsToRepeat();
-                 if (wds != null) {_question = that.chooseRandomObject(wds)}
-            }; 
-            return _question 
-        };
-
-
-
-
-
-
-
-        this.answer = function(){
-            return (this.question()).translate;
-        };
-
-
-
-
-
-
-        this._questionHasBeenProcessed = function(){
+        var _questionHasBeenProcessed = function(){
 
                _question = null; 
 
                // This will trigger a new question, when LW.question()
                // is called the next time.
-
-               
 	       
         };
 
 
 
-        this._getRandomInt = function(min, max){
+
+
+        var _getRandomInt = function(min, max){
              // Returns a random integer between min (inclusive) and max (inclusive)
              // Using Math.round() will give you a non-uniform distribution!
              
@@ -67,30 +39,89 @@ function BoxOfQuestions(db) {
 	};
 
 
-	this.chooseRandomObject = function(anArray){
-                return anArray[that._getRandomInt(0,anArray.length-1)];
-	};
+
+        var _numberOfOptions = function() {
+          if (_noOfOptions == null) {
+              _noOfOptions = (db.getSettings()).numberOfOptions;
+              }
+          return _noOfOptions
+        }
 
 
 
-        this.moveQuestionBackwards = function(){
+
+
+
+
+
+
+        // ===============================================================================
+        // literal object
+        // ===============================================================================
+
+
+        return {
+
+
+	db : db,
+
+	name : db.dbName,
+
+
+
+
+
+	chooseRandomObject : function(anArray){
+                return anArray[_getRandomInt(0,anArray.length-1)];
+	},
+
+
+
+
+        question : function(){
+            // gives back a question to ask
+            if (!_question) { 
+                 // _question is null, go for a new one.
+                 var wds = this.wordsToRepeat();
+                 if (wds != null) {_question = this.chooseRandomObject(wds)}
+            }; 
+            return _question 
+        },
+
+
+
+
+
+
+
+
+        answer :function(){
+            return (this.question()).translate;
+        },
+
+
+
+
+
+
+       moveQuestionBackwards : function(){
             if (_question) { // we have a question
 
 
                 // set new date for asking the question again;
                 // this has to be a a delay period later.
 
-                _question.date = new Date().valueOf() + (that.db.getSettings()).delay;
+                _question.date = new Date().valueOf() + (this.db.getSettings()).delay;
 
 
                 // put the question back at the correct step
 
-                var s = that.db.getSettings();
+                var s = this.db.getSettings();
 
                 if (s.offerLearnMode) { _question.step = 1;
                                        // step 0 is the learnmode, thus do not put
                                        // it at step 0 
-                                       // step 1 is the lowest step of the learn mode.
+                                       // step 1 is the lowest step of the repeat mode.
                                       }
                 else { // treat all the steps the same way, as repeat mode
                        // thus the lowest step value is 0
@@ -105,23 +136,26 @@ function BoxOfQuestions(db) {
                 // With the result being not less than 1 or 0 depending on offerLearnMode.
 
 
-                that.db.putWord(_question);
+                this.db.putWord(_question);
 
                 // As the question has a new later date it is no more 
                 // a current question
 
-                that._questionHasBeenProcessed();
+                _questionHasBeenProcessed();
             }
-        };
+        },
 
 
 
 
 
-       this.moveQuestionForward = function(){
+
+
+
+       moveQuestionForward : function(){
  
             if (_question) { // we have a question
-                 var s = that.db.getSettings();
+                 var s = this.db.getSettings();
 
                 // calculate new date. This depends on which step the question is.
                 // And the delay calculation factor for that particular step.
@@ -129,36 +163,122 @@ function BoxOfQuestions(db) {
                                  s.delay * s.factorForDelayValue[_question.step];
 
                 // With repeated calls to this method 
-                // the following will move the question up 
-                // just one step beyond the last step.
-                // A step value beyond the last step value will prevent the
-                // question appearing in the wordsToRepeat collection
-                // the next time wordsToRepeat is calculated.
+                // the following will move the question up. 
+                // 
 
                 _question.step = _question.step + 1;
 
+                // The assumption is that long delay values for higher steps 
+                // prevent an access error for 
+                //     s.factorForDelayValue[stepNumber]
 
-                that.db.putWord(_question);
+                this.db.putWord(_question);
  
                 // As the question has a new later date it is no more 
                 // a current question
 
-                that._questionHasBeenProcessed();
+                _questionHasBeenProcessed();
 
                
             }  
-       };
+       },
 
 
 
 
 
-       this.wordsToRepeat = function(){
+
+      importFrom : function(anArrayOfObjects){
+       this.db.importFrom(anArrayOfObjects);
+       },
+
+
+
+
+
+
+
+
+       getAnswerOptions : function(numberOfOptions){
+          // simple implementation : choose from all available words
+          // As we use ECMA5script findIndex is not available.
+          // We have to duplicate the effort in keeping an array of id
+          // numbers called idsOfOptions and an array of objects called
+          // options.
+
+          var n = _numberOfOptions();
+          
+          var options = [];
+        
+          if (db.numberOfWords() > n) {
+             
+             var q = this.question();
+             options.push(q);
+
+	     var idsOfOptions = [];
+             idsOfOptions.push(q._id);
+             
+             var anOption;
+             var allWords =  this.db.allWords();  
+            
+             do {
+                // choose option from all words.
+                anOption = this.chooseRandomObject(allWords);
+
+                if (idsOfOptions.indexOf(anOption._id) == -1) {
+                        // the new option is not included yet
+			idsOfOptions.push(anOption._id);
+                        options.push(anOption)
+               }
+           
+             } while (options.length < n);
+
+
+          };
+          return options
+       },
+
+
+
+
+
+
+
+       config : function(config){
+          throw new Error("not yet implemented");
+       },
+
+
+
+
+
+
+
+       status : function(){
+         // give the number of words in the whole box
+         // and the number of words in wordsToRepeat
+
+         var status = {};
+         status.numberOfWords = this.db.numberOfWords();
+
+          // FIXME add more content to status
+  
+         return status
+       },
+
+
+
+
+
+
+
+
+       wordsToRepeat : function(){
 
           var lowestStep;
           var todayNow = new Date().valueOf();
 
-          var s = that.db.getSettings();
+          var s = this.db.getSettings();
 
           if (s.offerLearnMode) { 
                                   lowestStep = 1
@@ -184,48 +304,28 @@ function BoxOfQuestions(db) {
                 // processed but no new question yet has been picked.
                 // In both cases a new _wordsToRepeat collection is necessary.
 
-                _wordsToRepeat = (that.db.allWords()).filter(isToBeRepeated)
+                _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated)
           };
 
           return _wordsToRepeat;
-       };
+       }
+
+
+
+      }
 
 }
 
 
-BoxOfQuestions.prototype.importFrom = function(anArrayOfObjects){
-     this.db.importFrom(anArrayOfObjects);
-};
 
 
 
 
 
-
-BoxOfQuestions.prototype.getAnswerOptions = function(numberOfOptions){
-  throw new Error("not yet implemented");
-};
-
-
-
-BoxOfQuestions.prototype.config = function(config){
-  throw new Error("not yet implemented");
-};
-
-
-
-BoxOfQuestions.prototype.status = function(){
-  // give the number of words in the whole box
-  // and the number of words in wordsToRepeat
-
-  var status = {};
-  status.numberOfWords = this.db.numberOfWords();
-
-  // FIXME add more content to status
-  
-  return status
-};
-
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// NOTE: pay special attention to how the number of Words is calculated
+// FIXME
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
@@ -246,57 +346,72 @@ BoxOfQuestions.prototype.status = function(){
 
 
 
-if (typeof localStorage === "undefined" || localStorage === null) {
-  // we run in node thus we need to have a simulation of LocalStorage
-  var LocalStorage = require('node-localstorage').LocalStorage;
-  global.localStorage = new LocalStorage('./scratch');
-}
 
+var LWdb = function(name) {
 
+    // functional style, 
+    // closure, returns an LWdb object
 
+    var dbName = name;
 
-var LWdb = function(dbName) {
+    // private variables
 
-    this.dbName = dbName;
-    this._keysOfAllWords = [];
+    var _keysOfAllWords = [];
+
+    var _numberOfWords = 0;
+
     
-    // private
     var recalculateIndex = true; 
 
-    var that = this;
+
+
+
+
+    // private methods
 
 
     var _wdKeyFor = function(anInteger) { 
-        return that.dbName+'-wd-'+anInteger;
+        return dbName+'-wd-'+anInteger;
     };
 
+
+
     var _setNumberOfWords = function(n) {
-        var key = that.dbName+'-numberOfWords';
+        var key = dbName+'-numberOfWords';
         localStorage.setItem(key,n);
+        _numberOfWords = n;
         recalculateIndex = true;
     };
+
 
 
     var _incNumberOfWords = function() {
-        var n = that.numberOfWords();
-        _setNumberOfWords(n + 1);
+        _setNumberOfWords(_numberOfWords + 1);
         recalculateIndex = true;
     };
 
-    this._invalidateIndex = function() {
+
+    var _invalidateIndex = function() {
         recalculateIndex = true;
     };
 
-    this._indexNeedsRecalculation = function() {
+
+
+    var _indexNeedsRecalculation = function() {
         return recalculateIndex
     };
 
-    this._indexHasBeenUpdated = function() {
+
+
+    var _indexHasBeenUpdated = function() {
         recalculateIndex = false;
     };
 
+
+
+
     var _removeObjects = function(aKeyPrefix){
-        if (that.isOK) {
+        if (!!localStorage) {   // this.isOK()
             var key;
             var st; 
             var keysToDelete = [];
@@ -314,8 +429,10 @@ var LWdb = function(dbName) {
             keysToDelete.forEach(function(aKey){
                 localStorage.removeItem(aKey);
             });
+
         }
-    };
+        };
+    
 
 
 
@@ -323,24 +440,68 @@ var LWdb = function(dbName) {
 
 
 
-    LWdb.prototype.persistentStorageOK = function() {
+
+    // construct literal LWdb object
+    // methods and properties are public
+
+    return {
+
+    dbName : name,
+
+    putSettings : function(anObject) {
+        
+        var key = dbName + '-settings';
+        return localStorage.setItem(key,JSON.stringify(anObject));  
+    },
+
+
+
+
+
+
+    removeWords : function() {
+        var keys = this.keysOfAllWords(); 
+        for (var i = 0; i < keys.length; i++){
+            localStorage.removeItem(keys);
+        }
+        _setNumberOfWords(0);
+    },
+
+
+
+
+
+
+    destroy : function(anObject) {
+
+         var aKeyPrefix = dbName;  
+         _removeObjects(aKeyPrefix);
+    },
+
+
+
+      persistentStorageOK : function() {
         return !!localStorage;
-    };
+      },
 
 
 
-    LWdb.prototype.isOK = function() {
-        return this.persistentStorageOK();
-    };
+
+      isOK : function() {
+         return this.persistentStorageOK();
+      },
 
 
 
-    LWdb.prototype.numberOfWords = function() {
+
+
+
+    numberOfWords : function() {
      
-       var key = this.dbName+'-numberOfWords';
+       var key = dbName+'-numberOfWords';
         var r = 0;
 
-        if (this.isOK) {
+        if (this.isOK()) {
             r = localStorage.getItem(key);
             if (r == null) {
                 localStorage.setItem(key,'0'); 
@@ -348,12 +509,18 @@ var LWdb = function(dbName) {
             };
           r = parseInt(r);
         }; 
+        _numberOfWords = r;
         return r;
-    };
+    },
 
 
 
-    LWdb.prototype.putWord = function(aWord) {
+
+
+
+
+
+    putWord : function(aWord) {
 
         if(!aWord._id){
             throw "_id is required in a word";
@@ -379,12 +546,15 @@ var LWdb = function(dbName) {
         };
         // console.log('storageKey is=', storageKey, 'word is=', copy.word);
         return storageKey;
-    };
+    },
 
 
 
 
-    LWdb.prototype.getWord = function(anInteger) {
+
+
+
+    getWord : function(anInteger) {
         var storageKey = _wdKeyFor(anInteger);
         try{
             var aWord = JSON.parse(localStorage.getItem(storageKey));
@@ -398,10 +568,11 @@ var LWdb = function(dbName) {
         }catch(e){
             return null;
         }
-    };
+    },
 
 
-LWdb.prototype.importFrom = function(theWords) {
+
+    importFrom : function(theWords) {
       
       var key;
       var n = theWords.length;
@@ -413,37 +584,44 @@ LWdb.prototype.importFrom = function(theWords) {
 	key = this.putWord(aWord);
       }
 
-      this._invalidateIndex();
+      _invalidateIndex();
 
-    }
+    },
 
 
 
-    LWdb.prototype.loadWords = function(theWords) {
+
+    loadWords : function(theWords) {
         this.importFrom(theWords);
-    }
+    },
 
 
 
-    LWdb.prototype.keysOfAllWords = function() {
-        if (this._indexNeedsRecalculation()) {
-            this._keysOfAllWords = [];
-            var keyRegex = new RegExp("^"+this.dbName+"\\-wd\\-\\d+$");
+
+
+
+
+    keysOfAllWords : function() {
+        if (_indexNeedsRecalculation()) {
+            _keysOfAllWords = [];
+            var keyRegex = new RegExp("^"+dbName+"\\-wd\\-\\d+$");
             for (var i = 0; i < localStorage.length; i++){
                 var key = localStorage.key(i);
                 // check it starts with <name>-wd-
                 if(keyRegex.test(key)){
-                    this._keysOfAllWords.push(key);
+                    _keysOfAllWords.push(key);
                 }
             }
         };
-        this._indexHasBeenUpdated();
-        return this._keysOfAllWords;
-    };
+        _indexHasBeenUpdated();
+        return _keysOfAllWords;
+    },
 
 
 
-    LWdb.prototype.allWords = function() {
+
+
+    allWords : function() {
         var keys = this.keysOfAllWords();
         var words = [];
         for(var i = 0; i < keys.length; i++){
@@ -451,13 +629,15 @@ LWdb.prototype.importFrom = function(theWords) {
             words.push(JSON.parse(str));
         }
         return words;
-    };
+    },
 
 
 
-    LWdb.prototype.getSettings = function() {
+
+
+    getSettings : function() {
         
-        var key = this.dbName + '-settings';
+        var key = dbName + '-settings';
 
         var value = localStorage.getItem(key);
 
@@ -465,6 +645,7 @@ LWdb.prototype.importFrom = function(theWords) {
         if (value==null) { 
             // define default value for settings    
             value = { "delay": 8640000, 
+                      "numberOfOptions": 4,
                       "factorForDelayValue": [1,1,3,7,45,90,360,1000],
                       "offerLearnMode": false
                       };
@@ -477,36 +658,21 @@ LWdb.prototype.importFrom = function(theWords) {
         } else {
             return JSON.parse(value)
         }
-    };
+    }
 
 
 
-    LWdb.prototype.putSettings = function(anObject) {
-        
-        var key = this.dbName + '-settings';
-        return localStorage.setItem(key,JSON.stringify(anObject));  
-    };
 
 
 
-    LWdb.prototype.removeWords = function() {
-        var keys = this.keysOfAllWords(); 
-        for (var i = 0; i < keys.length; i++){
-            localStorage.removeItem(keys);
-        }
-        _setNumberOfWords(0);
-
-    };
 
 
 
-    LWdb.prototype.destroy = function(anObject) {
-
-         var aKeyPrefix = this.dbName;  
-         _removeObjects(aKeyPrefix);
-    };
+    }  // end of literal LWdb object
 
 
-};
+
+
+}; // end of LWdb function definition
 
 
