@@ -26,7 +26,7 @@ describe("Database LWdb", function() {
     }
 
     localStorage.clear();
-    this.db = new LWdb("LearnWords");
+    this.db = LWdb("LearnWords");
   });
 
 
