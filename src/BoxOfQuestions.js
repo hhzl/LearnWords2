@@ -5,15 +5,20 @@ var LWdb = require('./LWdb');
 
 function BoxOfQuestions(db) {
 
-        // assign database
 
+        // private variables
 
-
-        // initialize values
         var _question = null; // no current question
         var _wordsToRepeat = null; // words which are eligible to be repeated.
                                    // initialisation to null forces calculation 
                                    // on first call of wordsToRepeat()
+
+
+
+
+
+
+        // private methods
 
         var _questionHasBeenProcessed = function(){
 
@@ -26,12 +31,16 @@ function BoxOfQuestions(db) {
 
 
 
+
+
         var _getRandomInt = function(min, max){
              // Returns a random integer between min (inclusive) and max (inclusive)
              // Using Math.round() will give you a non-uniform distribution!
              
     		return Math.floor(Math.random() * (max - min + 1)) + min;
 	};
+
+
 
 
 
@@ -87,6 +96,7 @@ function BoxOfQuestions(db) {
 
 
 
+
        moveQuestionBackwards : function(){
             if (_question) { // we have a question
 
@@ -104,7 +114,7 @@ function BoxOfQuestions(db) {
                 if (s.offerLearnMode) { _question.step = 1;
                                        // step 0 is the learnmode, thus do not put
                                        // it at step 0 
-                                       // step 1 is the lowest step of the learn mode.
+                                       // step 1 is the lowest step of the repeat mode.
                                       }
                 else { // treat all the steps the same way, as repeat mode
                        // thus the lowest step value is 0
@@ -127,6 +137,10 @@ function BoxOfQuestions(db) {
                 _questionHasBeenProcessed();
             }
         },
+
+
+
+
 
 
 
@@ -165,9 +179,16 @@ function BoxOfQuestions(db) {
 
 
 
+
+
       importFrom : function(anArrayOfObjects){
        this.db.importFrom(anArrayOfObjects);
        },
+
+
+
+
+
 
 
 
@@ -177,9 +198,17 @@ function BoxOfQuestions(db) {
 
 
 
+
+
+
+
        config : function(config){
           throw new Error("not yet implemented");
        },
+
+
+
+
 
 
 
@@ -194,6 +223,8 @@ function BoxOfQuestions(db) {
   
          return status
        },
+
+
 
 
 
@@ -239,7 +270,7 @@ function BoxOfQuestions(db) {
 
 
 
-        }
+      }
 
 }
 
