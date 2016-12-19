@@ -170,7 +170,8 @@ describe("Database LWdb", function() {
       expect(r.length).toBe(lwdb.numberOfWords());
        
       for(var i = 0; i < r.length; i++){
-        expect(r[i]).toBe("LearnWords-wd-"+(i+1));
+        var k = "LearnWords-wd-"+(i+1);
+        expect(r).toContain(k);
       }
 
     });
@@ -215,26 +216,29 @@ describe("Database LWdb", function() {
       for(var i = 0; i < r.length; i++){
         var tmp = this.wordList[i];
         tmp._id = i+1;
+
+        // keys might not be ordered by id, e.g. "10" < "2" 
+        var w = lwdb.getWord(tmp._id);
         
-        expect(r[i]).toHaveString("word");
+        expect(w).toHaveString("word");
         expect(tmp).toHaveString("word");
-        expect(r[i].word).toBe(tmp.word);
+        expect(w.word).toBe(tmp.word);
 
-        expect(r[i]).toHaveString("translate");
+        expect(w).toHaveString("translate");
         expect(tmp).toHaveString("translate");
-        expect(r[i].translate).toBe(tmp.translate);
+        expect(w.translate).toBe(tmp.translate);
 
-        expect(r[i]).toHaveNumber("_id");
+        expect(w).toHaveNumber("_id");
         expect(tmp).toHaveNumber("_id");
-        expect(r[i]._id).toBe(tmp._id);
+        expect(w._id).toBe(tmp._id);
 
-        expect(r[i]).toHaveNumber("date");
+        expect(w).toHaveNumber("date");
         expect(tmp).toHaveNumber("date");
-        expect(r[i].date).toBe(tmp.date);
+        expect(w.date).toBe(tmp.date);
 
-        expect(r[i]).toHaveNumber("step");
+        expect(w).toHaveNumber("step");
         expect(tmp).toHaveNumber("step");
-        expect(r[i].step).toBe(tmp.step);
+        expect(w.step).toBe(tmp.step);
 
       }
 

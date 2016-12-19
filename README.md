@@ -32,6 +32,16 @@ sudo npm install -g grunt-cli
 sudo npm install
 ````
 
+Running ``npm install`` or ``grunt build`` will generate a single JavaScript 
+file (``dist/LW.js`` and ``dist/LW-debug.js``) of the entire library. 
+To use the library you can include the path to this file in a script tag.
+
+```
+<script src="<path>/LW.js"></script>
+```
+
+The ``public/demo.html`` illustrates this.
+
 ## Intended usage
 
 ![learnwords2-layers](docs/learnwords2-layers.png)
@@ -44,17 +54,17 @@ Code:
 
 ````JavaScript
 "use strict";
-var LW = function(){
+var lw = function(){
 
-	var db = LWdb('learnWords');
+	var db = LW.LWdb('learnWords');
 
-	var box = LWBoxOfQuestions(db);
+	var box = LW.BoxOfQuestions(db);
          
         // configuration
 
         box.importFrom(wordlist);
 
-	return box
+	return box;
 }();
 
 ````
@@ -67,32 +77,31 @@ If there is no configuration of the db you could as well just do
 
 
 ````JavaScript
-var LW = LWBoxOfQuestions(LWdb('learnWords'));
-    LW.importFrom(wordlist);
+var lw = LW.BoxOfQuestions(LW.LWdb('learnWords'));
+    lw.importFrom(wordlist);
 
 ````
 
 
-Then access to everything goes through  ``LW.method()``.
+Then access to everything goes through  ``lw.method()``.
 
 ````JavaScript
 
-LW.importFrom(....);
+lw.importFrom(....);
 
-LW.question();
+lw.question();
 
-LW.answer();
-LW.answerOptions();
+lw.answer();
+lw.answerOptions();
 
-LW.moveQuestionBackwards();
+lw.moveQuestionBackwards();
 
-LW.moveQuestionForward();
+lw.moveQuestionForward();
 
 ````
 
  
 TODO: add examples
-
 
 
 ## Specification and tests with Jasmine
@@ -101,9 +110,12 @@ TODO: add examples
 
 - on the command line do
 
+     ```
      grunt
+     ```
 
-- then open ``SpecRunner.html``
+- then a browser window will launch and bring you to a Jasmine test harness page
+  which is usually [http://localhost:8000](http://localhost:8000)
 
 
 ### On the command line with node

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sample illustrating the use of the LearnWords2 library.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>LearnWords2-Demo</title>
+    
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles.css">
+    
+  </head>
+ 
+
+<body>
+    
+	<h1>LearnWords2 app -- to be implemented</h1>
+	<p>Use the console to interact with the LW object. For example enter</p>
+
+<pre>
+	lw.db.numberOfWords()
+</pre>
+
+	Note: to restart testing evaluate
+
+<pre>
+	lw.db.destroy()
+</pre>
+
+	and then reload page.
+
+	<script src="data/wordlist-en-ge_nm.js"></script>
+	<script src="js/LW.js"></script>
+	<script>
+		var lw = LW.BoxOfQuestions(LW.LWdb('learnWords'));
+
+		if (lw.db.numberOfWords() == 0) {
+			lw.db.loadWords(wordList);
+		}
+	</script> 
+
+	<script src="http://localhost:35729/livereload.js"></script>
+    
+</body>
+</html>

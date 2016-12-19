@@ -5,8 +5,9 @@ var fs = require('fs'),
 
 module.exports = function(grunt) {
 
-  var BUILD_DIR = 'public/js';
-  var DIST_DIR = 'dist';
+  var WEB_ROOT = 'public',
+      BUILD_DIR = path.join(WEB_ROOT,'js'),
+      DIST_DIR = 'dist';
   
   // Project configuration.
   grunt.initConfig({
@@ -15,8 +16,10 @@ module.exports = function(grunt) {
       options: {
         force: true
       },
+      data: [path.join(WEB_ROOT,'data')],
       build: [path.join(DIST_DIR,'**')],
-      test: [path.join(BUILD_DIR,'**')]
+      js: [path.join(BUILD_DIR,'**')],
+      test: [path.join(BUILD_DIR,'jasmine-bundle.js')]
     },
     "jasmine":{
       browser: {
@@ -29,15 +32,15 @@ module.exports = function(grunt) {
         options:{
           debug: false
         },
-        src: [path.join("src","**.js")],
-        dest: path.join(DIST_DIR,"LW-lib.js")
+        src: [path.join('src','index.js')],
+        dest: path.join(DIST_DIR,'LW.js')
       },
       debug: {
         options: {
           debug: true
         },
-        src: [path.join("src","**.js")],
-        dest: path.join(DIST_DIR,"LW-lib-debug.js")
+        src: [path.join('src','index.js')],
+        dest: path.join(DIST_DIR,'LW-debug.js')
       }
     },
     watch:{
@@ -45,15 +48,18 @@ module.exports = function(grunt) {
         livereload: true
       },
       test: {
-        files: ['src/**/*.js','spec/**/*.js'],
-        tasks: ['test']
+        files: [path.join('src','**','*.js'),path.join('spec','**','*.js')],
+        tasks: ['build','test']
+      },
+      html: {
+        files: [path.join(WEB_ROOT,'**','*.html')]
       }
     },
     connect:{
-      dev: {
+      test: {
         options: {
           base: {
-            path: 'public',
+            path: WEB_ROOT,
             options: {
               index: 'SpecRunner.html'
             }
@@ -63,6 +69,33 @@ module.exports = function(grunt) {
           open: true,
           useAvailablePort: true,
         }
+      },
+      demo: {
+        options: {
+          base: {
+            path: WEB_ROOT,
+            options: {
+              index: 'demo.html'
+            }
+          },
+          hostname: '*',
+          livereload: true,
+          open: true,
+          useAvailablePort: true,
+        }
+      }
+    },
+    copy: {
+      data: {
+        expand: true,
+        src: path.join('data',"*"),
+        dest: WEB_ROOT
+      },
+      js: {
+        expand: true,
+        flatten: true,
+        src: path.join(DIST_DIR,"*"),
+        dest: path.join(WEB_ROOT,'js')
       }
     }
   });
@@ -70,6 +103,7 @@ module.exports = function(grunt) {
   // Load grunt tasks
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Custom tasks
@@ -79,8 +113,8 @@ module.exports = function(grunt) {
       if(i < dir.length){
         var cwd = dir.slice(0,i+1);
         var dirPath = cwd.join(path.sep);
-        if(/v0\.10\.\d+/.test(process.version)){
-          // node version is 0.10.x
+        if(/v0\.1\d\.\d+/.test(process.version)){
+          // node version is 0.1x.x
           if(!fs.existsSync(dirPath)){
             fs.mkdirSync(dirPath);
           }else{
@@ -110,7 +144,6 @@ module.exports = function(grunt) {
     
     console.log("debug: " + opts.debug);
 
-    //var output = path.join(DIST_DIR,'app-bundle'+ (opts.debug ? '-debug' : '')+'.js');
     var output = this.files[0].dest;
 
     mkDirs(DIST_DIR);
@@ -122,11 +155,12 @@ module.exports = function(grunt) {
       entries: this.filesSrc,
       noParse: [],
       browserField: false,
-      debug: opts.debug
+      debug: opts.debug,
+      standalone: 'LW'
     });
 
     // prevents file from being loaded into bundle
-    b.external("node-localstorage");
+    b.exclude("node-localstorage");
 
     var done = this.async();
     var outputFile = fs.createWriteStream(output);
@@ -163,7 +197,7 @@ module.exports = function(grunt) {
     });
 
     // prevents file from being loaded into bundle
-    b.external("node-localstorage");
+    b.exclude("node-localstorage");
 
     var done = this.async();
     var outputFile = fs.createWriteStream(output);
@@ -176,9 +210,10 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('build', ['clean:build','js']);
+  grunt.registerTask('demo',['build','copy']);
   grunt.registerTask('test', ['clean:test','jasmine']);
 
   // Default task(s).
-  grunt.registerTask('default', ['build','test','connect','watch']);
+  grunt.registerTask('default', ['demo','test','connect','watch']);
 
 };
