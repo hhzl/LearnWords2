@@ -304,7 +304,8 @@ describe("BoxOfQuestions", function() {
     var n = settings.numberOfOptions;
 
     var options = LW.getAnswerOptions();
-
+    
+    expect(options).toBeArray();
     expect(options.length).toBe(n);
 
 

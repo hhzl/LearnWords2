@@ -1,11 +1,3 @@
-
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// NOTE: pay special attention to how the number of Words is calculated
-// FIXME
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-
-
 "use strict";
 // ----------------------------------------------------------------------
 // LearnWords 2 
@@ -298,7 +290,10 @@ var LWdb = function(name) {
                     _keysOfAllWords.push(key);
                 }
             };
+            // _setNumberOfWords(_keysOfAllWords.length);
+            // as putWord() updates n
             _indexHasBeenUpdated();
+	    
         };
         return _keysOfAllWords;
     },
