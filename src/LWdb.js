@@ -147,9 +147,10 @@ var LWdb = function(name) {
     removeWords : function() {
         var keys = this.keysOfAllWords(); 
         for (var i = 0; i < keys.length; i++){
-            localStorage.removeItem(keys);
+            localStorage.removeItem(keys[i]);
         }
         _setNumberOfWords(0);
+        _invalidateIndex();
     },
 
 
@@ -296,9 +297,9 @@ var LWdb = function(name) {
                 if(keyRegex.test(key)){
                     _keysOfAllWords.push(key);
                 }
-            }
+            };
+            _indexHasBeenUpdated();
         };
-        _indexHasBeenUpdated();
         return _keysOfAllWords;
     },
 

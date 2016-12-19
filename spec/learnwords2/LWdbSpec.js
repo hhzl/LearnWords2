@@ -68,9 +68,21 @@ describe("Database LWdb", function() {
 
   it("should be able to reinitialize the persistent storage", function() {
     
+    var n = (this.wordList).length;
+    expect(n>0).toBe(true);
+
+    lwdb.loadWords(this.wordList);
+
+    expect(lwdb.numberOfWords()>0).toBe(true);
+
+
     lwdb.removeWords();
-    expect(lwdb).toHaveMethod("numberOfWords");
+    
+    expect(lwdb).toHaveMethod("numberOfWords"); 
     expect(lwdb.numberOfWords()).toBe(0);
+
+    var keys = lwdb.keysOfAllWords();
+    expect(keys.length).toBe(0);
 
   });
 
