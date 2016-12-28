@@ -40,6 +40,7 @@ var LWdb = function(name) {
     
     var recalculateIndex = true; 
 
+    var _defaultInitialStepValue = -1;
 
 
 
@@ -203,8 +204,9 @@ var LWdb = function(name) {
         if(!aWord._id){
             throw "_id is required in a word";
         }
-        if(!aWord.step){
-            aWord.step = 0;
+
+        if(!aWord.hasOwnProperty("step")){
+            aWord.step = _defaultInitialStepValue;
         }
         if(!aWord.date){
             aWord.date = 0;
@@ -216,6 +218,7 @@ var LWdb = function(name) {
         var value = localStorage.getItem(storageKey); 
      
         // save the word
+
         localStorage.setItem(storageKey, JSON.stringify(aWord));
 
         // if the word has not existed before increment the number of words
@@ -236,8 +239,8 @@ var LWdb = function(name) {
         var storageKey = _wdKeyFor(anInteger);
         try{
             var aWord = JSON.parse(localStorage.getItem(storageKey));
-            if(!aWord.step){
-                aWord.step = 0;
+            if(!aWord.hasOwnProperty("step")){
+                aWord.step = _defaultInitialStepValue;
             }
             if(!aWord.date){
                 aWord.date = 0;
@@ -328,12 +331,18 @@ var LWdb = function(name) {
             value = { "delay": 8640000, 
                       "numberOfOptions": 4,
                       "factorForDelayValue": [1,1,3,7,45,90,360,1000],
-                      "offerLearnMode": false
+                      "offerLearnMode": false,
+                      "defaultInitialStepValue" : _defaultInitialStepValue
                       };
             // One day = 24h * 60m * 60s * 100μs
             // the delay has been shortened to 1 day/100 for test purposes.
             // this is used to calculate the new date after a
             // word has been answered correctly.
+
+            // "defaultInitialStepValue : -1 means that words means 
+            // that words are available to be picked and sent to
+            // learn/repeat mode.
+
             this.putSettings(value);
             return value
         } else {

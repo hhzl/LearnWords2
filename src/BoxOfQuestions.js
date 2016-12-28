@@ -67,7 +67,7 @@ function BoxOfQuestions(db) {
 
         return {
        
-        version: '0.2.0',
+        version: '0.2.1',
 
 	db : db,
 
@@ -281,30 +281,17 @@ function BoxOfQuestions(db) {
 
        wordsToRepeat : function(){
 
-          var lowestStep;
+          var lowestStep = 0;  // all words with step value 0 and above are considered.
           var todayNow = new Date().valueOf();
 
-          var s = this.db.getSettings();
 
-          if (s.offerLearnMode) { 
-                                  lowestStep = 1
-                                  // 1 is lowest step for repeat mode
-               }
-          else { // treat all the steps the same way.
-                 // we only have a repeat mode
-                 // thus the lowest step value is 0
-
-                 lowestStep = 0; 
-          }          
-
-
-          function isToBeRepeated(aWord) {
+          function isToBeRepeated(aWord) {         
                return (aWord.step >= lowestStep) && (todayNow >= aWord.date);
           }
-
           
 
-          if (_question == null || _wordsToRepeat == null) { 
+
+          if (_question == null || _wordsToRepeat == null ) { 
                 // _question == null means that either a question has never
                 // been asked before or that a question has been asked and
                 // processed but no new question yet has been picked.

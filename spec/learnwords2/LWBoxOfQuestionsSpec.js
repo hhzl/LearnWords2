@@ -31,8 +31,6 @@ describe("BoxOfQuestions construction", function() {
     expect(LW.db.dbName).toBe("learnWords");
     expect(LW.db.numberOfWords()).toBe(12);
 
-    expect((LW.wordsToRepeat()).length).toBe(12);
-
 
   });
 
@@ -65,7 +63,6 @@ describe("BoxOfQuestions construction", function() {
     expect(LW.db.dbName).toBe("learnWords");
     expect(LW.db.numberOfWords()).toBe(12);
 
-    expect((LW.wordsToRepeat()).length).toBe(12);
 
   });
 
@@ -85,9 +82,40 @@ describe("BoxOfQuestions", function() {
 
       LW = BoxOfQuestions(LWdb('learnWords'));
       LW.importFrom(wordlist);
-        
+
+
+      // setup a particular set of step value
+
+      var allWords = LW.db.allWords();
+      // FIXME why do I need to indicate 0 as a string value?
+      allWords[0].step = 0;  // has not been answered yet 
+      allWords[1].step = 0;
+      allWords[2].step = 0;
+      allWords[3].step = 0;
+
+      allWords[4].step = 1;  // word has been answered once
+      allWords[5].step = 1;
+      allWords[6].step = 2;  // word has been answered two times
+      allWords[7].step = 2;
+
+      LW.db.putWord(allWords[0]);
+      LW.db.putWord(allWords[1]);
+      LW.db.putWord(allWords[2]);
+      LW.db.putWord(allWords[3]);
+      LW.db.putWord(allWords[4]);
+      LW.db.putWord(allWords[5]);
+      LW.db.putWord(allWords[6]);
+      LW.db.putWord(allWords[7]);
+    
   });
 
+
+  it("should indicate the correct library version", function() {
+
+    expect(LW).toHaveString("version");
+    expect(LW.version).toBe('0.2.1');
+
+  });
 
 
 
@@ -113,16 +141,6 @@ describe("BoxOfQuestions", function() {
 
 
 
- xit("should indicate the correct library version", function() {
-
-    expect(LW).toHaveMethod("version");
-    expect(LW.version).toBe('0.2.1');
-
-  });
-
-
-
-
 
   it("should be able to import questions", function() {
 
@@ -133,6 +151,19 @@ describe("BoxOfQuestions", function() {
 
     expect(LW).toHaveMethod("importFrom");
 
+    expect(LW.db.numberOfWords()).toBe(12);
+
+    var allWords = LW.db.allWords();
+    var aWord = allWords[0];
+    expect(aWord.step).toBe(0);
+
+
+    aWord = allWords[4];
+    expect(aWord.step).toBe(1);
+
+    aWord = allWords[8];
+    expect(aWord.step).toBe(-1);
+
   });
 
 
@@ -141,7 +172,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-  xit("should have a helper function to get random integers", function(){
+  it("should have a helper function to get random integers", function(){
 
     expect(LW).not.toBe(null);
 
@@ -169,23 +200,21 @@ describe("BoxOfQuestions", function() {
 
   it("should be able to indicate which words are to be repeated", function() {
 
-
-    // LW.wordsToRepeat(); issue #63
-
     expect(LW).not.toBe(null);    
     expect(LW).toHaveMethod("wordsToRepeat");
 
-    var r0 = LW.wordsToRepeat();
 
+    var r0 = LW.wordsToRepeat();
+  
     expect(r0.length).toBeNumber();
-    expect(r0.length).toBe(12);
+    expect(r0.length).toBe(8);
 
     LW.question();
     LW.moveQuestionForward();
 
     var r1 = LW.wordsToRepeat();
     expect(r1.length).toBeNumber();
-    expect(r1.length).toBe(11);
+    expect(r1.length).toBe(7);
 
 
     LW.question();
@@ -193,7 +222,7 @@ describe("BoxOfQuestions", function() {
 
     var r2 = LW.wordsToRepeat();
     expect(r2.length).toBeNumber();
-    expect(r2.length).toBe(10);
+    expect(r2.length).toBe(6);
 
 
     LW.question();
@@ -201,7 +230,7 @@ describe("BoxOfQuestions", function() {
 
     var r2 = LW.wordsToRepeat();
     expect(r2.length).toBeNumber();
-    expect(r2.length).toBe(9);
+    expect(r2.length).toBe(5);
 
 
   });
@@ -264,7 +293,7 @@ describe("BoxOfQuestions", function() {
                   noOfQuestions =  noOfQuestions +1};
       } while (q);
    
-     expect(noOfQuestions).toBe(12);
+     expect(noOfQuestions).toBe(8);
   });
 
 

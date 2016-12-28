@@ -106,6 +106,74 @@ describe("Database LWdb", function() {
     });
 
 
+    it("should be able to store a modified word", function() {
+      expect(lwdb.numberOfWords()).toBe(0);
+      var i = parseInt(Math.floor(Math.random()*this.wordList.length));
+      var aWord = this.wordList[i];
+      var id = (i+1);
+      aWord._id = id;
+      lwdb.putWord(aWord);
+      expect(lwdb.numberOfWords()).toBe(1);
+
+      var wordFromDB = lwdb.getWord(id);
+      wordFromDB.step = 5;
+      lwdb.putWord(wordFromDB);
+
+      // read it back and check if the value has been stored
+      expect((lwdb.getWord(id)).step).toBe(5);
+
+    });
+
+
+
+    it("should be able to store a step value of 0", function() {
+
+      // set up db entry
+      expect(lwdb.numberOfWords()).toBe(0);
+      var aWord = this.wordList[3];
+      aWord._id = 4;  // ids start with 1
+
+      lwdb.putWord(aWord);
+      expect(lwdb.numberOfWords()).toBe(1);
+
+
+
+      // Test part 1 with value 99
+      // get db entry
+      var wordFromDB = lwdb.getWord(4);
+
+      // change step value to 99
+      wordFromDB.step = 99;
+      lwdb.putWord(wordFromDB);
+
+      // read it back and check if the value has been stored
+      var word = lwdb.getWord(4);
+
+      expect(word.step).toBe(99);
+
+
+      // Test part 2 with value 0
+      // get db entry
+      var wordFromDB = lwdb.getWord(4);
+
+      // change step value to 0
+      wordFromDB.step = 0;
+
+      lwdb.putWord(wordFromDB);
+
+      // read it back and check if the value has been stored
+      var wordR = lwdb.getWord(4);
+
+      expect(wordR.step).toBe(0);
+
+      // Note: The problem was that 
+
+      // aWord.step may mean different things when aWord.step == 0
+
+    });
+
+
+
     it("should be able to get a word", function() {  
 
       var newWord = {
@@ -130,7 +198,7 @@ describe("Database LWdb", function() {
       expect(r.translate).toBe("die Melone");
 
       expect(r).toHaveNumber("step");
-      expect(r.step).toBe(0);
+      expect(r.step).toBe(-1);
 
       expect(r).toHaveNumber("date");
       expect(r.date).toBe(0);
@@ -333,6 +401,15 @@ describe("Database LWdb", function() {
       expect(settings).toBeObject();
       expect(settings).toHaveArray("factorForDelayValue");
       expect(settings.factorForDelayValue[3]).toBe(6);
+    });
+
+
+    it("should be able to answer a default intial step value", function() {
+      var settings = lwdb.getSettings();
+      expect(settings).not.toBe(null);
+      expect(settings).toBeObject();
+      expect(settings.defaultInitialStepValue).toBe(-1);
+
     });
 
 
