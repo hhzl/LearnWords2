@@ -87,16 +87,15 @@ describe("BoxOfQuestions", function() {
       // setup a particular set of step value
 
       var allWords = LW.db.allWords();
-      // FIXME why do I need to indicate 0 as a string value?
-      allWords[0].step = 0;  // has not been answered yet 
+      allWords[0].step = 0;  // question for word has not been answered yet 
       allWords[1].step = 0;
       allWords[2].step = 0;
-      allWords[3].step = 0;
 
-      allWords[4].step = 1;  // word has been answered once
+      allWords[3].step = 1;  // question for word has been answered once
+      allWords[4].step = 1;  
       allWords[5].step = 1;
       allWords[6].step = 2;  // word has been answered two times
-      allWords[7].step = 2;
+      allWords[7].step = 3;  // word has been answered three times
 
       LW.db.putWord(allWords[0]);
       LW.db.putWord(allWords[1]);
@@ -132,6 +131,8 @@ describe("BoxOfQuestions", function() {
     expect(LW).toHaveMethod("importFrom");
     expect(LW).toHaveMethod("wordsToRepeat");
 
+
+    expect(LW).toHaveMethod("wordsWithStepValue");
     expect(LW).toHaveMethod("chooseRandomObject");
     expect(LW).toHaveMethod("config");
     expect(LW).toHaveMethod("status");
@@ -234,6 +235,29 @@ describe("BoxOfQuestions", function() {
 
 
   });
+
+
+
+  it("should give an array of words having particular step values", function() {
+
+    expect(LW).not.toBe(null);    
+    expect(LW).toHaveMethod("wordsWithStepValue");
+
+    var wordWithStepEqualMinus1 = LW.wordsWithStepValue(-1);
+    expect(wordWithStepEqualMinus1.length).toBe(4);
+      
+    var wordsWithStep0 = LW.wordsWithStepValue(0);
+    expect(wordsWithStep0.length).toBe(3);
+
+    var wordsWithStepMinus1ToZero = LW.wordsWithStepValue(-1,0);
+    expect(wordsWithStepMinus1ToZero.length).toBe(7);
+
+    var wordsWithStepMinus1ToPlus1 = LW.wordsWithStepValue(-1,1);
+    expect(wordsWithStepMinus1ToPlus1.length).toBe(10);
+
+
+  });
+
 
 
 
@@ -457,7 +481,6 @@ describe("BoxOfQuestions", function() {
         sum = sum + _id;
         }
 
-        console.log();
 
         expect(sum/2000 >=6.3).toBe(true); 
         expect(sum/2000 <=6.7).toBe(true);

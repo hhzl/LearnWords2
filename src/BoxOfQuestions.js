@@ -301,7 +301,31 @@ function BoxOfQuestions(db) {
           };
 
           return _wordsToRepeat;
+       },
+
+
+
+
+
+
+
+
+       wordsWithStepValue : function(from, to){
+          var toValue;
+
+          if ( typeof(to) == "undefined" || to == null ) {toValue = from}
+          else {toValue = to}
+
+          function stepValueInRange(aWord) {         
+               return (aWord.step >= from) && (aWord.step <= toValue);
+          }
+          
+
+          return (this.db.allWords()).filter(stepValueInRange);
        }
+
+
+
 
 
 
