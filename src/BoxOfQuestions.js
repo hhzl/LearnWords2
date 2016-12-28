@@ -13,6 +13,7 @@ function BoxOfQuestions(db) {
                                    // initialisation to null forces calculation 
                                    // on first call of wordsToRepeat()
 
+         var _status = {};
 
 
 
@@ -264,12 +265,11 @@ function BoxOfQuestions(db) {
          // give the number of words in the whole box
          // and the number of words in wordsToRepeat
 
-         var status = {};
-         status.numberOfWords = this.db.numberOfWords();
+         _status.numberOfWords = this.db.numberOfWords();
 
           // FIXME add more content to status
   
-         return status
+         return _status
        },
 
 

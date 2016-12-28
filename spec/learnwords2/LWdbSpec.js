@@ -37,6 +37,40 @@ describe("Database LWdb", function() {
   });
 
 
+
+
+  it("should support API 1", function() {
+
+    expect(lwdb).toBeObject();
+    
+    expect(lwdb).toHaveString("dbName");
+    expect(lwdb.dbName).toBe("LearnWords");
+
+    expect(lwdb).toHaveMethod("getSettings");
+    expect(lwdb).toHaveMethod("putSettings");
+
+    expect(lwdb).toHaveMethod("putWord");
+    expect(lwdb).toHaveMethod("getWord");
+
+    expect(lwdb).toHaveMethod("removeWords");
+    expect(lwdb).toHaveMethod("destroy");
+
+    expect(lwdb).toHaveMethod("persistentStorageOK");
+    expect(lwdb).toHaveMethod("isOK");
+    expect(lwdb).toHaveMethod("numberOfWords");
+
+    expect(lwdb).toHaveMethod("importFrom");
+    expect(lwdb).toHaveMethod("loadWords");
+
+    expect(lwdb).toHaveMethod("keysOfAllWords");
+    expect(lwdb).toHaveMethod("allWords");
+ 
+
+  });
+
+
+
+
   it("should be able to create a DB", function() {
 
     expect(lwdb).toBeObject();
