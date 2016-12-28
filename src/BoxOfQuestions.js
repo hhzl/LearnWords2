@@ -66,7 +66,8 @@ function BoxOfQuestions(db) {
 
 
         return {
-
+       
+        version: '0.2.0',
 
 	db : db,
 

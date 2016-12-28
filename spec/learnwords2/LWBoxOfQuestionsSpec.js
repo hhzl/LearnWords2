@@ -31,14 +31,6 @@ describe("BoxOfQuestions construction", function() {
     expect(LW.db.dbName).toBe("learnWords");
     expect(LW.db.numberOfWords()).toBe(12);
 
-
-    expect(LW).toHaveMethod("question");
-    expect(LW).toHaveMethod("answer");
-    expect(LW).toHaveMethod("moveQuestionForward");
-    expect(LW).toHaveMethod("moveQuestionBackwards");
-
-    expect(LW).toHaveMethod("wordsToRepeat");
-
     expect((LW.wordsToRepeat()).length).toBe(12);
 
 
@@ -94,6 +86,38 @@ describe("BoxOfQuestions", function() {
       LW = BoxOfQuestions(LWdb('learnWords'));
       LW.importFrom(wordlist);
         
+  });
+
+
+
+
+  it("should support the Box API 2", function() {
+
+    expect(LW).toHaveString("version");
+
+    expect(LW).toHaveMethod("question");
+    expect(LW).toHaveMethod("answer");
+    expect(LW).toHaveMethod("moveQuestionForward");
+    expect(LW).toHaveMethod("moveQuestionBackwards");
+
+
+    expect(LW).toHaveMethod("importFrom");
+    expect(LW).toHaveMethod("wordsToRepeat");
+
+    expect(LW).toHaveMethod("chooseRandomObject");
+    expect(LW).toHaveMethod("config");
+    expect(LW).toHaveMethod("status");
+
+
+  });
+
+
+
+ xit("should indicate the correct library version", function() {
+
+    expect(LW).toHaveMethod("version");
+    expect(LW.version).toBe('0.2.1');
+
   });
 
 
