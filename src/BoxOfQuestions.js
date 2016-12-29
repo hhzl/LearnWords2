@@ -18,7 +18,6 @@ function BoxOfQuestions(db) {
 
 
 
-
         // private methods
 
         var _questionHasBeenProcessed = function(){
@@ -31,6 +30,25 @@ function BoxOfQuestions(db) {
         };
 
 
+
+
+        var _updateSessionInfo = function(){
+               // FIXME
+               // update session info
+              
+               // if (sessionStartDateProperty does not exist)
+               // then create and set it. Set lastActivity property as well;
+               // set "newSession" to true and return _status
+
+ 
+               // if ((timeNow - lastActivity) > 30min) 
+               // then we have a new session ; set sessionStartDateProperty
+               // set "newSession" to true and return _status
+
+               // Set lastActivity property
+               // set "newSession" to false and return _status
+              
+        };
 
 
 
@@ -124,7 +142,7 @@ function BoxOfQuestions(db) {
                 // put the question back at the correct step
 
                 var s = this.db.getSettings();
-
+                // FIXME learnMode has a new interpretation
                 if (s.offerLearnMode) { _question.step = 1;
                                        // step 0 is the learnmode, thus do not put
                                        // it at step 0 
@@ -289,7 +307,7 @@ function BoxOfQuestions(db) {
                return (aWord.step >= lowestStep) && (todayNow >= aWord.date);
           }
           
-
+          
 
           if (_question == null || _wordsToRepeat == null ) { 
                 // _question == null means that either a question has never
@@ -298,6 +316,15 @@ function BoxOfQuestions(db) {
                 // In both cases a new _wordsToRepeat collection is necessary.
 
                 _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated)
+
+                _updateSessionInfo();
+
+                // FIXME
+                // check if we have a new session
+                // if yes we need to check if we have enough _wordsToRepeat
+                // if not we need to add some more addMoreWordsForLearning(n) 
+                // then recalculate _wordsToRepeat
+
           };
 
           return _wordsToRepeat;
@@ -306,6 +333,14 @@ function BoxOfQuestions(db) {
 
 
 
+       addMoreWordsForLearning : function(n){
+          // FIXME
+          // update n words with step value < 0 to have a step value of 0
+          var s = this.wordsWithStepValue(-10000,-1);
+          // FIXME
+          // s.sort according to step value descending, highest first.
+          // set step value of the first n words to 0
+       }, 
 
 
 
@@ -327,14 +362,9 @@ function BoxOfQuestions(db) {
 
 
 
-
-
       }
 
 }
-
-
-
 
 
 
