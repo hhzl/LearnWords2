@@ -13,7 +13,9 @@ function BoxOfQuestions(db) {
                                    // initialisation to null forces calculation 
                                    // on first call of wordsToRepeat()
 
-         var _status = {};
+        var _status = {};
+        var _sessionExpiryTimeInSeconds = 1800;               
+
 
 
 
@@ -40,7 +42,7 @@ function BoxOfQuestions(db) {
 
 
 
-        var _updateSessionInfo = function(){
+        var _updateSessionInfo = function(sessionExpiryTimeInSeconds){
                // update session info in the _status object
 
                // _status.sessionStartDateMS
@@ -82,9 +84,9 @@ function BoxOfQuestions(db) {
                }
               
 
-               // check if session is expired ; 1800 seconds; FIXME use parameter from settings
+               // check if session is expired ; 1800 seconds; 
                var previousActivityDate = _status.sessionLastActivityDateMS;
-               if (dateTimeDifferenceInSeconds(dateTimeNow,previousActivityDate) > 1800) {
+               if (dateTimeDifferenceInSeconds(dateTimeNow,previousActivityDate) > sessionExpiryTimeInSeconds) {
                      createNewSession();
                      return _status
                };
@@ -416,12 +418,13 @@ function BoxOfQuestions(db) {
 
                 _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated)
 
-                _updateSessionInfo();
+                _sessionExpiryTimeInSeconds = (this.db.getSettings()).sessionExpiryTimeInSeconds;
+                _updateSessionInfo(_sessionExpiryTimeInSeconds);
 
                 if (_status.sessionIsNew) {
                    // the opportunity to check if we have enough _wordsToRepeat
                    var suggestedNumberOfWordsInASession = (this.db.getSettings()).suggestedNumberOfWordsInASession;
-             
+
                    if (_wordsToRepeat.length < suggestedNumberOfWordsInASession) {
                       // we need to 
                       this.addMoreWordsForLearning(suggestedNumberOfWordsInASession - _wordsToRepeat.length); 

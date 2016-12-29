@@ -333,7 +333,8 @@ var LWdb = function(name) {
                       "factorForDelayValue": [1,1,3,7,45,90,360,1000],
                       "offerLearnMode": false,
                       "defaultInitialStepValue" : _defaultInitialStepValue,
-                      "suggestedNumberOfWordsInASession" : 20,
+                      "sessionExpiryTimeInSeconds" : 1800,
+                      "suggestedNumberOfWordsInASession" : 20
                       };
             // One day = 24h * 60m * 60s * 1000 ms = 86'400'000 ms (milliseconds)          
             // the delay has been shortened to 1 day/10 for test purposes.
