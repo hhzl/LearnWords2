@@ -332,11 +332,13 @@ var LWdb = function(name) {
                       "numberOfOptions": 4,
                       "factorForDelayValue": [1,1,3,7,45,90,360,1000],
                       "offerLearnMode": false,
-                      "defaultInitialStepValue" : _defaultInitialStepValue
+                      "defaultInitialStepValue" : _defaultInitialStepValue,
+                      "suggestedNumberOfWordsInASession" : 20,
                       };
-            // One day = 24h * 60m * 60s * 100μs
-            // the delay has been shortened to 1 day/100 for test purposes.
-            // this is used to calculate the new date after a
+            // One day = 24h * 60m * 60s * 1000 ms = 86'400'000 ms (milliseconds)          
+            // the delay has been shortened to 1 day/10 for test purposes.
+            // this is 2h 24 min. 
+            // the value is used to calculate the new date after a
             // word has been answered correctly.
 
             // "defaultInitialStepValue : -1 means that words means 

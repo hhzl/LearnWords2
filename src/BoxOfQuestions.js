@@ -32,23 +32,78 @@ function BoxOfQuestions(db) {
 
 
 
+
+
+
+
+
+
+
+
         var _updateSessionInfo = function(){
-               // FIXME
-               // update session info
-              
-               // if (sessionStartDateProperty does not exist)
-               // then create and set it. Set lastActivity property as well;
-               // set "newSession" to true and return _status
+               // update session info in the _status object
 
+               // _status.sessionStartDateMS
+               // _status.sessionLastActivityDateMS
+               // _status.sessionIsNew
+
+
+               var dateTimeNow = (new Date()).valueOf();  // milliseconds
+
+
+
+              
+               function createNewSession() {
+                     _status.sessionStartDateMS = dateTimeNow;
+                     _status.sessionLastActivityDateMS = _status.sessionStartDateMS;
+                     _status.sessionStartDate = (new Date(dateTimeNow)).toJSON();
+                     _status.sessionLastActivityDate = _status.sessionStartDate
+                     _status.sessionIsNew = true;
+               }
+
+
+
+
+
+               function dateTimeDifferenceInSeconds(dateA, dateB) {
+                      // calculate dateA - dateB
+                      return (dateA - dateB)/ 1000
+               };
  
-               // if ((timeNow - lastActivity) > 30min) 
-               // then we have a new session ; set sessionStartDateProperty
-               // set "newSession" to true and return _status
 
-               // Set lastActivity property
-               // set "newSession" to false and return _status
+
+
+
+               // if (sessionStartDateProperty does not exist)
+               if (!_status.hasOwnProperty("sessionStartDate")) {
+                     // app has just started up. Thus we have no session yet.
+                     createNewSession();
+                     return _status
+               }
               
+
+               // check if session is expired ; 1800 seconds; FIXME use parameter from settings
+               var previousActivityDate = _status.sessionLastActivityDateMS;
+               if (dateTimeDifferenceInSeconds(dateTimeNow,previousActivityDate) > 1800) {
+                     createNewSession();
+                     return _status
+               };
+
+
+               // we have an active session; just update sessionLastActivityDate
+               _status.sessionLastActivityDateMS = (new Date()).valueOf();
+               _status.sessionLastActivityDate = (new Date(_status.sessionLastActivityDateMS)).toJSON();
+              return _status
         };
+
+
+
+
+
+
+
+
+
 
 
 
@@ -86,7 +141,7 @@ function BoxOfQuestions(db) {
 
         return {
        
-        version: '0.2.1',
+        version: '0.2.2',
 
 	db : db,
 
@@ -279,13 +334,15 @@ function BoxOfQuestions(db) {
 
 
 
+
        status : function(){
-         // give the number of words in the whole box
-         // and the number of words in wordsToRepeat
+         // give the number of words in the whole box,
+         // the number of words in the wordsToRepeat array and
+         // information about the session which was updated by _updateSessionInfo()
 
          _status.numberOfWords = this.db.numberOfWords();
 
-          // FIXME add more content to status
+         if (_wordsToRepeat) {_status.noOfWordsToRepeat = _wordsToRepeat.length};
   
          return _status
        },
@@ -297,12 +354,54 @@ function BoxOfQuestions(db) {
 
 
 
+       addMoreWordsForLearning : function(n){
+          console.log("addMoreWordsForLearning n=",n);
+          // update n words with step value < 0 to have a step value of 0
+          var candidatesToAdd = this.wordsWithStepValue(-10000,-1);
+          
+          // sort according to step value descending, e.g. -1,-2,-3 ...
+          // sort is in place
+          candidatesToAdd.sort(function(a,b) {return a.step < b.step});
+
+
+          var numberOfWordsToAdd;
+          // if not enough words are left to add only add what is available
+          if (n < candidatesToAdd.length) { numberOfWordsToAdd = n}
+          else {numberOfWordsToAdd = candidatesToAdd.length};
+
+
+          // Update db with new step values
+
+          for (var i = 0; i < numberOfWordsToAdd; i++){
+             (candidatesToAdd[i]).step = 0;
+             db.putWord(candidatesToAdd[i]);
+             console.log(i, (candidatesToAdd[i]).word);  
+          }
+
+          console.log(_status);
+
+       }, 
+
+
+
+
+
+
+
+
+
        wordsToRepeat : function(){
 
-          var lowestStep = 0;  // all words with step value 0 and above are considered.
-          var todayNow = new Date().valueOf();
+          // calculate the array with words which are to be learned/repeated during a sessio
+
+          // all words with step value 0 and above are considered.
+          var lowestStep = 0;  
+
+          // words with a date value >= todayNow are considered
+          var todayNow = new Date().valueOf(); 
 
 
+          // the function with the condition for inclusion into the result array
           function isToBeRepeated(aWord) {         
                return (aWord.step >= lowestStep) && (todayNow >= aWord.date);
           }
@@ -319,11 +418,19 @@ function BoxOfQuestions(db) {
 
                 _updateSessionInfo();
 
-                // FIXME
-                // check if we have a new session
-                // if yes we need to check if we have enough _wordsToRepeat
-                // if not we need to add some more addMoreWordsForLearning(n) 
-                // then recalculate _wordsToRepeat
+                if (_status.sessionIsNew) {
+                   // the opportunity to check if we have enough _wordsToRepeat
+                   var suggestedNumberOfWordsInASession = (this.db.getSettings()).suggestedNumberOfWordsInASession;
+             
+                   if (_wordsToRepeat.length < suggestedNumberOfWordsInASession) {
+                      // we need to 
+                      this.addMoreWordsForLearning(suggestedNumberOfWordsInASession - _wordsToRepeat.length); 
+                      // and recalulate
+                      _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated)
+                   };
+
+                   _status.sessionIsNew = false;
+                }
 
           };
 
@@ -332,15 +439,6 @@ function BoxOfQuestions(db) {
 
 
 
-
-       addMoreWordsForLearning : function(n){
-          // FIXME
-          // update n words with step value < 0 to have a step value of 0
-          var s = this.wordsWithStepValue(-10000,-1);
-          // FIXME
-          // s.sort according to step value descending, highest first.
-          // set step value of the first n words to 0
-       }, 
 
 
 

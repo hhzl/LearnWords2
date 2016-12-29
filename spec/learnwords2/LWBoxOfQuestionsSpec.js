@@ -16,7 +16,7 @@ describe("BoxOfQuestions construction", function() {
   it("should indicate the correct library version", function() {
 
     expect(lw).toHaveString("version");
-    expect(lw.version).toBe('0.2.1');
+    expect(lw.version).toBe('0.2.2');
 
   });
 
@@ -57,7 +57,7 @@ describe("BoxOfQuestions construction", function() {
     expect(lw.db.numberOfWords()).toBe(12);
 
     expect((lw.wordsWithStepValue(-1)).length).toBe(12);
-    expect((lw.wordsToRepeat()).length).toBe(0);
+    // expect((lw.wordsToRepeat()).length).toBe(0);
 
 
   });
@@ -115,6 +115,7 @@ describe("BoxOfQuestions construction", function() {
 
 
     expect(lw).toHaveMethod("wordsWithStepValue");
+    expect(lw).toHaveMethod("addMoreWordsForLearning");
     expect(lw).toHaveMethod("chooseRandomObject");
     expect(lw).toHaveMethod("config");
     expect(lw).toHaveMethod("status");
@@ -136,11 +137,17 @@ describe("BoxOfQuestions", function() {
     
   beforeEach(function() {
 
+      // set up test fixture
+
       lw = BoxOfQuestions(LWdb('learnWords'));
       lw.importFrom(wordlist);
 
+      // change default settings
+      var settings = lw.db.getSettings();
+      settings.suggestedNumberOfWordsInASession = 7;
+      lw.db.putSettings(settings);
 
-      // setup a particular set of step value
+      // setup a particular set of step values
 
       var allWords = lw.db.allWords();
       allWords[0].step = 0;  // question for word has not been answered yet 
@@ -334,16 +341,30 @@ describe("BoxOfQuestions", function() {
 
 
   it("should be able to give questions until there are no more questions", function() {
+     // total of 12 words
+     expect(lw.db.numberOfWords()).toBe(12);
+
+     // eight are to be learned / repeated
+     // 8 is the expected result
+     expect((lw.wordsWithStepValue(0,1000)).length).toBe(8);
+
+     // for are not put into the system yet.
+     expect((lw.wordsWithStepValue(-1)).length).toBe(4);
+
+
+     // ask questions repeatedly until there are no more questions
      var q;
      var noOfQuestions = 0;
       do {
-       q = lw.question();
+           q = lw.question();
            lw.moveQuestionBackwards();
            if(q) {// q is not null
                   noOfQuestions =  noOfQuestions +1};
       } while (q);
    
+     // check result
      expect(noOfQuestions).toBe(8);
+
   });
 
 
