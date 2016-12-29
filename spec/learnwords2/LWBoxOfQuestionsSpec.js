@@ -109,6 +109,10 @@ describe("BoxOfQuestions construction", function() {
     expect(lw).toHaveMethod("moveQuestionForward");
     expect(lw).toHaveMethod("moveQuestionBackwards");
 
+    // synonyms
+    expect(lw).toHaveMethod("answerWasCorrect");
+    expect(lw).toHaveMethod("answerWasWrong");
+
 
     expect(lw).toHaveMethod("importFrom");
     expect(lw).toHaveMethod("wordsToRepeat");

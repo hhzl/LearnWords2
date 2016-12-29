@@ -229,9 +229,7 @@ function BoxOfQuestions(db) {
 
 
 
-
-
-
+       answerWasWrong : function(){this.moveQuestionBackwards()},
 
 
        moveQuestionForward : function(){
@@ -267,6 +265,7 @@ function BoxOfQuestions(db) {
 
 
 
+       answerWasCorrect : function(){this.moveQuestionForward()},
 
 
 
@@ -464,6 +463,9 @@ function BoxOfQuestions(db) {
 
 
       }
+
+
+
 
 }
 
