@@ -480,7 +480,7 @@ describe("BoxOfQuestions", function() {
 
         
         expect(updatedWord.step).toBe(0);
-        // this assumes we do not have a learn mode yet
+
 
   });
 
@@ -550,7 +550,10 @@ describe("BoxOfQuestions", function() {
     expect(s.factorForDelayValue).toBeArray();
     expect(s.factorForDelayValue.length).toBeGreaterThan(0);
 
-    expect(s.offerLearnMode).toBeBoolean();
+    expect(s.defaultInitialStepValue).toBe(-1);
+    expect(s.numberOfOptions).toBe(4);
+    expect(s.sessionExpiryTimeInSeconds).toBe(1800);
+    expect(s.suggestedNumberOfWordsInASession).toBe(7);
 
 
   });
@@ -565,7 +568,7 @@ describe("BoxOfQuestions", function() {
     expect(st.numberOfWords).toBe(12);
 
     // FIXME
-    // add number of words in wordsToRepeat
+    // add more expect statements
 
   });
 

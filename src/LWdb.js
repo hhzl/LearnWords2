@@ -331,7 +331,6 @@ var LWdb = function(name) {
             value = { "delay": 8640000, 
                       "numberOfOptions": 4,
                       "factorForDelayValue": [1,1,3,7,45,90,360,1000],
-                      "offerLearnMode": false,
                       "defaultInitialStepValue" : _defaultInitialStepValue,
                       "sessionExpiryTimeInSeconds" : 1800,
                       "suggestedNumberOfWordsInASession" : 20

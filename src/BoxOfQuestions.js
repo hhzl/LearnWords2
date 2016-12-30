@@ -196,27 +196,8 @@ function BoxOfQuestions(db) {
                 _question.date = new Date().valueOf() + (this.db.getSettings()).delay;
 
 
-                // put the question back at the correct step
-
-                var s = this.db.getSettings();
-                // FIXME learnMode has a new interpretation
-                if (s.offerLearnMode) { _question.step = 1;
-                                       // step 0 is the learnmode, thus do not put
-                                       // it at step 0 
-                                       // step 1 is the lowest step of the repeat mode.
-                                      }
-                else { // treat all the steps the same way, as repeat mode
-                       // thus the lowest step value is 0
-                       _question.step = 0; 
+                _question.step = 0; 
                      
-                 }
-
-
-                // An alternative which is not implemented:
-                // 
-                // Set new step value to step - 1
-                // With the result being not less than 1 or 0 depending on offerLearnMode.
-
 
                 this.db.putWord(_question);
 
