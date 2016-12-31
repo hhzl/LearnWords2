@@ -1,0 +1,84 @@
+word	translate	tags
+apple	der Apfel	fruit
+pear	die Birne	fruit
+lemon	die Zitrone	fruit
+banana	die Banane	fruit
+orange	die Orange	fruit
+strawberry	die Erdbeere	fruit
+raspberry	die Himbeere	fruit
+blueberry	die Brombeere	fruit
+guava	die Guava	fruit
+pawpaw	die Papaya	fruit
+apricot	die Aprikose	fruit
+melon	die Melone	fruit
+tomato	die Tomate	food
+carrot	die Karotte	food
+onion	die Zwiebel	food
+rice	der Reis	food
+salt	das Salz	food
+oil	das Öl	food
+flour	das Mehl	food
+water	das Wasser	food
+house	das Haus	building
+a tree	ein Baum	nature
+a river	ein Fluss	nature
+the sun	die Sonne	nature
+the moon	der Mond	nature
+one star	ein Stern	nature
+two stars	zwei Sterne	nature
+three stars	drei Sterne	nature
+four stars	vier Sterne	nature
+five stars	fünf Sterne	nature
+lion	der Löwe	animal
+hyena	die Hyäne	animal
+goat	die Ziege	animal
+cow	die Kuh	animal
+cock	der Hahn	animal
+hen	das Henne	animal
+dog	der Hund	animal
+donkey	der Esel	animal
+sheep	das Schaf	animal
+dove	die Taube	animal
+duck	die Ente	animal
+fish	der Fisch	animal
+toad	die Kröte	animal
+cat	die Katze	animal
+rabbit	der Hase	animal
+man	der Mann	human
+woman	die Frau	human
+child	das Kind	human
+cloth	der Stoff	household
+sand	der Sand	building
+pot	der Topf	household
+soap	die Seife	household
+book	das Buch	household
+pencil	der Bleistift	household
+nail	der Nagel	manmade
+wood	Holz	building
+car	das Auto	manmade
+bridge	die Brücke	manmade
+road	die Strasse	manmade
+city	die Stadt	manmade
+village	das Dorf	manmade
+lamp	die Lampe	building
+fire	das Feuer	household
+tap	der Hahn	manmade
+ship	das Schiff	manmade
+cloud	die Wolke	nature
+rain	der Regen	nature
+ball	der Ball	household
+window	das Fenster	building
+door	die Türe	building
+box	die Kiste	household
+xylophone	das Xylophon	household
+candle	die Kerze	household
+ear	die Ähre	nature
+hand	die Hand	human
+foot	der Fuss	human
+teeth	die Zähne	human
+school	die Schule	manmade
+hammer	der Hammer	manmade
+spoon	der Löffel	household
+bottle	die Flasche	household
+sea	das Meer	nature
+bus	der Bus	manmade

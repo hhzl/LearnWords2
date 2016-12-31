@@ -62,6 +62,8 @@ var lw = function(){
          
         // configuration
 
+        .......
+
         box.importFrom(wordlist);
 
 	return box;
@@ -69,9 +71,8 @@ var lw = function(){
 
 ````
 
-The construction above is an IIFE.
-This is a function without a name which is only run once, just after the definition.
-The return value of the function is of interest. It is assigned to the global LW object.
+The construction above (IIFE) returns the BoxOfQuestions object ready for use.
+
 
 If there is no configuration of the db you could as well just do
 
@@ -101,7 +102,9 @@ lw.moveQuestionForward();
 ````
 
  
-TODO: add examples
+Note: If `lw.moveQuestionBackwards()` and `lw.moveQuestionForward()` are called repeatedly on the same question it has only an effect the first time. The next time `lw.question()` is called a new question is provided.
+
+TODO: Add more usage examples.
 
 
 ## Specification and tests with Jasmine
@@ -127,8 +130,7 @@ TODO: add examples
 
 * Jasmine specs are set up and work both in the browser and on the command line.
 * The LWdb (database layer) specification is set up and implemented with an MVP set of specs. 
-* [release 0.1beta](https://github.com/hhzl/LearnWords2/milestone/1) released.
-* The [next release 0.2](https://github.com/hhzl/LearnWords2/milestone/2) will focus on the Leitner box.
+* [release 0.2.2-beta](https://github.com/hhzl/LearnWords2/releases/tag/v0.2.2-beta) has a MVP implementation for the Leitner box and may be used for development work.
 
 
 

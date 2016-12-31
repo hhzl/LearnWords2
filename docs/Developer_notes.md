@@ -1,5 +1,99 @@
 # Developer notes
 
+## 2016-12-31 LWdb 1 and LWBoxOfquestions API 2
+
+
+Spec LWBoxOfquestions
+````JavaScript
+  it("should support the Box API 2", function() {
+
+    // construction of empty db
+    var lw = BoxOfQuestions(LWdb('learnWords')); 
+
+    expect(lw).toHaveString("version");
+
+    expect(lw).toHaveMethod("question");
+    expect(lw).toHaveMethod("answer");
+    expect(lw).toHaveMethod("moveQuestionForward");
+    expect(lw).toHaveMethod("moveQuestionBackwards");
+
+    // synonyms
+    expect(lw).toHaveMethod("answerWasCorrect");
+    expect(lw).toHaveMethod("answerWasWrong");
+
+
+    expect(lw).toHaveMethod("importFrom");
+    expect(lw).toHaveMethod("wordsToRepeat");
+
+
+    expect(lw).toHaveMethod("wordsWithStepValue");
+    expect(lw).toHaveMethod("addMoreWordsForLearning");
+    expect(lw).toHaveMethod("chooseRandomObject");
+    expect(lw).toHaveMethod("config");
+    expect(lw).toHaveMethod("status");
+
+
+  });
+
+````
+
+
+Spec LWdb
+````JavaScript
+  it("should support API 1", function() {
+
+    expect(lwdb).toBeObject();
+    
+    expect(lwdb).toHaveString("dbName");
+    expect(lwdb.dbName).toBe("LearnWords");
+
+    expect(lwdb).toHaveMethod("getSettings");
+    expect(lwdb).toHaveMethod("putSettings");
+
+    expect(lwdb).toHaveMethod("putWord");
+    expect(lwdb).toHaveMethod("getWord");
+
+    expect(lwdb).toHaveMethod("removeWords");
+    expect(lwdb).toHaveMethod("destroy");
+
+    expect(lwdb).toHaveMethod("persistentStorageOK");
+    expect(lwdb).toHaveMethod("isOK");
+    expect(lwdb).toHaveMethod("numberOfWords");
+
+    expect(lwdb).toHaveMethod("importFrom");
+    expect(lwdb).toHaveMethod("loadWords");
+
+    expect(lwdb).toHaveMethod("keysOfAllWords");
+    expect(lwdb).toHaveMethod("allWords");
+ 
+
+  });
+
+````
+
+
+
+## 2016-12-31 Tags property in word list - Import/Export LW2 CSV file into Anki
+
+
+The word entry object type has been extended to include a `tags` field.
+
+Below are screen shots how this file type may be imported into Anki.
+
+![Import dialog box](Anki_Desktop_2_CSV_Import_en-ge_2016-12.png)
+
+Anki main window after CSV import
+
+![Main window after CSV import](Anki_Desktop_Main_Window_After_CSV_Import_2016-12.png)
+
+
+![Browse view of imported file](Anki_Desktop_2_Browse_View_en-ge_deck_2016-12.png)
+
+## Anki SQLite database export of LW2 CSV data
+
+see [Log file](../data/anki/anki-db.log)
+
+
 ## 2016-12-01 LWdb 1 API
 
 

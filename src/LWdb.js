@@ -151,7 +151,7 @@ var LWdb = function(name) {
 
 
 
-    destroy : function(anObject) {
+    destroy : function() {
 
          var aKeyPrefix = dbName;  
          _removeObjects(aKeyPrefix);

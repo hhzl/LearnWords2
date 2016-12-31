@@ -1,0 +1,84 @@
+word	translate
+apple	der Apfel
+pear	die Birne
+lemon	die Zitrone
+banana	die Banane
+orange	die Orange
+strawberry	die Erdbeere
+raspberry	die Himbeere
+blueberry	die Brombeere
+guava	die Guava
+pawpaw	die Papaya
+apricot	die Aprikose
+melon	die Melone
+tomato	die Tomate
+carrot	die Karotte
+onion	die Zwiebel
+rice	der Reis
+salt	das Salz
+oil	das Öl
+flour	das Mehl
+water	das Wasser
+house	das Haus
+a tree	ein Baum
+a river	ein Fluss
+the sun	die Sonne
+the moon	der Mond
+one star	ein Stern
+two stars	zwei Sterne
+three stars	drei Sterne
+four stars	vier Sterne
+five stars	fünf Sterne
+lion	der Löwe
+hyena	die Hyäne
+goat	die Ziege
+cow	die Kuh
+cock	der Hahn
+hen	das Henne
+dog	der Hund
+donkey	der Esel
+sheep	das Schaf
+dove	die Taube
+duck	die Ente
+fish	der Fisch
+toad	die Kröte
+cat	die Katze
+rabbit	der Hase
+man	der Mann
+woman	die Frau
+child	das Kind
+cloth	der Stoff
+sand	der Sand
+pot	der Topf
+soap	die Seife
+book	das Buch
+pencil	der Bleistift
+nail	der Nagel
+wood	Holz
+car	das Auto
+bridge	die Brücke
+road	die Strasse
+city	die Stadt
+village	das Dorf
+lamp	die Lampe
+fire	das Feuer
+tap	der Hahn
+ship	das Schiff
+cloud	die Wolke
+rain	der Regen
+ball	der Ball
+window	das Fenster
+door	die Türe
+box	die Kiste
+xylophone	das Xylophon
+candle	die Kerze
+ear	die Ähre
+hand	die Hand
+foot	der Fuss
+teeth	die Zähne
+school	die Schule
+hammer	der Hammer
+spoon	der Löffel
+bottle	die Flasche
+sea	das Meer
+bus	der Bus

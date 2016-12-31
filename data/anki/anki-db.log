@@ -1,0 +1,465 @@
+sqlite> .output anki-db.log
+
+
+
+sqlite> .tables
+cards   col     graves  notes   revlog
+
+
+
+
+sqlite> .schema
+
+
+
+CREATE TABLE col (
+    id              integer primary key,
+    crt             integer not null,
+    mod             integer not null,
+    scm             integer not null,
+    ver             integer not null,
+    dty             integer not null,
+    usn             integer not null,
+    ls              integer not null,
+    conf            text not null,
+    models          text not null,
+    decks           text not null,
+    dconf           text not null,
+    tags            text not null
+);
+CREATE TABLE notes (
+    id              integer primary key,   /* 0 */
+    guid            text not null,         /* 1 */
+    mid             integer not null,      /* 2 */
+    mod             integer not null,      /* 3 */
+    usn             integer not null,      /* 4 */
+    tags            text not null,         /* 5 */
+    flds            text not null,         /* 6 */
+    sfld            integer not null,      /* 7 */
+    csum            integer not null,      /* 8 */
+    flags           integer not null,      /* 9 */
+    data            text not null          /* 10 */
+);
+CREATE TABLE cards (
+    id              integer primary key,   /* 0 */
+    nid             integer not null,      /* 1 */
+    did             integer not null,      /* 2 */
+    ord             integer not null,      /* 3 */
+    mod             integer not null,      /* 4 */
+    usn             integer not null,      /* 5 */
+    type            integer not null,      /* 6 */
+    queue           integer not null,      /* 7 */
+    due             integer not null,      /* 8 */
+    ivl             integer not null,      /* 9 */
+    factor          integer not null,      /* 10 */
+    reps            integer not null,      /* 11 */
+    lapses          integer not null,      /* 12 */
+    left            integer not null,      /* 13 */
+    odue            integer not null,      /* 14 */
+    odid            integer not null,      /* 15 */
+    flags           integer not null,      /* 16 */
+    data            text not null          /* 17 */
+);
+CREATE TABLE revlog (
+    id              integer primary key,
+    cid             integer not null,
+    usn             integer not null,
+    ease            integer not null,
+    ivl             integer not null,
+    lastIvl         integer not null,
+    factor          integer not null,
+    time            integer not null,
+    type            integer not null
+);
+CREATE TABLE graves (
+    usn             integer not null,
+    oid             integer not null,
+    type            integer not null
+);
+CREATE INDEX ix_notes_usn on notes (usn);
+CREATE INDEX ix_cards_usn on cards (usn);
+CREATE INDEX ix_revlog_usn on revlog (usn);
+CREATE INDEX ix_cards_nid on cards (nid);
+CREATE INDEX ix_cards_sched on cards (did, queue, due);
+CREATE INDEX ix_revlog_cid on revlog (cid);
+CREATE INDEX ix_notes_csum on notes (csum);
+
+
+
+
+
+
+
+
+
+
+
+
+sqlite> select * from notes;
+
+1483185822147|A|{LMNF%j[|1483185693123|1483185822|-1| tags |wordtranslate|word|1019009290|0|
+1483185822148|g.dPb%|-To|1483185693123|1483185822|-1| fruit |appleder Apfel|apple|3502124484|0|
+1483185822149|ED`D%4QBK{|1483185693123|1483185822|-1| fruit |peardie Birne|pear|1043068410|0|
+1483185822150|J*qlv]U*uO|1483185693123|1483185822|-1| fruit |lemondie Zitrone|lemon|3755834318|0|
+1483185822151|HFVR~>)X;z|1483185693123|1483185822|-1| fruit |bananadie Banane|banana|621705201|0|
+1483185822152|sLNmz,tzo_|1483185693123|1483185822|-1| fruit |orangedie Orange|orange|4010720183|0|
+1483185822153|laQVmC@8*D|1483185693123|1483185822|-1| fruit |strawberrydie Erdbeere|strawberry|3233094726|0|
+1483185822154|CRK9r+-xT?|1483185693123|1483185822|-1| fruit |raspberrydie Himbeere|raspberry|3939145729|0|
+1483185822155|y?A&}iT|f]|1483185693123|1483185822|-1| fruit |blueberrydie Brombeere|blueberry|1733410205|0|
+1483185822156|t=58Vy=LA`|1483185693123|1483185822|-1| fruit |guavadie Guava|guava|2865599682|0|
+1483185822157|d0r17mf:Y>|1483185693123|1483185822|-1| fruit |pawpawdie Papaya|pawpaw|3549976304|0|
+1483185822158|CtE&(yj)iq|1483185693123|1483185822|-1| fruit |apricotdie Aprikose|apricot|183621394|0|
+1483185822159|y_nzL+L3}p|1483185693123|1483185822|-1| fruit |melondie Melone|melon|3586301296|0|
+1483185822160|NHDq~j,BwJ|1483185693123|1483185822|-1| food |tomatodie Tomate|tomato|840919934|0|
+1483185822161|h><0P!/b.*|1483185693123|1483185822|-1| food |carrotdie Karotte|carrot|3636440395|0|
+1483185822162|joW%Y+y%{a|1483185693123|1483185822|-1| food |oniondie Zwiebel|onion|1791541403|0|
+1483185822163|h`WLAE(dzZ|1483185693123|1483185822|-1| food |riceder Reis|rice|1765353357|0|
+1483185822164|MuFQJ],$a!|1483185693123|1483185822|-1| food |saltdas Salz|salt|2996162839|0|
+1483185822165|hyG2svS,:Q|1483185693123|1483185822|-1| food |oildas Öl|oil|2784332857|0|
+1483185822166|E}Zbs&[mU)|1483185693123|1483185822|-1| food |flourdas Mehl|flour|1003464519|0|
+1483185822167|y#kP#qjPN[|1483185693123|1483185822|-1| food |waterdas Wasser|water|1834632594|0|
+1483185822168|PKc!d6Eitv|1483185693123|1483185822|-1| building |housedas Haus|house|1542009984|0|
+1483185822169|i#SFdF,Yy<|1483185693123|1483185822|-1| nature |a treeein Baum|a tree|8464103|0|
+1483185822170|rY(:1&$+H!|1483185693123|1483185822|-1| nature |a riverein Fluss|a river|1743696003|0|
+1483185822171|e/ZR,yFbW*|1483185693123|1483185822|-1| nature |the sundie Sonne|the sun|491429616|0|
+1483185822172|t_jtWmF{Tp|1483185693123|1483185822|-1| nature |the moonder Mond|the moon|1780246119|0|
+1483185822173|Nlnq:u(FpW|1483185693123|1483185822|-1| nature |one starein Stern|one star|1369176613|0|
+1483185822174|v^j}xQRu8z|1483185693123|1483185822|-1| nature |two starszwei Sterne|two stars|1225146299|0|
+1483185822175|jR<W[cP=HL|1483185693123|1483185822|-1| nature |three starsdrei Sterne|three stars|1831599779|0|
+1483185822176|2Fa)6]O(B|1483185693123|1483185822|-1| nature |four starsvier Sterne|four stars|3034575070|0|
+1483185822177|s$;)?{nKDW|1483185693123|1483185822|-1| nature |five starsfünf Sterne|five stars|3245281601|0|
+1483185822178|dj^ucc%>2O|1483185693123|1483185822|-1| animal |lionder Löwe|lion|3941681665|0|
+1483185822179|z1,Oi,-vcv|1483185693123|1483185822|-1| animal |hyenadie Hyäne|hyena|4251672855|0|
+1483185822180|lzAsCqi3or|1483185693123|1483185822|-1| animal |goatdie Ziege|goat|372053408|0|
+1483185822181|LT+m^)lf`X|1483185693123|1483185822|-1| animal |cowdie Kuh|cow|2344475466|0|
+1483185822182|O-XmOgUVWQ|1483185693123|1483185822|-1| animal |cockder Hahn|cock|644842450|0|
+1483185822183|J3Pn|Va/-S|1483185693123|1483185822|-1| animal |hendas Henne|hen|3624994913|0|
+1483185822184|r>Qy89wHfJ|1483185693123|1483185822|-1| animal |dogder Hund|dog|3834974802|0|
+1483185822185|Qzy(e=GZx|1483185693123|1483185822|-1| animal |donkeyder Esel|donkey|207801307|0|
+1483185822186|K6-9i@=o}#|1483185693123|1483185822|-1| animal |sheepdas Schaf|sheep|1696985830|0|
+1483185822187|J*[<rr6.je|1483185693123|1483185822|-1| animal |dovedie Taube|dove|96260327|0|
+1483185822188|M!%Z)&6GI:|1483185693123|1483185822|-1| animal |duckdie Ente|duck|1590567936|0|
+1483185822189|ipKAy7ws,6|1483185693123|1483185822|-1| animal |fishder Fisch|fish|1686593484|0|
+1483185822190|v77W3Ri.t@|1483185693123|1483185822|-1| animal |toaddie Kröte|toad|1579021720|0|
+1483185822191|prq2&|YuHx|1483185693123|1483185822|-1| animal |catdie Katze|cat|2644024973|0|
+1483185822192|eo)9F1[)vU|1483185693123|1483185822|-1| animal |rabbitder Hase|rabbit|1829682109|0|
+1483185822193|mx$G>Xd[#/|1483185693123|1483185822|-1| human |mander Mann|man|2171986888|0|
+1483185822194|c(Gecp8)q}|1483185693123|1483185822|-1| human |womandie Frau|woman|3987862570|0|
+1483185822195|CRavf`-:u,|1483185693123|1483185822|-1| human |childdas Kind|child|244516508|0|
+1483185822196|QJ<>g?uiTF|1483185693123|1483185822|-1| household |clothder Stoff|cloth|2832434798|0|
+1483185822197|NJJYIKlmx=|1483185693123|1483185822|-1| building |sandder Sand|sand|1113742334|0|
+1483185822198|gM0|6J1o6Q|1483185693123|1483185822|-1| household |potder Topf|pot|3413753100|0|
+1483185822199|gj?jn5qrq:|1483185693123|1483185822|-1| household |soapdie Seife|soap|4139887489|0|
+1483185822200|M}WU{JJYxI|1483185693123|1483185822|-1| household |bookdas Buch|book|3890648261|0|
+1483185822201|i(l,I%|)s2|1483185693123|1483185822|-1| household |pencilder Bleistift|pencil|3539751204|0|
+1483185822202|co}{M$w[Kx|1483185693123|1483185822|-1| manmade |nailder Nagel|nail|3472284766|0|
+1483185822203|xJQ-HKzS6R|1483185693123|1483185822|-1| building |woodHolz|wood|3892325398|0|
+1483185822204|so`$uj38co|1483185693123|1483185822|-1| manmade |cardas Auto|car|2654097949|0|
+1483185822205|G4Y&vy-g[;|1483185693123|1483185822|-1| manmade |bridgedie Brücke|bridge|799119387|0|
+1483185822206|me,F2K?_yM|1483185693123|1483185822|-1| manmade |roaddie Strasse|road|1256170873|0|
+1483185822207|y$Z-:/e$-i|1483185693123|1483185822|-1| manmade |citydie Stadt|city|743737644|0|
+1483185822208|hN;z:hfg9m|1483185693123|1483185822|-1| manmade |villagedas Dorf|village|1004289734|0|
+1483185822209|c^Iue6Ulj~|1483185693123|1483185822|-1| building |lampdie Lampe|lamp|3159284942|0|
+1483185822210|P7iW8!D)9n|1483185693123|1483185822|-1| household |firedas Feuer|fire|497565732|0|
+1483185822211|w^,,G/L7Am|1483185693123|1483185822|-1| manmade |tapder Hahn|tap|636685621|0|
+1483185822212|CJVvn<^A5e|1483185693123|1483185822|-1| manmade |shipdas Schiff|ship|3980634272|0|
+1483185822213|Q+u&px<k={|1483185693123|1483185822|-1| nature |clouddie Wolke|cloud|948541|0|
+1483185822214|l1*eNkPa~C|1483185693123|1483185822|-1| nature |rainder Regen|rain|4226553803|0|
+1483185822215|l,i[T}<HDB|1483185693123|1483185822|-1| household |ballder Ball|ball|2347500550|0|
+1483185822216|k&&%}J}/@r|1483185693123|1483185822|-1| building |windowdas Fenster|window|839570023|0|
+1483185822217|iMdc(s[B`D|1483185693123|1483185822|-1| building |doordie Türe|door|645969524|0|
+1483185822218|rbk4v<Rj2B|1483185693123|1483185822|-1| household |boxdie Kiste|box|3352864471|0|
+1483185822219|r+HPLWVS;f|1483185693123|1483185822|-1| household |xylophonedas Xylophon|xylophone|2092925121|0|
+1483185822220|eHg{%6D`o}|1483185693123|1483185822|-1| household |candledie Kerze|candle|2057314551|0|
+1483185822221|xQ1/Km=+i0|1483185693123|1483185822|-1| nature |eardie Ähre|ear|3720110472|0|
+1483185822222|wj+M*dX>.8|1483185693123|1483185822|-1| human |handdie Hand|hand|2518786628|0|
+1483185822223|j9v[s)@I`g|1483185693123|1483185822|-1| human |footder Fuss|foot|852201784|0|
+1483185822224|J>u*N_]8h`|1483185693123|1483185822|-1| human |teethdie Zähne|teeth|2820664496|0|
+1483185822225|x)fHa!5q{i|1483185693123|1483185822|-1| manmade |schooldie Schule|school|1700758462|0|
+1483185822226|AC4mzI6@Qf|1483185693123|1483185822|-1| manmade |hammerder Hammer|hammer|2093553913|0|
+1483185822227|A<S~f=b<F+|1483185693123|1483185822|-1| household |spoonder Löffel|spoon|4116179241|0|
+1483185822228|CoOtu<~{nP|1483185693123|1483185822|-1| household |bottledie Flasche|bottle|2949301076|0|
+1483185822229|MZ=sA2-=z;|1483185693123|1483185822|-1| nature |seadas Meer|sea|1872830386|0|
+1483185822230|sQ?Bo)5Xy7|1483185693123|1483185822|-1| manmade |busder Bus|bus|851905771|0|
+
+
+
+sqlite> select flds from notes;
+
+wordtranslate
+appleder Apfel
+peardie Birne
+lemondie Zitrone
+bananadie Banane
+orangedie Orange
+strawberrydie Erdbeere
+raspberrydie Himbeere
+blueberrydie Brombeere
+guavadie Guava
+pawpawdie Papaya
+apricotdie Aprikose
+melondie Melone
+tomatodie Tomate
+carrotdie Karotte
+oniondie Zwiebel
+riceder Reis
+saltdas Salz
+oildas Öl
+flourdas Mehl
+waterdas Wasser
+housedas Haus
+a treeein Baum
+a riverein Fluss
+the sundie Sonne
+the moonder Mond
+one starein Stern
+two starszwei Sterne
+three starsdrei Sterne
+four starsvier Sterne
+five starsfünf Sterne
+lionder Löwe
+hyenadie Hyäne
+goatdie Ziege
+cowdie Kuh
+cockder Hahn
+hendas Henne
+dogder Hund
+donkeyder Esel
+sheepdas Schaf
+dovedie Taube
+duckdie Ente
+fishder Fisch
+toaddie Kröte
+catdie Katze
+rabbitder Hase
+mander Mann
+womandie Frau
+childdas Kind
+clothder Stoff
+sandder Sand
+potder Topf
+soapdie Seife
+bookdas Buch
+pencilder Bleistift
+nailder Nagel
+woodHolz
+cardas Auto
+bridgedie Brücke
+roaddie Strasse
+citydie Stadt
+villagedas Dorf
+lampdie Lampe
+firedas Feuer
+tapder Hahn
+shipdas Schiff
+clouddie Wolke
+rainder Regen
+ballder Ball
+windowdas Fenster
+doordie Türe
+boxdie Kiste
+xylophonedas Xylophon
+candledie Kerze
+eardie Ähre
+handdie Hand
+footder Fuss
+teethdie Zähne
+schooldie Schule
+hammerder Hammer
+spoonder Löffel
+bottledie Flasche
+seadas Meer
+busder Bus
+
+
+
+sqlite> select * from cards;
+
+1483185822231|1483185822147|1483185746886|0|1483185822|-1|0|0|1|0|0|0|0|0|0|0|0|
+1483185822232|1483185822148|1483185746886|0|1483185822|-1|0|0|2|0|0|0|0|0|0|0|0|
+1483185822233|1483185822149|1483185746886|0|1483185822|-1|0|0|3|0|0|0|0|0|0|0|0|
+1483185822234|1483185822150|1483185746886|0|1483185822|-1|0|0|4|0|0|0|0|0|0|0|0|
+1483185822235|1483185822151|1483185746886|0|1483185822|-1|0|0|5|0|0|0|0|0|0|0|0|
+1483185822236|1483185822152|1483185746886|0|1483185822|-1|0|0|6|0|0|0|0|0|0|0|0|
+1483185822237|1483185822153|1483185746886|0|1483185822|-1|0|0|7|0|0|0|0|0|0|0|0|
+1483185822238|1483185822154|1483185746886|0|1483185822|-1|0|0|8|0|0|0|0|0|0|0|0|
+1483185822239|1483185822155|1483185746886|0|1483185822|-1|0|0|9|0|0|0|0|0|0|0|0|
+1483185822240|1483185822156|1483185746886|0|1483185822|-1|0|0|10|0|0|0|0|0|0|0|0|
+1483185822241|1483185822157|1483185746886|0|1483185822|-1|0|0|11|0|0|0|0|0|0|0|0|
+1483185822242|1483185822158|1483185746886|0|1483185822|-1|0|0|12|0|0|0|0|0|0|0|0|
+1483185822243|1483185822159|1483185746886|0|1483185822|-1|0|0|13|0|0|0|0|0|0|0|0|
+1483185822244|1483185822160|1483185746886|0|1483185822|-1|0|0|14|0|0|0|0|0|0|0|0|
+1483185822245|1483185822161|1483185746886|0|1483185822|-1|0|0|15|0|0|0|0|0|0|0|0|
+1483185822246|1483185822162|1483185746886|0|1483185822|-1|0|0|16|0|0|0|0|0|0|0|0|
+1483185822247|1483185822163|1483185746886|0|1483185822|-1|0|0|17|0|0|0|0|0|0|0|0|
+1483185822248|1483185822164|1483185746886|0|1483185822|-1|0|0|18|0|0|0|0|0|0|0|0|
+1483185822249|1483185822165|1483185746886|0|1483185822|-1|0|0|19|0|0|0|0|0|0|0|0|
+1483185822250|1483185822166|1483185746886|0|1483185822|-1|0|0|20|0|0|0|0|0|0|0|0|
+1483185822251|1483185822167|1483185746886|0|1483185822|-1|0|0|21|0|0|0|0|0|0|0|0|
+1483185822252|1483185822168|1483185746886|0|1483185822|-1|0|0|22|0|0|0|0|0|0|0|0|
+1483185822253|1483185822169|1483185746886|0|1483185822|-1|0|0|23|0|0|0|0|0|0|0|0|
+1483185822254|1483185822170|1483185746886|0|1483185822|-1|0|0|24|0|0|0|0|0|0|0|0|
+1483185822255|1483185822171|1483185746886|0|1483185822|-1|0|0|25|0|0|0|0|0|0|0|0|
+1483185822256|1483185822172|1483185746886|0|1483185822|-1|0|0|26|0|0|0|0|0|0|0|0|
+1483185822257|1483185822173|1483185746886|0|1483185822|-1|0|0|27|0|0|0|0|0|0|0|0|
+1483185822258|1483185822174|1483185746886|0|1483185822|-1|0|0|28|0|0|0|0|0|0|0|0|
+1483185822259|1483185822175|1483185746886|0|1483185822|-1|0|0|29|0|0|0|0|0|0|0|0|
+1483185822260|1483185822176|1483185746886|0|1483185822|-1|0|0|30|0|0|0|0|0|0|0|0|
+1483185822261|1483185822177|1483185746886|0|1483185822|-1|0|0|31|0|0|0|0|0|0|0|0|
+1483185822262|1483185822178|1483185746886|0|1483185822|-1|0|0|32|0|0|0|0|0|0|0|0|
+1483185822263|1483185822179|1483185746886|0|1483185822|-1|0|0|33|0|0|0|0|0|0|0|0|
+1483185822264|1483185822180|1483185746886|0|1483185822|-1|0|0|34|0|0|0|0|0|0|0|0|
+1483185822265|1483185822181|1483185746886|0|1483185822|-1|0|0|35|0|0|0|0|0|0|0|0|
+1483185822266|1483185822182|1483185746886|0|1483185822|-1|0|0|36|0|0|0|0|0|0|0|0|
+1483185822267|1483185822183|1483185746886|0|1483185822|-1|0|0|37|0|0|0|0|0|0|0|0|
+1483185822268|1483185822184|1483185746886|0|1483185822|-1|0|0|38|0|0|0|0|0|0|0|0|
+1483185822269|1483185822185|1483185746886|0|1483185822|-1|0|0|39|0|0|0|0|0|0|0|0|
+1483185822270|1483185822186|1483185746886|0|1483185822|-1|0|0|40|0|0|0|0|0|0|0|0|
+1483185822271|1483185822187|1483185746886|0|1483185822|-1|0|0|41|0|0|0|0|0|0|0|0|
+1483185822272|1483185822188|1483185746886|0|1483185822|-1|0|0|42|0|0|0|0|0|0|0|0|
+1483185822273|1483185822189|1483185746886|0|1483185822|-1|0|0|43|0|0|0|0|0|0|0|0|
+1483185822274|1483185822190|1483185746886|0|1483185822|-1|0|0|44|0|0|0|0|0|0|0|0|
+1483185822275|1483185822191|1483185746886|0|1483185822|-1|0|0|45|0|0|0|0|0|0|0|0|
+1483185822276|1483185822192|1483185746886|0|1483185822|-1|0|0|46|0|0|0|0|0|0|0|0|
+1483185822277|1483185822193|1483185746886|0|1483185822|-1|0|0|47|0|0|0|0|0|0|0|0|
+1483185822278|1483185822194|1483185746886|0|1483185822|-1|0|0|48|0|0|0|0|0|0|0|0|
+1483185822279|1483185822195|1483185746886|0|1483185822|-1|0|0|49|0|0|0|0|0|0|0|0|
+1483185822280|1483185822196|1483185746886|0|1483185822|-1|0|0|50|0|0|0|0|0|0|0|0|
+1483185822281|1483185822197|1483185746886|0|1483185822|-1|0|0|51|0|0|0|0|0|0|0|0|
+1483185822282|1483185822198|1483185746886|0|1483185822|-1|0|0|52|0|0|0|0|0|0|0|0|
+1483185822283|1483185822199|1483185746886|0|1483185822|-1|0|0|53|0|0|0|0|0|0|0|0|
+1483185822284|1483185822200|1483185746886|0|1483185822|-1|0|0|54|0|0|0|0|0|0|0|0|
+1483185822285|1483185822201|1483185746886|0|1483185822|-1|0|0|55|0|0|0|0|0|0|0|0|
+1483185822286|1483185822202|1483185746886|0|1483185822|-1|0|0|56|0|0|0|0|0|0|0|0|
+1483185822287|1483185822203|1483185746886|0|1483185822|-1|0|0|57|0|0|0|0|0|0|0|0|
+1483185822288|1483185822204|1483185746886|0|1483185822|-1|0|0|58|0|0|0|0|0|0|0|0|
+1483185822289|1483185822205|1483185746886|0|1483185822|-1|0|0|59|0|0|0|0|0|0|0|0|
+1483185822290|1483185822206|1483185746886|0|1483185822|-1|0|0|60|0|0|0|0|0|0|0|0|
+1483185822291|1483185822207|1483185746886|0|1483185822|-1|0|0|61|0|0|0|0|0|0|0|0|
+1483185822292|1483185822208|1483185746886|0|1483185822|-1|0|0|62|0|0|0|0|0|0|0|0|
+1483185822293|1483185822209|1483185746886|0|1483185822|-1|0|0|63|0|0|0|0|0|0|0|0|
+1483185822294|1483185822210|1483185746886|0|1483185822|-1|0|0|64|0|0|0|0|0|0|0|0|
+1483185822295|1483185822211|1483185746886|0|1483185822|-1|0|0|65|0|0|0|0|0|0|0|0|
+1483185822296|1483185822212|1483185746886|0|1483185822|-1|0|0|66|0|0|0|0|0|0|0|0|
+1483185822297|1483185822213|1483185746886|0|1483185822|-1|0|0|67|0|0|0|0|0|0|0|0|
+1483185822298|1483185822214|1483185746886|0|1483185822|-1|0|0|68|0|0|0|0|0|0|0|0|
+1483185822299|1483185822215|1483185746886|0|1483185822|-1|0|0|69|0|0|0|0|0|0|0|0|
+1483185822300|1483185822216|1483185746886|0|1483185822|-1|0|0|70|0|0|0|0|0|0|0|0|
+1483185822301|1483185822217|1483185746886|0|1483185822|-1|0|0|71|0|0|0|0|0|0|0|0|
+1483185822302|1483185822218|1483185746886|0|1483185822|-1|0|0|72|0|0|0|0|0|0|0|0|
+1483185822303|1483185822219|1483185746886|0|1483185822|-1|0|0|73|0|0|0|0|0|0|0|0|
+1483185822304|1483185822220|1483185746886|0|1483185822|-1|0|0|74|0|0|0|0|0|0|0|0|
+1483185822305|1483185822221|1483185746886|0|1483185822|-1|0|0|75|0|0|0|0|0|0|0|0|
+1483185822306|1483185822222|1483185746886|0|1483185822|-1|0|0|76|0|0|0|0|0|0|0|0|
+1483185822307|1483185822223|1483185746886|0|1483185822|-1|0|0|77|0|0|0|0|0|0|0|0|
+1483185822308|1483185822224|1483185746886|0|1483185822|-1|0|0|78|0|0|0|0|0|0|0|0|
+1483185822309|1483185822225|1483185746886|0|1483185822|-1|0|0|79|0|0|0|0|0|0|0|0|
+1483185822310|1483185822226|1483185746886|0|1483185822|-1|0|0|80|0|0|0|0|0|0|0|0|
+1483185822311|1483185822227|1483185746886|0|1483185822|-1|0|0|81|0|0|0|0|0|0|0|0|
+1483185822312|1483185822228|1483185746886|0|1483185822|-1|0|0|82|0|0|0|0|0|0|0|0|
+1483185822313|1483185822229|1483185746886|0|1483185822|-1|0|0|83|0|0|0|0|0|0|0|0|
+1483185822314|1483185822230|1483185746886|0|1483185822|-1|0|0|84|0|0|0|0|0|0|0|0|
+
+
+sqlite> select tags, count(*) from notes group by tags;
+ animal |15
+ building |6
+ food |8
+ fruit |12
+ household |12
+ human |6
+ manmade |11
+ nature |13
+ tags |1
+sqlite> 
+
+
+
+
+
+sqlite> select id,flds,tags from notes;
+
+1483185822147|wordtranslate| tags 
+1483185822148|appleder Apfel| fruit 
+1483185822149|peardie Birne| fruit 
+1483185822150|lemondie Zitrone| fruit 
+1483185822151|bananadie Banane| fruit 
+1483185822152|orangedie Orange| fruit 
+1483185822153|strawberrydie Erdbeere| fruit 
+1483185822154|raspberrydie Himbeere| fruit 
+1483185822155|blueberrydie Brombeere| fruit 
+1483185822156|guavadie Guava| fruit 
+1483185822157|pawpawdie Papaya| fruit 
+1483185822158|apricotdie Aprikose| fruit 
+1483185822159|melondie Melone| fruit 
+1483185822160|tomatodie Tomate| food 
+1483185822161|carrotdie Karotte| food 
+1483185822162|oniondie Zwiebel| food 
+1483185822163|riceder Reis| food 
+1483185822164|saltdas Salz| food 
+1483185822165|oildas Öl| food 
+1483185822166|flourdas Mehl| food 
+1483185822167|waterdas Wasser| food 
+1483185822168|housedas Haus| building 
+1483185822169|a treeein Baum| nature 
+1483185822170|a riverein Fluss| nature 
+1483185822171|the sundie Sonne| nature 
+1483185822172|the moonder Mond| nature 
+1483185822173|one starein Stern| nature 
+1483185822174|two starszwei Sterne| nature 
+1483185822175|three starsdrei Sterne| nature 
+1483185822176|four starsvier Sterne| nature 
+1483185822177|five starsfünf Sterne| nature 
+1483185822178|lionder Löwe| animal 
+1483185822179|hyenadie Hyäne| animal 
+1483185822180|goatdie Ziege| animal 
+1483185822181|cowdie Kuh| animal 
+1483185822182|cockder Hahn| animal 
+1483185822183|hendas Henne| animal 
+1483185822184|dogder Hund| animal 
+1483185822185|donkeyder Esel| animal 
+1483185822186|sheepdas Schaf| animal 
+1483185822187|dovedie Taube| animal 
+1483185822188|duckdie Ente| animal 
+1483185822189|fishder Fisch| animal 
+1483185822190|toaddie Kröte| animal 
+1483185822191|catdie Katze| animal 
+1483185822192|rabbitder Hase| animal 
+1483185822193|mander Mann| human 
+1483185822194|womandie Frau| human 
+1483185822195|childdas Kind| human 
+1483185822196|clothder Stoff| household 
+1483185822197|sandder Sand| building 
+1483185822198|potder Topf| household 
+1483185822199|soapdie Seife| household 
+1483185822200|bookdas Buch| household 
+1483185822201|pencilder Bleistift| household 
+1483185822202|nailder Nagel| manmade 
+1483185822203|woodHolz| building 
+1483185822204|cardas Auto| manmade 
+1483185822205|bridgedie Brücke| manmade 
+1483185822206|roaddie Strasse| manmade 
+1483185822207|citydie Stadt| manmade 
+1483185822208|villagedas Dorf| manmade 
+1483185822209|lampdie Lampe| building 
+1483185822210|firedas Feuer| household 
+1483185822211|tapder Hahn| manmade 
+1483185822212|shipdas Schiff| manmade 
+1483185822213|clouddie Wolke| nature 
+1483185822214|rainder Regen| nature 
+1483185822215|ballder Ball| household 
+1483185822216|windowdas Fenster| building 
+1483185822217|doordie Türe| building 
+1483185822218|boxdie Kiste| household 
+1483185822219|xylophonedas Xylophon| household 
+1483185822220|candledie Kerze| household 
+1483185822221|eardie Ähre| nature 
+1483185822222|handdie Hand| human 
+1483185822223|footder Fuss| human 
+1483185822224|teethdie Zähne| human 
+1483185822225|schooldie Schule| manmade 
+1483185822226|hammerder Hammer| manmade 
+1483185822227|spoonder Löffel| household 
+1483185822228|bottledie Flasche| household 
+1483185822229|seadas Meer| nature 
+1483185822230|busder Bus| manmade 

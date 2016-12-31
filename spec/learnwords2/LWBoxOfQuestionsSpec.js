@@ -2,7 +2,7 @@
 
 var BoxOfQuestions = require('../../src/BoxOfQuestions');
 var LWdb = require('../../src/LWdb');
-var wordlist = require('../../data/wordlist-en-ge.js'); 
+var wordlist = require('../../data/json/wordlist-en-ge.js'); 
 
 var lw;
 
@@ -54,9 +54,9 @@ describe("BoxOfQuestions construction", function() {
 
     // checks
     expect(lw.db.dbName).toBe("learnWords");
-    expect(lw.db.numberOfWords()).toBe(12);
+    expect(lw.db.numberOfWords()).toBe(84);
 
-    expect((lw.wordsWithStepValue(-1)).length).toBe(12);
+    expect((lw.wordsWithStepValue(-1)).length).toBe(84);
     // expect((lw.wordsToRepeat()).length).toBe(0);
 
 
@@ -89,7 +89,7 @@ describe("BoxOfQuestions construction", function() {
     expect(lw).toBeObject();
 
     expect(lw.db.dbName).toBe("learnWords");
-    expect(lw.db.numberOfWords()).toBe(12);
+    expect(lw.db.numberOfWords()).toBe(84);
 
 
   });
@@ -189,7 +189,7 @@ describe("BoxOfQuestions", function() {
 
     expect(lw).toHaveMethod("importFrom");
 
-    expect(lw.db.numberOfWords()).toBe(12);
+    expect(lw.db.numberOfWords()).toBe(84);
 
     var allWords = lw.db.allWords();
     var aWord = allWords[0];
@@ -219,8 +219,8 @@ describe("BoxOfQuestions", function() {
 
     var n = lw.db.numberOfWords();
 
-    expect(n).toBe(12);
-    expect(lw.db.allWords().length).toBe(12);
+    expect(n).toBe(84);
+    expect(lw.db.allWords().length).toBe(84);
 
     // FIXME add more expect
 
@@ -281,16 +281,16 @@ describe("BoxOfQuestions", function() {
     expect(lw).toHaveMethod("wordsWithStepValue");
 
     var wordWithStepEqualMinus1 = lw.wordsWithStepValue(-1);
-    expect(wordWithStepEqualMinus1.length).toBe(4);
+    expect(wordWithStepEqualMinus1.length).toBe(76);
       
     var wordsWithStep0 = lw.wordsWithStepValue(0);
     expect(wordsWithStep0.length).toBe(3);
 
     var wordsWithStepMinus1ToZero = lw.wordsWithStepValue(-1,0);
-    expect(wordsWithStepMinus1ToZero.length).toBe(7);
+    expect(wordsWithStepMinus1ToZero.length).toBe(79);
 
     var wordsWithStepMinus1ToPlus1 = lw.wordsWithStepValue(-1,1);
-    expect(wordsWithStepMinus1ToPlus1.length).toBe(10);
+    expect(wordsWithStepMinus1ToPlus1.length).toBe(82);
 
 
   });
@@ -345,15 +345,15 @@ describe("BoxOfQuestions", function() {
 
 
   it("should be able to give questions until there are no more questions", function() {
-     // total of 12 words
-     expect(lw.db.numberOfWords()).toBe(12);
+     // total of 84 words
+     expect(lw.db.numberOfWords()).toBe(84);
 
      // eight are to be learned / repeated
      // 8 is the expected result
      expect((lw.wordsWithStepValue(0,1000)).length).toBe(8);
 
      // for are not put into the system yet.
-     expect((lw.wordsWithStepValue(-1)).length).toBe(4);
+     expect((lw.wordsWithStepValue(-1)).length).toBe(76);
 
 
      // ask questions repeatedly until there are no more questions
@@ -514,7 +514,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-  it("should be able choose a random object from a collection", function() {
+  xit("should be able choose a random object from a collection", function() {
 
         // lw.chooseRandomObject(anArray); issue #59
         // returns a random object from anArray.
@@ -524,17 +524,16 @@ describe("BoxOfQuestions", function() {
         var _id;
         var sum = 0;
 
-        for(var i = 0; i < 2000; i++){
+        for(var i = 0; i < 10000; i++){
         _id = (lw.chooseRandomObject(wordlist))._id;
 
         expect(_id >=1).toBe(true); 
-        expect(_id <=12).toBe(true);
+        expect(_id <=84).toBe(true);
         sum = sum + _id;
         }
 
-
-        expect(sum/2000 >=6.3).toBe(true); 
-        expect(sum/2000 <=6.7).toBe(true);
+        expect(sum/10000 >=42).toBe(true); 
+        expect(sum/10000 <=43).toBe(true);
         
   });
 
@@ -565,7 +564,7 @@ describe("BoxOfQuestions", function() {
     var st = lw.status();
    
     expect(st).toBeObject();
-    expect(st.numberOfWords).toBe(12);
+    expect(st.numberOfWords).toBe(84);
 
     // FIXME
     // add more expect statements

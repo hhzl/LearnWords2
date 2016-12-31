@@ -1,7 +1,7 @@
 "use strict";
 
 var LWdb = require('../../src/LWdb');
-var wordList = require('../../data/wordlist-en-ge.js'); 
+var wordList = require('../../data/json/wordlist-en-ge.js'); 
 
 if (typeof localStorage === "undefined" || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
@@ -100,7 +100,7 @@ describe("Database LWdb", function() {
   });
 
 
-  it("should be able to reinitialize the persistent storage", function() {
+  it("should be able to remove all words storage", function() {
     
     var n = (this.wordList).length;
     expect(n>0).toBe(true);
@@ -117,6 +117,24 @@ describe("Database LWdb", function() {
 
     var keys = lwdb.keysOfAllWords();
     expect(keys.length).toBe(0);
+
+  });
+
+
+  xit("should be able to reinitialize the persistent storage", function() {
+    
+    var n = (this.wordList).length;
+    expect(n>0).toBe(true);
+
+    lwdb.loadWords(this.wordList);
+
+    expect(lwdb.numberOfWords()>0).toBe(true);
+
+
+    lwdb.destroy();
+    
+    // FIXME add expect
+
 
   });
 
