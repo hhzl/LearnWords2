@@ -1,0 +1,85 @@
+_id,word,translate,tags
+1,apple,der Apfel,fruit
+2,pear,die Birne,fruit
+3,lemon,die Zitrone,fruit
+4,banana,die Banane,fruit
+5,orange,die Orange,fruit
+6,strawberry,die Erdbeere,fruit
+7,raspberry,die Himbeere,fruit
+8,blueberry,die Brombeere,fruit
+9,guava,die Guava,fruit
+10,pawpaw,die Papaya,fruit
+11,apricot,die Aprikose,fruit
+12,melon,die Melone,fruit
+13,tomato,die Tomate,food
+14,carrot,die Karotte,food
+15,onion,die Zwiebel,food
+16,rice,der Reis,food
+17,salt,das Salz,food
+18,oil,das Öl,food
+19,flour,das Mehl,food
+20,water,das Wasser,food
+21,house,das Haus,building
+22,a tree,ein Baum,nature
+23,a river,ein Fluss,nature
+24,the sun,die Sonne,nature
+25,the moon,der Mond,nature
+26,one star,ein Stern,nature
+27,two stars,zwei Sterne,nature
+28,three stars,drei Sterne,nature
+29,four stars,vier Sterne,nature
+30,five stars,fünf Sterne,nature
+31,lion,der Löwe,animal
+32,hyena,die Hyäne,animal
+33,goat,die Ziege,animal
+34,cow,die Kuh,animal
+35,cock,der Hahn,animal
+36,hen,das Henne,animal
+37,dog,der Hund,animal
+38,donkey,der Esel,animal
+39,sheep,das Schaf,animal
+40,dove,die Taube,animal
+41,duck,die Ente,animal
+42,fish,der Fisch,animal
+43,toad,die Kröte,animal
+44,cat,die Katze,animal
+45,rabbit,der Hase,animal
+46,man,der Mann,human
+47,woman,die Frau,human
+48,child,das Kind,human
+49,cloth,der Stoff,household
+50,sand,der Sand,building
+51,pot,der Topf,household
+52,soap,die Seife,household
+53,book,das Buch,household
+54,pencil,der Bleistift,household
+55,nail,der Nagel,manmade
+56,wood,Holz,building
+57,car,das Auto,manmade
+58,bridge,die Brücke,manmade
+59,road,die Strasse,manmade
+60,city,die Stadt,manmade
+61,village,das Dorf,manmade
+62,lamp,die Lampe,building
+63,fire,das Feuer,household
+64,tap,der Hahn,manmade
+65,ship,das Schiff,manmade
+66,cloud,die Wolke,nature
+67,rain,der Regen,nature
+68,ball,der Ball,household
+69,window,das Fenster,building
+70,door,die Türe,building
+71,box,die Kiste,household
+72,xylophone,das Xylophon,household
+73,candle,die Kerze,household
+74,ear,die Ähre,nature
+75,hand,die Hand,human
+76,foot,der Fuss,human
+77,teeth,die Zähne,human
+78,school,die Schule,manmade
+79,hammer,der Hammer,manmade
+80,spoon,der Löffel,household
+81,bottle,die Flasche,household
+82,sea,das Meer,nature
+83,bus,der Bus,manmade
+84,ear,das Ohr,human
