@@ -172,7 +172,8 @@ describe("Database LWdb", function() {
       lwdb.putWord(wordFromDB);
 
       // read it back and check if the value has been stored
-      expect((lwdb.getWord(id)).step).toBe(5);
+      var step = (lwdb.getWord(id)).step;
+      expect(step === 5).toBe(true);
 
     });
 
@@ -201,7 +202,7 @@ describe("Database LWdb", function() {
       // read it back and check if the value has been stored
       var word = lwdb.getWord(4);
 
-      expect(word.step).toBe(99);
+      expect(word.step === 99).toBe(true);
 
 
       // Test part 2 with value 0
@@ -381,7 +382,7 @@ describe("Database LWdb", function() {
 
 
 
-    it("should be able to import words", function() {
+    it("should be able to import words (an array)", function() {
 
       // setup
       lwdb.removeWords();
@@ -404,6 +405,35 @@ describe("Database LWdb", function() {
 
     });
 
+
+
+    it("should be able to import a dbdump object", function() {
+      // a dbdump object is an object which contains the data from a db.
+      // the wordlist is in a property called 'words'.
+
+      // setup
+      lwdb.removeWords();
+      expect(lwdb.numberOfWords()).toBe(0);
+
+      expect(lwdb).toHaveMethod("importFrom");
+
+      var theWordList = this.wordList;
+      expect(theWordList).toBeArrayOfObjects();
+
+      var dbdump = {};
+      dbdump.words = theWordList;
+
+      // run
+
+      lwdb.importFrom(dbdump);
+
+      
+      // check
+
+      var keys = lwdb.keysOfAllWords(); 
+      expect(keys.length).toBe(theWordList.length);
+
+    });
 
 
 

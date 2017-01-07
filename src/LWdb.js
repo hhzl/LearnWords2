@@ -10,7 +10,7 @@
 //    Definition of an LWdb object
 //
 // Date:
-//    28th December 2016
+//    6th January 2017
 //
 // ----------------------------------------------------------------------
 
@@ -241,7 +241,7 @@ var LWdb = function(name) {
             var aWord = JSON.parse(localStorage.getItem(storageKey));
             if(!aWord.hasOwnProperty("step")){
                 aWord.step = _defaultInitialStepValue;
-            }
+            };
             if(!aWord.date){
                 aWord.date = 0;
             }
@@ -253,19 +253,35 @@ var LWdb = function(name) {
 
 
 
-    importFrom : function(theWords) {
+    importFrom : function(obj) {
       
       var key;
-      var n = theWords.length;
+      var theWords;
 
-      var aWord;
+      if (typeof obj === "object") {
+
+        
+        if (obj instanceof Array) {
+           theWords = obj
+        } else {
+           theWords = obj.words;
+           // TODO 
+           // add import of settings
+        };
+
+
+        // import array of words
+        var n = theWords.length;
+        var aWord;
       
-      for(var i = 0; i < n; i++){
-        aWord = theWords[i];
-	key = this.putWord(aWord);
-      }
+        for(var i = 0; i < n; i++){
+          aWord = theWords[i];
+	  key = this.putWord(aWord);
+        }
 
-      _invalidateIndex();
+        _invalidateIndex();
+
+      }
 
     },
 

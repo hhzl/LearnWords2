@@ -37,7 +37,8 @@ describe("BoxOfQuestions construction", function() {
 
     expect(lw).toHaveObject("db");
     expect(lw.db.dbName).toBe("learnWords");
-    expect(lw.db.numberOfWords()).toBe(0);
+ 
+   expect(lw.db.numberOfWords()).toBe(0);
 
 
   });
@@ -57,7 +58,6 @@ describe("BoxOfQuestions construction", function() {
     expect(lw.db.numberOfWords()).toBe(84);
 
     expect((lw.wordsWithStepValue(-1)).length).toBe(84);
-    // expect((lw.wordsToRepeat()).length).toBe(0);
 
 
   });
@@ -514,7 +514,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-  xit("should be able choose a random object from a collection", function() {
+  it("should be able choose a random object from a collection", function() {
 
         // lw.chooseRandomObject(anArray); issue #59
         // returns a random object from anArray.

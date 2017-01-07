@@ -26,7 +26,7 @@ var LWdb = require('../src/LWdb');
 var BoxOfQuestions = require('../src/BoxOfQuestions');
 
 
-var wordlist = require('../data/wordlist-en-ge.js'); 
+var wordlist = require('../data/json/wordlist-en-ge.js'); 
 
 
 
@@ -41,7 +41,6 @@ var LW = new BoxOfQuestions(new LWdb('learnWords'));
 
 // if (LW.db.numberOfWords() == 0) {LW.db.loadWords(wordlist)};
  
-
 
 
 // ----------------------------------------------------------
