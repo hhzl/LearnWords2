@@ -337,9 +337,9 @@ function BoxOfQuestions(db) {
 
 
        addMoreWordsForLearning : function(n){
-          console.log("addMoreWordsForLearning n=",n);
           // update n words with step value < 0 to have a step value of 0
-          var candidatesToAdd = this.wordsWithStepValue(-10000,-1);
+          var lowestStepValue = this.db.getSettings().lowestStepValue;
+          var candidatesToAdd = this.wordsWithStepValue(lowestStepValue,-1);
           
           // sort according to step value descending, e.g. -1,-2,-3 ...
           // sort is in place
@@ -360,7 +360,6 @@ function BoxOfQuestions(db) {
              console.log(i, (candidatesToAdd[i]).word);  
           }
 
-          console.log(_status);
 
        }, 
 
