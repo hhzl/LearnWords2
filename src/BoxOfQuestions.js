@@ -17,7 +17,7 @@ function BoxOfQuestions(db) {
         var _sessionExpiryTimeInSeconds = 1800;               
 
 
-
+        var _propertyAnswerText = (db.getSettings()).propertyAnswerText; // 'translate';
 
 
         // private methods
@@ -178,7 +178,7 @@ function BoxOfQuestions(db) {
 
 
         answer :function(){
-            return (this.question()).translate;
+            return (this.question())[_propertyAnswerText];
         },
 
 
@@ -357,7 +357,6 @@ function BoxOfQuestions(db) {
           for (var i = 0; i < numberOfWordsToAdd; i++){
              (candidatesToAdd[i]).step = 0;
              db.putWord(candidatesToAdd[i]);
-             console.log(i, (candidatesToAdd[i]).word);  
           }
 
 

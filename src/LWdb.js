@@ -350,7 +350,8 @@ var LWdb = function(name) {
                       "defaultInitialStepValue" : _defaultInitialStepValue,
                       "sessionExpiryTimeInSeconds" : 1800,
                       "suggestedNumberOfWordsInASession" : 20,
-                      "lowestStepValue" : -10000
+                      "lowestStepValue" : -10000,
+                      "propertyAnswerText":  "translate"
                       };
             // One day = 24h * 60m * 60s * 1000 ms = 86'400'000 ms (milliseconds)          
             // the delay has been shortened to 1 day/10 for test purposes.
