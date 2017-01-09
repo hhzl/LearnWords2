@@ -1,7 +1,8 @@
 "use strict";
 
 var LWdb = require('../../src/LWdb');
-var wordList = require('../../data/json/wordlist-en-ge.js'); 
+// var wordList = require('../../data/json/wordlist-en-ge.js'); // TT
+var wordList = require('../../data/json/math-questions-list.js'); /// TTT
 
 if (typeof localStorage === "undefined" || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
@@ -11,24 +12,28 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 describe("Database LWdb", function() {
 
   var lwdb;
+  var propertyAnswerText = "answer"; /// TTT
+  // var propertyAnswerText = "translate"; /// TTT
 
   beforeAll(function(){
     this.wordList = wordList;
   });
 
   beforeEach(function() {
+    localStorage.clear();
+    lwdb = LWdb("LearnWords");
+
     // clear properties that didn't exist in original wordList
+ 
     for(var i = 0; i < this.wordList.length; i++){
       var aWord = this.wordList[i];
       for(var key in aWord){
-        if(key != "word" && key != "translate" && key != "_id"){
+        if(key != "word" && key != propertyAnswerText && key != "_id"){
           delete aWord[key];
         }
       }
     }
 
-    localStorage.clear();
-    lwdb = LWdb("LearnWords");
   });
 
 
@@ -357,9 +362,9 @@ describe("Database LWdb", function() {
         expect(tmp).toHaveString("word");
         expect(w.word).toBe(tmp.word);
 
-        expect(w).toHaveString("translate");
-        expect(tmp).toHaveString("translate");
-        expect(w.translate).toBe(tmp.translate);
+        expect(w).toHaveString(propertyAnswerText);
+        expect(tmp).toHaveString(propertyAnswerText);
+        expect(w[propertyAnswerText]).toBe(tmp[propertyAnswerText]);
 
         expect(w).toHaveNumber("_id");
         expect(tmp).toHaveNumber("_id");
