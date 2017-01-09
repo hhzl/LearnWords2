@@ -12,8 +12,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 describe("Database LWdb", function() {
 
   var lwdb;
-  var propertyAnswerText = "answer"; /// TTT
-  // var propertyAnswerText = "translate"; /// TTT
+  var propertyAnswerText;
 
   beforeAll(function(){
     this.wordList = wordList;
@@ -23,8 +22,14 @@ describe("Database LWdb", function() {
     localStorage.clear();
     lwdb = LWdb("LearnWords");
 
-    // clear properties that didn't exist in original wordList
- 
+
+    propertyAnswerText = (lwdb.getSettings()).propertyAnswerText;
+    // is either "translate" or "answer"
+
+
+    /*  FIXME deactivated to allow for more relaxed input list requirements.
+        How should this be dealt with?
+    // clear properties that didn't exist in original wordList 
     for(var i = 0; i < this.wordList.length; i++){
       var aWord = this.wordList[i];
       for(var key in aWord){
@@ -33,6 +38,7 @@ describe("Database LWdb", function() {
         }
       }
     }
+    */
 
   });
 
@@ -338,7 +344,7 @@ describe("Database LWdb", function() {
 
       expect(lwdb.numberOfWords()).toBe(n);
 
-
+       
 
       // run
 
@@ -361,9 +367,17 @@ describe("Database LWdb", function() {
         expect(w).toHaveString("word");
         expect(tmp).toHaveString("word");
         expect(w.word).toBe(tmp.word);
+     
+        propertyAnswerText = (lwdb.getSettings()).propertyAnswerText;
 
         expect(w).toHaveString(propertyAnswerText);
-        expect(tmp).toHaveString(propertyAnswerText);
+        
+        // deactivated to allow for math questions such as '5 + 6'.
+        // console.log("propertyAnswerText=",propertyAnswerText, w[propertyAnswerText], w);
+
+        expect(tmp.hasOwnProperty("translate") || tmp.hasOwnProperty("answer")).toBe(true);
+        
+        
         expect(w[propertyAnswerText]).toBe(tmp[propertyAnswerText]);
 
         expect(w).toHaveNumber("_id");

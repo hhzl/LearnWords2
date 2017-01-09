@@ -17,8 +17,7 @@ function BoxOfQuestions(db) {
         var _sessionExpiryTimeInSeconds = 1800;               
 
 
-        var _propertyAnswerText = (db.getSettings()).propertyAnswerText; // 'translate';
-
+ 
 
         // private methods
 
@@ -142,8 +141,8 @@ function BoxOfQuestions(db) {
 
 
         return {
-       
-        version: '0.2.2',
+      
+        version: '0.2.3beta',
 
 	db : db,
 
@@ -178,7 +177,11 @@ function BoxOfQuestions(db) {
 
 
         answer :function(){
-            return (this.question())[_propertyAnswerText];
+            var q = this.question();
+            // the answer text is either in a property 'translate' or 'answer'
+            if (q.translate) {return q.translate}
+            else {return q.answer}
+            // FIXME needs to be properly parameterized.
         },
 
 

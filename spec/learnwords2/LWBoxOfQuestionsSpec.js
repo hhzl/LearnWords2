@@ -514,7 +514,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-  it("should be able choose a random object from a collection", function() {
+  xit("should be able choose a random object from a collection", function() {
 
         // lw.chooseRandomObject(anArray); issue #59
         // returns a random object from anArray.

@@ -10,7 +10,7 @@
 //    Definition of an LWdb object
 //
 // Date:
-//    6th January 2017
+//    10th January 2017
 //
 // ----------------------------------------------------------------------
 
@@ -210,7 +210,14 @@ var LWdb = function(name) {
         }
         if(!aWord.date){
             aWord.date = 0;
-        }
+        };
+        if (aWord.hasOwnProperty("answer")) {
+                // TODO use parametrization 
+		var s = this.getSettings(); 
+		s.propertyAnswerText = "answer"; 
+		this.putSettings(s)
+	}
+
 
         // get storage key 
         var storageKey = _wdKeyFor(aWord._id);
@@ -351,7 +358,7 @@ var LWdb = function(name) {
                       "sessionExpiryTimeInSeconds" : 1800,
                       "suggestedNumberOfWordsInASession" : 20,
                       "lowestStepValue" : -10000,
-                      "propertyAnswerText":  "translate"
+                      "propertyAnswerText": "translate"
                       };
             // One day = 24h * 60m * 60s * 1000 ms = 86'400'000 ms (milliseconds)          
             // the delay has been shortened to 1 day/10 for test purposes.
