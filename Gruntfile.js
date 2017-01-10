@@ -88,7 +88,7 @@ module.exports = function(grunt) {
     copy: {
       data: {
         expand: true,
-        src: path.join('data',"*"),
+        src: path.join('data',"**"),
         dest: WEB_ROOT
       },
       js: {
