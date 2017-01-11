@@ -1,7 +1,8 @@
 var fs = require('fs'), 
     path = require('path'), 
     browserify = require('browserify'),
-    Jasmine = require('jasmine');
+    Jasmine = require('jasmine'),
+    Papa = require('papaparse');
 
 module.exports = function(grunt) {
 
@@ -20,6 +21,12 @@ module.exports = function(grunt) {
       build: [path.join(DIST_DIR,'**')],
       js: [path.join(BUILD_DIR,'**')],
       test: [path.join(BUILD_DIR,'jasmine-bundle.js')]
+    },
+    csv2json: {
+      data: {
+        src: path.join('data','csv','**/*.csv'),
+        dest: path.join('data','json')
+      }
     },
     "jasmine":{
       browser: {
@@ -88,13 +95,13 @@ module.exports = function(grunt) {
     copy: {
       data: {
         expand: true,
-        src: path.join('data',"**"),
+        src: path.join('data','json','**'),
         dest: WEB_ROOT
       },
       js: {
         expand: true,
         flatten: true,
-        src: path.join(DIST_DIR,"*"),
+        src: path.join(DIST_DIR,'*'),
         dest: path.join(WEB_ROOT,'js')
       }
     }
@@ -209,8 +216,47 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.registerMultiTask('csv2json','Converts CSV to JSON',function(){
+
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+        var data = fs.readFileSync(f,'utf-8');
+        var result = Papa.parse(data,{
+          dynamicTyping: true,
+          encoding: 'utf8',
+          skipEmptyLines: true
+        });
+        if(result.errors.length == 0){
+          var json = [];
+          for(var j = 1; j < result.data.length; j++){
+            var obj = {};
+            for(var k = 0; k < result.data[0].length; k++){
+              if(k < result.data[j].length){
+                // first row is header
+                obj[result.data[0][k]] = result.data[j][k];
+              }
+            }
+            json.push(obj);
+          }
+          var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.json');
+          mkDirs(this.files[i].dest);
+          fs.writeFileSync(dest,JSON.stringify(json),{
+            encoding:'utf8',
+            flags:'w+'
+          });
+          console.log('Wrote ' + dest);    
+        }else{
+          console.log(result.errors);
+        }
+      }
+    }
+
+  });
+
   grunt.registerTask('build', ['clean:build','js']);
-  grunt.registerTask('demo',['build','copy']);
+  grunt.registerTask('demo',['build','csv2json','copy']);
   grunt.registerTask('test', ['clean:test','jasmine']);
 
   // Default task(s).

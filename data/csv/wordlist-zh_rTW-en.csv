@@ -1,3 +1,4 @@
+_id,word,translate,tags
 1,蘋果,apple
 2,梨,pear
 3,檸檬,lemon
@@ -18,6 +19,3 @@
 19,櫻桃,cherry
 20,奇異果,kiwi
 21,黑莓,blackberry
-
-
-
