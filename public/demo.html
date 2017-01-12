@@ -40,13 +40,22 @@ followed by
 
 	and then reload page.
 
-	<script src="data/json/wordlist-en-ge_nm.js"></script>
 	<script src="js/LW.js"></script>
 	<script>
 		var lw = LW.BoxOfQuestions(LW.LWdb('learnWords'));
 
 		if (lw.db.numberOfWords() == 0) {
-			lw.db.loadWords(wordList);
+			var req = new XMLHttpRequest();
+			req.open('GET','/data/json/wordlist-en-ge.json',true);
+			req.addEventListener("load",function(){
+				try{
+					var wordlist = JSON.parse(this.responseText);
+					lw.db.loadWords(wordlist);
+				}catch(e){
+					console.error(e);
+				}
+			});
+			req.send();
 		}
 	</script> 
 

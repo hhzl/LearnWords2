@@ -1,7 +1,6 @@
 "use strict";
 
 var LWdb = require('../../src/LWdb');
-var wordList = require('../../data/json/wordlist-en-ge.js'); 
 
 if (typeof localStorage === "undefined" || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
@@ -10,16 +9,23 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 describe("Database LWdb", function() {
 
-  var lwdb;
+  var lwdb, wordlist;
 
-  beforeAll(function(){
-    this.wordList = wordList;
+  beforeAll(function(done){
+    this.getGermanWordList(function(err,data){
+      if(err){
+        console.log(err);
+      }else{
+        wordlist = data;
+      }
+      done();
+    });
   });
 
   beforeEach(function() {
     // clear properties that didn't exist in original wordList
-    for(var i = 0; i < this.wordList.length; i++){
-      var aWord = this.wordList[i];
+    for(var i = 0; i < wordlist.length; i++){
+      var aWord = wordlist[i];
       for(var key in aWord){
         if(key != "word" && key != "translate" && key != "_id"){
           delete aWord[key];
@@ -102,10 +108,10 @@ describe("Database LWdb", function() {
 
   it("should be able to remove all words storage", function() {
     
-    var n = (this.wordList).length;
+    var n = (wordlist).length;
     expect(n>0).toBe(true);
 
-    lwdb.loadWords(this.wordList);
+    lwdb.loadWords(wordlist);
 
     expect(lwdb.numberOfWords()>0).toBe(true);
 
@@ -123,10 +129,10 @@ describe("Database LWdb", function() {
 
   xit("should be able to reinitialize the persistent storage", function() {
     
-    var n = (this.wordList).length;
+    var n = (wordlist).length;
     expect(n>0).toBe(true);
 
-    lwdb.loadWords(this.wordList);
+    lwdb.loadWords(wordlist);
 
     expect(lwdb.numberOfWords()>0).toBe(true);
 
@@ -150,8 +156,8 @@ describe("Database LWdb", function() {
     it("should be able to store a new word", function() {
       // Inserts a new document, or new version of an existing document
       expect(lwdb.numberOfWords()).toBe(0);
-      var i = parseInt(Math.floor(Math.random()*this.wordList.length));
-      var aWord = this.wordList[i];
+      var i = parseInt(Math.floor(Math.random()*wordlist.length));
+      var aWord = wordlist[i];
       aWord._id = (i+1);
       lwdb.putWord(aWord);
       expect(lwdb.numberOfWords()).toBe(1);
@@ -160,8 +166,8 @@ describe("Database LWdb", function() {
 
     it("should be able to store a modified word", function() {
       expect(lwdb.numberOfWords()).toBe(0);
-      var i = parseInt(Math.floor(Math.random()*this.wordList.length));
-      var aWord = this.wordList[i];
+      var i = parseInt(Math.floor(Math.random()*wordlist.length));
+      var aWord = wordlist[i];
       var id = (i+1);
       aWord._id = id;
       lwdb.putWord(aWord);
@@ -183,7 +189,7 @@ describe("Database LWdb", function() {
 
       // set up db entry
       expect(lwdb.numberOfWords()).toBe(0);
-      var aWord = this.wordList[3];
+      var aWord = wordlist[3];
       aWord._id = 4;  // ids start with 1
 
       lwdb.putWord(aWord);
@@ -261,10 +267,10 @@ describe("Database LWdb", function() {
 
     it("should be able to remove all words", function() {
       // insert first n words from wordList
-      var n = parseInt(Math.floor(Math.random()*this.wordList.length));
+      var n = parseInt(Math.floor(Math.random()*wordlist.length));
       var aWord;
       for(var i = 0; i < n; i++){
-        aWord = this.wordList[i];
+        aWord = wordlist[i];
         aWord._id = (i+1);
         lwdb.putWord(aWord);
       }
@@ -283,11 +289,11 @@ describe("Database LWdb", function() {
       // insert first n words from wordList
       // n is a random number of words
 
-      var n = parseInt(Math.floor(Math.random()*this.wordList.length));
+      var n = parseInt(Math.floor(Math.random()*wordlist.length));
 
       var aWord;
       for(var i = 0; i < n; i++){
-        aWord = this.wordList[i];
+        aWord = wordlist[i];
         aWord._id = (i+1);
         lwdb.putWord(aWord);
       }
@@ -321,12 +327,12 @@ describe("Database LWdb", function() {
 
       // setup
       // insert first n words from wordList
-      var n = parseInt(Math.floor(Math.random()*this.wordList.length));
+      var n = parseInt(Math.floor(Math.random()*wordlist.length));
 
 
       var aWord;
       for(var i = 0; i < n; i++){
-        aWord = this.wordList[i];
+        aWord = wordlist[i];
         aWord._id = (i+1);
         lwdb.putWord(aWord);
       }
@@ -347,7 +353,7 @@ describe("Database LWdb", function() {
       expect(r.length).toBe(n);
 
       for(var i = 0; i < r.length; i++){
-        var tmp = this.wordList[i];
+        var tmp = wordlist[i];
         tmp._id = i+1;
 
         // keys might not be ordered by id, e.g. "10" < "2" 
@@ -389,7 +395,7 @@ describe("Database LWdb", function() {
       expect(lwdb.numberOfWords()).toBe(0);
 
       expect(lwdb).toHaveMethod("importFrom");
-      var theWordList = this.wordList;
+      var theWordList = wordlist;
       expect(theWordList).toBeArrayOfObjects();
 
 
@@ -417,7 +423,7 @@ describe("Database LWdb", function() {
 
       expect(lwdb).toHaveMethod("importFrom");
 
-      var theWordList = this.wordList;
+      var theWordList = wordlist;
       expect(theWordList).toBeArrayOfObjects();
 
       var dbdump = {};
@@ -444,8 +450,8 @@ describe("Database LWdb", function() {
       lwdb.removeWords();
       expect(lwdb.numberOfWords()).toBe(0);
       
-      lwdb.importFrom(this.wordList);
-      expect(lwdb.numberOfWords()).toBe(this.wordList.length);
+      lwdb.importFrom(wordlist);
+      expect(lwdb.numberOfWords()).toBe(wordlist.length);
 
 
       // run
@@ -454,7 +460,7 @@ describe("Database LWdb", function() {
 
       // check
       expect(keys).toBeArray();
-      expect(keys.length).toBe(this.wordList.length);
+      expect(keys.length).toBe(wordlist.length);
     });
 
 

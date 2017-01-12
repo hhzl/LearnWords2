@@ -2,16 +2,25 @@
 
 var BoxOfQuestions = require('../../src/BoxOfQuestions');
 var LWdb = require('../../src/LWdb');
-var wordlist = require('../../data/json/wordlist-en-ge.js'); 
 
-var lw;
+var lw, wordlist;
 
 
 
 describe("BoxOfQuestions construction", function() {
 
    // construction of empty db
-    var lw = BoxOfQuestions(LWdb('learnWords')); 
+  beforeAll(function(done){
+    lw = BoxOfQuestions(LWdb('learnWords')); 
+    this.getGermanWordList(function(err,data){
+      if(err){
+        console.log(err);
+      }else{
+        wordlist = data;
+      }
+      done();
+    });
+  });
 
   it("should indicate the correct library version", function() {
 
@@ -55,9 +64,9 @@ describe("BoxOfQuestions construction", function() {
 
     // checks
     expect(lw.db.dbName).toBe("learnWords");
-    expect(lw.db.numberOfWords()).toBe(84);
+    expect(lw.db.numberOfWords()).toBe(wordlist.length);
 
-    expect((lw.wordsWithStepValue(-1)).length).toBe(84);
+    expect((lw.wordsWithStepValue(-1)).length).toBe(wordlist.length);
 
 
   });
@@ -89,7 +98,7 @@ describe("BoxOfQuestions construction", function() {
     expect(lw).toBeObject();
 
     expect(lw.db.dbName).toBe("learnWords");
-    expect(lw.db.numberOfWords()).toBe(84);
+    expect(lw.db.numberOfWords()).toBe(wordlist.length);
 
 
   });
@@ -189,7 +198,7 @@ describe("BoxOfQuestions", function() {
 
     expect(lw).toHaveMethod("importFrom");
 
-    expect(lw.db.numberOfWords()).toBe(84);
+    expect(lw.db.numberOfWords()).toBe(wordlist.length);
 
     var allWords = lw.db.allWords();
     var aWord = allWords[0];
@@ -219,8 +228,8 @@ describe("BoxOfQuestions", function() {
 
     var n = lw.db.numberOfWords();
 
-    expect(n).toBe(84);
-    expect(lw.db.allWords().length).toBe(84);
+    expect(n).toBe(wordlist.length);
+    expect(lw.db.allWords().length).toBe(wordlist.length);
 
     // FIXME add more expect
 
@@ -346,7 +355,7 @@ describe("BoxOfQuestions", function() {
 
   it("should be able to give questions until there are no more questions", function() {
      // total of 84 words
-     expect(lw.db.numberOfWords()).toBe(84);
+     expect(lw.db.numberOfWords()).toBe(wordlist.length);
 
      // eight are to be learned / repeated
      // 8 is the expected result
@@ -514,7 +523,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-  it("should be able choose a random object from a collection", function() {
+  it("should be able to choose a random object from a collection", function() {
 
         // lw.chooseRandomObject(anArray); issue #59
         // returns a random object from anArray.
@@ -525,15 +534,20 @@ describe("BoxOfQuestions", function() {
         var sum = 0;
 
         for(var i = 0; i < 10000; i++){
-        _id = (lw.chooseRandomObject(wordlist))._id;
+          _id = (lw.chooseRandomObject(wordlist))._id;
 
-        expect(_id >=1).toBe(true); 
-        expect(_id <=84).toBe(true);
-        sum = sum + _id;
+          expect(_id >= 1).toBe(true); 
+          expect(_id <= wordlist.length).toBe(true);
+
+          sum = sum + _id;
+
         }
 
-        expect(sum/10000 >=42).toBe(true); 
-        expect(sum/10000 <=43).toBe(true);
+        var expectedValue = wordlist.length/2.0;
+        var avg = sum/10000.0;
+
+        expect(avg >= expectedValue).toBe(true); 
+        expect(avg < (expectedValue+2)).toBe(true);
         
   });
 
@@ -564,7 +578,7 @@ describe("BoxOfQuestions", function() {
     var st = lw.status();
    
     expect(st).toBeObject();
-    expect(st.numberOfWords).toBe(84);
+    expect(st.numberOfWords).toBe(wordlist.length);
 
     // FIXME
     // add more expect statements

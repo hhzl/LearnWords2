@@ -168,6 +168,7 @@ module.exports = function(grunt) {
 
     // prevents file from being loaded into bundle
     b.exclude("node-localstorage");
+    b.ignore('fs');
 
     var done = this.async();
     var outputFile = fs.createWriteStream(output);
@@ -204,7 +205,8 @@ module.exports = function(grunt) {
     });
 
     // prevents file from being loaded into bundle
-    b.exclude("node-localstorage");
+    b.exclude('node-localstorage');
+    b.ignore('fs');
 
     var done = this.async();
     var outputFile = fs.createWriteStream(output);
