@@ -231,20 +231,23 @@ module.exports = function(grunt) {
           skipEmptyLines: true
         });
         if(result.errors.length == 0){
-          var json = [];
+          // result.data is array of arrays
+          // row with index 0 is header
+          var arrayOfObjects = [];
+          var propertyName;
           for(var j = 1; j < result.data.length; j++){
             var obj = {};
             for(var k = 0; k < result.data[0].length; k++){
               if(k < result.data[j].length){
-                // first row is header
-                obj[result.data[0][k]] = result.data[j][k];
+                propertyName = result.data[0][k];
+                obj[propertyName] = result.data[j][k];
               }
             }
-            json.push(obj);
+            arrayOfObjects.push(obj);
           }
           var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.json');
           mkDirs(this.files[i].dest);
-          fs.writeFileSync(dest,JSON.stringify(json),{
+          fs.writeFileSync(dest,JSON.stringify(arrayOfObjects),{
             encoding:'utf8',
             flags:'w+'
           });
