@@ -29,21 +29,21 @@ _id,word,translate,tags,picture
 28,three stars,drei Sterne,nature,
 29,four stars,vier Sterne,nature,
 30,five stars,fünf Sterne,nature,
-31,lion,der Löwe,animal,lion.jpg
-32,hyena,die Hyäne,animal,hyena.jpg
-33,goat,die Ziege,animal,goat.jpg
+31,lion,der Löwe,animal,b1/lion.jpg
+32,hyena,die Hyäne,animal,b1/hyena.jpg
+33,goat,die Ziege,animal,b1/goat.jpg
 34,cow,die Kuh,animal,
 35,cock,der Hahn,animal,
-36,hen,das Henne,animal,hen.jpg
-37,dog,der Hund,animal,dog.jpg
-38,donkey,der Esel,animal,donkey.jpg
+36,hen,das Henne,animal,b1/hen.jpg
+37,dog,der Hund,animal,b1/dog.jpg
+38,donkey,der Esel,animal,b1/donkey.jpg
 39,sheep,das Schaf,animal,
 40,dove,die Taube,animal,
-41,duck,die Ente,animal,duck.jpg
-42,fish,der Fisch,animal,fish.jpg
-43,toad,die Kröte,animal,toad.jpg
-44,cat,die Katze,animal,cat.jpg
-45,rabbit,der Hase,animal,rabbit.jpg
+41,duck,die Ente,animal,b1/duck.jpg
+42,fish,der Fisch,animal,b1/fish.jpg
+43,toad,die Kröte,animal,b1/toad.jpg
+44,cat,die Katze,animal,b1/cat.jpg
+45,rabbit,der Hase,animal,b1/rabbit.jpg
 46,man,der Mann,human,
 47,woman,die Frau,human,
 48,child,das Kind,human,
