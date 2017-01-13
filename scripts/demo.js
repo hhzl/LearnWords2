@@ -19,7 +19,7 @@
 
 "use strict";
 var repl = require("repl");
-
+var chalk = require('chalk');
 
 
 var LWdb = require('../src/LWdb');
@@ -50,14 +50,14 @@ var LW = new BoxOfQuestions(new LWdb('learnWords'));
 console.log('\x1Bc'); 
 
 function printLWHelp(){
-console.log('LearnWords2 Read-Eval-Print-Loop');
+console.log(chalk.yellow('LearnWords2 Read-Eval-Print-Loop'));
 console.log('Commands');
-console.log('   type .lw for LW.db.loadWords(wordlist)');
-console.log('   type .qw for (LW.question()).word');
-console.log('   type .qo for LW.question()');
-console.log('   type .a  for LW.answer()');
-console.log('   type .ok for LW.moveQuestionForward()');
-console.log('   type .nok for LW.moveQuestionBackwards()');
+console.log('   type',chalk.blue('.lw'),'for LW.db.loadWords(wordlist)');
+console.log('   type',chalk.blue('.qw'),'for (LW.question()).word');
+console.log('   type',chalk.blue('.qo'),'for LW.question()');
+console.log('   type',chalk.blue('.a'),'for LW.answer()');
+console.log('   type',chalk.green('.ok'),'for LW.moveQuestionForward()');
+console.log('   type',chalk.red('.nok'),'for LW.moveQuestionBackwards()');
 console.log('');
 console.log('JavaScript');
 console.log('   you may also directly evaluate JavaScript expressions such as');
@@ -67,7 +67,7 @@ console.log('');
 console.log('Other');
 console.log('   type .help get general help.');
 console.log('   type .lw2help get this text.');
-console.log('   type .exit to terminate.');
+console.log('   type',chalk.yellow('.exit'),'to terminate.');
 console.log('');
 };
 
