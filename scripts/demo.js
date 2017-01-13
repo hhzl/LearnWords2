@@ -2,15 +2,15 @@
 // LearnWords2 API usage
 //
 // creation:
-//     LW = new BoxOfQuestions(new LWdb('learnWords'));
+//     lw = new BoxOfQuestions(new LWdb('learnWords'));
 //
 // methods and properties used
 //
-//     LW.db.loadWords(wordlist)
-//     LW.question()
-//     LW.answer()
-//     LW.moveQuestionForward()
-//     LW.moveQuestionBackwards()
+//     lw.db.loadWords(wordlist)
+//     lw.question()
+//     lw.answer()
+//     lw.moveQuestionForward()
+//     lw.moveQuestionBackwards()
 //
 // 
 //
@@ -34,12 +34,12 @@ var wordlist = require('../data/json/wordlist-en-ge.js');
 
 
 // ----------------------------------------------------------
-// Set up the LW (learnwords) object
+// Set up the lw (learnwords) object
 // ----------------------------------------------------------
 
-var LW = new BoxOfQuestions(new LWdb('learnWords'));
+var lw = new BoxOfQuestions(new LWdb('learnWords'));
 
-// if (LW.db.numberOfWords() == 0) {LW.db.loadWords(wordlist)};
+// if (lw.db.numberOfWords() == 0) {lw.db.loadWords(wordlist)};
  
 
 
@@ -52,17 +52,17 @@ console.log('\x1Bc');
 function printLWHelp(){
 console.log(chalk.yellow('LearnWords2 Read-Eval-Print-Loop'));
 console.log('Commands');
-console.log('   type',chalk.blue('.lw'),'for LW.db.loadWords(wordlist)');
-console.log('   type',chalk.blue('.qw'),'for (LW.question()).word');
-console.log('   type',chalk.blue('.qo'),'for LW.question()');
-console.log('   type',chalk.blue('.a'),'for LW.answer()');
-console.log('   type',chalk.green('.ok'),'for LW.moveQuestionForward()');
-console.log('   type',chalk.red('.nok'),'for LW.moveQuestionBackwards()');
+console.log('   type',chalk.blue('.lw'),'for lw.db.loadWords(wordlist)');
+console.log('   type',chalk.blue('.qw'),'for (lw.question()).word');
+console.log('   type',chalk.blue('.qo'),'for lw.question()');
+console.log('   type',chalk.blue('.a'),'for lw.answer()');
+console.log('   type',chalk.green('.ok'),'for lw.moveQuestionForward()');
+console.log('   type',chalk.red('.nok'),'for lw.moveQuestionBackwards()');
 console.log('');
 console.log('JavaScript');
 console.log('   you may also directly evaluate JavaScript expressions such as');
-console.log('   LW.question()                      ');
-console.log('   LW.db.getWord(1)                   ');
+console.log('   lw.question()                      ');
+console.log('   lw.db.getWord(1)                   ');
 console.log('');
 console.log('Other');
 console.log('   type .help get general help.');
@@ -80,7 +80,7 @@ printLWHelp();
 
 var replServer = repl.start({prompt: "--> "});
 
-replServer.context.LW = LW;
+replServer.context.lw = lw;
 
 
 
@@ -96,23 +96,23 @@ replServer.defineCommand('lw2help', {
 
 
 
-replServer.defineCommand('lw',{help: 'LW.db.loadWords(wordlist)', action: function() {
-  console.log(LW.db.loadWords(wordlist));
+replServer.defineCommand('lw',{help: 'lw.db.loadWords(wordlist)', action: function() {
+  console.log(lw.db.loadWords(wordlist));
   this.displayPrompt();
   }
 });
 
 
 
-replServer.defineCommand('qw',{help: '(LW.question()).word', action: function() {
-  console.log((LW.question()).word);
+replServer.defineCommand('qw',{help: '(lw.question()).word', action: function() {
+  console.log((lw.question()).word);
   this.displayPrompt();
   }
 });
 
 
-replServer.defineCommand('qo',{help: 'LW.question()', action: function() {
-  console.log(LW.question());
+replServer.defineCommand('qo',{help: 'lw.question()', action: function() {
+  console.log(lw.question());
   this.displayPrompt();
   }
 });
@@ -120,18 +120,18 @@ replServer.defineCommand('qo',{help: 'LW.question()', action: function() {
 
 
 replServer.defineCommand('a', function() {
-  console.log(LW.answer());
+  console.log(lw.answer());
   this.displayPrompt();
 });
 
 
 replServer.defineCommand('ok', function() {
-  LW.moveQuestionForward();
+  lw.moveQuestionForward();
   this.displayPrompt();
 });
 
 
 replServer.defineCommand('nok', function() {
-  LW.moveQuestionBackwards();
+  lw.moveQuestionBackwards();
   this.displayPrompt();
 });
