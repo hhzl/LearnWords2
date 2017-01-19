@@ -18,12 +18,23 @@ https://github.com/e1r0nd/LearnWords
 
 ## Setup 
 
+
+Assuming ``grunt-cli``
+````	
+npm install -g grunt-cli
+````
+is installed globally, do
+
+
 ````	
 git clone https://github.com/hhzl/LearnWords2.git
 cd LearnWords2
-npm install -g grunt-cli
 npm install
+grunt
 ````
+
+The ``grunt`` command generates the files in the ``dist`` directory. These JavaScript files are the debug and minified versions of the LearnWords2 library (``dist/LW.js`` and ``dist/LW-debug.js``). They are copied to the ``public/js`` directory so the demo and Jasmine tests are using the "latest version" (i.e. derived from the JavaScript in ``src``) of the library.
+
 
 Note that maybe you have to do
 
@@ -32,15 +43,13 @@ sudo npm install -g grunt-cli
 sudo npm install
 ````
 
-Running ``npm install`` or ``grunt build`` will generate a single JavaScript 
-file (``dist/LW.js`` and ``dist/LW-debug.js``) of the entire library. 
-To use the library you can include the path to this file in a script tag.
+To use the library:
 
 ```
 <script src="<path>/LW.js"></script>
 ```
+The file ``public/demo.html`` illustrates this.
 
-The ``public/demo.html`` illustrates this.
 
 ## Intended usage
 
