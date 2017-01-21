@@ -30,6 +30,7 @@
     "url": "https://github.com/hhzl/LearnWords2/issues"
   },
   "dependencies": {
+    "anki-apkg-export": "^3.0.1",
     "browserify": "^13.1.1",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",

@@ -1,8 +1,9 @@
-var fs = require('fs'), 
+const fs = require('fs'), 
     path = require('path'), 
     browserify = require('browserify'),
     Jasmine = require('jasmine'),
-    Papa = require('papaparse');
+    Papa = require('papaparse'),
+    AnkiExport = require('anki-apkg-export').default;
 
 module.exports = function(grunt) {
 
@@ -21,6 +22,12 @@ module.exports = function(grunt) {
       build: [path.join(DIST_DIR,'**')],
       js: [path.join(BUILD_DIR,'**')],
       test: [path.join(BUILD_DIR,'jasmine-bundle.js')]
+    },
+    csv2anki: {
+      data: {
+        src: path.join('data','csv','**/*.csv'),
+        dest: path.join(WEB_ROOT,'data','anki')
+      }
     },
     csv2json: {
       data: {
@@ -125,12 +132,12 @@ module.exports = function(grunt) {
           if(!fs.existsSync(dirPath)){
             fs.mkdirSync(dirPath);
           }else{
-            console.log(dirPath + " already exists");
+            //console.log(dirPath + " already exists");
           }
         }else{
           try{
             fs.accessSync(dirPath, fs.constants.F_OK);
-            console.log(dirPath + " already exists");
+            //console.log(dirPath + " already exists");
           }catch(e){
             // directory doesn't exist
             fs.mkdirSync(dirPath);
@@ -260,8 +267,91 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.registerMultiTask('csv2anki','Converts CSV to Anki',function(){
+
+    var done = this.async();
+
+    var promises = [];
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+        var data = fs.readFileSync(f,'utf-8');
+        var result = Papa.parse(data,{
+          dynamicTyping: true,
+          encoding: 'utf8',
+          skipEmptyLines: true
+        });
+        if(result.errors.length == 0){
+          // result.data is array of arrays
+          // row with index 0 is header
+          var arrayOfObjects = [];
+          var propertyName;
+          for(var j = 1; j < result.data.length; j++){
+            var obj = {};
+            for(var k = 0; k < result.data[0].length; k++){
+              if(k < result.data[j].length){
+                propertyName = result.data[0][k];
+                obj[propertyName] = result.data[j][k];
+              }
+            }
+            arrayOfObjects.push(obj);
+          }
+
+          var apkgName = path.basename(f,'.csv');
+          var apkg = new AnkiExport(apkgName);
+          console.log("create deck: " + apkgName);
+
+          for(var j = 1; j < arrayOfObjects.length; j++){
+            var wordObj = arrayOfObjects[j];
+            var front = wordObj.word;
+            var back = wordObj.translate;
+            var tags = wordObj.tags;
+            var tagsObj = {};
+            if(tags && tags.length > 0){
+              tagsObj.tags = tags.trim().split(" ");
+            }
+            apkg.addCard(front, back, tagsObj);
+            console.log("\tapkg.addCard('"+front+"','"+back+"',"+JSON.stringify(tagsObj)+");");
+          }
+
+          var dest = path.join('.',this.files[i].dest,path.basename(f,'.csv')+'.apkg');
+
+          var writeApk = function(dest){
+            return function(zip){
+              mkDirs(path.dirname(dest));
+              fs.writeFileSync(dest, zip, 'binary');
+              console.log('Package has been generated: ' + dest);
+            };
+          };
+
+          var p = apkg.save()
+            .then(writeApk(dest))
+            .catch(err => {
+              console.log(err.stack || err); 
+            });
+          promises.push(p);
+
+        }else{
+          console.log(result.errors);
+        }
+      }
+    }
+
+    // wait until all *.apk files have been written to end task
+    Promise.all(promises).then(
+      function(zips){
+        done();
+      },
+      function(){
+        console.err(arguments);
+      });
+
+  });
+
+  grunt.registerTask('data',['clean:data','csv2json','copy','csv2anki']);
   grunt.registerTask('build', ['clean:build','js']);
-  grunt.registerTask('demo',['build','csv2json','copy']);
+  grunt.registerTask('demo',['build','data']);
   grunt.registerTask('test', ['clean:test','jasmine']);
 
   // Default task(s).
