@@ -26,7 +26,7 @@ var LWdb = require('../src/LWdb');
 var BoxOfQuestions = require('../src/BoxOfQuestions');
 
 
-var wordlist = require('../data/json/wordlist-en-ge.js'); 
+var wordlist = require('../data/json/wordlist-en-ge.json'); 
 
 
 
@@ -52,12 +52,12 @@ console.log('\x1Bc');
 function printLWHelp(){
 console.log(chalk.yellow('LearnWords2 Read-Eval-Print-Loop'));
 console.log('Commands');
-console.log('   type',chalk.blue('.lw'),'for lw.db.loadWords(wordlist)');
-console.log('   type',chalk.blue('.qw'),'for (lw.question()).word');
-console.log('   type',chalk.blue('.qo'),'for lw.question()');
+console.log('   type',chalk.blue('.l'),'for lw.db.loadWords(wordlist)');
+console.log('   type',chalk.blue('.w'),'for (lw.question()).word');
+console.log('   type',chalk.blue('.q'),'for lw.question()');
 console.log('   type',chalk.blue('.a'),'for lw.answer()');
-console.log('   type',chalk.green('.ok'),'for lw.moveQuestionForward()');
-console.log('   type',chalk.red('.nok'),'for lw.moveQuestionBackwards()');
+console.log('   type',chalk.green('.t'),'for lw.moveQuestionForward()');
+console.log('   type',chalk.red('.f'),'for lw.moveQuestionBackwards()');
 console.log('');
 console.log('JavaScript');
 console.log('   you may also directly evaluate JavaScript expressions such as');
@@ -96,7 +96,7 @@ replServer.defineCommand('lw2help', {
 
 
 
-replServer.defineCommand('lw',{help: 'lw.db.loadWords(wordlist)', action: function() {
+replServer.defineCommand('l',{help: 'lw.db.loadWords(wordlist)', action: function() {
   console.log(lw.db.loadWords(wordlist));
   this.displayPrompt();
   }
@@ -104,14 +104,14 @@ replServer.defineCommand('lw',{help: 'lw.db.loadWords(wordlist)', action: functi
 
 
 
-replServer.defineCommand('qw',{help: '(lw.question()).word', action: function() {
+replServer.defineCommand('w',{help: '(lw.question()).word', action: function() {
   console.log((lw.question()).word);
   this.displayPrompt();
   }
 });
 
 
-replServer.defineCommand('qo',{help: 'lw.question()', action: function() {
+replServer.defineCommand('q',{help: 'lw.question()', action: function() {
   console.log(lw.question());
   this.displayPrompt();
   }
@@ -125,13 +125,13 @@ replServer.defineCommand('a', function() {
 });
 
 
-replServer.defineCommand('ok', function() {
+replServer.defineCommand('t', function() {
   lw.moveQuestionForward();
   this.displayPrompt();
 });
 
 
-replServer.defineCommand('nok', function() {
+replServer.defineCommand('f', function() {
   lw.moveQuestionBackwards();
   this.displayPrompt();
 });
