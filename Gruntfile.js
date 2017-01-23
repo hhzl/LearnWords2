@@ -1,9 +1,10 @@
 const fs = require('fs'), 
     path = require('path'), 
     browserify = require('browserify'),
+    AnkiExport = require('anki-apkg-export').default,
     Jasmine = require('jasmine'),
-    Papa = require('papaparse'),
-    AnkiExport = require('anki-apkg-export').default;
+    json2html = require('node-json2html'),
+    Papa = require('papaparse');
 
 module.exports = function(grunt) {
 
@@ -35,7 +36,13 @@ module.exports = function(grunt) {
         dest: path.join('data','json')
       }
     },
-    "jasmine":{
+    convertJson2html: {
+      data: {
+        src: path.join('data','json','**/*.json'),
+        dest: path.join(WEB_ROOT,'data','html')
+      }
+    },
+    jasmine:{
       browser: {
         src: path.join('spec','support','Jasmine.json'),
         dest: path.join(BUILD_DIR,'jasmine-bundle.js')
@@ -104,6 +111,13 @@ module.exports = function(grunt) {
         expand: true,
         src: path.join('data','json','**'),
         dest: WEB_ROOT
+      },
+      pictures: {
+        expand: true,
+        flatten: true,
+        filter: 'isFile',
+        src: path.join('data','pictures','b1','**'),
+        dest: path.join(WEB_ROOT,'data','html','b1')
       },
       js: {
         expand: true,
@@ -315,7 +329,7 @@ module.exports = function(grunt) {
             console.log("\tapkg.addCard('"+front+"','"+back+"',"+JSON.stringify(tagsObj)+");");
           }
 
-          var dest = path.join('.',this.files[i].dest,path.basename(f,'.csv')+'.apkg');
+          var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.apkg');
 
           var writeApk = function(dest){
             return function(zip){
@@ -349,9 +363,55 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('data',['clean:data','csv2json','copy','csv2anki']);
+  grunt.registerMultiTask('convertJson2html','Converts JSON to HTML',function(){
+
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+        var data = fs.readFileSync(f,'utf-8');
+        var json = JSON.parse(data);
+
+        var html = ['<table>'];
+
+        html.push('<thead><tr>');
+
+        for(var key in json[0]){
+          html.push('<th>'+ key + '</th>');
+        }
+
+        html.push('</tr></thead>');
+        
+        html.push('<tbody>');
+
+        var template = [];
+        for(var key in json[0]){
+          if(key == "picture"){
+            template.push('<td><img src="${picture}" /></td>');
+          }else{
+            template.push('<td>${'+key+'}</td>');
+          }
+        }
+
+        var transform = {"<>":"tr","html": template.join('') };
+        html.push(json2html.transform(json,transform));
+
+        html.push('</tbody>');
+        html.push('</table>');
+
+        var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.html');
+        mkDirs(path.dirname(dest));
+        fs.writeFileSync(dest, html.join(''));
+
+      }
+    }
+
+  });
+
+  grunt.registerTask('json2html',['convertJson2html','copy:pictures']);
+  grunt.registerTask('data',['clean:data','csv2json','csv2anki','json2html']);
   grunt.registerTask('build', ['clean:build','js']);
-  grunt.registerTask('demo',['build','data']);
+  grunt.registerTask('demo',['build','data','copy:data']);
   grunt.registerTask('test', ['clean:test','jasmine']);
 
   // Default task(s).
