@@ -326,7 +326,6 @@ module.exports = function(grunt) {
               tagsObj.tags = tags.trim().split(" ");
             }
             apkg.addCard(front, back, tagsObj);
-            console.log("\tapkg.addCard('"+front+"','"+back+"',"+JSON.stringify(tagsObj)+");");
           }
 
           var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.apkg');
@@ -372,7 +371,17 @@ module.exports = function(grunt) {
         var data = fs.readFileSync(f,'utf-8');
         var json = JSON.parse(data);
 
-        var html = ['<table>'];
+        var html = ['<!DOCTYPE html>'];
+html.push(`
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<style>
+</style>
+</head>
+<body>
+<table>
+`);
 
         html.push('<thead><tr>');
 
@@ -393,11 +402,17 @@ module.exports = function(grunt) {
           }
         }
 
+        template.push('\n');
+
         var transform = {"<>":"tr","html": template.join('') };
         html.push(json2html.transform(json,transform));
 
         html.push('</tbody>');
         html.push('</table>');
+        html.push(`</table>
+</body>
+</html>
+`);
 
         var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.html');
         mkDirs(path.dirname(dest));

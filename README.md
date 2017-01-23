@@ -33,7 +33,7 @@ npm install
 grunt
 ````
 
-The ``grunt`` command generates the files in the ``dist`` directory. These JavaScript files are the debug and minified versions of the LearnWords2 library (``dist/LW.js`` and ``dist/LW-debug.js``). They are copied to the ``public/js`` directory so the demo and Jasmine tests are using the "latest version" (i.e. derived from the JavaScript in ``src``) of the library.
+The ``grunt`` command generates the files in the ``dist`` directory. These JavaScript files are the debug and minified versions of the LearnWords2 library (``dist/LW.js`` and ``dist/LW-debug.js``). They are copied to the ``public/js`` directory so the demo and Jasmine tests are using the "latest version" (i.e. derived from the JavaScript in ``src``) of the library. The directory `public/data/json` contains the output data to be used by the library.
 
 
 Note that maybe you have to do
@@ -51,7 +51,7 @@ To use the library:
 The file ``public/demo.html`` illustrates this.
 
 
-## Intended usage
+## API
 
 ![learnwords2-layers](docs/learnwords2-layers.png)
 
@@ -114,6 +114,18 @@ lw.moveQuestionForward();
 Note: If `lw.moveQuestionBackwards()` and `lw.moveQuestionForward()` are called repeatedly on the same question it has only an effect the first time. The next time `lw.question()` is called a new question is provided.
 
 TODO: Add more usage examples.
+
+
+## Input data
+
+Input data are CSV files with words and pictures in the directory `data/csv`.
+
+
+## Export data
+
+Export data in as HTML report and Anki database are generated and put into `public/data`.
+The data to be used by the library is in `public/data/json`.
+
 
 
 ## Specification and tests with Jasmine
