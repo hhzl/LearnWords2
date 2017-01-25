@@ -310,7 +310,7 @@ var LWdb = function(name) {
             // _setNumberOfWords(_keysOfAllWords.length);
             // as putWord() updates n
             _indexHasBeenUpdated();
-	    
+
         };
         return _keysOfAllWords;
     },
@@ -340,9 +340,9 @@ var LWdb = function(name) {
         var value = localStorage.getItem(key);
 
         // lazy initialisation
-        if (value==null) { 
-            // define default value for settings    
-            value = { "delay": 8640000, 
+        if (value==null) {
+            // define default value for settings
+            value = { "delay": 8640000,
                       "numberOfOptions": 4,
                       "factorForDelayValue": [1,1,3,7,45,90,360,1000],
                       "defaultInitialStepValue" : _defaultInitialStepValue,
@@ -350,13 +350,13 @@ var LWdb = function(name) {
                       "suggestedNumberOfWordsInASession" : 20,
                       "lowestStepValue" : -10000
                       };
-            // One day = 24h * 60m * 60s * 1000 ms = 86'400'000 ms (milliseconds)          
+            // One day = 24h * 60m * 60s * 1000 ms = 86'400'000 ms (milliseconds)
             // the delay has been shortened to 1 day/10 for test purposes.
-            // this is 2h 24 min. 
+            // this is 2h 24 min.
             // the value is used to calculate the new date after a
             // word has been answered correctly.
 
-            // "defaultInitialStepValue : -1 means that words means 
+            // "defaultInitialStepValue : -1 means that words means
             // that words are available to be picked and sent to
             // learn/repeat mode.
 
