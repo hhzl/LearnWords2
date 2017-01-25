@@ -1,11 +1,11 @@
 "use strict";
 // ----------------------------------------------------------------------
-// LearnWords 2 
+// LearnWords 2
 //
-// File: 
+// File:
 //    LWdb.js
 //
-// Purpose: 
+// Purpose:
 //    Database layer
 //    Definition of an LWdb object
 //
@@ -17,8 +17,8 @@
 
 if (typeof localStorage === "undefined" || localStorage === null) {
   // we run in node thus we need to have a simulation of LocalStorage
-  var LocalStorage = require('node-localstorage').LocalStorage;
-  global.localStorage = new LocalStorage('./scratch');
+  var LocalStorage = require("node-localstorage").LocalStorage;
+  global.localStorage = new LocalStorage("./scratch");
 }
 
 
@@ -26,7 +26,6 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 var LWdb = function(name) {
 
-    // functional style, 
     // closure, returns an LWdb object
 
     var dbName = name;
@@ -37,8 +36,7 @@ var LWdb = function(name) {
 
     var _numberOfWords = 0;
 
-    
-    var recalculateIndex = true; 
+    var recalculateIndex = true;
 
     var _defaultInitialStepValue = -1;
 
@@ -48,14 +46,14 @@ var LWdb = function(name) {
     // private methods
 
 
-    var _wdKeyFor = function(anInteger) { 
-        return dbName+'-wd-'+anInteger;
+    var _wdKeyFor = function(anInteger) {
+        return dbName+"-wd-"+anInteger;
     };
 
 
 
     var _setNumberOfWords = function(n) {
-        var key = dbName+'-numberOfWords';
+        var key = dbName+"-numberOfWords";
         localStorage.setItem(key,n);
         _numberOfWords = n;
         recalculateIndex = true;
@@ -76,7 +74,7 @@ var LWdb = function(name) {
 
 
     var _indexNeedsRecalculation = function() {
-        return recalculateIndex
+        return recalculateIndex;
     };
 
 
@@ -91,13 +89,13 @@ var LWdb = function(name) {
     var _removeObjects = function(aKeyPrefix){
         if (!!localStorage) {   // this.isOK()
             var key;
-            var st; 
+            var st;
             var keysToDelete = [];
 
             // find all keys starting with aKeyPrefix
             for (var i = 0; i < localStorage.length; i++){
                 key = localStorage.key(i);
-                st = localStorage.getItem(key);                             
+                st = localStorage.getItem(key);
 
                 if (key.lastIndexOf(aKeyPrefix,0) === 0) {
                     keysToDelete.push(key);
@@ -110,7 +108,7 @@ var LWdb = function(name) {
 
         }
         };
-    
+
 
 
 
@@ -128,7 +126,7 @@ var LWdb = function(name) {
 
     putSettings : function(anObject) {
         
-        var key = dbName + '-settings';
+        var key = dbName + "-settings";
         return localStorage.setItem(key,JSON.stringify(anObject));  
     },
 
@@ -177,7 +175,7 @@ var LWdb = function(name) {
 
     numberOfWords : function() {
      
-       var key = dbName+'-numberOfWords';
+       var key = dbName+"-numberOfWords";
         var r = 0;
 
         if (this.isOK()) {
@@ -337,7 +335,7 @@ var LWdb = function(name) {
 
     getSettings : function() {
         
-        var key = dbName + '-settings';
+        var key = dbName + "-settings";
 
         var value = localStorage.getItem(key);
 

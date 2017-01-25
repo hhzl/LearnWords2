@@ -47,7 +47,7 @@ describe("BoxOfQuestions construction", function() {
     expect(lw).toHaveObject("db");
     expect(lw.db.dbName).toBe("learnWords");
  
-   expect(lw.db.numberOfWords()).toBe(0);
+    expect(lw.db.numberOfWords()).toBe(0);
 
 
   });
