@@ -114,12 +114,12 @@ module.exports = function(grunt) {
         src: path.join(INPUT_DIR,'json','**'),
         dest: path.join(WEB_ROOT,'data','json')
       },
-      pictures: {
+     pictures: {
         expand: true,
         flatten: true,
         filter: 'isFile',
-        src: path.join(INPUT_DIR,'pictures','b1','**'),
-        dest: path.join(WEB_ROOT,'data','html','b1')
+        src: path.join(INPUT_DIR,'pictures','c10','**'),
+        dest: path.join(WEB_ROOT,'data','html','c10')
       },
       js: {
         expand: true,
@@ -427,7 +427,7 @@ module.exports = function(grunt) {
   grunt.registerTask('json2html',['convertJson2html','copy:pictures']);
   grunt.registerTask('data',['clean:data','csv2json','csv2anki','json2html']);
   grunt.registerTask('build', ['clean:build','js']);
-  grunt.registerTask('demo',['build','data','copy:data']);
+  grunt.registerTask('demo',['build','data','copy:data','copy:js']);
   grunt.registerTask('test', ['clean:test','jasmine']);
 
   // Default task(s).
