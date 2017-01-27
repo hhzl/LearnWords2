@@ -42,6 +42,15 @@ module.exports = function(grunt) {
         dest: path.join(WEB_ROOT,'data','html')
       }
     },
+
+    convertjson2htmlSpelling: {
+      data: {
+        src: path.join(INPUT_DIR,'json','**/*.json'),
+        dest: path.join(WEB_ROOT,'data','html')
+      }
+    },
+
+
     jasmine:{
       browser: {
         src: path.join('spec','support','Jasmine.json'),
@@ -413,7 +422,63 @@ module.exports = function(grunt) {
 
   });
 
+
+  grunt.registerMultiTask('convertjson2htmlSpelling','Converts JSON to a HTML presentation',function(){
+
+    var html = fs.readFileSync('templates/learning-to-spell.html','utf-8');
+
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+        var data = fs.readFileSync(f,'utf-8');
+        var json = JSON.parse(data);
+
+        var slides = [];
+        var slideNo = 1;
+ 
+        json.forEach(function(element){
+            for(var key in element){
+               if(key == "picture"){
+
+                  if (element.picture) {
+                     slideNo += 1;
+                     slides.push(`<div class="slide hidden" id="slide-${slideNo}">\n`);
+                     slides.push('<section class="slide-content">\n');
+                     slides.push(`<img src="${element.picture}" />\n`)
+                     slides.push('</section>\n</div>\n\n');
+
+                     for (var i=1, len=element.word.length; i<=len; i++) {
+                     slideNo += 1;
+                     slides.push(`<div class="slide hidden" id="slide-${slideNo}">\n`);
+                     slides.push('<section class="slide-content">\n');
+                     slides.push(`<img src="${element.picture}" />\n<br />`)
+                     slides.push(`<span class="bigLetters">${(element.word).substring(0,i)}</span>\n`)
+                     slides.push('</section>\n</div>\n\n');
+                     }
+                     slides.push('<!-- - - - - - - - - - - - - - - - - - - - - - - - -->\n\n');
+                  };
+               }   
+            }  
+            }  
+        );
+
+        slides = slides.join('');
+
+        var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'-spelling.html');
+        mkDirs(path.dirname(dest));
+        fs.writeFileSync(dest, html.replace('${slides}',slides));
+        console.log(`Created ${dest}`);
+      }
+    }
+
+  });
+
+
+
+
   grunt.registerTask('json2html',['convertJson2html','copy:pictures']);
+  grunt.registerTask('json2htmlSpelling',['convertjson2htmlSpelling','copy:pictures']);
   grunt.registerTask('data',['clean:data','csv2json','csv2anki','json2html']);
   grunt.registerTask('build', ['clean:build','js']);
   grunt.registerTask('demo',['build','data','copy:data','copy:js']);
