@@ -7,7 +7,8 @@ const fs = require('fs'),
 
 module.exports = function(grunt) {
 
-  var WEB_ROOT = 'public',
+  var INPUT_DIR = 'data',
+      WEB_ROOT = 'public',
       BUILD_DIR = path.join(WEB_ROOT,'js'),
       DIST_DIR = 'dist';
   
@@ -25,19 +26,19 @@ module.exports = function(grunt) {
     },
     csv2anki: {
       data: {
-        src: path.join('data','csv','**/*.csv'),
+        src: path.join(INPUT_DIR,'csv','**/*.csv'),
         dest: path.join(WEB_ROOT,'data','anki')
       }
     },
     csv2json: {
       data: {
-        src: path.join('data','csv','**/*.csv'),
-        dest: path.join('data','json')
+        src: path.join(INPUT_DIR,'csv','**/*.csv'),
+        dest: path.join(INPUT_DIR,'json')
       }
     },
     convertJson2html: {
       data: {
-        src: path.join('data','json','**/*.json'),
+        src: path.join(INPUT_DIR,'json','**/*.json'),
         dest: path.join(WEB_ROOT,'data','html')
       }
     },
@@ -108,14 +109,16 @@ module.exports = function(grunt) {
     copy: {
       data: {
         expand: true,
-        src: path.join('data','json','**'),
-        dest: WEB_ROOT
+        flatten: true,
+        filter: 'isFile',
+        src: path.join(INPUT_DIR,'json','**'),
+        dest: path.join(WEB_ROOT,'data','json')
       },
       pictures: {
         expand: true,
         flatten: true,
         filter: 'isFile',
-        src: path.join('data','pictures','b1','**'),
+        src: path.join(INPUT_DIR,'pictures','b1','**'),
         dest: path.join(WEB_ROOT,'data','html','b1')
       },
       js: {
