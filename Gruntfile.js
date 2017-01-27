@@ -366,6 +366,8 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('convertJson2html','Converts JSON to HTML',function(){
 
+    var html = fs.readFileSync('templates/report.html','utf-8');
+
     for(var i = 0; i < this.files.length; i++){
       var src = this.files[i].src;
       for(var h = 0; h < src.length; h++){
@@ -373,51 +375,38 @@ module.exports = function(grunt) {
         var data = fs.readFileSync(f,'utf-8');
         var json = JSON.parse(data);
 
-        var html = ['<!DOCTYPE html>'];
-	html.push(`
-<html>
-<head>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<style>
-</style>
-</head>
-<body>
-<table>
-`);
+        var table = ['<table>'];
 
-        html.push('<thead><tr>');
+        table.push('<thead><tr>');
         for(var key in json[0]){
-          html.push('<th>'+ key + '</th>');
+          table.push('<th>'+ key + '</th>');
         }
-        html.push('</tr></thead>');
+        table.push('</tr></thead>');
         
 
-        html.push('<tbody>');
+        table.push('<tbody>');
 
         json.forEach(function(element){
-            html.push('<tr>');
+            table.push('<tr>');
             for(var key in element){
                if(key == "picture"){
-                  if (element.picture) {html.push(`<td><img src="${element.picture}" /></td>`)}
-                  else {html.push('<td></td>')};
+                  if (element.picture) {table.push(`<td><img src="${element.picture}" /></td>`)}
+                  else {table.push('<td></td>')};
                }else{
-                  html.push('<td>'+ element[key] + '</td>');
+                  table.push('<td>'+ element[key] + '</td>');
                }
 
             }
-            html.push('</tr>\n')}
+            table.push('</tr>\n')}
         );
 
-        html.push('</tbody>');
-
-        html.push(`</table>
-</body>
-</html>
-`);
+        table.push('</tbody>');
+        table.push('</table>');
+        table = table.join('');
 
         var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.html');
         mkDirs(path.dirname(dest));
-        fs.writeFileSync(dest, html.join(''));
+        fs.writeFileSync(dest, html.replace('${table}',table));
         console.log(`Created ${dest}`);
       }
     }
