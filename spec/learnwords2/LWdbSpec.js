@@ -412,6 +412,33 @@ describe("Database LWdb", function() {
     });
 
 
+    it("should be able to import an object with words", function() {
+
+      expect(lwdb).toHaveMethod("importFrom");
+
+      // setup
+      lwdb.removeWords();
+      expect(lwdb.numberOfWords()).toBe(0);
+
+      var theObjectWithWords = {};
+      theObjectWithWords.words = wordlist;
+
+      expect(theObjectWithWords.words).toBeArrayOfObjects();
+
+
+      // run
+
+      lwdb.importFrom(theObjectWithWords);
+
+      
+      // check
+
+      var keys = lwdb.keysOfAllWords(); 
+      expect(keys.length).toBe(theObjectWithWords.words.length);
+
+    });
+
+
 
     it("should be able to import a dbdump object", function() {
       // a dbdump object is an object which contains the data from a db.
