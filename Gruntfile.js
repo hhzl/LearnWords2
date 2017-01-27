@@ -3,7 +3,6 @@ const fs = require('fs'),
     browserify = require('browserify'),
     AnkiExport = require('anki-apkg-export').default,
     Jasmine = require('jasmine'),
-    json2html = require('node-json2html'),
     Papa = require('papaparse');
 
 module.exports = function(grunt) {
@@ -372,7 +371,7 @@ module.exports = function(grunt) {
         var json = JSON.parse(data);
 
         var html = ['<!DOCTYPE html>'];
-html.push(`
+	html.push(`
 <html>
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -384,31 +383,30 @@ html.push(`
 `);
 
         html.push('<thead><tr>');
-
         for(var key in json[0]){
           html.push('<th>'+ key + '</th>');
         }
-
         html.push('</tr></thead>');
         
+
         html.push('<tbody>');
 
-        var template = [];
-        for(var key in json[0]){
-          if(key == "picture"){
-            template.push('<td><img src="${picture}" /></td>');
-          }else{
-            template.push('<td>${'+key+'}</td>');
-          }
-        }
+        json.forEach(function(element){
+            html.push('<tr>');
+            for(var key in element){
+               if(key == "picture"){
+                  if (element.picture) {html.push(`<td><img src="${element.picture}" /></td>`)}
+                  else {html.push('<td></td>')};
+               }else{
+                  html.push('<td>'+ element[key] + '</td>');
+               }
 
-        template.push('\n');
-
-        var transform = {"<>":"tr","html": template.join('') };
-        html.push(json2html.transform(json,transform));
+            }
+            html.push('</tr>\n')}
+        );
 
         html.push('</tbody>');
-        html.push('</table>');
+
         html.push(`</table>
 </body>
 </html>
@@ -417,7 +415,7 @@ html.push(`
         var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.html');
         mkDirs(path.dirname(dest));
         fs.writeFileSync(dest, html.join(''));
-
+        console.log(`Created ${dest}`);
       }
     }
 
