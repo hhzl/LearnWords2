@@ -25,7 +25,7 @@ describe("BoxOfQuestions construction", function() {
   it("should indicate the correct library version", function() {
 
     expect(lw).toHaveString("version");
-    expect(lw.version).toBe('0.2.2');
+    expect(lw.version).toBe('0.3-beta');
 
   });
 
