@@ -2,8 +2,8 @@ const fs = require('fs'),
     path = require('path'), 
     browserify = require('browserify'),
     AnkiExport = require('anki-apkg-export').default,
-    Jasmine = require('jasmine'),
-    Papa = require('papaparse');
+    Jasmine = require('jasmine'),	
+    LWcsvString2JSON = require("./src/LWcsvString2JSON");
 
 module.exports = function(grunt) {
 
@@ -250,47 +250,36 @@ module.exports = function(grunt) {
 
   });
 
+
+
   grunt.registerMultiTask('csv2json','Converts CSV to JSON',function(){
 
     for(var i = 0; i < this.files.length; i++){
       var src = this.files[i].src;
       for(var h = 0; h < src.length; h++){
         var f = src[h];
-        var data = fs.readFileSync(f,'utf-8');
-        var result = Papa.parse(data,{
-          dynamicTyping: true,
-          encoding: 'utf8',
-          skipEmptyLines: true
-        });
-        if(result.errors.length == 0){
-          // result.data is array of arrays
-          // row with index 0 is header
-          var arrayOfObjects = [];
-          var propertyName;
-          for(var j = 1; j < result.data.length; j++){
-            var obj = {};
-            for(var k = 0; k < result.data[0].length; k++){
-              if(k < result.data[j].length){
-                propertyName = result.data[0][k];
-                obj[propertyName] = result.data[j][k];
-              }
-            }
-            arrayOfObjects.push(obj);
-          }
-          var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.json');
-          mkDirs(this.files[i].dest);
-          fs.writeFileSync(dest,JSON.stringify(arrayOfObjects),{
-            encoding:'utf8',
-            flags:'w+'
-          });
-          console.log('Wrote ' + dest);    
-        }else{
-          console.log(result.errors);
+
+        var aCSVstring = fs.readFileSync(f,'utf-8');
+
+        var arrayOfObjects = LWcsvString2JSON(aCSVstring);
+       
+        if (arrayOfObjects.length !== 0) {
+    
+            var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.json');
+            mkDirs(this.files[i].dest);
+
+            fs.writeFileSync(dest,JSON.stringify(arrayOfObjects),{
+                encoding:'utf8',
+                flags:'w+'
+              });
+            console.log('Wrote ' + dest);    
         }
       }
     }
-
   });
+
+
+
 
   grunt.registerMultiTask('csv2anki','Converts CSV to Anki',function(){
 
@@ -301,30 +290,14 @@ module.exports = function(grunt) {
       var src = this.files[i].src;
       for(var h = 0; h < src.length; h++){
         var f = src[h];
-        var data = fs.readFileSync(f,'utf-8');
-        var result = Papa.parse(data,{
-          dynamicTyping: true,
-          encoding: 'utf8',
-          skipEmptyLines: true
-        });
-        if(result.errors.length == 0){
-          // result.data is array of arrays
-          // row with index 0 is header
-          var arrayOfObjects = [];
-          var propertyName;
-          for(var j = 1; j < result.data.length; j++){
-            var obj = {};
-            for(var k = 0; k < result.data[0].length; k++){
-              if(k < result.data[j].length){
-                propertyName = result.data[0][k];
-                obj[propertyName] = result.data[j][k];
-              }
-            }
-            arrayOfObjects.push(obj);
-          }
+        var aCSVstring = fs.readFileSync(f,'utf-8');
 
+        var arrayOfObjects = LWcsvString2JSON(aCSVstring);
+
+        if (arrayOfObjects.length !== 0) {
           var apkgName = path.basename(f,'.csv');
           var apkg = new AnkiExport(apkgName);
+  
           console.log("create deck: " + apkgName);
 
           for(var j = 1; j < arrayOfObjects.length; j++){
@@ -356,8 +329,6 @@ module.exports = function(grunt) {
             });
           promises.push(p);
 
-        }else{
-          console.log(result.errors);
         }
       }
     }
@@ -473,8 +444,6 @@ module.exports = function(grunt) {
     }
 
   });
-
-
 
 
   grunt.registerTask('json2html',['convertJson2html','copy:pictures']);
