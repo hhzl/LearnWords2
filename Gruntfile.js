@@ -1,9 +1,69 @@
+/* LearnWords2 --  Gruntfile.js
+
+Aim: 
+   Define the tasks for the grunt task runner.
+
+Date:
+   2nd February 2017
+
+
+Structure of the file:
+
+
+  This file contains a single function which takes the 
+  grunt task runner as an argument:
+
+
+    function(grunt) {
+
+        grunt.initConfig(aHugeConfigurationObjectForTheTasks);
+
+
+
+        // load tasks from published grunt modules, 
+        // for example the task 'grunt-contrib-clean' 
+        // which cleans up directories
+    
+        grunt.loadNpmTasks('grunt-contrib-clean');
+        ... load more modules
+
+
+
+        // define custom tasks.
+        grunt.registerMultiTask('js','Builds bundle for JavaScript component LW.js', function(){
+          ...
+        };
+    
+        ... more custom tasks
+
+
+
+        // define tasks as a sequence of other tasks
+        grunt.registerTask('build', ['clean:build','js']);
+        ...
+
+    }
+
+
+
+
+
+*/
+
+
+
+
+
 const fs = require('fs'), 
     path = require('path'), 
     browserify = require('browserify'),
     AnkiExport = require('anki-apkg-export').default,
     Jasmine = require('jasmine'),	
-    LWcsvString2JSON = require("./src/LWcsvString2JSON");
+    LWcsvString2JSON = require("./src/LWcsvString2JSON"),
+    LWjson2html = require("./src/LWjson2html");
+
+
+
 
 module.exports = function(grunt) {
 
@@ -145,7 +205,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  // Custom tasks
+
+  // Helper function for custom tasks
 
   function mkDirs(p){
     function f(dir,i){
@@ -174,6 +235,11 @@ module.exports = function(grunt) {
     }
     f(p.split(path.sep),0);
   }
+
+
+
+  // Custom tasks
+
 
   grunt.registerMultiTask('js','Builds bundle for JavaScript component', function(){
 
@@ -252,6 +318,11 @@ module.exports = function(grunt) {
 
 
 
+
+
+
+
+
   grunt.registerMultiTask('csv2json','Converts CSV to JSON',function(){
 
     for(var i = 0; i < this.files.length; i++){
@@ -277,6 +348,10 @@ module.exports = function(grunt) {
       }
     }
   });
+
+
+
+
 
 
 
@@ -344,6 +419,10 @@ module.exports = function(grunt) {
 
   });
 
+
+
+
+
   grunt.registerMultiTask('convertJson2html','Converts JSON to HTML',function(){
 
     var html = fs.readFileSync('templates/report.html','utf-8');
@@ -355,43 +434,22 @@ module.exports = function(grunt) {
         var data = fs.readFileSync(f,'utf-8');
         var json = JSON.parse(data);
 
-        var table = ['<table>'];
-
-        table.push('<thead><tr>');
-        for(var key in json[0]){
-          table.push('<th>'+ key + '</th>');
-        }
-        table.push('</tr></thead>');
-        
-
-        table.push('<tbody>');
-
-        json.forEach(function(element){
-            table.push('<tr>');
-            for(var key in element){
-               if(key == "picture"){
-                  if (element.picture) {table.push(`<td><img src="${element.picture}" /></td>`)}
-                  else {table.push('<td></td>')};
-               }else{
-                  table.push('<td>'+ element[key] + '</td>');
-               }
-
-            }
-            table.push('</tr>\n')}
-        );
-
-        table.push('</tbody>');
-        table.push('</table>');
-        table = table.join('');
+        var tableString = LWjson2html(json);
 
         var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.html');
         mkDirs(path.dirname(dest));
-        fs.writeFileSync(dest, html.replace('${table}',table));
+        fs.writeFileSync(dest, html.replace('${table}',tableString));
         console.log(`Created ${dest}`);
       }
     }
 
   });
+
+
+
+
+
+
 
 
   grunt.registerMultiTask('convertjson2htmlSpelling','Converts JSON to a HTML presentation',function(){
@@ -446,14 +504,27 @@ module.exports = function(grunt) {
   });
 
 
+
+
+
+  // =========================================================================================
+  // Definition of tasks as sequences of other tasks.
+  // =========================================================================================
+
+
+  // The following means that the json2html task is defined as the call to the
+  // convertJson2html task followed by the copy:pictures task.
+ 
   grunt.registerTask('json2html',['convertJson2html','copy:pictures']);
+
   grunt.registerTask('json2htmlSpelling',['convertjson2htmlSpelling','copy:pictures']);
+
   grunt.registerTask('data',['clean:data','csv2json','csv2anki','json2html']);
   grunt.registerTask('build', ['clean:build','js']);
   grunt.registerTask('demo',['build','data','copy:data','copy:js']);
   grunt.registerTask('test', ['clean:test','jasmine']);
 
-  // Default task(s).
+  // The default task is executed if grunt is called without giving a task name
   grunt.registerTask('default', ['demo','test','connect','watch']);
 
 };
