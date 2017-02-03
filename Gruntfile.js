@@ -521,9 +521,13 @@ var mkDirs = function (p) {
 
         var tableString = LWjson2html(json);
 
-        var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.html');
+        var basename = path.basename(f,'.json');
+        var dest = path.join(this.files[i].dest,basename+'.html');
         mkDirs(path.dirname(dest));
-        fs.writeFileSync(dest, html.replace('${table}',tableString));
+
+        var report  = html.replace('${wordListName}',basename);
+        fs.writeFileSync(dest, report.replace('${table}',tableString));
+
         console.log(`Created ${dest}`);
       }
     }
