@@ -10,13 +10,16 @@ Date:
 
 
 
-Structure of the file:
-
+Contents of the file:
 
     - The "wrapper" function
     - Project and task configuration
     - Loading Grunt plugins and tasks
     - Custom tasks
+
+
+
+Structure of the file:
 
 
   This file contains a single function which takes the 
@@ -105,8 +108,6 @@ const fs = require('fs'),
     LWcsvString2JSON = require("./src/data-conversion/LWcsvString2JSON"),
     LWjson2html = require("./src/data-conversion/LWjson2html"),
     LWjson2htmlSlides = require("./src/data-conversion/LWjson2htmlSlides");
-
-
 
 
 
@@ -273,7 +274,10 @@ module.exports = function(grunt) {
 
   // Helper function for custom tasks
 
-  function mkDirs(p){
+var mkDirs = function (p) {
+
+    "use strict";
+
     function f(dir,i){
       if(i < dir.length){
         var cwd = dir.slice(0,i+1);
@@ -561,7 +565,6 @@ module.exports = function(grunt) {
 
 
 
-
   // =========================================================================================
   // Definition of tasks as sequences of other tasks.
   // =========================================================================================
@@ -574,7 +577,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('spellingpresentation',['json2htmlSpelling','copy:pictures']);
 
-  grunt.registerTask('data',['clean:data','csv2json','csv2anki','json2html']);
+  grunt.registerTask('data',['clean:data','csv2json','csv2anki','htmlreport']);
   grunt.registerTask('build', ['clean:build','jshint:es5','js']);
   grunt.registerTask('demo',['build','data','copy:data','copy:js']);
   grunt.registerTask('test', ['clean:test','jasmine']);

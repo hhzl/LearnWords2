@@ -1,4 +1,3 @@
-"use strict";
 // ----------------------------------------------------------------------
 // LearnWords 2
 //
@@ -17,6 +16,7 @@
 
 
 var LWjson2html = function (json) {
+    "use strict";
 
        var table = ['<table>'];
 

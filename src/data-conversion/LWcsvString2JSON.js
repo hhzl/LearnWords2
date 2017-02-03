@@ -1,4 +1,3 @@
-"use strict";
 // ----------------------------------------------------------------------
 // LearnWords 2
 //
@@ -18,6 +17,7 @@ var Papa = require("papaparse");
 
 
 var LWcsvString2JSON = function (aCSVString) {
+    "use strict";
 
     var result = Papa.parse(aCSVString, {
         dynamicTyping: true,

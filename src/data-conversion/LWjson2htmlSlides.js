@@ -1,7 +1,5 @@
-"use strict";
-
-
 var LWjson2htmlSlides = function (json) {
+	"use strict";
 
         var slides = [];
         var slideNo = 1;
