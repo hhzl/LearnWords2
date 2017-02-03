@@ -138,6 +138,10 @@ module.exports = function(grunt) {
       js: [path.join(BUILD_DIR,'**')],
       test: [path.join(BUILD_DIR,'jasmine-bundle.js')]
     },
+    jshint: {
+      es5: ['src/*.js'],
+      es6: ['Gruntfile.js', 'src/data-conversion/*.js']
+    },
     csv2anki: {
       data: {
         src: path.join(INPUT_DIR,'csv','**/*.csv'),
@@ -259,6 +263,7 @@ module.exports = function(grunt) {
   // Load grunt tasks
   // ====================================================================
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -570,7 +575,7 @@ module.exports = function(grunt) {
   grunt.registerTask('spellingpresentation',['json2htmlSpelling','copy:pictures']);
 
   grunt.registerTask('data',['clean:data','csv2json','csv2anki','json2html']);
-  grunt.registerTask('build', ['clean:build','js']);
+  grunt.registerTask('build', ['clean:build','jshint:es5','js']);
   grunt.registerTask('demo',['build','data','copy:data','copy:js']);
   grunt.registerTask('test', ['clean:test','jasmine']);
 

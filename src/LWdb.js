@@ -1,4 +1,3 @@
-"use strict";
 // ----------------------------------------------------------------------
 // LearnWords 2
 //
@@ -10,7 +9,7 @@
 //    Definition of an LWdb object
 //
 // Date:
-//    6th January 2017
+//    3rd February 2017
 //
 // ----------------------------------------------------------------------
 
@@ -25,6 +24,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 
 var LWdb = function(name) {
+    "use strict";
 
     // closure, returns an LWdb object
 
@@ -180,12 +180,12 @@ var LWdb = function(name) {
 
         if (this.isOK()) {
             r = localStorage.getItem(key);
-            if (r == null) {
+            if (r === null) {
                 localStorage.setItem(key,'0'); 
                 r = '0';
-            };
+            }
           r = parseInt(r);
-        }; 
+        }
         _numberOfWords = r;
         return r;
     },
@@ -220,9 +220,9 @@ var LWdb = function(name) {
         localStorage.setItem(storageKey, JSON.stringify(aWord));
 
         // if the word has not existed before increment the number of words
-        if (value == null) {
+        if (value === null) {
             _incNumberOfWords();
-        };
+        }
         // console.log('storageKey is=', storageKey, 'word is=', copy.word);
         return storageKey;
     },
@@ -239,7 +239,7 @@ var LWdb = function(name) {
             var aWord = JSON.parse(localStorage.getItem(storageKey));
             if(!aWord.hasOwnProperty("step")){
                 aWord.step = _defaultInitialStepValue;
-            };
+            }
             if(!aWord.date){
                 aWord.date = 0;
             }
@@ -260,12 +260,12 @@ var LWdb = function(name) {
 
         
         if (obj instanceof Array) {
-           theWords = obj
+           theWords = obj;
         } else {
            theWords = obj.words;
            // TODO 
            // add import of settings
-        };
+        }
 
 
         // import array of words
@@ -306,12 +306,12 @@ var LWdb = function(name) {
                 if(keyRegex.test(key)){
                     _keysOfAllWords.push(key);
                 }
-            };
+            }
             // _setNumberOfWords(_keysOfAllWords.length);
             // as putWord() updates n
             _indexHasBeenUpdated();
 
-        };
+        }
         return _keysOfAllWords;
     },
 
@@ -340,7 +340,7 @@ var LWdb = function(name) {
         var value = localStorage.getItem(key);
 
         // lazy initialisation
-        if (value==null) {
+        if (value===null) {
             // define default value for settings
             value = { "delay": 8640000,
                       "numberOfOptions": 4,
@@ -361,9 +361,9 @@ var LWdb = function(name) {
             // learn/repeat mode.
 
             this.putSettings(value);
-            return value
+            return value;
         } else {
-            return JSON.parse(value)
+            return JSON.parse(value);
         }
     }
 
@@ -375,7 +375,7 @@ var LWdb = function(name) {
 
 
 
-    }  // end of literal LWdb object
+    };  // end of literal LWdb object
 
 
 

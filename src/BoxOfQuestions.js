@@ -1,10 +1,8 @@
-"use strict";
-
 var LWdb = require('./LWdb');
 
 
 function BoxOfQuestions(db) {
-
+        'use strict';
 
         // private variables
 
@@ -59,7 +57,7 @@ function BoxOfQuestions(db) {
                      _status.sessionStartDateMS = dateTimeNow;
                      _status.sessionLastActivityDateMS = _status.sessionStartDateMS;
                      _status.sessionStartDate = (new Date(dateTimeNow)).toJSON();
-                     _status.sessionLastActivityDate = _status.sessionStartDate
+                     _status.sessionLastActivityDate = _status.sessionStartDate;
                      _status.sessionIsNew = true;
                }
 
@@ -69,8 +67,8 @@ function BoxOfQuestions(db) {
 
                function dateTimeDifferenceInSeconds(dateA, dateB) {
                       // calculate dateA - dateB
-                      return (dateA - dateB)/ 1000
-               };
+                      return (dateA - dateB)/ 1000;
+               }
  
 
 
@@ -80,7 +78,7 @@ function BoxOfQuestions(db) {
                if (!_status.hasOwnProperty("sessionStartDate")) {
                      // app has just started up. Thus we have no session yet.
                      createNewSession();
-                     return _status
+                     return _status;
                }
               
 
@@ -88,14 +86,14 @@ function BoxOfQuestions(db) {
                var previousActivityDate = _status.sessionLastActivityDateMS;
                if (dateTimeDifferenceInSeconds(dateTimeNow,previousActivityDate) > sessionExpiryTimeInSeconds) {
                      createNewSession();
-                     return _status
-               };
+                     return _status;
+               }
 
 
                // we have an active session; just update sessionLastActivityDate
                _status.sessionLastActivityDateMS = (new Date()).valueOf();
                _status.sessionLastActivityDate = (new Date(_status.sessionLastActivityDateMS)).toJSON();
-              return _status
+              return _status;
         };
 
 
@@ -125,8 +123,8 @@ function BoxOfQuestions(db) {
 		        x = a[i - 1];
 		        a[i - 1] = a[j];
 		        a[j] = x;
-		    };
-                    return a		   
+		    }
+                    return a;		   
 	};
 
 
@@ -165,9 +163,9 @@ function BoxOfQuestions(db) {
             if (!_question) { 
                  // _question is null, go for a new one.
                  var wds = this.wordsToRepeat();
-                 if (wds != null) {_question = this.chooseRandomObject(wds)}
-            }; 
-            return _question 
+                 if (wds !== null) {_question = this.chooseRandomObject(wds);}
+            }
+            return _question; 
         },
 
 
@@ -210,7 +208,7 @@ function BoxOfQuestions(db) {
 
 
 
-       answerWasWrong : function(){this.moveQuestionBackwards()},
+       answerWasWrong : function(){this.moveQuestionBackwards();},
 
 
        moveQuestionForward : function(){
@@ -246,7 +244,7 @@ function BoxOfQuestions(db) {
 
 
 
-       answerWasCorrect : function(){this.moveQuestionForward()},
+       answerWasCorrect : function(){this.moveQuestionForward();},
 
 
 
@@ -290,14 +288,14 @@ function BoxOfQuestions(db) {
                 if (idsOfOptions.indexOf(anOption._id) == -1) {
                         // the new option is not included yet
 			idsOfOptions.push(anOption._id);
-                        options.push(anOption)
+                        options.push(anOption);
                }
            
              } while (options.length < n);
 
 
-          };
-          return _shuffle(options)
+          }
+          return _shuffle(options);
        },
 
 
@@ -324,9 +322,9 @@ function BoxOfQuestions(db) {
 
          _status.numberOfWords = this.db.numberOfWords();
 
-         if (_wordsToRepeat) {_status.noOfWordsToRepeat = _wordsToRepeat.length};
+         if (_wordsToRepeat) {_status.noOfWordsToRepeat = _wordsToRepeat.length;}
   
-         return _status
+         return _status;
        },
 
 
@@ -343,13 +341,13 @@ function BoxOfQuestions(db) {
           
           // sort according to step value descending, e.g. -1,-2,-3 ...
           // sort is in place
-          candidatesToAdd.sort(function(a,b) {return a.step < b.step});
+          candidatesToAdd.sort(function(a,b) {return a.step < b.step;});
 
 
           var numberOfWordsToAdd;
           // if not enough words are left to add only add what is available
-          if (n < candidatesToAdd.length) { numberOfWordsToAdd = n}
-          else {numberOfWordsToAdd = candidatesToAdd.length};
+          if (n < candidatesToAdd.length) { numberOfWordsToAdd = n;}
+          else {numberOfWordsToAdd = candidatesToAdd.length;}
 
 
           // Update db with new step values
@@ -389,13 +387,13 @@ function BoxOfQuestions(db) {
           
           
 
-          if (_question == null || _wordsToRepeat == null ) { 
+          if (_question === null || _wordsToRepeat === null ) { 
                 // _question == null means that either a question has never
                 // been asked before or that a question has been asked and
                 // processed but no new question yet has been picked.
                 // In both cases a new _wordsToRepeat collection is necessary.
 
-                _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated)
+                _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated);
 
                 _sessionExpiryTimeInSeconds = (this.db.getSettings()).sessionExpiryTimeInSeconds;
                 _updateSessionInfo(_sessionExpiryTimeInSeconds);
@@ -408,13 +406,13 @@ function BoxOfQuestions(db) {
                       // we need to 
                       this.addMoreWordsForLearning(suggestedNumberOfWordsInASession - _wordsToRepeat.length); 
                       // and recalulate
-                      _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated)
-                   };
+                      _wordsToRepeat = (this.db.allWords()).filter(isToBeRepeated);
+                   }
 
                    _status.sessionIsNew = false;
                 }
 
-          };
+          }
 
           return _wordsToRepeat;
        },
@@ -428,8 +426,8 @@ function BoxOfQuestions(db) {
        wordsWithStepValue : function(from, to){
           var toValue;
 
-          if ( typeof(to) == "undefined" || to == null ) {toValue = from}
-          else {toValue = to}
+          if ( typeof(to) === "undefined" || to === null ) {toValue = from;}
+          else {toValue = to;}
 
           function stepValueInRange(aWord) {         
                return (aWord.step >= from) && (aWord.step <= toValue);
@@ -439,10 +437,7 @@ function BoxOfQuestions(db) {
           return (this.db.allWords()).filter(stepValueInRange);
        }
 
-
-
-
-      }
+      };
 
 
 
