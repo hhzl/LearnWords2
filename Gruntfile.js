@@ -62,6 +62,7 @@ Structure of the file:
 
 Available tasks
                 clean  Clean files and folders. *                              
+               jshint  Validate files with JSHint. *                           
               connect  Start a connect web server. *                           
                  copy  Copy files. *                                           
                 watch  Run predefined tasks whenever watched files change.     
@@ -69,21 +70,21 @@ Available tasks
               jasmine  Creates bundle for Jasmine tests *                      
              csv2json  Converts CSV to JSON *                                  
              csv2anki  Converts CSV to Anki *                                  
-     convertJson2html  Converts JSON to HTML *                                 
-         spellingDemo  Converts JSON to a HTML presentation with spelling demo 
-                       *                                                       
-           htmlreport  Alias for "convertJson2html", "copy:pictures" tasks.    
- spellingpresentation  Alias for "convertjson2htmlSpelling", "copy:pictures"   
-                       tasks.                                                  
+            json2yaml  Converts JSON to YAML *                                 
+        json2htmlList  Converts JSON to HTML *                                 
+    json2htmlSpelling  Converts JSON to a HTML presentation with spelling demo *
+ 
+           htmlreport  Alias for "json2htmlList", "copy:pictures" tasks.       
+ spellingpresentation  Alias for "json2htmlSpelling", "copy:pictures" tasks.   
                  data  Alias for "clean:data", "csv2json", "csv2anki",         
-                       "json2html" tasks.                                      
-                build  Alias for "clean:build", "js" tasks.                    
+                       "htmlreport" tasks.                                     
+                build  Alias for "clean:build", "jshint:es5", "js" tasks.      
                  demo  Alias for "build", "data", "copy:data", "copy:js" tasks.
                  test  Alias for "clean:test", "jasmine" tasks.                
               default  Alias for "demo", "test", "connect", "watch" tasks.     
 
 Tasks run in the order specified. Arguments may be passed to tasks that accept
-them by using colons, like "copy:pictures". Tasks marked with * are "multi tasks"
+them by using colons, like "lint:files". Tasks marked with * are "multi tasks"
 and will iterate over all sub-targets if no argument is specified.
 
 The list of available tasks may change based on tasks directories or grunt
@@ -105,6 +106,7 @@ const fs = require('fs'),
     browserify = require('browserify'),
     AnkiExport = require('anki-apkg-export').default,
     Jasmine = require('jasmine'),	
+    yaml = require('js-yaml'),
     LWcsvString2JSON = require("./src/data-conversion/LWcsvString2JSON"),
     LWjson2html = require("./src/data-conversion/LWjson2html"),
     LWjson2htmlSlides = require("./src/data-conversion/LWjson2htmlSlides");
@@ -153,6 +155,12 @@ module.exports = function(grunt) {
       data: {
         src: path.join(INPUT_DIR,'csv','**/*.csv'),
         dest: path.join(INPUT_DIR,'json')
+      }
+    },
+    json2yaml: {
+      data: {
+        src: path.join(INPUT_DIR,'json','**/*.json'),
+        dest: path.join(WEB_ROOT,'data','yaml')
       }
     },
     json2htmlList: {
@@ -439,8 +447,6 @@ var mkDirs = function (p) {
 
 
 
-
-
   grunt.registerMultiTask('csv2anki','Converts CSV to Anki',function(){
 
     var done = this.async();
@@ -503,6 +509,44 @@ var mkDirs = function (p) {
       });
 
   });
+
+
+
+
+
+
+
+
+
+  grunt.registerMultiTask('json2yaml','Converts JSON to YAML',function(){
+
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+        var aDataString = fs.readFileSync(f,'utf-8');
+        var jsonObject = JSON.parse(aDataString);
+
+        var yamlFileHeader = '---\n';
+        var resultString = yamlFileHeader + yaml.safeDump(jsonObject);
+
+        var fileName = path.basename(f,'.json');
+        var dest = path.join(this.files[i].dest,fileName+'.yml');
+ 
+        mkDirs(path.dirname(dest));
+        fs.writeFileSync(dest, resultString);
+
+        console.log(`Created ${dest}`);
+      }
+    }
+
+  });
+
+
+
+
+
+
 
 
 
