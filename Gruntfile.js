@@ -295,16 +295,16 @@ var mkDirs = function (p) {
           if(!fs.existsSync(dirPath)){
             fs.mkdirSync(dirPath);
           }else{
-            //console.log(dirPath + " already exists");
+            grunt.verbose.write(dirPath + " already exists");
           }
         }else{
           try{
             fs.accessSync(dirPath, fs.constants.F_OK);
-            //console.log(dirPath + " already exists");
+            grunt.verbose.write(dirPath + " already exists");
           }catch(e){
             // directory doesn't exist
             fs.mkdirSync(dirPath);
-            console.log("mkdir " + dirPath);
+            grunt.verbose.write("mkdir " + dirPath);
           }
         }
         f(dir,i+1);
@@ -329,13 +329,13 @@ var mkDirs = function (p) {
       debug: false 
     });
     
-    console.log("debug: " + opts.debug);
+    grunt.verbose.write("debug: " + opts.debug);
 
     var output = this.files[0].dest;
 
     mkDirs(DIST_DIR);
 
-    console.log("files:\t" + this.filesSrc.join('\n\t'));
+    grunt.verbose.write("files:\t" + this.filesSrc.join('\n\t'));
 
     var b = browserify({
       basedir: '.',
@@ -353,7 +353,7 @@ var mkDirs = function (p) {
     var done = this.async();
     var outputFile = fs.createWriteStream(output);
     outputFile.on('finish',function(){
-      console.log('Wrote ' + output);
+      grunt.verbose.write('Wrote ' + output);
       done();
     });
     b.bundle().pipe(outputFile);    
@@ -374,7 +374,7 @@ var mkDirs = function (p) {
     var output = this.files[0].dest;
     var config = this.filesSrc[0];
 
-    console.log("config: " + config);
+    grunt.verbose.write("config: " + config);
 
     mkDirs(path.dirname(output));
 
@@ -383,7 +383,7 @@ var mkDirs = function (p) {
 
     var entries = runner.helperFiles.concat(runner.specFiles);
 
-    console.log("files:\t" + entries.join('\n\t'));
+    grunt.verbose.write("files:\t" + entries.join('\n\t'));
 
     var b = browserify({
       basedir: '.',
@@ -400,7 +400,7 @@ var mkDirs = function (p) {
     var done = this.async();
     var outputFile = fs.createWriteStream(output);
     outputFile.on('finish',function(){
-      console.log('Wrote ' + output);
+      grunt.verbose.write('Wrote ' + output);
       done();
     });
     b.bundle().pipe(outputFile);    
@@ -436,7 +436,7 @@ var mkDirs = function (p) {
                 encoding:'utf8',
                 flags:'w+'
               });
-            console.log('Wrote ' + dest);    
+            grunt.verbose.write('Wrote ' + dest);    
         }
       }
     }
@@ -464,7 +464,7 @@ var mkDirs = function (p) {
           var apkgName = path.basename(f,'.csv');
           var apkg = new AnkiExport(apkgName);
   
-          console.log("create deck: " + apkgName);
+          grunt.verbose.write("create deck: " + apkgName);
 
           for(var j = 1; j < arrayOfObjects.length; j++){
             var wordObj = arrayOfObjects[j];
@@ -484,14 +484,14 @@ var mkDirs = function (p) {
             return function(zip){
               mkDirs(path.dirname(dest));
               fs.writeFileSync(dest, zip, 'binary');
-              console.log('Package has been generated: ' + dest);
+              grunt.verbose.write('Package has been generated: ' + dest);
             };
           };
 
           var p = apkg.save()
             .then(writeApk(dest))
             .catch(err => {
-              console.log(err.stack || err); 
+              grunt.log.write(err.stack || err); 
             });
           promises.push(p);
 
@@ -536,7 +536,7 @@ var mkDirs = function (p) {
         mkDirs(path.dirname(dest));
         fs.writeFileSync(dest, resultString);
 
-        console.log(`Created ${dest}`);
+        grunt.verbose.write(`Created ${dest}`);
       }
     }
 
@@ -572,7 +572,7 @@ var mkDirs = function (p) {
         var report  = html.replace('${wordListName}',basename);
         fs.writeFileSync(dest, report.replace('${table}',tableString));
 
-        console.log(`Created ${dest}`);
+        grunt.verbose.write(`Created ${dest}`);
       }
     }
 
@@ -601,7 +601,7 @@ var mkDirs = function (p) {
         var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'-spelling.html');
         mkDirs(path.dirname(dest));
         fs.writeFileSync(dest, html.replace('${slides}',slides));
-        console.log(`Created ${dest}`);
+        grunt.verbose.write(`Created ${dest}`);
       }
     }
 
