@@ -5,7 +5,7 @@ Aim:
    http://gruntjs.com/
 
 Date:
-   3rd February 2017
+   6th February 2017
 
 
 
@@ -99,30 +99,14 @@ For more information, see http://gruntjs.com/
 
 
 
-
-
-const fs = require('fs'), 
-    path = require('path'), 
-    browserify = require('browserify'),
-    AnkiExport = require('anki-apkg-export').default,
-    Jasmine = require('jasmine'),	
-    yaml = require('js-yaml'),
-    LWcsvString2JSON = require("./src/data-conversion/LWcsvString2JSON"),
-    LWjson2html = require("./src/data-conversion/LWjson2html"),
-    LWjson2htmlSlides = require("./src/data-conversion/LWjson2htmlSlides");
-
-
-
-
+var path = require('path');
+var p = require('./Grunt_config_object.js');
 
 
 
 module.exports = function(grunt) {
 
-  var INPUT_DIR = 'data',
-      WEB_ROOT = 'public',
-      BUILD_DIR = path.join(WEB_ROOT,'js'),
-      DIST_DIR = 'dist';
+
 
 
 
@@ -136,10 +120,10 @@ module.exports = function(grunt) {
       options: {
         force: true
       },
-      data: [path.join(WEB_ROOT,'data')],
-      build: [path.join(DIST_DIR,'**')],
-      js: [path.join(BUILD_DIR,'**')],
-      test: [path.join(BUILD_DIR,'jasmine-bundle.js')]
+      data: [path.join(p.WEB_ROOT,'data')],
+      build: [path.join(p.DIST_DIR,'**')],
+      js: [path.join(p.BUILD_DIR,'**')],
+      test: [path.join(p.BUILD_DIR,'jasmine-bundle.js')]
     },
     jshint: {
       es5: ['src/*.js'],
@@ -147,33 +131,33 @@ module.exports = function(grunt) {
     },
     csv2anki: {
       data: {
-        src: path.join(INPUT_DIR,'csv','**/*.csv'),
-        dest: path.join(WEB_ROOT,'data','anki')
+        src: path.join(p.INPUT_DIR,'csv','**/*.csv'),
+        dest: path.join(p.WEB_ROOT,'data','anki')
       }
     },
     csv2json: {
       data: {
-        src: path.join(INPUT_DIR,'csv','**/*.csv'),
-        dest: path.join(INPUT_DIR,'json')
+        src: path.join(p.INPUT_DIR,'csv','**/*.csv'),
+        dest: path.join(p.INPUT_DIR,'json')
       }
     },
     json2yaml: {
       data: {
-        src: path.join(INPUT_DIR,'json','**/*.json'),
-        dest: path.join(WEB_ROOT,'data','yaml')
+        src: path.join(p.INPUT_DIR,'json','**/*.json'),
+        dest: path.join(p.WEB_ROOT,'data','yaml')
       }
     },
     json2htmlList: {
       data: {
-        src: path.join(INPUT_DIR,'json','**/*.json'),
-        dest: path.join(WEB_ROOT,'data','html')
+        src: path.join(p.INPUT_DIR,'json','**/*.json'),
+        dest: path.join(p.WEB_ROOT,'data','html')
       }
     },
 
     json2htmlSpelling: {
       data: {
-        src: path.join(INPUT_DIR,'json','**/*.json'),
-        dest: path.join(WEB_ROOT,'data','html')
+        src: path.join(p.INPUT_DIR,'json','**/*.json'),
+        dest: path.join(p.WEB_ROOT,'data','html')
       }
     },
 
@@ -181,7 +165,7 @@ module.exports = function(grunt) {
     jasmine:{
       browser: {
         src: path.join('spec','support','Jasmine.json'),
-        dest: path.join(BUILD_DIR,'jasmine-bundle.js')
+        dest: path.join(p.BUILD_DIR,'jasmine-bundle.js')
       }
     },
     js:{
@@ -190,14 +174,14 @@ module.exports = function(grunt) {
           debug: false
         },
         src: [path.join('src','index.js')],
-        dest: path.join(DIST_DIR,'LW.js')
+        dest: path.join(p.DIST_DIR,'LW.js')
       },
       debug: {
         options: {
           debug: true
         },
         src: [path.join('src','index.js')],
-        dest: path.join(DIST_DIR,'LW-debug.js')
+        dest: path.join(p.DIST_DIR,'LW-debug.js')
       }
     },
     watch:{
@@ -209,14 +193,14 @@ module.exports = function(grunt) {
         tasks: ['build','test']
       },
       html: {
-        files: [path.join(WEB_ROOT,'**','*.html')]
+        files: [path.join(p.WEB_ROOT,'**','*.html')]
       }
     },
     connect:{
       test: {
         options: {
           base: {
-            path: WEB_ROOT,
+            path: p.WEB_ROOT,
             options: {
               index: 'SpecRunner.html'
             }
@@ -230,7 +214,7 @@ module.exports = function(grunt) {
       demo: {
         options: {
           base: {
-            path: WEB_ROOT,
+            path: p.WEB_ROOT,
             options: {
               index: 'demo.html'
             }
@@ -247,21 +231,21 @@ module.exports = function(grunt) {
         expand: true,
         flatten: true,
         filter: 'isFile',
-        src: path.join(INPUT_DIR,'json','**'),
-        dest: path.join(WEB_ROOT,'data','json')
+        src: path.join(p.INPUT_DIR,'json','**'),
+        dest: path.join(p.WEB_ROOT,'data','json')
       },
      pictures: {
         expand: true,
         flatten: true,
         filter: 'isFile',
-        src: path.join(INPUT_DIR,'pictures','c10','**'),
-        dest: path.join(WEB_ROOT,'data','html','c10')
+        src: path.join(p.INPUT_DIR,'pictures','c10','**'),
+        dest: path.join(p.WEB_ROOT,'data','html','c10')
       },
       js: {
         expand: true,
         flatten: true,
-        src: path.join(DIST_DIR,'*'),
-        dest: path.join(WEB_ROOT,'js')
+        src: path.join(p.DIST_DIR,'*'),
+        dest: path.join(p.WEB_ROOT,'js')
       }
     }
   });
@@ -271,6 +255,7 @@ module.exports = function(grunt) {
   // ====================================================================
   // Load grunt tasks
   // ====================================================================
+
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -280,334 +265,13 @@ module.exports = function(grunt) {
 
 
 
-  // Helper function for custom tasks
-
-var mkDirs = function (p) {
-
-    "use strict";
-
-    function f(dir,i){
-      if(i < dir.length){
-        var cwd = dir.slice(0,i+1);
-        var dirPath = cwd.join(path.sep);
-        if(/v0\.1\d\.\d+/.test(process.version)){
-          // node version is 0.1x.x
-          if(!fs.existsSync(dirPath)){
-            fs.mkdirSync(dirPath);
-          }else{
-            grunt.verbose.write(dirPath + " already exists");
-          }
-        }else{
-          try{
-            fs.accessSync(dirPath, fs.constants.F_OK);
-            grunt.verbose.write(dirPath + " already exists");
-          }catch(e){
-            // directory doesn't exist
-            fs.mkdirSync(dirPath);
-            grunt.verbose.write("mkdir " + dirPath);
-          }
-        }
-        f(dir,i+1);
-      }
-    }
-    f(p.split(path.sep),0);
-  }
-
-
-
-
-
-
   // ================================================================================
   // Custom tasks
   // ================================================================================
 
 
-  grunt.registerMultiTask('js','Builds bundle for JavaScript component', function(){
-
-    var opts = this.options({ 
-      debug: false 
-    });
-    
-    grunt.verbose.write("debug: " + opts.debug);
-
-    var output = this.files[0].dest;
-
-    mkDirs(DIST_DIR);
-
-    grunt.verbose.write("files:\t" + this.filesSrc.join('\n\t'));
-
-    var b = browserify({
-      basedir: '.',
-      entries: this.filesSrc,
-      noParse: [],
-      browserField: false,
-      debug: opts.debug,
-      standalone: 'LW'
-    });
-
-    // prevents file from being loaded into bundle
-    b.exclude("node-localstorage");
-    b.ignore('fs');
-
-    var done = this.async();
-    var outputFile = fs.createWriteStream(output);
-    outputFile.on('finish',function(){
-      grunt.verbose.write('Wrote ' + output);
-      done();
-    });
-    b.bundle().pipe(outputFile);    
-
-  });
-
-
-
-
-
-
-
-
-
-
-  grunt.registerMultiTask('jasmine','Creates bundle for Jasmine tests',function(){
-
-    var output = this.files[0].dest;
-    var config = this.filesSrc[0];
-
-    grunt.verbose.write("config: " + config);
-
-    mkDirs(path.dirname(output));
-
-    var runner = new Jasmine();
-    runner.loadConfigFile(config);
-
-    var entries = runner.helperFiles.concat(runner.specFiles);
-
-    grunt.verbose.write("files:\t" + entries.join('\n\t'));
-
-    var b = browserify({
-      basedir: '.',
-      entries: entries,
-      noParse: [],
-      browserField: false,
-      debug: true
-    });
-
-    // prevents file from being loaded into bundle
-    b.exclude('node-localstorage');
-    b.ignore('fs');
-
-    var done = this.async();
-    var outputFile = fs.createWriteStream(output);
-    outputFile.on('finish',function(){
-      grunt.verbose.write('Wrote ' + output);
-      done();
-    });
-    b.bundle().pipe(outputFile);    
-
-  });
-
-
-
-
-
-
-
-
-
-
-  grunt.registerMultiTask('csv2json','Converts CSV to JSON',function(){
-
-    for(var i = 0; i < this.files.length; i++){
-      var src = this.files[i].src;
-      for(var h = 0; h < src.length; h++){
-        var f = src[h];
-
-        var aCSVstring = fs.readFileSync(f,'utf-8');
-
-        var arrayOfObjects = LWcsvString2JSON(aCSVstring);
-       
-        if (arrayOfObjects.length !== 0) {
-    
-            var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.json');
-            mkDirs(this.files[i].dest);
-
-            fs.writeFileSync(dest,JSON.stringify(arrayOfObjects),{
-                encoding:'utf8',
-                flags:'w+'
-              });
-            grunt.verbose.write('Wrote ' + dest);    
-        }
-      }
-    }
-  });
-
-
-
-
-
-
-  grunt.registerMultiTask('csv2anki','Converts CSV to Anki',function(){
-
-    var done = this.async();
-
-    var promises = [];
-    for(var i = 0; i < this.files.length; i++){
-      var src = this.files[i].src;
-      for(var h = 0; h < src.length; h++){
-        var f = src[h];
-        var aCSVstring = fs.readFileSync(f,'utf-8');
-
-        var arrayOfObjects = LWcsvString2JSON(aCSVstring);
-
-        if (arrayOfObjects.length !== 0) {
-          var apkgName = path.basename(f,'.csv');
-          var apkg = new AnkiExport(apkgName);
-  
-          grunt.verbose.write("create deck: " + apkgName);
-
-          for(var j = 1; j < arrayOfObjects.length; j++){
-            var wordObj = arrayOfObjects[j];
-            var front = wordObj.word;
-            var back = wordObj.translate;
-            var tags = wordObj.tags;
-            var tagsObj = {};
-            if(tags && tags.length > 0){
-              tagsObj.tags = tags.trim().split(" ");
-            }
-            apkg.addCard(front, back, tagsObj);
-          }
-
-          var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.apkg');
-
-          var writeApk = function(dest){
-            return function(zip){
-              mkDirs(path.dirname(dest));
-              fs.writeFileSync(dest, zip, 'binary');
-              grunt.verbose.write('Package has been generated: ' + dest);
-            };
-          };
-
-          var p = apkg.save()
-            .then(writeApk(dest))
-            .catch(err => {
-              grunt.log.write(err.stack || err); 
-            });
-          promises.push(p);
-
-        }
-      }
-    }
-
-    // wait until all *.apk files have been written to end task
-    Promise.all(promises).then(
-      function(zips){
-        done();
-      },
-      function(){
-        console.err(arguments);
-      });
-
-  });
-
-
-
-
-
-
-
-
-
-  grunt.registerMultiTask('json2yaml','Converts JSON to YAML',function(){
-
-    for(var i = 0; i < this.files.length; i++){
-      var src = this.files[i].src;
-      for(var h = 0; h < src.length; h++){
-        var f = src[h];
-        var aDataString = fs.readFileSync(f,'utf-8');
-        var jsonObject = JSON.parse(aDataString);
-
-        var yamlFileHeader = '---\n';
-        var resultString = yamlFileHeader + yaml.safeDump(jsonObject);
-
-        var fileName = path.basename(f,'.json');
-        var dest = path.join(this.files[i].dest,fileName+'.yml');
- 
-        mkDirs(path.dirname(dest));
-        fs.writeFileSync(dest, resultString);
-
-        grunt.verbose.write(`Created ${dest}`);
-      }
-    }
-
-  });
-
-
-
-
-
-
-
-
-
-
-
-  grunt.registerMultiTask('json2htmlList','Converts JSON to HTML',function(){
-
-    var html = fs.readFileSync('templates/report.html','utf-8');
-
-    for(var i = 0; i < this.files.length; i++){
-      var src = this.files[i].src;
-      for(var h = 0; h < src.length; h++){
-        var f = src[h];
-        var data = fs.readFileSync(f,'utf-8');
-        var json = JSON.parse(data);
-
-        var tableString = LWjson2html(json);
-
-        var basename = path.basename(f,'.json');
-        var dest = path.join(this.files[i].dest,basename+'.html');
-        mkDirs(path.dirname(dest));
-
-        var report  = html.replace('${wordListName}',basename);
-        fs.writeFileSync(dest, report.replace('${table}',tableString));
-
-        grunt.verbose.write(`Created ${dest}`);
-      }
-    }
-
-  });
-
-
-
-
-
-
-
-
-  grunt.registerMultiTask('json2htmlSpelling','Converts JSON to a HTML presentation with spelling demo',function(){
-
-    var html = fs.readFileSync('templates/learning-to-spell.html','utf-8');
-
-    for(var i = 0; i < this.files.length; i++){
-      var src = this.files[i].src;
-      for(var h = 0; h < src.length; h++){
-        var f = src[h];
-        var data = fs.readFileSync(f,'utf-8');
-        var json = JSON.parse(data);
-
-        var slides = LWjson2htmlSlides(json);
-
-        var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'-spelling.html');
-        mkDirs(path.dirname(dest));
-        fs.writeFileSync(dest, html.replace('${slides}',slides));
-        grunt.verbose.write(`Created ${dest}`);
-      }
-    }
-
-  });
-
-
+  // load custom tasks
+  require('./Grunt-customtasks.js')(grunt,p);
 
 
 
