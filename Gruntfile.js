@@ -272,6 +272,7 @@ module.exports = function(grunt) {
 
   // load custom tasks
   require('./Grunt-customtasks.js')(grunt,p);
+  require('./Grunt-customtasks-data-conversion.js')(grunt,p)
 
 
 
