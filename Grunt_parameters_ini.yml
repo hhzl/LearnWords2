@@ -1,0 +1,36 @@
+---
+# --------------------------------------------------------
+# Define paths for the grunt task runner
+# 7th February 2017
+#
+# This is a YAML file
+# http://yaml.org/
+#
+# Main advantage over JSON is that it may have
+# comments.
+#
+# https://www.json2yaml.com/convert-yaml-to-json
+#
+# The content is read with
+# http://gruntjs.com/api/grunt.file#grunt.file.readyaml
+# --------------------------------------------------------
+
+
+
+# The LearnWords data is taken from
+
+INPUT_DIR: data
+
+
+
+# The directory for the GUI demo
+
+WEB_ROOT: public
+BUILD_DIR: public/js
+
+
+
+# The distribution directory for the library LW.js
+
+DIST_DIR: dist
+

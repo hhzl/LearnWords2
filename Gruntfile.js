@@ -100,14 +100,13 @@ For more information, see http://gruntjs.com/
 
 
 var path = require('path');
-var p = require('./Grunt_config_object.js');
-
+// var p = require('./Grunt_config_object.js');
 
 
 module.exports = function(grunt) {
 
 
-
+  var p = grunt.file.readYAML('./Grunt_parameters_ini.yml');
 
 
   // =========================================================  
