@@ -1,11 +1,10 @@
+// ================================================================================
+// Custom tasks
+// ================================================================================
 
 
-  // ================================================================================
-  // Custom tasks
-  // ================================================================================
-
-
-function defineCustomTasks(grunt,p) {
+function defineCustomTasks(grunt,pathParam) {
+    "use strict";
 
     const fs = require('fs'), 
     path = require('path'),
@@ -18,8 +17,8 @@ function defineCustomTasks(grunt,p) {
 
 
 
-  "use strict";
   // Helper function for custom tasks
+  // replace later with grunt.file.mkdir
 
   var mkDirs = function (p) {
 
@@ -66,7 +65,7 @@ function defineCustomTasks(grunt,p) {
 
     var output = this.files[0].dest;
 
-    mkDirs(p.DIST_DIR);
+    mkDirs(pathParam.DIST_DIR);
 
     grunt.verbose.write("files:\t" + this.filesSrc.join('\n\t'));
 
@@ -152,23 +151,23 @@ function defineCustomTasks(grunt,p) {
 
   grunt.registerMultiTask('json2htmlList','Converts JSON to HTML',function(){
 
-    var html = fs.readFileSync('templates/report.html','utf-8');
+    var html = grunt.file.read('templates/report.html');
 
     for(var i = 0; i < this.files.length; i++){
       var src = this.files[i].src;
       for(var h = 0; h < src.length; h++){
         var f = src[h];
-        var data = fs.readFileSync(f,'utf-8');
-        var json = JSON.parse(data);
+        
+        var json = JSON.parse(grunt.file.read(f));
 
         var tableString = LWjson2html(json);
 
         var basename = path.basename(f,'.json');
         var dest = path.join(this.files[i].dest,basename+'.html');
-        mkDirs(path.dirname(dest));
 
         var report  = html.replace('${wordListName}',basename);
-        fs.writeFileSync(dest, report.replace('${table}',tableString));
+
+        grunt.file.write(dest, report.replace('${table}',tableString));
 
         grunt.verbose.write(`Created ${dest}`);
       }
@@ -197,8 +196,8 @@ function defineCustomTasks(grunt,p) {
         var slides = LWjson2htmlSlides(json);
 
         var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'-spelling.html');
-        mkDirs(path.dirname(dest));
-        fs.writeFileSync(dest, html.replace('${slides}',slides));
+
+        grunt.file.write(dest, html.replace('${slides}',slides));
         grunt.verbose.write(`Created ${dest}`);
       }
     }

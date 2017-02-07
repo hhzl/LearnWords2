@@ -1,47 +1,17 @@
-function defineCustomTasksDataConversion(grunt,p) {
+function defineCustomTasksDataConversion(grunt) {
+    "use strict";
+
+
 
     const fs = require('fs'), 
     path = require('path'),
+
     LWcsvString2JSON = require("./src/data-conversion/LWcsvString2JSON"),
     AnkiExport = require('anki-apkg-export').default,
     yaml = require('js-yaml');
 
 
 
-
-  "use strict";
-  // Helper function for custom tasks
-
-  var mkDirs = function (p) {
-
-    "use strict";
-
-    function f(dir,i){
-      if(i < dir.length){
-        var cwd = dir.slice(0,i+1);
-        var dirPath = cwd.join(path.sep);
-        if(/v0\.1\d\.\d+/.test(process.version)){
-          // node version is 0.1x.x
-          if(!fs.existsSync(dirPath)){
-            fs.mkdirSync(dirPath);
-          }else{
-            grunt.verbose.write(dirPath + " already exists");
-          }
-        }else{
-          try{
-            fs.accessSync(dirPath, fs.constants.F_OK);
-            grunt.verbose.write(dirPath + " already exists");
-          }catch(e){
-            // directory doesn't exist
-            fs.mkdirSync(dirPath);
-            grunt.verbose.write("mkdir " + dirPath);
-          }
-        }
-        f(dir,i+1);
-      }
-    }
-    f(p.split(path.sep),0);
-  }
 
 
 
@@ -54,9 +24,7 @@ function defineCustomTasksDataConversion(grunt,p) {
       for(var h = 0; h < src.length; h++){
         var f = src[h];
 
-        var aCSVstring = fs.readFileSync(f,'utf-8');
-
-        var arrayOfObjects = LWcsvString2JSON(aCSVstring);
+        var arrayOfObjects = LWcsvString2JSON(grunt.file.read(f));
        
         if (arrayOfObjects.length !== 0) {
     
@@ -73,18 +41,58 @@ function defineCustomTasksDataConversion(grunt,p) {
 
 
 
+
+
+
+
+
+  grunt.registerMultiTask('json2yaml','Converts JSON to YAML',function(){
+
+    // Grunt provides a normalized list of src/destination files in this.files
+
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+
+        var jsonObject = JSON.parse(grunt.file.read(f));
+
+        var yamlFileHeader = '---\n';
+        var resultString = yamlFileHeader + yaml.safeDump(jsonObject);
+
+        var fileName = path.basename(f,'.json');
+        var dest = path.join(this.files[i].dest,fileName+'.yml');
+ 
+        grunt.file.write(dest, resultString);
+
+        grunt.verbose.write(`Created ${dest}`);
+      }
+    }
+
+  });
+
+
+
+
+
+
+
+
+
+
+
   grunt.registerMultiTask('csv2anki','Converts CSV to Anki',function(){
 
     var done = this.async();
 
     var promises = [];
+    // Grunt provides a normalized list of src/destination files in this.files
     for(var i = 0; i < this.files.length; i++){
       var src = this.files[i].src;
       for(var h = 0; h < src.length; h++){
         var f = src[h];
-        var aCSVstring = fs.readFileSync(f,'utf-8');
 
-        var arrayOfObjects = LWcsvString2JSON(aCSVstring);
+        var arrayOfObjects = LWcsvString2JSON(grunt.file.read(f));
 
         if (arrayOfObjects.length !== 0) {
           var apkgName = path.basename(f,'.csv');
@@ -108,7 +116,7 @@ function defineCustomTasksDataConversion(grunt,p) {
 
           var writeApk = function(dest){
             return function(zip){
-              mkDirs(path.dirname(dest));
+              grunt.file.mkdir(path.dirname(dest));
               fs.writeFileSync(dest, zip, 'binary');
               grunt.verbose.write('Package has been generated: ' + dest);
             };
@@ -138,38 +146,7 @@ function defineCustomTasksDataConversion(grunt,p) {
 
 
 
-
-
-
-
-
-
-  grunt.registerMultiTask('json2yaml','Converts JSON to YAML',function(){
-
-    for(var i = 0; i < this.files.length; i++){
-      var src = this.files[i].src;
-      for(var h = 0; h < src.length; h++){
-        var f = src[h];
-        var aDataString = fs.readFileSync(f,'utf-8');
-        var jsonObject = JSON.parse(aDataString);
-
-        var yamlFileHeader = '---\n';
-        var resultString = yamlFileHeader + yaml.safeDump(jsonObject);
-
-        var fileName = path.basename(f,'.json');
-        var dest = path.join(this.files[i].dest,fileName+'.yml');
- 
-        mkDirs(path.dirname(dest));
-        fs.writeFileSync(dest, resultString);
-
-        grunt.verbose.write(`Created ${dest}`);
-      }
-    }
-
-  });
-
-
-
 };
+
 
 module.exports = defineCustomTasksDataConversion;
