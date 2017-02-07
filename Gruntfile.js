@@ -100,14 +100,14 @@ For more information, see http://gruntjs.com/
 
 
 var path = require('path');
-// var p = require('./Grunt_config_object.js');
 
 
 module.exports = function(grunt) {
 
 
   var p = grunt.file.readYAML('./Grunt_parameters_ini.yml');
-
+  console.log('OUTPUT_DIR=',p.OUTPUT_DIR);
+  console.log('WEB_ROOT=',p.WEB_ROOT);
 
   // =========================================================  
   // Project configuration.
@@ -119,7 +119,7 @@ module.exports = function(grunt) {
       options: {
         force: true
       },
-      data: [path.join(p.WEB_ROOT,'data')],
+      data: [path.join(p.WEB_ROOT,'data'),p.OUTPUT_DIR],
       build: [path.join(p.DIST_DIR,'**')],
       js: [path.join(p.BUILD_DIR,'**')],
       test: [path.join(p.BUILD_DIR,'jasmine-bundle.js')]
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
     csv2anki: {
       data: {
         src: path.join(p.INPUT_DIR,'csv','**/*.csv'),
-        dest: path.join(p.WEB_ROOT,'data','anki')
+        dest: path.join(p.OUTPUT_DIR,'anki')
       }
     },
     csv2json: {
@@ -143,7 +143,7 @@ module.exports = function(grunt) {
     json2yaml: {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
-        dest: path.join(p.WEB_ROOT,'data','yaml')
+        dest: path.join(p.OUTPUT_DIR,'yaml')
       }
     },
     json2htmlList: {

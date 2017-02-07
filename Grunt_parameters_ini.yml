@@ -22,6 +22,12 @@
 INPUT_DIR: data
 
 
+# The directory to put converted data
+# for other use
+
+OUTPUT_DIR: data-export
+
+
 
 # The directory for the GUI demo
 
