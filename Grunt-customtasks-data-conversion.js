@@ -48,7 +48,7 @@ function defineCustomTasksDataConversion(grunt,p) {
 
 
   grunt.registerMultiTask('csv2json','Converts CSV to JSON',function(){
-
+    // Grunt provides a normalized list of src/destination files in this.files
     for(var i = 0; i < this.files.length; i++){
       var src = this.files[i].src;
       for(var h = 0; h < src.length; h++){
@@ -61,12 +61,7 @@ function defineCustomTasksDataConversion(grunt,p) {
         if (arrayOfObjects.length !== 0) {
     
             var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.json');
-            mkDirs(this.files[i].dest);
-
-            fs.writeFileSync(dest,JSON.stringify(arrayOfObjects),{
-                encoding:'utf8',
-                flags:'w+'
-              });
+            grunt.file.write(dest, JSON.stringify(arrayOfObjects));
             grunt.verbose.write('Wrote ' + dest);    
         }
       }
