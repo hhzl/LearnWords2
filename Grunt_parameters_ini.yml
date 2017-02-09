@@ -20,13 +20,15 @@
 # The LearnWords data is taken from
 
 INPUT_DIR: data
+# INPUT_DIR: ../LW-data-g
+
 
 
 # The directory to put converted data
 # for other use
 
 OUTPUT_DIR: data-export
-
+# OUTPUT_DIR: ../LW-data-export
 
 
 # The directory for the GUI demo

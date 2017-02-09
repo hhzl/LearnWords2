@@ -149,14 +149,14 @@ module.exports = function(grunt) {
     json2htmlList: {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
-        dest: path.join(p.WEB_ROOT,'data','html')
+        dest: path.join(p.OUTPUT_DIR,'html')
       }
     },
 
     json2htmlSpelling: {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
-        dest: path.join(p.WEB_ROOT,'data','html')
+        dest: path.join(p.OUTPUT_DIR,'html')
       }
     },
 
@@ -238,7 +238,7 @@ module.exports = function(grunt) {
         flatten: true,
         filter: 'isFile',
         src: path.join(p.INPUT_DIR,'pictures','c10','**'),
-        dest: path.join(p.WEB_ROOT,'data','html','c10')
+        dest: path.join(p.OUTPUT_DIR,'html','c10')
       },
       js: {
         expand: true,
