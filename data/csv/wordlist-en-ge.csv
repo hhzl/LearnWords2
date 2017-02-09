@@ -6,7 +6,7 @@ _id,word,translate,tags,picture
 5,orange,die Orange,fruit,
 6,strawberry,die Erdbeere,fruit,
 7,raspberry,die Himbeere,fruit,
-8,blueberry,die Brombeere,fruit,
+8,blueberry,die Heidelbeere,fruit,
 9,guava,die Guava,fruit,
 10,pawpaw,die Papaya,fruit,
 11,apricot,die Aprikose,fruit,
@@ -34,7 +34,7 @@ _id,word,translate,tags,picture
 33,goat,die Ziege,animal,c10/goat.jpg
 34,cow,die Kuh,animal,
 35,cock,der Hahn,animal,
-36,hen,das Henne,animal,c10/hen.jpg
+36,hen,die Henne,animal,c10/hen.jpg
 37,dog,der Hund,animal,c10/dog.jpg
 38,donkey,der Esel,animal,c10/donkey.jpg
 39,sheep,das Schaf,animal,
