@@ -10,7 +10,9 @@ function defineCustomTasksReports(grunt) {
     const path = require('path');
 
     const LWjson2html = require("./src/data-conversion/LWjson2html"),
-          LWjson2htmlSlides = require("./src/data-conversion/LWjson2htmlSlides");
+          LWjson2htmlSlides = require("./src/data-conversion/LWjson2htmlSlides"),
+          LWjson2odg = require("./src/data-conversion/LWjson2odg");
+
 
 
 
@@ -72,6 +74,40 @@ function defineCustomTasksReports(grunt) {
     }
 
   });
+
+
+
+
+
+
+
+  grunt.registerMultiTask('json2odg','Converts JSON to a LO Draw file',function(){
+
+    var drawText = grunt.file.read('templates/animals_pictures_and_words.fodg');
+
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+ 
+        var json = JSON.parse(grunt.file.read(f));
+
+        var drawText = LWjson2odg(json,drawText);
+
+        var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.fodg');
+
+        grunt.file.write(dest, drawText);
+        grunt.verbose.write(`Created LibreOffice Draw document: ${dest}`);
+      }
+    }
+
+  });
+
+
+
+
+
+
 
 
 };

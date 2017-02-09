@@ -120,6 +120,7 @@ module.exports = function(grunt) {
         force: true
       },
       data: [path.join(p.WEB_ROOT,'data'),p.OUTPUT_DIR],
+      odg:  [path.join(p.OUTPUT_DIR,'odg')],
       build: [path.join(p.DIST_DIR,'**')],
       js: [path.join(p.BUILD_DIR,'**')],
       test: [path.join(p.BUILD_DIR,'jasmine-bundle.js')]
@@ -163,6 +164,13 @@ module.exports = function(grunt) {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
         dest: path.join(p.OUTPUT_DIR,'html')
+      }
+    },
+
+    json2odg: {
+      data: {
+        src: path.join(p.INPUT_DIR,'json','wordlist_animals*.json'),
+        dest: path.join(p.OUTPUT_DIR,'odg')
       }
     },
 
@@ -246,6 +254,13 @@ module.exports = function(grunt) {
         src: path.join(p.INPUT_DIR,'pictures','c10','**'),
         dest: path.join(p.OUTPUT_DIR,'html','c10')
       },
+     pictures_odg: {
+        expand: true,
+        flatten: true,
+        filter: 'isFile',
+        src: path.join(p.INPUT_DIR,'pictures','c10','**'),
+        dest: path.join(p.OUTPUT_DIR,'odg','pictures','c10')
+      },
       js: {
         expand: true,
         flatten: true,
@@ -295,6 +310,9 @@ module.exports = function(grunt) {
   grunt.registerTask('htmlreport',['json2htmlList','copy:pictures']);
 
   grunt.registerTask('spellingpresentation',['json2htmlSpelling','copy:pictures']);
+
+  grunt.registerTask('odgreport',['clean:odg','json2odg','copy:pictures_odg']);
+
 
   grunt.registerTask('data',['clean:data','csv2json','csv2anki','htmlreport']);
   grunt.registerTask('build', ['clean:build','jshint:es5','js']);

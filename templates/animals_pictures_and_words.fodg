@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smil="urn:oasis:names:tc:opendocument:xmlns:smil-compatible:1.0" xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.graphics">
+ <office:meta><meta:creation-date>2017-02-08T14:06:46.439000000</meta:creation-date>
+ <dc:date>2017-02-09T13:01:53.539000000</dc:date><meta:editing-duration>PT1H12M51S</meta:editing-duration><meta:editing-cycles>13</meta:editing-cycles><meta:generator>LibreOffice/5.3.0.3$Windows_x86 LibreOffice_project/7074905676c47b82bbcfbea1aeefc84afe1c50e1</meta:generator><meta:document-statistic meta:object-count="80"/></office:meta>
+ <office:settings>
+  <config:config-item-set config:name="ooo:view-settings">
+   <config:config-item config:name="VisibleAreaTop" config:type="int">15252</config:config-item>
+   <config:config-item config:name="VisibleAreaLeft" config:type="int">-1842</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">22360</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">15356</config:config-item>
+   <config:config-item-map-indexed config:name="Views">
+    <config:config-item-map-entry>
+     <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
+     <config:config-item config:name="GridIsVisible" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="GridIsFront" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="IsSnapToGrid" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="IsSnapToPageMargins" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="IsSnapToSnapLines" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="IsSnapToObjectFrame" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="IsSnapToObjectPoints" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="IsPlusHandlesAlwaysVisible" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="IsFrameDragSingles" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="EliminatePolyPointLimitAngle" config:type="int">1500</config:config-item>
+     <config:config-item config:name="IsEliminatePolyPoints" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="VisibleLayers" config:type="base64Binary">//////////////////////////////////////////8=</config:config-item>
+     <config:config-item config:name="PrintableLayers" config:type="base64Binary">//////////////////////////////////////////8=</config:config-item>
+     <config:config-item config:name="LockedLayers" config:type="base64Binary"/>
+     <config:config-item config:name="NoAttribs" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="NoColors" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="RulerIsVisible" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="PageKind" config:type="short">0</config:config-item>
+     <config:config-item config:name="SelectedPage" config:type="short">1</config:config-item>
+     <config:config-item config:name="IsLayerMode" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="IsDoubleClickTextEdit" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="IsClickChangeRotation" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="SlidesPerRow" config:type="short">4</config:config-item>
+     <config:config-item config:name="EditMode" config:type="int">0</config:config-item>
+     <config:config-item config:name="VisibleAreaTop" config:type="int">15252</config:config-item>
+     <config:config-item config:name="VisibleAreaLeft" config:type="int">-1842</config:config-item>
+     <config:config-item config:name="VisibleAreaWidth" config:type="int">25448</config:config-item>
+     <config:config-item config:name="VisibleAreaHeight" config:type="int">15357</config:config-item>
+     <config:config-item config:name="GridCoarseWidth" config:type="int">1270</config:config-item>
+     <config:config-item config:name="GridCoarseHeight" config:type="int">1270</config:config-item>
+     <config:config-item config:name="GridFineWidth" config:type="int">127</config:config-item>
+     <config:config-item config:name="GridFineHeight" config:type="int">127</config:config-item>
+     <config:config-item config:name="GridSnapWidthXNumerator" config:type="int">127</config:config-item>
+     <config:config-item config:name="GridSnapWidthXDenominator" config:type="int">1</config:config-item>
+     <config:config-item config:name="GridSnapWidthYNumerator" config:type="int">127</config:config-item>
+     <config:config-item config:name="GridSnapWidthYDenominator" config:type="int">1</config:config-item>
+     <config:config-item config:name="IsAngleSnapEnabled" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="SnapAngle" config:type="int">1500</config:config-item>
+     <config:config-item config:name="ZoomOnPage" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
+  </config:config-item-set>
+  <config:config-item-set config:name="ooo:configuration-settings">
+   <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="BitmapTableURL" config:type="string">$(inst)/share/palette%3B$(user)/config/standard.sob</config:config-item>
+   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+   <config:config-item config:name="ColorTableURL" config:type="string">$(inst)/share/palette%3B$(user)/config/standard.soc</config:config-item>
+   <config:config-item config:name="DashTableURL" config:type="string">$(inst)/share/palette%3B$(user)/config/standard.sod</config:config-item>
+   <config:config-item config:name="DefaultTabStop" config:type="int">1270</config:config-item>
+   <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item-map-indexed config:name="ForbiddenCharacters">
+    <config:config-item-map-entry>
+     <config:config-item config:name="Language" config:type="string">en</config:config-item>
+     <config:config-item config:name="Country" config:type="string">US</config:config-item>
+     <config:config-item config:name="Variant" config:type="string"/>
+     <config:config-item config:name="BeginLine" config:type="string"/>
+     <config:config-item config:name="EndLine" config:type="string"/>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
+   <config:config-item config:name="GradientTableURL" config:type="string">$(inst)/share/palette%3B$(user)/config/standard.sog</config:config-item>
+   <config:config-item config:name="HatchTableURL" config:type="string">$(inst)/share/palette%3B$(user)/config/standard.soh</config:config-item>
+   <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsPrintBooklet" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsPrintBookletBack" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsPrintBookletFront" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsPrintDate" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsPrintFitPage" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsPrintHiddenPages" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsPrintPageName" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsPrintTilePage" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsPrintTime" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="LineEndTableURL" config:type="string">$(inst)/share/palette%3B$(user)/config/standard.soe</config:config-item>
+   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="MeasureUnit" config:type="short">2</config:config-item>
+   <config:config-item config:name="PageNumberFormat" config:type="int">4</config:config-item>
+   <config:config-item config:name="ParagraphSummation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrintQuality" config:type="int">0</config:config-item>
+   <config:config-item config:name="PrinterIndependentLayout" config:type="string">low-resolution</config:config-item>
+   <config:config-item config:name="PrinterName" config:type="string">HP LaserJet 100 color MFP M175 PCL6</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">ESL+/0hQIExhc2VySmV0IDEwMCBjb2xvciBNRlAgTTE3NSBQQ0w2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASFAgTGFzZXJKZXQgMTAwIGNvbG9yIE1GUCBNMTc1IAAWAAEALiEAAAAAAAAEAAhSAAAEdAAAM1ROVwYASABQACAATABhAHMAZQByAEoAZQB0ACAAMQAwADAAIABjAG8AbABvAHIAIABNAEYAUAAgAE0AMQA3ADUAAAAAAAEEAAbcAEwgQ++ABwEACQCaCzQIZAABAA8AWAICAAEAWAIDAAAAQQA0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAgAAACkBAAD/////AAAAAAAAAAAAAAAAAAAAAERJTlUiACgKZAzoE7KHGuMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVQAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAEAAAAAAAAAAAABAAEAAQAAAAAAAAAAAAAAAAAFAAMAAwADAAQAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAEAAQAAAAAAAAAAAAAAAQABAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAKAoAAFNNVEoAAAAAEAAYCkgAUAAgAEwAYQBzAGUAcgBKAGUAdAAgADEAMAAwACAAYwBvAGwAbwByACAATQBGAFAAIABNADEANwA1ACAAUABDAEwANgAAAElucHV0QmluAEZPUk1TT1VSQ0UAUkVTRExMAFVuaXJlc0RMTABIUERvY1VJU1VJAFRydWUARVNQUklUU3VwcG9ydGVkAFRydWUAUmVzb2x1dGlvbgA2MDBkcGkARmFzdFJlcwBGYWxzZQBPcmllbnRhdGlvbgBQT1JUUkFJVABIUE9yaWVudFJvdGF0ZTE4MABGYWxzZQBQYXBlclNpemUAQTQATWVkaWFUeXBlAEFVVE8AQ29sbGF0ZQBPRkYASFBNZWRpYVR5cGVUcmVldmlld1BvcHVwAFRydWUAQ29sb3JNb2RlADI0YnBwAFRleHRBc0JsYWNrAEZhbHNlAFRUQXNCaXRtYXBzU2V0dGluZwBUVE1vZGVPdXRsaW5lAEpQRUdFbmFibGUAQXV0bwBIUEVuYWJsZUdyYWZpdENvbXByZXNzaW9uAFRydWUASFBSZXF1ZXN0T2JqZWN0VGFnRHVtcABGYWxzZQBIUE9iamVjdFRhZ2dpbmdWZXJzaW9uAENMSl8yXzAASFBSZXF1ZXN0TnVsbFN0cmlwQ29tbWFuZABGYWxzZQBIUEh5YnJpZFJlbmRlclN3aXRjaABIUEh5YnJpZEF1dG8AQWx0ZXJuYXRlTGV0dGVySGVhZABGYWxzZQBIUFBhcGVyU2l6ZUFMTUNvbnN0cmFpbnRzAEE1AFByaW50UXVhbGl0eUdyb3VwAFBRR3JvdXBfMQBIUERvY1Byb3BSZXNvdXJjZURhdGEAaHBjaGwxMDguY2FiAEhQQ29sb3JTbWFydABBdXRvbWF0aWMASFBDb2xvclNtYXJ0X0NvbG9yT3B0aW9uc19FZGdlQ29udHJvbABOb3JtYWwASFBDb2xvclNtYXJ0X0NvbG9yT3B0aW9uc19IYWxmdG9uZQBTbW9vdGgASFBDb2xvclNtYXJ0X1RleHRfTmV1dHJhbEdyYXlzAEJsYWNrT25seQBIUENvbG9yU21hcnRfR3JhcGhpY3NfTmV1dHJhbEdyYXlzAEJsYWNrT25seQBIUENvbG9yU21hcnRfUGhvdG9fTmV1dHJhbEdyYXlzADQtQ29sb3IASFBDb2xvck1vZGUAQ09MT1JfTU9ERQBIUFBETFR5cGUAUERMX1BDTDYASFBQSkxFbmNvZGluZwBVVEY4AEhQSm9iQWNjb3VudGluZwBIUEpPQkFDQ1RfSk9CQUNOVF9DT0xPUkFVVEgASFBCb3JuT25EYXRlAEhQQk9EAEhQSm9iQnlKb2JPdmVycmlkZQBKQkpPAEhQWE1MRmlsZVVzZWQAaHBjbTEwMDYueG1sAEhQRW5hYmxlT2JqZWN0VGFnZ2luZwBUcnVlAEhQUmV2ZXJzZVNjYW5MaW5lc0ZvckR1cGxleABUcnVlAEhQRW5hYmxlUGFnZVRpbWVyAEZhbHNlAEhQRW5hYmxlTnVsbFN0cmlwcwBUcnVlAEhQRW5hYmxlRWZmaWNpZW50TW9ubwBGQUxTRQBIUEVuYWJsZUltYWdlUHJvY2Vzc2luZ1BhdGgARkFMU0UASFBDYWxsVG9Xcml0ZVByaW50ZXJSZXF1aXJlZABUUlVFAEhQTWVtb3J5TWFuYWdlcgBUcnVlAEhQR2V0Q29tcHJlc3Npb25SYXRpb1ZhbHVlADE3AE1heFN0cmlwSGVpZ2h0ADY0AEhQR2V0Qnl0ZUFsaWduZWRWYWx1ZUZvcldpZHRoADI1NgBIUEdldERlbHRhUm93SGFsZlRvbmVWYWx1ZQAxAEhQTWFudWFsRHVwbGV4RGlhbG9nSXRlbXMASW5zdHJ1Y3Rpb25JRF8wMV9GQUNFRE9XTi1OT1JPVEFURQBIUFBDTDZQYXNzVGhyb3VnaABUcnVlAEhQTWFudWFsRmVlZE9yaWVudGF0aW9uAEZBQ0VET1dOAEhQT3V0cHV0QmluT3JpZW50YXRpb24ARkFDRURPV04ASFBNYW51YWxEdXBsZXhEaWFsb2dNb2RlbABNb2RlbGVzcwBIUE1hbnVhbER1cGxleFBhZ2VPcmRlcgBFdmVuUGFnZXNGaXJzdABIUE1hcE1hbnVhbEZlZWRUb1RyYXkxAFRydWUASFBNYW51YWxEdXBsZXhQYWdlUm90YXRlAERyaXZlclJvdGF0ZQBIUFByaW50T25Cb3RoU2lkZXNNYW51YWxseQBGYWxzZQBIUE5Vc2VEaWZmRmlyc3RQYWdlQ2hvaWNlAFRSVUUASFBQYWdlRXhjZXB0aW9uc0ZpbGUASFBDUEUxMDgASFBQYWdlRXhjZXB0aW9uc0xvd0VuZABIUFBhZ2VFeGNlcHRpb25zTG93RW5kVmVyAEhQUGFnZUV4Y2VwdGlvbnNJbnRlcmZhY2UAU2hvd1BhZ2VFeGNlcHRpb25zAEhQUGFnZUV4Y2VwdGlvbnMAQ292ZXJJbnNlcnRpb24ASFBQcmludEluR3JheVNjYWxlAEZhbHNlAEhQUG5nUGFzc3Rocm91Z2gAVHJ1ZQBQU0FsaWdubWVudEZpbGUASFBDTFMxMDgASFBTbWFydEh1Yl9TdXBwb3J0YW5kdHJvdWJsZXNob290aW5nAFRSVUUASFBTbWFydEh1Yl9Qcm9kdWN0bWFudWFscwBUUlVFAEhQU21hcnRIdWJfQ2hlY2tmb3Jkcml2ZXJ1cGRhdGVzAFRSVUUASFBTbWFydEh1Yl9PcmRlcnN1cHBsaWVzAFRSVUUASFBTbWFydEh1YgBJbmV0X1NJRF8yNjNfQklEXzUxNF9ISURfMjY1AEhQQ29uc3VtZXJDdXN0b21QYXBlcgBUcnVlAEhQRW5hYmxlUkFXU3Bvb2xpbmcAVHJ1ZQBSR0JDb2xvcgBEZWZhdWx0LXNSR0IASFBTbWFydEZvY3VzAE9mZgBIUENvbnRyYXN0AE9uAEhQRGlnaXRhbEZsYXNoAE9uAEhQU2hhcnBuZXNzAE9uAEhQU21vb3RoaW5nAE9uAEhQTUhETExOYW1lAEhQRklFMTA4AEhQUHJlQW5hbHlzaXMAVHJ1ZQBIUEVhc3lDb2xvcgBPbgBIUF9ESUJTdGl0Y2hfVGludFRlc3QARGlzYWJsZWQASFBFYXN5Q29sb3JJbWFnZUNhY2hlAEVuYWJsZWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADoEwAASVVQSBkAAQB4nO2ZQU8TQRTH37YJoUEDSU/GSy8QPMipBxSiWduFNhJdi4kJ1gOFLdlEtqatBjzJwRi+AolfQL9Ej34Ar8ajxJs3uKD/t7SmtB2XA7BY/r/JdN7Me9OZZN/OzJvdT4vkHbdwQyxREu18XDsm2SVbSOuhNvnXTktbshJFSvbGsqMiv7vQ/iORPaOxekoTRxhTy4w8l0BqyJ68OIPxyf8Fn//Vxpa6+LIqL+OeCIkF3a3cttzZM1qt1omym1Tbbr1P8+5+1Fi9e1ICDUnLrFcK8NBHSI4sQy5KSVYgL0UNRYaGeXjAa2lij9rEOtXEarUm9+KeFBkCLIOsjCPfsvrlQTYmvZ7xNRPS4Tr8ZCIqOCOEDDWDloDOPlLAOScII/IGZB8R2lvIjNAIOQv03VvEG6VvWD28+8ggpnwT1rYR2a7iN4OoWG9GgjDiCGQj7kmTc+E0d+5616E+swRPqMArPHksVSSNRL1znh8hhJyWkYTIr2tm/SHyx7RZ/0Ntxsx6/cap3ysbtWrVX/NmKn4QtlsXkHvvW/51/zJtiLFzclfKhpXclRramtj/KzgTeLCz5RVSGbWOfa3LvgxdHS0b4SliE/XGCf0M+ujZgVxGGGVdbUzP/zbWgVzckyMXRiruCZBLQtG1c/nSs/zyov00Z7vFm3OfFz5k952dr99n00/mHvZ18Pe+vZ86cHYnf975NLH1xXUfFGyn5A74a0IIIYQQQgghhJBI/gDVdYGaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAQ09NUEFUX0RVUExFWF9NT0RFEwBEdXBsZXhNb2RlOjpVbmtub3du</config:config-item>
+   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ScaleDenominator" config:type="int">1</config:config-item>
+   <config:config-item config:name="ScaleNumerator" config:type="int">1</config:config-item>
+   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
+  </config:config-item-set>
+ </office:settings>
+ <office:scripts>
+  <office:script script:language="ooo:Basic">
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+   </ooo:libraries>
+  </office:script>
+ </office:scripts>
+ <office:font-face-decls>
+  <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="Mangal" svg:font-family="Mangal" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Microsoft YaHei" svg:font-family="&apos;Microsoft YaHei&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Segoe UI" svg:font-family="&apos;Segoe UI&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Tahoma" svg:font-family="Tahoma" style:font-family-generic="system" style:font-pitch="variable"/>
+ </office:font-face-decls>
+ <office:styles>
+  <draw:marker draw:name="Arrow" svg:viewBox="0 0 20 30" svg:d="M10 0l-10 30h20z"/>
+  <style:default-style style:family="graphic">
+   <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap"/>
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
+    <style:tab-stops/>
+   </style:paragraph-properties>
+   <style:text-properties style:use-window-font-color="true" style:font-name="Liberation Serif" fo:font-size="24pt" fo:language="en" fo:country="US" style:font-name-asian="Segoe UI" style:font-size-asian="24pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Tahoma" style:font-size-complex="24pt" style:language-complex="hi" style:country-complex="IN"/>
+  </style:default-style>
+  <style:style style:name="standard" style:family="graphic">
+   <style:graphic-properties draw:stroke="solid" svg:stroke-width="0cm" svg:stroke-color="#3465a4" draw:marker-start-width="0.2cm" draw:marker-start-center="false" draw:marker-end-width="0.2cm" draw:marker-end-center="false" draw:fill="solid" draw:fill-color="#729fcf" draw:textarea-horizontal-align="justify" fo:padding-top="0.125cm" fo:padding-bottom="0.125cm" fo:padding-left="0.25cm" fo:padding-right="0.25cm" draw:shadow="hidden" draw:shadow-offset-x="0.2cm" draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080">
+    <text:list-style style:name="standard">
+     <text:list-level-style-bullet text:level="1" text:bullet-char="●">
+      <style:list-level-properties text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="2" text:bullet-char="●">
+      <style:list-level-properties text:space-before="0.6cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="3" text:bullet-char="●">
+      <style:list-level-properties text:space-before="1.2cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="4" text:bullet-char="●">
+      <style:list-level-properties text:space-before="1.8cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="5" text:bullet-char="●">
+      <style:list-level-properties text:space-before="2.4cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="6" text:bullet-char="●">
+      <style:list-level-properties text:space-before="3cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="7" text:bullet-char="●">
+      <style:list-level-properties text:space-before="3.6cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="8" text:bullet-char="●">
+      <style:list-level-properties text:space-before="4.2cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="9" text:bullet-char="●">
+      <style:list-level-properties text:space-before="4.8cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+     <text:list-level-style-bullet text:level="10" text:bullet-char="●">
+      <style:list-level-properties text:space-before="5.4cm" text:min-label-width="0.6cm"/>
+      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+     </text:list-level-style-bullet>
+    </text:list-style>
+   </style:graphic-properties>
+   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" fo:line-height="100%" fo:text-indent="0cm"/>
+   <style:text-properties fo:font-variant="normal" fo:text-transform="none" style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="18pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-name-asian="Microsoft YaHei" style:font-family-asian="&apos;Microsoft YaHei&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="18pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Mangal" style:font-family-complex="Mangal" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="18pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
+  </style:style>
+  <style:style style:name="objectwitharrow" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="solid" svg:stroke-width="0.15cm" svg:stroke-color="#000000" draw:marker-start="Arrow" draw:marker-start-width="0.7cm" draw:marker-start-center="true" draw:marker-end-width="0.3cm"/>
+  </style:style>
+  <style:style style:name="objectwithshadow" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:shadow="visible" draw:shadow-offset-x="0.2cm" draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080"/>
+  </style:style>
+  <style:style style:name="objectwithoutfill" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties svg:stroke-color="#000000" draw:fill="none"/>
+  </style:style>
+  <style:style style:name="Object_20_with_20_no_20_fill_20_and_20_no_20_line" style:display-name="Object with no fill and no line" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+  </style:style>
+  <style:style style:name="text" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+  </style:style>
+  <style:style style:name="textbody" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+   <style:text-properties fo:font-size="16pt"/>
+  </style:style>
+  <style:style style:name="textbodyjustfied" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+   <style:paragraph-properties fo:text-align="justify"/>
+  </style:style>
+  <style:style style:name="textbodyindent" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0.6cm"/>
+  </style:style>
+  <style:style style:name="title" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+   <style:text-properties fo:font-size="44pt"/>
+  </style:style>
+  <style:style style:name="title1" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="solid" draw:fill-color="#008080" draw:shadow="visible" draw:shadow-offset-x="0.2cm" draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties fo:font-size="24pt"/>
+  </style:style>
+  <style:style style:name="title2" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties svg:stroke-width="0.05cm" draw:fill-color="#ffcc99" draw:shadow="visible" draw:shadow-offset-x="0.2cm" draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080"/>
+   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0.2cm" fo:margin-top="0.1cm" fo:margin-bottom="0.1cm" fo:text-align="center" fo:text-indent="0cm"/>
+   <style:text-properties fo:font-size="36pt"/>
+  </style:style>
+  <style:style style:name="headline" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+   <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.21cm"/>
+   <style:text-properties fo:font-size="24pt"/>
+  </style:style>
+  <style:style style:name="headline1" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+   <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.21cm"/>
+   <style:text-properties fo:font-size="18pt" fo:font-weight="bold"/>
+  </style:style>
+  <style:style style:name="headline2" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+   <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.21cm"/>
+   <style:text-properties fo:font-size="14pt" fo:font-style="italic" fo:font-weight="bold"/>
+  </style:style>
+  <style:style style:name="measure" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="solid" svg:stroke-color="#000000" draw:marker-start="Arrow" draw:marker-start-width="0.2cm" draw:marker-end="Arrow" draw:marker-end-width="0.2cm" draw:fill="none" draw:show-unit="true"/>
+   <style:text-properties fo:font-size="12pt"/>
+  </style:style>
+ </office:styles>
+ <office:automatic-styles>
+  <style:page-layout style:name="PM0">
+   <style:page-layout-properties fo:margin-top="1cm" fo:margin-bottom="1cm" fo:margin-left="1cm" fo:margin-right="1cm" fo:page-width="21.59cm" fo:page-height="27.94cm" style:print-orientation="portrait"/>
+  </style:page-layout>
+  <style:style style:name="dp1" style:family="drawing-page">
+   <style:drawing-page-properties draw:background-size="border" draw:fill="none"/>
+  </style:style>
+  <style:style style:name="dp2" style:family="drawing-page"/>
+  <style:style style:name="gr1" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.783cm"/>
+  </style:style>
+  <style:style style:name="gr2" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="0.704cm" fo:min-width="0cm"/>
+  </style:style>
+  <style:style style:name="gr3" style:family="graphic" style:parent-style-name="Object_20_with_20_no_20_fill_20_and_20_no_20_line">
+   <style:graphic-properties draw:stroke="none" draw:fill="none" draw:textarea-vertical-align="middle" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:image-opacity="100%" style:mirror="none"/>
+  </style:style>
+  <style:style style:name="gr4" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.466cm"/>
+  </style:style>
+  <style:style style:name="gr5" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.614cm"/>
+  </style:style>
+  <style:style style:name="gr6" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" fo:min-height="0.704cm"/>
+  </style:style>
+  <style:style style:name="gr7" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.047cm"/>
+  </style:style>
+  <style:style style:name="gr8" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.452cm"/>
+  </style:style>
+  <style:style style:name="gr9" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.186cm"/>
+  </style:style>
+  <style:style style:name="gr10" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.889cm"/>
+  </style:style>
+  <style:style style:name="gr11" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.695cm"/>
+  </style:style>
+  <style:style style:name="gr12" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.903cm"/>
+  </style:style>
+  <style:style style:name="gr13" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.801cm"/>
+  </style:style>
+  <style:style style:name="gr14" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.344cm"/>
+  </style:style>
+  <style:style style:name="gr15" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.59cm"/>
+  </style:style>
+  <style:style style:name="gr16" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.842cm"/>
+  </style:style>
+  <style:style style:name="gr17" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.352cm"/>
+  </style:style>
+  <style:style style:name="gr18" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.835cm"/>
+  </style:style>
+  <style:style style:name="gr19" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="4.333cm"/>
+  </style:style>
+  <style:style style:name="gr20" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.941cm"/>
+  </style:style>
+  <style:style style:name="gr21" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0cm" fo:min-width="0cm"/>
+  </style:style>
+  <style:style style:name="gr22" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" fo:min-height="0.639cm"/>
+  </style:style>
+  <style:style style:name="gr23" style:family="graphic" style:parent-style-name="standard">
+   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" fo:min-height="0.512cm"/>
+  </style:style>
+  <style:style style:name="P1" style:family="paragraph">
+   <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
+  </style:style>
+  <style:style style:name="P2" style:family="paragraph">
+   <loext:graphic-properties draw:fill="none"/>
+   <style:paragraph-properties fo:text-align="center"/>
+  </style:style>
+  <text:list-style style:name="L1">
+   <text:list-level-style-bullet text:level="1" text:bullet-char="●">
+    <style:list-level-properties text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="2" text:bullet-char="●">
+    <style:list-level-properties text:space-before="0.6cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="3" text:bullet-char="●">
+    <style:list-level-properties text:space-before="1.2cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="4" text:bullet-char="●">
+    <style:list-level-properties text:space-before="1.8cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="5" text:bullet-char="●">
+    <style:list-level-properties text:space-before="2.4cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="6" text:bullet-char="●">
+    <style:list-level-properties text:space-before="3cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="7" text:bullet-char="●">
+    <style:list-level-properties text:space-before="3.6cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="8" text:bullet-char="●">
+    <style:list-level-properties text:space-before="4.2cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="9" text:bullet-char="●">
+    <style:list-level-properties text:space-before="4.8cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="10" text:bullet-char="●">
+    <style:list-level-properties text:space-before="5.4cm" text:min-label-width="0.6cm"/>
+    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   </text:list-level-style-bullet>
+  </text:list-style>
+ </office:automatic-styles>
+ <office:master-styles>
+  <draw:layer-set>
+   <draw:layer draw:name="layout"/>
+   <draw:layer draw:name="background"/>
+   <draw:layer draw:name="backgroundobjects"/>
+   <draw:layer draw:name="controls"/>
+   <draw:layer draw:name="measurelines"/>
+  </draw:layer-set>
+  <style:master-page style:name="Default" style:page-layout-name="PM0" draw:style-name="dp1"/>
+ </office:master-styles>
+ <office:body>
+  <office:drawing>
+   <draw:page draw:name="page1" draw:style-name="dp2" draw:master-page-name="Default">
+    <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.283cm" svg:height="0.954cm" svg:x="2.226cm" svg:y="4.491cm">
+     <draw:text-box>
+      <text:p>.antelope.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr2" draw:text-style-name="P1" draw:layer="layout" svg:width="1.738cm" svg:height="0.954cm" svg:x="8.112cm" svg:y="4.618cm">
+     <draw:text-box>
+      <text:p>.ant.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.388cm" svg:height="3cm" svg:x="11.795cm" svg:y="1.381cm">
+     <draw:image xlink:href="pictures/c10/baboon.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr4" draw:text-style-name="P1" draw:layer="layout" svg:width="2.966cm" svg:height="0.954cm" svg:x="11.877cm" svg:y="4.491cm">
+     <draw:text-box>
+      <text:p>.baboon.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.888cm" svg:height="3cm" svg:x="15.986cm" svg:y="1.381cm">
+     <draw:image xlink:href="pictures/c10/bat.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr2" draw:text-style-name="P1" draw:layer="layout" svg:width="1.738cm" svg:height="0.954cm" svg:x="16.621cm" svg:y="4.618cm">
+     <draw:text-box>
+      <text:p>.bat.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr5" draw:text-style-name="P1" draw:layer="layout" svg:width="3.114cm" svg:height="0.954cm" svg:x="2.397cm" svg:y="8.936cm">
+     <draw:text-box>
+      <text:p>.butterfly.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="7.16cm" svg:y="5.874cm">
+     <draw:image xlink:href="pictures/c10/calf.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr6" draw:text-style-name="P1" draw:layer="layout" svg:width="2.286cm" svg:height="0.954cm" svg:x="8.066cm" svg:y="8.949cm">
+     <draw:text-box>
+      <text:p>.calf.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.85cm" svg:height="3cm" svg:x="11.668cm" svg:y="5.874cm">
+     <draw:image xlink:href="pictures/c10/camel.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr7" draw:text-style-name="P1" draw:layer="layout" svg:width="2.547cm" svg:height="0.954cm" svg:x="12.303cm" svg:y="9.063cm">
+     <draw:text-box>
+      <text:p>.camel.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr2" draw:text-style-name="P1" draw:layer="layout" svg:width="1.704cm" svg:height="0.954cm" svg:x="16.804cm" svg:y="8.913cm">
+     <draw:text-box>
+      <text:p>.cat.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="16.469cm" svg:y="10.144cm">
+     <draw:image xlink:href="pictures/c10/dog.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="7.033cm" svg:y="1.429cm">
+     <draw:image xlink:href="pictures/c10/ant.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr8" draw:text-style-name="P1" draw:layer="layout" svg:width="3.952cm" svg:height="0.954cm" svg:x="2.27cm" svg:y="13.254cm">
+     <draw:text-box>
+      <text:p>.chameleon.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr9" draw:text-style-name="P1" draw:layer="layout" svg:width="2.686cm" svg:height="0.954cm" svg:x="7.985cm" svg:y="13.319cm">
+     <draw:text-box>
+      <text:p>.coucal.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr10" draw:text-style-name="P1" draw:layer="layout" svg:width="3.389cm" svg:height="0.954cm" svg:x="11.936cm" svg:y="13.381cm">
+     <draw:text-box>
+      <text:p>.crocodile.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr2" draw:text-style-name="P1" draw:layer="layout" svg:width="2.159cm" svg:height="0.954cm" svg:x="16.748cm" svg:y="13.319cm">
+     <draw:text-box>
+      <text:p>.dog.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3cm" svg:height="3cm" svg:x="7.858cm" svg:y="15.018cm">
+     <draw:image xlink:href="pictures/c10/duck.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="1.988cm" svg:height="3cm" svg:x="12.303cm" svg:y="14.891cm">
+     <draw:image xlink:href="pictures/c10/eagle.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="2.075cm" svg:height="3cm" svg:x="16.494cm" svg:y="14.843cm">
+     <draw:image xlink:href="pictures/c10/egret.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="2.524cm" svg:y="20.177cm">
+     <draw:image xlink:href="pictures/c10/elephant.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr11" draw:text-style-name="P1" draw:layer="layout" svg:width="2.195cm" svg:height="0.954cm" svg:x="7.985cm" svg:y="18.132cm">
+     <draw:text-box>
+      <text:p>.duck.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr12" draw:text-style-name="P1" draw:layer="layout" svg:width="2.403cm" svg:height="0.954cm" svg:x="12.648cm" svg:y="18.056cm">
+     <draw:text-box>
+      <text:p>.eagle.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr13" draw:text-style-name="P1" draw:layer="layout" svg:width="2.301cm" svg:height="0.954cm" svg:x="17.114cm" svg:y="18.067cm">
+     <draw:text-box>
+      <text:p>.egret.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.283cm" svg:height="0.954cm" svg:x="2.558cm" svg:y="23.179cm">
+     <draw:text-box>
+      <text:p>.elephant.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="7.096cm" svg:y="20.177cm">
+     <draw:image xlink:href="pictures/c10/fish.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="2.738cm" svg:height="3cm" svg:x="11.922cm" svg:y="20.05cm">
+     <draw:image xlink:href="pictures/c10/goat.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="16.113cm" svg:y="20.063cm">
+     <draw:image xlink:href="pictures/c10/grasshopper.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr14" draw:text-style-name="P1" draw:layer="layout" svg:width="1.844cm" svg:height="0.954cm" svg:x="8.111cm" svg:y="23.457cm">
+     <draw:text-box>
+      <text:p>.fish.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr15" draw:text-style-name="P1" draw:layer="layout" svg:width="2.09cm" svg:height="0.954cm" svg:x="11.906cm" svg:y="22.919cm">
+     <draw:text-box>
+      <text:p>.goat.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr16" draw:text-style-name="P1" draw:layer="layout" svg:width="4.342cm" svg:height="0.954cm" svg:x="15.581cm" svg:y="23.033cm">
+     <draw:text-box>
+      <text:p>.grasshopper.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="2.461cm" svg:y="15.018cm">
+     <draw:image xlink:href="pictures/c10/donkey.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr17" draw:text-style-name="P1" draw:layer="layout" svg:width="2.852cm" svg:height="0.954cm" svg:x="2.778cm" svg:y="18.145cm">
+     <draw:text-box>
+      <text:p>.donkey.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="2.27cm" svg:y="10.192cm">
+     <draw:image xlink:href="pictures/c10/chameleon.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.826cm" svg:y="1.429cm">
+     <draw:image xlink:href="pictures/c10/antelope.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.889cm" svg:y="5.826cm">
+     <draw:image xlink:href="pictures/c10/butterfly.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="15.859cm" svg:y="5.874cm">
+     <draw:image xlink:href="pictures/c10/cat.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="7.287cm" svg:y="10.144cm">
+     <draw:image xlink:href="pictures/c10/coucal_bird.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="11.795cm" svg:y="10.192cm">
+     <draw:image xlink:href="pictures/c10/crocodile.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+   </draw:page>
+   <draw:page draw:name="page2" draw:style-name="dp2" draw:master-page-name="Default">
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.762cm" svg:y="1.889cm">
+     <draw:image xlink:href="pictures/c10/hawk.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr18" draw:text-style-name="P1" draw:layer="layout" svg:width="2.335cm" svg:height="0.954cm" svg:x="2.156cm" svg:y="4.889cm">
+     <draw:text-box>
+      <text:p>.hawk.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="6.969cm" svg:y="1.902cm">
+     <draw:image xlink:href="pictures/c10/hen.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="11.986cm" svg:y="1.81cm">
+     <draw:image xlink:href="pictures/c10/hippopotamus.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.413cm" svg:height="3cm" svg:x="16.875cm" svg:y="1.81cm">
+     <draw:image xlink:href="pictures/c10/horse.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr2" draw:text-style-name="P1" draw:layer="layout" svg:width="1.912cm" svg:height="0.954cm" svg:x="8.105cm" svg:y="5.126cm">
+     <draw:text-box>
+      <text:p>.hen.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr19" draw:text-style-name="P1" draw:layer="layout" svg:width="4.833cm" svg:height="0.954cm" svg:x="11.661cm" svg:y="5.064cm">
+     <draw:text-box>
+      <text:p>.hippopotamus.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr20" draw:text-style-name="P1" draw:layer="layout" svg:width="2.441cm" svg:height="0.954cm" svg:x="17.206cm" svg:y="5.113cm">
+     <draw:text-box>
+      <text:p>.horse.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.762cm" svg:y="7.477cm">
+     <draw:image xlink:href="pictures/c10/hyena.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="2.375cm" svg:height="3cm" svg:x="7.515cm" svg:y="7.35cm">
+     <draw:image xlink:href="pictures/c10/kingfisher.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="11.732cm" svg:y="7.35cm">
+     <draw:image xlink:href="pictures/c10/lion.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="16.431cm" svg:y="7.35cm">
+     <draw:image xlink:href="pictures/c10/lizard.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="2.25cm" svg:height="3cm" svg:x="1.889cm" svg:y="12.43cm">
+     <draw:image xlink:href="pictures/c10/monkey.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.287cm" svg:height="3cm" svg:x="7.223cm" svg:y="12.351cm">
+     <draw:image xlink:href="pictures/c10/owl.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="2.987cm" svg:height="3cm" svg:x="11.856cm" svg:y="12.43cm">
+     <draw:image xlink:href="pictures/c10/parrot.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="15.986cm" svg:y="12.43cm">
+     <draw:image xlink:href="pictures/c10/pigeon.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.699cm" svg:y="18.066cm">
+     <draw:image xlink:href="pictures/c10/rabbit.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.863cm" svg:height="3cm" svg:x="7.096cm" svg:y="18.018cm">
+     <draw:image xlink:href="pictures/c10/scorpion.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="11.668cm" svg:y="17.812cm">
+     <draw:image xlink:href="pictures/c10/sheep.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.874cm" svg:height="3cm" svg:x="16.303cm" svg:y="17.812cm">
+     <draw:image xlink:href="pictures/c10/snake.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.699cm" svg:y="22.463cm">
+     <draw:image xlink:href="pictures/c10/spider.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.737cm" svg:height="3cm" svg:x="7.296cm" svg:y="22.336cm">
+     <draw:image xlink:href="pictures/c10/toad.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="2.4cm" svg:height="3cm" svg:x="12.57cm" svg:y="22.209cm">
+     <draw:image xlink:href="pictures/c10/vulture.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="16.113cm" svg:y="22.257cm">
+     <draw:image xlink:href="pictures/c10/warthog.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+      <text:p/>
+     </draw:image>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="2.581cm" svg:height="0.954cm" svg:x="2.246cm" svg:y="10.724cm">
+     <draw:text-box>
+      <text:p>.hyena.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="3.533cm" svg:height="0.954cm" svg:x="7.049cm" svg:y="10.644cm">
+     <draw:text-box>
+      <text:p>.kingfisher.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="1.84cm" svg:height="0.954cm" svg:x="12.684cm" svg:y="10.587cm">
+     <draw:text-box>
+      <text:p>.lion.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr22" draw:text-style-name="P1" draw:layer="layout" svg:width="2.54cm" svg:height="0.954cm" svg:x="17.129cm" svg:y="10.652cm">
+     <draw:text-box>
+      <text:p>.lizard.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="3.029cm" svg:height="0.954cm" svg:x="1.616cm" svg:y="16.007cm">
+     <draw:text-box>
+      <text:p>.monkey.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="1.806cm" svg:height="0.954cm" svg:x="7.838cm" svg:y="16.032cm">
+     <draw:text-box>
+      <text:p>.owl.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="2.513cm" svg:height="0.954cm" svg:x="12.035cm" svg:y="16.006cm">
+     <draw:text-box>
+      <text:p>.parrot.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="2.754cm" svg:height="0.954cm" svg:x="16.434cm" svg:y="16.035cm">
+     <draw:text-box>
+      <text:p>.pigeon.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="2.441cm" svg:height="0.954cm" svg:x="2.415cm" svg:y="21.317cm">
+     <draw:text-box>
+      <text:p>.rabbit.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="3.249cm" svg:height="0.954cm" svg:x="7.477cm" svg:y="21.193cm">
+     <draw:text-box>
+      <text:p>.scorpion.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="2.581cm" svg:height="0.954cm" svg:x="12.557cm" svg:y="21.001cm">
+     <draw:text-box>
+      <text:p>.sheep.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr23" draw:text-style-name="P1" draw:layer="layout" svg:width="3.302cm" svg:height="0.954cm" svg:x="16.621cm" svg:y="21.066cm">
+     <draw:text-box>
+      <text:p>.snake.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="2.547cm" svg:height="0.954cm" svg:x="2.233cm" svg:y="25.809cm">
+     <draw:text-box>
+      <text:p>.spider.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="2.09cm" svg:height="0.954cm" svg:x="8.181cm" svg:y="25.7cm">
+     <draw:text-box>
+      <text:p>.toad.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="2.758cm" svg:height="0.954cm" svg:x="12.29cm" svg:y="25.762cm">
+     <draw:text-box>
+      <text:p>.vulture.</text:p>
+     </draw:text-box>
+    </draw:frame>
+    <draw:frame draw:style-name="gr21" draw:text-style-name="P1" draw:layer="layout" svg:width="3.11cm" svg:height="0.954cm" svg:x="16.309cm" svg:y="25.71cm">
+     <draw:text-box>
+      <text:p>.warthog.</text:p>
+     </draw:text-box>
+    </draw:frame>
+   </draw:page>
+  </office:drawing>
+ </office:body>
+</office:document>
