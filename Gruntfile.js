@@ -126,7 +126,13 @@ module.exports = function(grunt) {
     },
     jshint: {
       es5: ['src/*.js'],
-      es6: ['Gruntfile.js', 'src/data-conversion/*.js']
+      es6: {options: {
+                          esversion: 6
+                     }, 
+           files: {
+                    src: ['Gruntfile.js', 'src/data-conversion/*.js']
+                  }
+           }
     },
     csv2anki: {
       data: {
@@ -272,7 +278,7 @@ module.exports = function(grunt) {
   // load custom tasks
   require('./Grunt-customtasks.js')(grunt,p);
   require('./Grunt-customtasks-reports.js')(grunt);  
-  require('./Grunt-customtasks-data-conversion.js')(grunt)
+  require('./Grunt-customtasks-data-conversion.js')(grunt);
 
 
 

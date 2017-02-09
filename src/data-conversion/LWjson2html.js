@@ -32,19 +32,19 @@ var LWjson2html = function (json) {
             table.push('<tr>');
             for(var key in element){
                if(key == "picture"){
-                  if (element.picture) {table.push(`<td><img src="${element.picture}" /></td>`)}
-                  else {table.push('<td></td>')};
+                  if (element.picture) {table.push(`<td><img src="${element.picture}" /></td>`);}
+                  else {table.push('<td></td>');}
                }else{
                   table.push('<td>'+ element[key] + '</td>');
                }
 
             }
-            table.push('</tr>\n')}
+            table.push('</tr>\n');}
         );
 
         table.push('</tbody>');
         table.push('</table>');
         return table.join('');
-}
+};
 
 module.exports = LWjson2html;

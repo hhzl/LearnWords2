@@ -43,7 +43,7 @@ var LWcsvString2JSON = function (aCSVString) {
                 obj[propertyName] = result.data[j][k];
               }
             }      
-            arrayOfObjects.push(obj)
+            arrayOfObjects.push(obj);
      }
  
     } else {
