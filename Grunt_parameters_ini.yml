@@ -1,44 +1,104 @@
 ---
 # --------------------------------------------------------
-# Define paths for the grunt task runner
-# 7th February 2017
+# In this file the paths are defined which the 
+# Grunt task runner uses.
 #
-# This is a YAML file
+# 10th February 2017
+# Hannes Hirzel
+#
+#
+# This file follows the YAML conventions
 # http://yaml.org/
+# and serves as an "ini" file, a file to set
+# parameters.
 #
-# Main advantage over JSON is that it may have
+#
+# Comment lines start with a hash sign #
+#
+# Subdirectories for the data processing 
+# are assigned in this file.
+#
+#
+#
+#
+#
+# Note for developers:
+# --------------------
+#
+# The main advantage over JSON is that it may have
 # comments.
 #
+# To convert this 'initialisation data' to JSON use
+# for example
 # https://www.json2yaml.com/convert-yaml-to-json
 #
-# The content is read with
+#
+# The Grunt task runner processes the content of this file
+# with 'readyaml', see
 # http://gruntjs.com/api/grunt.file#grunt.file.readyaml
+#
 # --------------------------------------------------------
 
 
 
+
+
+
+# --------------------------------------------------------------
 # The LearnWords data is taken from
+# --------------------------------------------------------------
 
 INPUT_DIR: data
+
+# You may put a hash sign in front of the line above to 
+# deactivate that input data is taken from the 'data' directory
+# and remove the hash sign below. Then the input data is taken
+# from a sibling directory of the project directory called
+# 'LW-data-g'. The data directory needs to contain a subdirectory
+# 'csv' which should contain word lists.
+
 # INPUT_DIR: ../LW-data-g
 
 
 
+
+
+
+
+
+# --------------------------------------------------------------
 # The directory to put converted data
-# for other use
+# for other use, for example a HTML report or a LibreOffice Draw
+# export of pictures with labels in the translated language
+# of the CSV wor list data in the input directory.
+# --------------------------------------------------------------
 
 OUTPUT_DIR: data-export
 # OUTPUT_DIR: ../LW-data-export
 
 
+
+
+
+
+
+
+# --------------------------------------------------------------
 # The directory for the GUI demo
+# --------------------------------------------------------------
 
 WEB_ROOT: public
 BUILD_DIR: public/js
 
 
 
+
+
+
+# --------------------------------------------------------------
 # The distribution directory for the library LW.js
+# --------------------------------------------------------------
+
 
 DIST_DIR: dist
 
