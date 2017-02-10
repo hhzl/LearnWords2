@@ -19,14 +19,42 @@
 # are assigned in this file.
 #
 #
+# From the command line run
+#
+#    grunt aTaskName
+#
+#
+# List of available tasks is available through
+#
+#    grunt --help
+#
+#
+# Prominent commands are
+#
+#    grunt build
+#
+#   
+#    grunt csv2json
+#
+# The latter command converts what is in the 'data/csv' directory to 
+# 'data/json'. It has to be called before issuing a command like
+#
+#    grunt odgreport 
+#
+# or
+#
+#    grunt htmlspelling
+#
 #
 #
 #
 # Note for developers:
 # --------------------
 #
-# The main advantage over JSON is that it may have
-# comments.
+# The main advantage for this file to be in YAML instead of 
+# JSON is that comments are possible and no curly brackets have
+# to be used.
+#
 #
 # To convert this 'initialisation data' to JSON use
 # for example
