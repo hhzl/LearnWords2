@@ -94,8 +94,9 @@ function defineCustomTasksReports(grunt) {
 
         var drawText = LWjson2odg(json,drawText);
 
-        var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.fodg');
-
+        var fname = path.basename(f,'.json')+'.fodg';
+        var dest = path.join(this.files[i].dest,fname);
+        drawText  = drawText.replace('.filename.',fname);
         grunt.file.write(dest, drawText);
         grunt.verbose.write(`Created LibreOffice Draw document: ${dest}`);
       }
