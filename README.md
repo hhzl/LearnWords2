@@ -1,17 +1,22 @@
 # LearnWords2
-A vocabulary learning component using the Leitner system
+A vocabulary learning component for flash cards using the Leitner system
 
 ## Aim
 
-This project supplies a JavaScript object which keeps a collection of vocabulary questions in a database. A vocabulary question may be picked at random and then depending on the answer a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
+The aim of the project is twofold
+1. Provide a JavaScript library which keeps a collection of vocabulary questions in a database. 
+2. Provide data conversion and report functions for lists of words to learn.
+
+It does not provide a GUI though it has a demo how a GUI could be constructed. 
+
+A vocabulary question may be picked at random and then depending on the answer a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
 
 This is known as [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition).
 
+HTML and LibreOffice Draw reports are provided for flash cards to be printed (experimental feature).
+
 ![Leitner system](docs/230px-Leitner_system_alternative.svg.png)
 
-
-This project aims at implementing the Non-GUI part of a system like 
-https://github.com/e1r0nd/LearnWords
 
 ![learnwords2-layers](docs/LW2-context.png)
 
@@ -147,11 +152,23 @@ The data to be used by the library is in `public/data/json`.
      npm test
 
 
+## Credits
+
+Anatol Marezhanyi, for the https://github.com/e1r0nd/LearnWords project
+which implements data storage, Leitner box mechanism and a GUI.
+
+The project here is based on ideas and originally on code from LearnWords but
+1. implements the non-gui part only to allow other projects to use a library
+2. is rewritten to a large extent
+3. adds data conversion functions for word list preparation and production of printed flash cards.
+
+
 ## Status
 
 * Jasmine specs are set up and work both in the browser and on the command line.
 * The LWdb (database layer) specification is set up and implemented with an MVP set of specs. 
 * [release 0.2.2-beta](https://github.com/hhzl/LearnWords2/releases/tag/v0.2.2-beta) has a MVP implementation for the Leitner box and may be used for development work.
+* release 0.3beta2 will come soon.
 
 
 
