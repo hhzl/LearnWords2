@@ -307,11 +307,11 @@ module.exports = function(grunt) {
   // The following means that the htmlreport task is defined as the call to the
   // convertJson2html task followed by the copy:pictures task.
  
-  grunt.registerTask('htmlreport',['json2htmlList','copy:pictures']);
+  grunt.registerTask('htmlreport',['csv2json','json2htmlList','copy:pictures']);
 
-  grunt.registerTask('spellingpresentation',['json2htmlSpelling','copy:pictures']);
+  grunt.registerTask('spellingpresentation',['csv2json','json2htmlSpelling','copy:pictures']);
 
-  grunt.registerTask('odgreport',['clean:odg','json2odg','copy:pictures_odg']);
+  grunt.registerTask('odgreport',['clean:odg','csv2json','json2odg','copy:pictures_odg']);
 
 
   grunt.registerTask('data',['clean:data','csv2json','csv2anki','htmlreport']);
