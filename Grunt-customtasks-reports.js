@@ -10,6 +10,7 @@ function defineCustomTasksReports(grunt) {
     const path = require('path');
 
     const LWjson2html = require("./src/data-conversion/LWjson2html"),
+          LWjson2htmlCards = require("./src/data-conversion/LWjson2htmlCards"),
           LWjson2htmlSlides = require("./src/data-conversion/LWjson2htmlSlides"),
           LWjson2odg = require("./src/data-conversion/LWjson2odg");
 
@@ -43,6 +44,39 @@ function defineCustomTasksReports(grunt) {
     }
 
   });
+
+
+
+
+
+
+
+  grunt.registerMultiTask('json2htmlCardList','Converts JSON to HTML',function(){
+
+    var html = grunt.file.read('templates/cardlist-report.html');
+
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+        
+        var json = JSON.parse(grunt.file.read(f));
+
+        var cardsString = LWjson2htmlCards(json);
+
+        var basename = path.basename(f,'.json');
+        var dest = path.join(this.files[i].dest,basename+'.html');
+
+        var report  = html.replace('${wordListName}',basename);
+
+        grunt.file.write(dest, report.replace('${cards}',cardsString));
+
+        grunt.verbose.write(`Created ${dest}`);
+      }
+    }
+
+  });
+
 
 
 

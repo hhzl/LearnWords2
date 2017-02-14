@@ -5,7 +5,7 @@ Aim:
    http://gruntjs.com/
 
 Date:
-   6th February 2017
+   14th February 2017
 
 
 
@@ -159,7 +159,12 @@ module.exports = function(grunt) {
         dest: path.join(p.OUTPUT_DIR,'html')
       }
     },
-
+    json2htmlCardList: {
+      data: {
+        src: path.join(p.INPUT_DIR,'json','wordlist_animals*.json'),
+        dest: path.join(p.OUTPUT_DIR,'cards')
+      }
+    },
     json2htmlSpelling: {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
@@ -254,6 +259,13 @@ module.exports = function(grunt) {
         src: path.join(p.INPUT_DIR,'pictures','c10','**'),
         dest: path.join(p.OUTPUT_DIR,'html','c10')
       },
+     pictures_cards: {
+        expand: true,
+        flatten: true,
+        filter: 'isFile',
+        src: path.join(p.INPUT_DIR,'pictures','c10','**'),
+        dest: path.join(p.OUTPUT_DIR,'cards','c10')
+      },
      pictures_odg: {
         expand: true,
         flatten: true,
@@ -308,6 +320,7 @@ module.exports = function(grunt) {
   // convertJson2html task followed by the copy:pictures task.
  
   grunt.registerTask('htmlreport',['csv2json','json2htmlList','copy:pictures']);
+  grunt.registerTask('htmlcards',['csv2json','json2htmlCardList','copy:pictures_cards']);
 
   grunt.registerTask('spellingpresentation',['csv2json','json2htmlSpelling','copy:pictures']);
 
