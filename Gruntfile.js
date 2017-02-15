@@ -106,8 +106,16 @@ module.exports = function(grunt) {
 
 
   var p = grunt.file.readYAML('./Grunt_parameters_ini.yml');
-  console.log('OUTPUT_DIR=',p.OUTPUT_DIR);
-  console.log('WEB_ROOT=',p.WEB_ROOT);
+
+  if (p.INPUT_DIR) {console.log('INPUT_DIR=',p.INPUT_DIR)} 
+  else {console.log('INPUT_DIR UNDEFINED')};
+
+  if (p.OUTPUT_DIR) {console.log('OUTPUT_DIR=',p.OUTPUT_DIR)} 
+  else {console.log('OUTPUT_DIR UNDEFINED')};
+
+  if (p.WEB_ROOT) {console.log('WEB_ROOT=',p.WEB_ROOT)} 
+  else {console.log('WEB_ROOT UNDEFINED')};
+
 
   // =========================================================  
   // Project configuration.

@@ -36,7 +36,13 @@ var LWjson2htmlSlides = function (json) {
  
         json.forEach(function(element){
 
-                  if (element.picture) {
+                  if ((element.tags).includes('infoCard')) {
+                     slideNo += 1;
+                     generateSlide(slides,`${element.word}\n`);
+                  
+                  }
+
+                  else if (element.picture) {
                      slideNo += 1;
 
                      // show picture only
