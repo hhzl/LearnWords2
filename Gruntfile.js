@@ -66,6 +66,8 @@ Available tasks
               connect  Start a connect web server. *                           
                  copy  Copy files. *                                           
                 watch  Run predefined tasks whenever watched files change.     
+             dir2json  Flatten a folder to a JSON file representing its        
+                       contents *                                              
                    js  Builds bundle for JavaScript component *                
               jasmine  Creates bundle for Jasmine tests *                      
         json2htmlList  Converts JSON to HTML *                                 
@@ -75,6 +77,7 @@ Available tasks
              json2odg  Converts JSON to a LO Draw file *                       
              csv2json  Converts CSV to JSON *                                  
              json2csv  Converts JSON to CSV *                                  
+             dir2json
             json2yaml  Converts JSON to YAML *                                 
              csv2anki  Converts CSV to Anki *                                  
            htmlreport  Alias for "csv2json", "json2htmlList", "copy:pictures"  
@@ -169,6 +172,12 @@ module.exports = function(grunt) {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
         dest: path.join(p.INPUT_DIR,'csv')
+      }
+    },
+    dir2json: {
+      data: {
+        root: path.join(p.INPUT_DIR,'json'),
+        dest: path.join(p.INPUT_DIR,'single-json/all.json')
       }
     },
     json2yaml: {
@@ -317,7 +326,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
-
+  grunt.loadNpmTasks('grunt-dir2json');
 
 
 
