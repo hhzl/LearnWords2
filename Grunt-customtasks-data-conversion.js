@@ -8,6 +8,7 @@ function defineCustomTasksDataConversion(grunt) {
 
     LWcsvString2JSON = require("./src/data-conversion/LWcsvString2JSON"),
     AnkiExport = require('anki-apkg-export').default,
+    Papa = require("papaparse"),
     yaml = require('js-yaml');
 
 
@@ -35,6 +36,36 @@ function defineCustomTasksDataConversion(grunt) {
       }
     }
   });
+
+
+
+
+
+
+
+
+
+
+  grunt.registerMultiTask('json2csv','Converts JSON to CSV',function(){
+    // Grunt provides a normalized list of src/destination files in this.files
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+
+
+        var csvString = Papa.unparse(grunt.file.read(f));
+        // grunt.log.write(csvString);
+
+        var dest = path.join(this.files[i].dest,path.basename(f,'.json')+'.csv');
+
+        grunt.file.write(dest,csvString);
+        grunt.log.write(`\n write file to dest=${dest}`);
+
+      }
+    }
+  });
+
 
 
 
