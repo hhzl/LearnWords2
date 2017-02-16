@@ -5,7 +5,7 @@ Aim:
    http://gruntjs.com/
 
 Date:
-   14th February 2017
+   16th February 2017
 
 
 
@@ -66,22 +66,33 @@ Available tasks
               connect  Start a connect web server. *                           
                  copy  Copy files. *                                           
                 watch  Run predefined tasks whenever watched files change.     
+             dir2json  Flatten a folder to a JSON file representing its        
+                       contents *                                              
                    js  Builds bundle for JavaScript component *                
               jasmine  Creates bundle for Jasmine tests *                      
-             csv2json  Converts CSV to JSON *                                  
-             csv2anki  Converts CSV to Anki *                                  
-            json2yaml  Converts JSON to YAML *                                 
         json2htmlList  Converts JSON to HTML *                                 
-    json2htmlSpelling  Converts JSON to a HTML presentation with spelling demo *
- 
-           htmlreport  Alias for "json2htmlList", "copy:pictures" tasks.       
- spellingpresentation  Alias for "json2htmlSpelling", "copy:pictures" tasks.   
+    json2htmlSpelling  Converts JSON to a HTML presentation with spelling demo 
+                       *                                                       
+    json2htmlCardList  Converts JSON to HTML *                                 
+             json2odg  Converts JSON to a LO Draw file *                       
+             csv2json  Converts CSV to JSON *                                  
+            json2yaml  Converts JSON to YAML *                                 
+             csv2anki  Converts CSV to Anki *                                  
+           htmlreport  Alias for "csv2json", "json2htmlList", "copy:pictures"  
+                       tasks.                                                  
+            htmlcards  Alias for "csv2json", "json2htmlCardList",              
+                       "copy:pictures_cards" tasks.                            
+ spellingpresentation  Alias for "csv2json", "json2htmlSpelling",              
+                       "copy:pictures" tasks.                                  
+            odgreport  Alias for "clean:odg", "csv2json", "json2odg",          
+                       "copy:pictures_odg" tasks.                              
                  data  Alias for "clean:data", "csv2json", "csv2anki",         
                        "htmlreport" tasks.                                     
                 build  Alias for "clean:build", "jshint:es5", "js" tasks.      
                  demo  Alias for "build", "data", "copy:data", "copy:js" tasks.
                  test  Alias for "clean:test", "jasmine" tasks.                
-              default  Alias for "demo", "test", "connect", "watch" tasks.     
+              default  Alias for "demo", "test", "connect", "watch" tasks.  
+
 
 Tasks run in the order specified. Arguments may be passed to tasks that accept
 them by using colons, like "lint:files". Tasks marked with * are "multi tasks"
@@ -146,6 +157,12 @@ module.exports = function(grunt) {
         src: path.join(p.INPUT_DIR,'csv','**/*.csv'),
         dest: path.join(p.INPUT_DIR,'json')
       }
+    },
+    dir2json: {
+      data: {
+        root: path.join(p.INPUT_DIR,'json'),
+        dest: path.join(p.INPUT_DIR,'single-json/all.json')
+      },
     },
     json2yaml: {
       data: {
@@ -293,7 +310,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-watch');
-
+  grunt.loadNpmTasks('grunt-dir2json');
 
 
 
