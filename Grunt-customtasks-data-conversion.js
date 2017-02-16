@@ -74,6 +74,33 @@ function defineCustomTasksDataConversion(grunt) {
 
 
 
+  grunt.registerMultiTask('json2dir','Converts a single JSON file to JSON files in a directory',function(){
+    // Grunt provides a normalized list of src/destination files in this.files
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+
+        grunt.log.write(`\n read from ${f}`);
+
+        var jsonObject = JSON.parse(grunt.file.read(f));
+ 
+        var dest; 
+        var list;
+
+        for(var key in jsonObject){
+          list = jsonObject[key];
+          var fname = key +'.json';
+          dest = path.join(this.files[i].dest,fname);
+          grunt.file.write(dest,JSON.stringify(list));
+          grunt.log.write(`\n wrote file to dest=${dest}`);
+        }
+
+      }
+    }
+  });
+
+
 
 
 

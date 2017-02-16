@@ -180,6 +180,12 @@ module.exports = function(grunt) {
         dest: path.join(p.INPUT_DIR,'single-json/all.json')
       }
     },
+    json2dir: {
+      data: {
+        src: path.join(p.INPUT_DIR,'single-json/all.json'),
+        dest: path.join(p.INPUT_DIR,'json2')
+      }
+    },
     json2yaml: {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
