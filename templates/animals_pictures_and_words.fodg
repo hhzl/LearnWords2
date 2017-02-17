@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:smil="urn:oasis:names:tc:opendocument:xmlns:smil-compatible:1.0" xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.graphics">
- <office:meta><meta:creation-date>2017-02-08T14:06:46.439000000</meta:creation-date>
- <dc:date>2017-02-10T12:06:48.847000000</dc:date><meta:editing-duration>PT1H19M40S</meta:editing-duration><meta:editing-cycles>15</meta:editing-cycles><meta:generator>LibreOffice/5.3.0.3$Windows_x86 LibreOffice_project/7074905676c47b82bbcfbea1aeefc84afe1c50e1</meta:generator><meta:document-statistic meta:object-count="122"/></office:meta>
+
+
+
+
+
+
+ <office:meta>
+    <meta:creation-date>2017-02-08T14:06:46.439000000</meta:creation-date>
+    <dc:date>2017-02-10T12:06:48.847000000</dc:date>
+    <meta:editing-duration>PT1H19M40S</meta:editing-duration>
+    <meta:editing-cycles>15</meta:editing-cycles>
+    <meta:generator>LibreOffice/5.3.0.3$Windows_x86 LibreOffice_project/7074905676c47b82bbcfbea1aeefc84afe1c50e1</meta:generator>
+    <meta:document-statistic meta:object-count="122"/>
+ </office:meta>
+
+
+
+
+
+
+
+
+
+
+
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">15356</config:config-item>
@@ -99,6 +122,17 @@
    <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
   </config:config-item-set>
  </office:settings>
+
+
+
+
+
+
+
+
+
+
+
  <office:scripts>
   <office:script script:language="ooo:Basic">
    <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -106,6 +140,17 @@
    </ooo:libraries>
   </office:script>
  </office:scripts>
+
+
+
+
+
+
+
+
+
+
+
  <office:font-face-decls>
   <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
@@ -114,287 +159,607 @@
   <style:font-face style:name="Segoe UI" svg:font-family="&apos;Segoe UI&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Tahoma" svg:font-family="Tahoma" style:font-family-generic="system" style:font-pitch="variable"/>
  </office:font-face-decls>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  <office:styles>
   <draw:marker draw:name="Arrow" svg:viewBox="0 0 20 30" svg:d="M10 0l-10 30h20z"/>
+
+
+
+
   <style:default-style style:family="graphic">
+
    <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap"/>
-   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
-    <style:tab-stops/>
-   </style:paragraph-properties>
-   <style:text-properties style:use-window-font-color="true" style:font-name="Liberation Serif" fo:font-size="24pt" fo:language="en" fo:country="US" style:font-name-asian="Segoe UI" style:font-size-asian="24pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Tahoma" style:font-size-complex="24pt" style:language-complex="hi" style:country-complex="IN"/>
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" 
+    style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
+   <style:tab-stops/>
+  </style:paragraph-properties>
+
+
+   <style:text-properties style:use-window-font-color="true" style:font-name="Liberation Serif" 
+    fo:font-size="24pt" fo:language="en" fo:country="US" style:font-name-asian="Segoe UI" 
+    style:font-size-asian="24pt" style:language-asian="zh" style:country-asian="CN" 
+    style:font-name-complex="Tahoma" style:font-size-complex="24pt" style:language-complex="hi" 
+    style:country-complex="IN"/>
+
   </style:default-style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <style:style style:name="standard" style:family="graphic">
-   <style:graphic-properties draw:stroke="solid" svg:stroke-width="0cm" svg:stroke-color="#3465a4" draw:marker-start-width="0.2cm" draw:marker-start-center="false" draw:marker-end-width="0.2cm" draw:marker-end-center="false" draw:fill="solid" draw:fill-color="#729fcf" draw:textarea-horizontal-align="justify" fo:padding-top="0.125cm" fo:padding-bottom="0.125cm" fo:padding-left="0.25cm" fo:padding-right="0.25cm" draw:shadow="hidden" draw:shadow-offset-x="0.2cm" draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080">
+
+   <style:graphic-properties draw:stroke="solid" svg:stroke-width="0cm" svg:stroke-color="#3465a4" 
+      draw:marker-start-width="0.2cm" draw:marker-start-center="false" draw:marker-end-width="0.2cm" 
+      draw:marker-end-center="false" draw:fill="solid" draw:fill-color="#729fcf" 
+      draw:textarea-horizontal-align="justify" fo:padding-top="0.125cm" fo:padding-bottom="0.125cm" 
+      fo:padding-left="0.25cm" fo:padding-right="0.25cm" draw:shadow="hidden" draw:shadow-offset-x="0.2cm" 
+      draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080">
+
+
+
     <text:list-style style:name="standard">
      <text:list-level-style-bullet text:level="1" text:bullet-char="●">
-      <style:list-level-properties text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+    <style:list-level-properties text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="2" text:bullet-char="●">
-      <style:list-level-properties text:space-before="0.6cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="0.6cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="3" text:bullet-char="●">
-      <style:list-level-properties text:space-before="1.2cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="1.2cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="4" text:bullet-char="●">
-      <style:list-level-properties text:space-before="1.8cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="1.8cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="5" text:bullet-char="●">
-      <style:list-level-properties text:space-before="2.4cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="2.4cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="6" text:bullet-char="●">
-      <style:list-level-properties text:space-before="3cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="3cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="7" text:bullet-char="●">
-      <style:list-level-properties text:space-before="3.6cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="3.6cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="8" text:bullet-char="●">
-      <style:list-level-properties text:space-before="4.2cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="4.2cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="9" text:bullet-char="●">
-      <style:list-level-properties text:space-before="4.8cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="4.8cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
      <text:list-level-style-bullet text:level="10" text:bullet-char="●">
-      <style:list-level-properties text:space-before="5.4cm" text:min-label-width="0.6cm"/>
-      <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+   
+
+   <style:list-level-properties text:space-before="5.4cm" text:min-label-width="0.6cm"/>
+   
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
      </text:list-level-style-bullet>
-    </text:list-style>
+   </text:list-style>
+
+
+
    </style:graphic-properties>
+
+
+
+
+
+
+
+
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" fo:line-height="100%" fo:text-indent="0cm"/>
+
+
    <style:text-properties fo:font-variant="normal" fo:text-transform="none" style:use-window-font-color="true" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="18pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-name-asian="Microsoft YaHei" style:font-family-asian="&apos;Microsoft YaHei&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="18pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Mangal" style:font-family-complex="Mangal" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="18pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
   </style:style>
   <style:style style:name="objectwitharrow" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="solid" svg:stroke-width="0.15cm" svg:stroke-color="#000000" draw:marker-start="Arrow" draw:marker-start-width="0.7cm" draw:marker-start-center="true" draw:marker-end-width="0.3cm"/>
   </style:style>
   <style:style style:name="objectwithshadow" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:shadow="visible" draw:shadow-offset-x="0.2cm" draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080"/>
   </style:style>
   <style:style style:name="objectwithoutfill" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties svg:stroke-color="#000000" draw:fill="none"/>
   </style:style>
   <style:style style:name="Object_20_with_20_no_20_fill_20_and_20_no_20_line" style:display-name="Object with no fill and no line" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
   </style:style>
   <style:style style:name="text" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
   </style:style>
   <style:style style:name="textbody" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+
+
    <style:text-properties fo:font-size="16pt"/>
   </style:style>
   <style:style style:name="textbodyjustfied" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+
+
    <style:paragraph-properties fo:text-align="justify"/>
   </style:style>
   <style:style style:name="textbodyindent" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+
+
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0.6cm"/>
   </style:style>
   <style:style style:name="title" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+
+
    <style:text-properties fo:font-size="44pt"/>
   </style:style>
   <style:style style:name="title1" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="solid" draw:fill-color="#008080" draw:shadow="visible" draw:shadow-offset-x="0.2cm" draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080"/>
+
+
    <style:paragraph-properties fo:text-align="center"/>
+
+
    <style:text-properties fo:font-size="24pt"/>
   </style:style>
   <style:style style:name="title2" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties svg:stroke-width="0.05cm" draw:fill-color="#ffcc99" draw:shadow="visible" draw:shadow-offset-x="0.2cm" draw:shadow-offset-y="0.2cm" draw:shadow-color="#808080"/>
+
+
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0.2cm" fo:margin-top="0.1cm" fo:margin-bottom="0.1cm" fo:text-align="center" fo:text-indent="0cm"/>
+
+
    <style:text-properties fo:font-size="36pt"/>
   </style:style>
   <style:style style:name="headline" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+
+
    <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.21cm"/>
+
+
    <style:text-properties fo:font-size="24pt"/>
   </style:style>
   <style:style style:name="headline1" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+
+
    <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.21cm"/>
+
+
    <style:text-properties fo:font-size="18pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="headline2" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none"/>
+
+
    <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.21cm"/>
+
+
    <style:text-properties fo:font-size="14pt" fo:font-style="italic" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="measure" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="solid" svg:stroke-color="#000000" draw:marker-start="Arrow" draw:marker-start-width="0.2cm" draw:marker-end="Arrow" draw:marker-end-width="0.2cm" draw:fill="none" draw:show-unit="true"/>
+
+
    <style:text-properties fo:font-size="12pt"/>
   </style:style>
  </office:styles>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  <office:automatic-styles>
   <style:page-layout style:name="PM0">
+
+
    <style:page-layout-properties fo:margin-top="1cm" fo:margin-bottom="1cm" fo:margin-left="1cm" fo:margin-right="1cm" fo:page-width="21.59cm" fo:page-height="27.94cm" style:print-orientation="portrait"/>
   </style:page-layout>
   <style:style style:name="dp1" style:family="drawing-page">
+
+
    <style:drawing-page-properties draw:background-size="border" draw:fill="none"/>
   </style:style>
   <style:style style:name="dp2" style:family="drawing-page"/>
   <style:style style:name="gr1" style:family="graphic" style:parent-style-name="Object_20_with_20_no_20_fill_20_and_20_no_20_line">
+
+
    <style:graphic-properties draw:stroke="none" draw:fill="none" draw:textarea-vertical-align="middle" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:image-opacity="100%" style:mirror="none"/>
   </style:style>
   <style:style style:name="gr2" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.466cm"/>
   </style:style>
   <style:style style:name="gr3" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="0.704cm" fo:min-width="0cm"/>
   </style:style>
   <style:style style:name="gr4" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" fo:min-height="0.704cm"/>
   </style:style>
   <style:style style:name="gr5" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.31cm"/>
   </style:style>
   <style:style style:name="gr6" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.421cm"/>
   </style:style>
   <style:style style:name="gr7" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.175cm"/>
   </style:style>
   <style:style style:name="gr8" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.757cm"/>
   </style:style>
   <style:style style:name="gr9" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.437cm"/>
   </style:style>
   <style:style style:name="gr10" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.344cm"/>
   </style:style>
   <style:style style:name="gr11" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.098cm"/>
   </style:style>
   <style:style style:name="gr12" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.842cm"/>
   </style:style>
   <style:style style:name="gr13" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.452cm"/>
   </style:style>
   <style:style style:name="gr14" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.783cm"/>
   </style:style>
   <style:style style:name="gr15" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.186cm"/>
   </style:style>
   <style:style style:name="gr16" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.889cm"/>
   </style:style>
   <style:style style:name="gr17" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="0.433cm" fo:min-width="0cm"/>
   </style:style>
   <style:style style:name="gr18" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.498cm"/>
   </style:style>
   <style:style style:name="gr19" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="4.333cm"/>
   </style:style>
   <style:style style:name="gr20" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.802cm"/>
   </style:style>
   <style:style style:name="gr21" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.033cm"/>
   </style:style>
   <style:style style:name="gr22" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.371cm"/>
   </style:style>
   <style:style style:name="gr23" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.929cm"/>
   </style:style>
   <style:style style:name="gr24" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.675cm"/>
   </style:style>
   <style:style style:name="gr25" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.397cm"/>
   </style:style>
   <style:style style:name="gr26" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.176cm"/>
   </style:style>
   <style:style style:name="gr27" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.289cm"/>
   </style:style>
   <style:style style:name="gr28" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.224cm"/>
   </style:style>
   <style:style style:name="gr29" style:family="graphic" style:parent-style-name="standard">
+
+
    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.056cm"/>
   </style:style>
   <style:style style:name="P1" style:family="paragraph">
    <loext:graphic-properties draw:fill="none"/>
+
+
    <style:paragraph-properties fo:text-align="center"/>
   </style:style>
   <style:style style:name="P2" style:family="paragraph">
    <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
   </style:style>
   <style:style style:name="P3" style:family="paragraph">
+
+
    <style:paragraph-properties fo:text-align="center" style:writing-mode="lr-tb">
-    <style:tab-stops/>
+ 
+
+   <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="P4" style:family="paragraph">
    <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
+
+
    <style:paragraph-properties fo:text-align="center" style:writing-mode="lr-tb">
-    <style:tab-stops/>
+ 
+
+   <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="P5" style:family="paragraph">
    <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
+
+
    <style:text-properties fo:font-size="11pt" style:font-size-asian="18pt" style:font-size-complex="18pt"/>
   </style:style>
   <style:style style:name="T1" style:family="text">
+
+
    <style:text-properties fo:font-size="11pt" style:font-size-asian="18pt" style:font-size-complex="18pt"/>
   </style:style>
   <text:list-style style:name="L1">
    <text:list-level-style-bullet text:level="1" text:bullet-char="●">
-    <style:list-level-properties text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="2" text:bullet-char="●">
-    <style:list-level-properties text:space-before="0.6cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="0.6cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="3" text:bullet-char="●">
-    <style:list-level-properties text:space-before="1.2cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="1.2cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="4" text:bullet-char="●">
-    <style:list-level-properties text:space-before="1.8cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="1.8cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="5" text:bullet-char="●">
-    <style:list-level-properties text:space-before="2.4cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="2.4cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="6" text:bullet-char="●">
-    <style:list-level-properties text:space-before="3cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="3cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="7" text:bullet-char="●">
-    <style:list-level-properties text:space-before="3.6cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="3.6cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="8" text:bullet-char="●">
-    <style:list-level-properties text:space-before="4.2cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="4.2cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="9" text:bullet-char="●">
-    <style:list-level-properties text:space-before="4.8cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="4.8cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
    <text:list-level-style-bullet text:level="10" text:bullet-char="●">
-    <style:list-level-properties text:space-before="5.4cm" text:min-label-width="0.6cm"/>
-    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
+ 
+
+   <style:list-level-properties text:space-before="5.4cm" text:min-label-width="0.6cm"/>
+ 
+
+   <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
   </text:list-style>
  </office:automatic-styles>
+
+
+
+
+
+
+
+
+
+
+
  <office:master-styles>
   <draw:layer-set>
    <draw:layer draw:name="layout"/>
@@ -405,502 +770,1521 @@
   </draw:layer-set>
   <style:master-page style:name="Default" style:page-layout-name="PM0" draw:style-name="dp1"/>
  </office:master-styles>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  <office:body>
+
+
+
   <office:drawing>
+
+
+
    <draw:page draw:name="page1" draw:style-name="dp2" draw:master-page-name="Default">
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.388cm" svg:height="3cm" svg:x="11.795cm" svg:y="1.381cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3.388cm"
+            svg:height="3cm"
+            svg:x="11.795cm"
+            svg:y="1.381cm">
       <draw:image xlink:href="pictures/c10/baboon.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr2" draw:text-style-name="P2" draw:layer="layout" svg:width="2.966cm" svg:height="0.954cm" svg:x="11.877cm" svg:y="4.491cm">
+
+
+     <draw:frame draw:style-name="gr2" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="2.966cm"
+            svg:height="0.954cm"
+            svg:x="11.877cm"
+            svg:y="4.491cm">
       <draw:text-box>
        <text:p>.baboon.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.888cm" svg:height="3cm" svg:x="15.986cm" svg:y="1.381cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3.888cm"
+            svg:height="3cm"
+            svg:x="15.986cm"
+            svg:y="1.381cm">
       <draw:image xlink:href="pictures/c10/bat.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="1.738cm" svg:height="0.954cm" svg:x="16.621cm" svg:y="4.618cm">
+
+
+     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="1.738cm"
+            svg:height="0.954cm"
+            svg:x="16.621cm"
+            svg:y="4.618cm">
       <draw:text-box>
        <text:p>.bat.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="7.16cm" svg:y="6.509cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="7.16cm"
+            svg:y="6.509cm">
       <draw:image xlink:href="pictures/c10/calf.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr4" draw:text-style-name="P2" draw:layer="layout" svg:width="3.81cm" svg:height="0.954cm" svg:x="7.223cm" svg:y="9.636cm">
+
+
+     <draw:frame draw:style-name="gr4" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.81cm"
+            svg:height="0.954cm"
+            svg:x="7.223cm"
+            svg:y="9.636cm">
       <draw:text-box>
        <text:p>.calf.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.85cm" svg:height="3cm" svg:x="11.668cm" svg:y="6.509cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3.85cm"
+            svg:height="3cm"
+            svg:x="11.668cm"
+            svg:y="6.509cm">
       <draw:image xlink:href="pictures/c10/camel.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr5" draw:text-style-name="P2" draw:layer="layout" svg:width="3.81cm" svg:height="0.954cm" svg:x="11.795cm" svg:y="9.698cm">
+
+
+     <draw:frame draw:style-name="gr5" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.81cm"
+            svg:height="0.954cm"
+            svg:x="11.795cm"
+            svg:y="9.698cm">
       <draw:text-box>
        <text:p>.camel.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="1.738cm" svg:height="0.954cm" svg:x="8.112cm" svg:y="4.618cm">
+
+     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="1.738cm"
+            svg:height="0.954cm"
+            svg:x="8.112cm"
+            svg:y="4.618cm">
       <draw:text-box>
        <text:p>.ant.</text:p>
       </draw:text-box>
      </draw:frame>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="7.033cm" svg:y="1.429cm">
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="7.033cm"
+            svg:y="1.429cm">
       <draw:image xlink:href="pictures/c10/ant.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="16.177cm" svg:y="11.16cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="16.177cm"
+            svg:y="11.16cm">
       <draw:image xlink:href="pictures/c10/dog.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.683cm" svg:height="0.954cm" svg:x="16.202cm" svg:y="14.335cm">
+
+
+     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.683cm"
+            svg:height="0.954cm"
+            svg:x="16.202cm"
+            svg:y="14.335cm">
       <draw:text-box>
        <text:p>.dog.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3cm" svg:height="3cm" svg:x="7.921cm" svg:y="16.415cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3cm"
+            svg:height="3cm"
+            svg:x="7.921cm"
+            svg:y="16.415cm">
       <draw:image xlink:href="pictures/c10/duck.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr6" draw:text-style-name="P2" draw:layer="layout" svg:width="2.921cm" svg:height="0.954cm" svg:x="7.921cm" svg:y="19.604cm">
+
+
+     <draw:frame draw:style-name="gr6" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="2.921cm"
+            svg:height="0.954cm"
+            svg:x="7.921cm"
+            svg:y="19.604cm">
       <draw:text-box>
        <text:p>.duck.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="1.988cm" svg:height="3cm" svg:x="12.366cm" svg:y="16.288cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="1.988cm"
+            svg:height="3cm"
+            svg:x="12.366cm"
+            svg:y="16.288cm">
       <draw:image xlink:href="pictures/c10/eagle.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr7" draw:text-style-name="P2" draw:layer="layout" svg:width="2.675cm" svg:height="0.954cm" svg:x="12.112cm" svg:y="19.453cm">
+
+
+     <draw:frame draw:style-name="gr7" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="2.675cm"
+            svg:height="0.954cm"
+            svg:x="12.112cm"
+            svg:y="19.453cm">
       <draw:text-box>
        <text:p>.eagle.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="2.075cm" svg:height="3cm" svg:x="16.557cm" svg:y="16.24cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="2.075cm"
+            svg:height="3cm"
+            svg:x="16.557cm"
+            svg:y="16.24cm">
       <draw:image xlink:href="pictures/c10/egret.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr8" draw:text-style-name="P2" draw:layer="layout" svg:width="4.257cm" svg:height="0.954cm" svg:x="16.125cm" svg:y="19.542cm">
+
+
+     <draw:frame draw:style-name="gr8" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="4.257cm"
+            svg:height="0.954cm"
+            svg:x="16.125cm"
+            svg:y="19.542cm">
       <draw:text-box>
        <text:p>.egret.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="2.5cm" svg:y="21.701cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="2.5cm"
+            svg:y="21.701cm">
       <draw:image xlink:href="pictures/c10/elephant.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr9" draw:text-style-name="P2" draw:layer="layout" svg:width="3.937cm" svg:height="0.954cm" svg:x="2.5cm" svg:y="25.065cm">
+
+
+     <draw:frame draw:style-name="gr9" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.937cm"
+            svg:height="0.954cm"
+            svg:x="2.5cm"
+            svg:y="25.065cm">
       <draw:text-box>
        <text:p>.elephant.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="7.072cm" svg:y="21.701cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="7.072cm"
+            svg:y="21.701cm">
       <draw:image xlink:href="pictures/c10/fish.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr10" draw:text-style-name="P2" draw:layer="layout" svg:width="1.844cm" svg:height="0.954cm" svg:x="8.087cm" svg:y="24.981cm">
+
+
+     <draw:frame draw:style-name="gr10" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="1.844cm"
+            svg:height="0.954cm"
+            svg:x="8.087cm"
+            svg:y="24.981cm">
       <draw:text-box>
        <text:p>.fish.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="2.738cm" svg:height="3cm" svg:x="11.898cm" svg:y="21.574cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="2.738cm"
+            svg:height="3cm"
+            svg:x="11.898cm"
+            svg:y="21.574cm">
       <draw:image xlink:href="pictures/c10/goat.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr11" draw:text-style-name="P2" draw:layer="layout" svg:width="2.598cm" svg:height="0.954cm" svg:x="11.967cm" svg:y="25.003cm">
+
+
+     <draw:frame draw:style-name="gr11" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="2.598cm"
+            svg:height="0.954cm"
+            svg:x="11.967cm"
+            svg:y="25.003cm">
       <draw:text-box>
        <text:p>.goat.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="16.089cm" svg:y="21.587cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="16.089cm"
+            svg:y="21.587cm">
       <draw:image xlink:href="pictures/c10/grasshopper.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr12" draw:text-style-name="P2" draw:layer="layout" svg:width="4.342cm" svg:height="0.954cm" svg:x="15.835cm" svg:y="25.003cm">
+
+
+     <draw:frame draw:style-name="gr12" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="4.342cm"
+            svg:height="0.954cm"
+            svg:x="15.835cm"
+            svg:y="25.003cm">
       <draw:text-box>
        <text:p>.grasshopper.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="2.524cm" svg:y="16.415cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="2.524cm"
+            svg:y="16.415cm">
       <draw:image xlink:href="pictures/c10/donkey.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr5" draw:text-style-name="P2" draw:layer="layout" svg:width="3.81cm" svg:height="0.954cm" svg:x="2.672cm" svg:y="19.669cm">
+
+
+     <draw:frame draw:style-name="gr5" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.81cm"
+            svg:height="0.954cm"
+            svg:x="2.672cm"
+            svg:y="19.669cm">
       <draw:text-box>
        <text:p>.donkey.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr13" draw:text-style-name="P2" draw:layer="layout" svg:width="3.952cm" svg:height="0.954cm" svg:x="1.978cm" svg:y="14.27cm">
+
+     <draw:frame draw:style-name="gr13" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.952cm"
+            svg:height="0.954cm"
+            svg:x="1.978cm"
+            svg:y="14.27cm">
       <draw:text-box>
        <text:p>.chameleon.</text:p>
       </draw:text-box>
      </draw:frame>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.978cm" svg:y="11.208cm">
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.978cm"
+            svg:y="11.208cm">
       <draw:image xlink:href="pictures/c10/chameleon.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr14" draw:text-style-name="P2" draw:layer="layout" svg:width="3.283cm" svg:height="0.954cm" svg:x="2.226cm" svg:y="4.491cm">
+
+     <draw:frame draw:style-name="gr14" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.283cm"
+            svg:height="0.954cm"
+            svg:x="2.226cm"
+            svg:y="4.491cm">
       <draw:text-box>
        <text:p>.antelope.</text:p>
       </draw:text-box>
      </draw:frame>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.826cm" svg:y="1.429cm">
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.826cm"
+            svg:y="1.429cm">
       <draw:image xlink:href="pictures/c10/antelope.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr9" draw:text-style-name="P4" draw:layer="layout" svg:width="3.937cm" svg:height="0.954cm" svg:x="1.889cm" svg:y="9.571cm">
+
+     <draw:frame draw:style-name="gr9" draw:text-style-name="P4" draw:layer="layout"
+            svg:width="3.937cm"
+            svg:height="0.954cm"
+            svg:x="1.889cm"
+            svg:y="9.571cm">
       <draw:text-box>
        <text:p text:style-name="P3">.butterfly.</text:p>
       </draw:text-box>
      </draw:frame>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.889cm" svg:y="6.461cm">
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.889cm"
+            svg:y="6.461cm">
       <draw:image xlink:href="pictures/c10/butterfly.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.937cm" svg:height="0.954cm" svg:x="15.859cm" svg:y="9.571cm">
+
+     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.937cm"
+            svg:height="0.954cm"
+            svg:x="15.859cm"
+            svg:y="9.571cm">
       <draw:text-box>
        <text:p>.cat.</text:p>
       </draw:text-box>
      </draw:frame>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="15.859cm" svg:y="6.509cm">
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="15.859cm"
+            svg:y="6.509cm">
       <draw:image xlink:href="pictures/c10/cat.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr15" draw:text-style-name="P2" draw:layer="layout" svg:width="2.686cm" svg:height="0.954cm" svg:x="7.693cm" svg:y="14.335cm">
+
+     <draw:frame draw:style-name="gr15" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="2.686cm"
+            svg:height="0.954cm"
+            svg:x="7.693cm"
+            svg:y="14.335cm">
       <draw:text-box>
        <text:p>.coucal.</text:p>
       </draw:text-box>
      </draw:frame>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="6.995cm" svg:y="11.16cm">
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="6.995cm"
+            svg:y="11.16cm">
       <draw:image xlink:href="pictures/c10/coucal_bird.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr16" draw:text-style-name="P2" draw:layer="layout" svg:width="3.389cm" svg:height="0.954cm" svg:x="11.517cm" svg:y="14.397cm">
+
+     <draw:frame draw:style-name="gr16" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.389cm"
+            svg:height="0.954cm"
+            svg:x="11.517cm"
+            svg:y="14.397cm">
       <draw:text-box>
        <text:p>.crocodile.</text:p>
       </draw:text-box>
      </draw:frame>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="11.503cm" svg:y="11.208cm">
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="11.503cm"
+            svg:y="11.208cm">
       <draw:image xlink:href="pictures/c10/crocodile.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
+
     </draw:g>
-    <draw:frame draw:style-name="gr17" draw:text-style-name="P5" draw:layer="layout" svg:width="8.001cm" svg:height="0.683cm" svg:x="1.001cm" svg:y="26.447cm">
+    <draw:frame draw:style-name="gr17" draw:text-style-name="P5" draw:layer="layout"
+            svg:width="8.001cm"
+            svg:height="0.683cm"
+            svg:x="1.001cm"
+            svg:y="26.447cm">
      <draw:text-box>
       <text:p><text:span text:style-name="T1">.filename.</text:span></text:p>
      </draw:text-box>
     </draw:frame>
    </draw:page>
    <draw:page draw:name="page2" draw:style-name="dp2" draw:master-page-name="Default">
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.762cm" svg:y="1.889cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.762cm"
+            svg:y="1.889cm">
       <draw:image xlink:href="pictures/c10/hawk.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr18" draw:text-style-name="P2" draw:layer="layout" svg:width="3.998cm" svg:height="0.954cm" svg:x="1.762cm" svg:y="4.889cm">
+
+
+     <draw:frame draw:style-name="gr18" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.998cm"
+            svg:height="0.954cm"
+            svg:x="1.762cm"
+            svg:y="4.889cm">
       <draw:text-box>
        <text:p>.hawk.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="6.969cm" svg:y="1.902cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="6.969cm"
+            svg:y="1.902cm">
       <draw:image xlink:href="pictures/c10/hen.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout" svg:width="3.937cm" svg:height="0.954cm" svg:x="6.969cm" svg:y="5.064cm">
+
+
+     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.937cm"
+            svg:height="0.954cm"
+            svg:x="6.969cm"
+            svg:y="5.064cm">
       <draw:text-box>
        <text:p>.hen.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="11.986cm" svg:y="1.81cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="11.986cm"
+            svg:y="1.81cm">
       <draw:image xlink:href="pictures/c10/hippopotamus.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr19" draw:text-style-name="P2" draw:layer="layout" svg:width="4.833cm" svg:height="0.954cm" svg:x="11.556cm" svg:y="5.025cm">
+
+
+     <draw:frame draw:style-name="gr19" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="4.833cm"
+            svg:height="0.954cm"
+            svg:x="11.556cm"
+            svg:y="5.025cm">
       <draw:text-box>
        <text:p>.hippopotamus.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.413cm" svg:height="3cm" svg:x="16.875cm" svg:y="1.81cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3.413cm"
+            svg:height="3cm"
+            svg:x="16.875cm"
+            svg:y="1.81cm">
       <draw:image xlink:href="pictures/c10/horse.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr20" draw:text-style-name="P2" draw:layer="layout" svg:width="3.302cm" svg:height="0.954cm" svg:x="16.875cm" svg:y="5.064cm">
+
+
+     <draw:frame draw:style-name="gr20" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.302cm"
+            svg:height="0.954cm"
+            svg:x="16.875cm"
+            svg:y="5.064cm">
       <draw:text-box>
        <text:p>.horse.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.762cm" svg:y="7.477cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.762cm"
+            svg:y="7.477cm">
       <draw:image xlink:href="pictures/c10/hyena.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr9" draw:text-style-name="P2" draw:layer="layout" svg:width="3.937cm" svg:height="0.954cm" svg:x="1.762cm" svg:y="10.652cm">
+
+
+     <draw:frame draw:style-name="gr9" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.937cm"
+            svg:height="0.954cm"
+            svg:x="1.762cm"
+            svg:y="10.652cm">
       <draw:text-box>
        <text:p>.hyena.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="2.375cm" svg:height="3cm" svg:x="7.515cm" svg:y="7.35cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="2.375cm"
+            svg:height="3cm"
+            svg:x="7.515cm"
+            svg:y="7.35cm">
       <draw:image xlink:href="pictures/c10/kingfisher.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr21" draw:text-style-name="P2" draw:layer="layout" svg:width="3.533cm" svg:height="0.954cm" svg:x="7.049cm" svg:y="10.644cm">
+
+
+     <draw:frame draw:style-name="gr21" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.533cm"
+            svg:height="0.954cm"
+            svg:x="7.049cm"
+            svg:y="10.644cm">
       <draw:text-box>
        <text:p>.kingfisher.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="11.732cm" svg:y="7.35cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="11.732cm"
+            svg:y="7.35cm">
       <draw:image xlink:href="pictures/c10/lion.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr22" draw:text-style-name="P2" draw:layer="layout" svg:width="3.871cm" svg:height="0.954cm" svg:x="11.795cm" svg:y="10.649cm">
+
+
+     <draw:frame draw:style-name="gr22" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.871cm"
+            svg:height="0.954cm"
+            svg:x="11.795cm"
+            svg:y="10.649cm">
       <draw:text-box>
        <text:p>.lion.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="16.431cm" svg:y="7.35cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="16.431cm"
+            svg:y="7.35cm">
       <draw:image xlink:href="pictures/c10/lizard.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr4" draw:text-style-name="P2" draw:layer="layout" svg:width="3.81cm" svg:height="0.954cm" svg:x="16.513cm" svg:y="10.652cm">
+
+
+     <draw:frame draw:style-name="gr4" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.81cm"
+            svg:height="0.954cm"
+            svg:x="16.513cm"
+            svg:y="10.652cm">
       <draw:text-box>
        <text:p>.lizard.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="2.25cm" svg:height="3cm" svg:x="1.889cm" svg:y="12.43cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="2.25cm"
+            svg:height="3cm"
+            svg:x="1.889cm"
+            svg:y="12.43cm">
       <draw:image xlink:href="pictures/c10/monkey.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr23" draw:text-style-name="P2" draw:layer="layout" svg:width="3.429cm" svg:height="0.954cm" svg:x="1.762cm" svg:y="15.859cm">
+
+
+     <draw:frame draw:style-name="gr23" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.429cm"
+            svg:height="0.954cm"
+            svg:x="1.762cm"
+            svg:y="15.859cm">
       <draw:text-box>
        <text:p>.monkey.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.287cm" svg:height="3cm" svg:x="7.223cm" svg:y="12.351cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3.287cm"
+            svg:height="3cm"
+            svg:x="7.223cm"
+            svg:y="12.351cm">
       <draw:image xlink:href="pictures/c10/owl.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr20" draw:text-style-name="P2" draw:layer="layout" svg:width="3.302cm" svg:height="0.954cm" svg:x="7.223cm" svg:y="15.794cm">
+
+
+     <draw:frame draw:style-name="gr20" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.302cm"
+            svg:height="0.954cm"
+            svg:x="7.223cm"
+            svg:y="15.794cm">
       <draw:text-box>
        <text:p>.owl.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="2.987cm" svg:height="3cm" svg:x="11.856cm" svg:y="12.43cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="2.987cm"
+            svg:height="3cm"
+            svg:x="11.856cm"
+            svg:y="12.43cm">
       <draw:image xlink:href="pictures/c10/parrot.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr24" draw:text-style-name="P2" draw:layer="layout" svg:width="3.175cm" svg:height="0.954cm" svg:x="11.795cm" svg:y="15.794cm">
+
+
+     <draw:frame draw:style-name="gr24" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.175cm"
+            svg:height="0.954cm"
+            svg:x="11.795cm"
+            svg:y="15.794cm">
       <draw:text-box>
        <text:p>.parrot.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="15.986cm" svg:y="12.43cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="15.986cm"
+            svg:y="12.43cm">
       <draw:image xlink:href="pictures/c10/pigeon.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr25" draw:text-style-name="P2" draw:layer="layout" svg:width="3.897cm" svg:height="0.954cm" svg:x="16.026cm" svg:y="15.732cm">
+
+
+     <draw:frame draw:style-name="gr25" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.897cm"
+            svg:height="0.954cm"
+            svg:x="16.026cm"
+            svg:y="15.732cm">
       <draw:text-box>
        <text:p>.pigeon.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.699cm" svg:y="18.066cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.699cm"
+            svg:y="18.066cm">
       <draw:image xlink:href="pictures/c10/rabbit.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr26" draw:text-style-name="P2" draw:layer="layout" svg:width="3.676cm" svg:height="0.954cm" svg:x="1.896cm" svg:y="21.213cm">
+
+
+     <draw:frame draw:style-name="gr26" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.676cm"
+            svg:height="0.954cm"
+            svg:x="1.896cm"
+            svg:y="21.213cm">
       <draw:text-box>
        <text:p>.rabbit.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.863cm" svg:height="3cm" svg:x="7.096cm" svg:y="18.018cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3.863cm"
+            svg:height="3cm"
+            svg:x="7.096cm"
+            svg:y="18.018cm">
       <draw:image xlink:href="pictures/c10/scorpion.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr27" draw:text-style-name="P2" draw:layer="layout" svg:width="3.789cm" svg:height="0.954cm" svg:x="7.244cm" svg:y="21.115cm">
+
+
+     <draw:frame draw:style-name="gr27" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.789cm"
+            svg:height="0.954cm"
+            svg:x="7.244cm"
+            svg:y="21.115cm">
       <draw:text-box>
        <text:p>.scorpion.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="11.668cm" svg:y="17.812cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="11.668cm"
+            svg:y="17.812cm">
       <draw:image xlink:href="pictures/c10/sheep.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr28" draw:text-style-name="P2" draw:layer="layout" svg:width="3.724cm" svg:height="0.954cm" svg:x="11.754cm" svg:y="21.001cm">
+
+
+     <draw:frame draw:style-name="gr28" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.724cm"
+            svg:height="0.954cm"
+            svg:x="11.754cm"
+            svg:y="21.001cm">
       <draw:text-box>
        <text:p>.sheep.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.874cm" svg:height="3cm" svg:x="16.303cm" svg:y="17.812cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3.874cm"
+            svg:height="3cm"
+            svg:x="16.303cm"
+            svg:y="17.812cm">
       <draw:image xlink:href="pictures/c10/snake.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr4" draw:text-style-name="P2" draw:layer="layout" svg:width="3.74cm" svg:height="0.954cm" svg:x="16.31cm" svg:y="20.988cm">
+
+
+     <draw:frame draw:style-name="gr4" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.74cm"
+            svg:height="0.954cm"
+            svg:x="16.31cm"
+            svg:y="20.988cm">
       <draw:text-box>
        <text:p>.snake.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="1.699cm" svg:y="22.463cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.699cm"
+            svg:y="22.463cm">
       <draw:image xlink:href="pictures/c10/spider.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr5" draw:text-style-name="P2" draw:layer="layout" svg:width="3.81cm" svg:height="0.954cm" svg:x="1.762cm" svg:y="25.638cm">
+
+
+     <draw:frame draw:style-name="gr5" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.81cm"
+            svg:height="0.954cm"
+            svg:x="1.762cm"
+            svg:y="25.638cm">
       <draw:text-box>
        <text:p>.spider.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="3.737cm" svg:height="3cm" svg:x="7.296cm" svg:y="22.336cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="3.737cm"
+            svg:height="3cm"
+            svg:x="7.296cm"
+            svg:y="22.336cm">
       <draw:image xlink:href="pictures/c10/toad.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr29" draw:text-style-name="P2" draw:layer="layout" svg:width="3.556cm" svg:height="0.954cm" svg:x="7.35cm" svg:y="25.612cm">
+
+
+     <draw:frame draw:style-name="gr29" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.556cm"
+            svg:height="0.954cm"
+            svg:x="7.35cm"
+            svg:y="25.612cm">
       <draw:text-box>
        <text:p>.toad.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="2.4cm" svg:height="3cm" svg:x="12.57cm" svg:y="22.209cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="2.4cm"
+            svg:height="3cm"
+            svg:x="12.57cm"
+            svg:y="22.209cm">
       <draw:image xlink:href="pictures/c10/vulture.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr24" draw:text-style-name="P2" draw:layer="layout" svg:width="3.175cm" svg:height="0.954cm" svg:x="12.176cm" svg:y="25.446cm">
+
+
+     <draw:frame draw:style-name="gr24" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.175cm"
+            svg:height="0.954cm"
+            svg:x="12.176cm"
+            svg:y="25.446cm">
       <draw:text-box>
        <text:p>.vulture.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
     <draw:g>
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout" svg:width="4cm" svg:height="3cm" svg:x="16.113cm" svg:y="22.257cm">
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="16.113cm"
+            svg:y="22.257cm">
       <draw:image xlink:href="pictures/c10/warthog.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
-     <draw:frame draw:style-name="gr9" draw:text-style-name="P2" draw:layer="layout" svg:width="3.937cm" svg:height="0.954cm" svg:x="16.113cm" svg:y="25.511cm">
+
+
+     <draw:frame draw:style-name="gr9" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.937cm"
+            svg:height="0.954cm"
+            svg:x="16.113cm"
+            svg:y="25.511cm">
       <draw:text-box>
        <text:p>.warthog.</text:p>
       </draw:text-box>
      </draw:frame>
+
     </draw:g>
-    <draw:frame draw:style-name="gr17" draw:text-style-name="P5" draw:layer="layout" svg:width="8.001cm" svg:height="0.683cm" svg:x="1cm" svg:y="26.446cm">
+
+
+
+
+
+
+
+
+
+    <draw:frame draw:style-name="gr17" draw:text-style-name="P5" draw:layer="layout"
+            svg:width="8.001cm"
+            svg:height="0.683cm"
+            svg:x="1cm"
+            svg:y="26.446cm">
      <draw:text-box>
       <text:p><text:span text:style-name="T1">.filename.</text:span></text:p>
      </draw:text-box>
     </draw:frame>
+
+
+
+
+
+
+
    </draw:page>
+
+
+
+
+
+
+
   </office:drawing>
  </office:body>
 </office:document>
