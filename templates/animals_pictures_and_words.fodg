@@ -808,6 +808,73 @@
 
 
 
+    <draw:g>
+
+     <draw:frame draw:style-name="gr14" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.283cm"
+            svg:height="0.954cm"
+            svg:x="2.226cm"
+            svg:y="4.491cm">
+      <draw:text-box>
+       <text:p>.antelope.</text:p>
+      </draw:text-box>
+     </draw:frame>
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.826cm"
+            svg:y="1.429cm">
+      <draw:image xlink:href="pictures/c10/antelope.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+       <text:p/>
+      </draw:image>
+     </draw:frame>
+
+    </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+    <draw:g>
+
+     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="1.738cm"
+            svg:height="0.954cm"
+            svg:x="8.112cm"
+            svg:y="4.618cm">
+      <draw:text-box>
+       <text:p>.ant.</text:p>
+      </draw:text-box>
+     </draw:frame>
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="7.033cm"
+            svg:y="1.429cm">
+      <draw:image xlink:href="pictures/c10/ant.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+       <text:p/>
+      </draw:image>
+     </draw:frame>
+
+    </draw:g>
+
+
+
+
+
+
+
+
 
 
 
@@ -884,7 +951,43 @@
 
 
 
+   <draw:g>
 
+     <draw:frame draw:style-name="gr9" draw:text-style-name="P4" draw:layer="layout"
+            svg:width="3.937cm"
+            svg:height="0.954cm"
+            svg:x="1.889cm"
+            svg:y="9.571cm">
+      <draw:text-box>
+       <text:p text:style-name="P3">.butterfly.</text:p>
+      </draw:text-box>
+     </draw:frame>
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.889cm"
+            svg:y="6.461cm">
+      <draw:image xlink:href="pictures/c10/butterfly.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+       <text:p/>
+      </draw:image>
+     </draw:frame>
+
+    </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
     <draw:g>
 
      <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
@@ -956,16 +1059,15 @@
 
 
 
-
     <draw:g>
 
      <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout"
-            svg:width="1.738cm"
+            svg:width="3.937cm"
             svg:height="0.954cm"
-            svg:x="8.112cm"
-            svg:y="4.618cm">
+            svg:x="15.859cm"
+            svg:y="9.571cm">
       <draw:text-box>
-       <text:p>.ant.</text:p>
+       <text:p>.cat.</text:p>
       </draw:text-box>
      </draw:frame>
 
@@ -973,14 +1075,132 @@
      <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
             svg:width="4cm"
             svg:height="3cm"
-            svg:x="7.033cm"
-            svg:y="1.429cm">
-      <draw:image xlink:href="pictures/c10/ant.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+            svg:x="15.859cm"
+            svg:y="6.509cm">
+      <draw:image xlink:href="pictures/c10/cat.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
        <text:p/>
       </draw:image>
      </draw:frame>
 
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
+    <draw:g>
+
+     <draw:frame draw:style-name="gr13" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.952cm"
+            svg:height="0.954cm"
+            svg:x="1.978cm"
+            svg:y="14.27cm">
+      <draw:text-box>
+       <text:p>.chameleon.</text:p>
+      </draw:text-box>
+     </draw:frame>
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="1.978cm"
+            svg:y="11.208cm">
+      <draw:image xlink:href="pictures/c10/chameleon.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+       <text:p/>
+      </draw:image>
+     </draw:frame>
+
+    </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
+    <draw:g>
+
+     <draw:frame draw:style-name="gr15" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="2.686cm"
+            svg:height="0.954cm"
+            svg:x="7.693cm"
+            svg:y="14.335cm">
+      <draw:text-box>
+       <text:p>.coucal.</text:p>
+      </draw:text-box>
+     </draw:frame>
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="6.995cm"
+            svg:y="11.16cm">
+      <draw:image xlink:href="pictures/c10/coucal_bird.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+       <text:p/>
+      </draw:image>
+     </draw:frame>
+
+    </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+
+    <draw:g>
+
+     <draw:frame draw:style-name="gr16" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.389cm"
+            svg:height="0.954cm"
+            svg:x="11.517cm"
+            svg:y="14.397cm">
+      <draw:text-box>
+       <text:p>.crocodile.</text:p>
+      </draw:text-box>
+     </draw:frame>
+
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="11.503cm"
+            svg:y="11.208cm">
+      <draw:image xlink:href="pictures/c10/crocodile.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+       <text:p/>
+      </draw:image>
+     </draw:frame>
+
+    </draw:g>
+    <draw:frame draw:style-name="gr17" draw:text-style-name="P5" draw:layer="layout"
+            svg:width="8.001cm"
+            svg:height="0.683cm"
+            svg:x="1.001cm"
+            svg:y="26.447cm">
+     <draw:text-box>
+      <text:p><text:span text:style-name="T1">.filename.</text:span></text:p>
+     </draw:text-box>
+    </draw:frame>
+
 
 
 
@@ -1017,6 +1237,42 @@
      </draw:frame>
 
     </draw:g>
+
+
+
+
+
+
+
+
+
+
+
+    <draw:g>
+
+     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
+            svg:width="4cm"
+            svg:height="3cm"
+            svg:x="2.524cm"
+            svg:y="16.415cm">
+      <draw:image xlink:href="pictures/c10/donkey.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
+       <text:p/>
+      </draw:image>
+     </draw:frame>
+
+
+     <draw:frame draw:style-name="gr5" draw:text-style-name="P2" draw:layer="layout"
+            svg:width="3.81cm"
+            svg:height="0.954cm"
+            svg:x="2.672cm"
+            svg:y="19.669cm">
+      <draw:text-box>
+       <text:p>.donkey.</text:p>
+      </draw:text-box>
+     </draw:frame>
+
+    </draw:g>
+
 
 
 
@@ -1279,260 +1535,13 @@
 
 
 
-
-
-    <draw:g>
-
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
-            svg:width="4cm"
-            svg:height="3cm"
-            svg:x="2.524cm"
-            svg:y="16.415cm">
-      <draw:image xlink:href="pictures/c10/donkey.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
-       <text:p/>
-      </draw:image>
-     </draw:frame>
-
-
-     <draw:frame draw:style-name="gr5" draw:text-style-name="P2" draw:layer="layout"
-            svg:width="3.81cm"
-            svg:height="0.954cm"
-            svg:x="2.672cm"
-            svg:y="19.669cm">
-      <draw:text-box>
-       <text:p>.donkey.</text:p>
-      </draw:text-box>
-     </draw:frame>
-
-    </draw:g>
-
-
-
-
-
-
-
-
-
-
-
-
-    <draw:g>
-
-     <draw:frame draw:style-name="gr13" draw:text-style-name="P2" draw:layer="layout"
-            svg:width="3.952cm"
-            svg:height="0.954cm"
-            svg:x="1.978cm"
-            svg:y="14.27cm">
-      <draw:text-box>
-       <text:p>.chameleon.</text:p>
-      </draw:text-box>
-     </draw:frame>
-
-
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
-            svg:width="4cm"
-            svg:height="3cm"
-            svg:x="1.978cm"
-            svg:y="11.208cm">
-      <draw:image xlink:href="pictures/c10/chameleon.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
-       <text:p/>
-      </draw:image>
-     </draw:frame>
-
-    </draw:g>
-
-
-
-
-
-
-
-
-
-
-
-
-    <draw:g>
-
-     <draw:frame draw:style-name="gr14" draw:text-style-name="P2" draw:layer="layout"
-            svg:width="3.283cm"
-            svg:height="0.954cm"
-            svg:x="2.226cm"
-            svg:y="4.491cm">
-      <draw:text-box>
-       <text:p>.antelope.</text:p>
-      </draw:text-box>
-     </draw:frame>
-
-
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
-            svg:width="4cm"
-            svg:height="3cm"
-            svg:x="1.826cm"
-            svg:y="1.429cm">
-      <draw:image xlink:href="pictures/c10/antelope.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
-       <text:p/>
-      </draw:image>
-     </draw:frame>
-
-    </draw:g>
-
-
-
-
-
-
-
-
-
-
-
-
-    <draw:g>
-
-     <draw:frame draw:style-name="gr9" draw:text-style-name="P4" draw:layer="layout"
-            svg:width="3.937cm"
-            svg:height="0.954cm"
-            svg:x="1.889cm"
-            svg:y="9.571cm">
-      <draw:text-box>
-       <text:p text:style-name="P3">.butterfly.</text:p>
-      </draw:text-box>
-     </draw:frame>
-
-
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
-            svg:width="4cm"
-            svg:height="3cm"
-            svg:x="1.889cm"
-            svg:y="6.461cm">
-      <draw:image xlink:href="pictures/c10/butterfly.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
-       <text:p/>
-      </draw:image>
-     </draw:frame>
-
-    </draw:g>
-
-
-
-
-
-
-
-
-
-
-
-
-    <draw:g>
-
-     <draw:frame draw:style-name="gr3" draw:text-style-name="P2" draw:layer="layout"
-            svg:width="3.937cm"
-            svg:height="0.954cm"
-            svg:x="15.859cm"
-            svg:y="9.571cm">
-      <draw:text-box>
-       <text:p>.cat.</text:p>
-      </draw:text-box>
-     </draw:frame>
-
-
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
-            svg:width="4cm"
-            svg:height="3cm"
-            svg:x="15.859cm"
-            svg:y="6.509cm">
-      <draw:image xlink:href="pictures/c10/cat.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
-       <text:p/>
-      </draw:image>
-     </draw:frame>
-
-    </draw:g>
-
-
-
-
-
-
-
-
-
-
-
-
-    <draw:g>
-
-     <draw:frame draw:style-name="gr15" draw:text-style-name="P2" draw:layer="layout"
-            svg:width="2.686cm"
-            svg:height="0.954cm"
-            svg:x="7.693cm"
-            svg:y="14.335cm">
-      <draw:text-box>
-       <text:p>.coucal.</text:p>
-      </draw:text-box>
-     </draw:frame>
-
-
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
-            svg:width="4cm"
-            svg:height="3cm"
-            svg:x="6.995cm"
-            svg:y="11.16cm">
-      <draw:image xlink:href="pictures/c10/coucal_bird.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
-       <text:p/>
-      </draw:image>
-     </draw:frame>
-
-    </draw:g>
-
-
-
-
-
-
-
-
-
-
-
-
-    <draw:g>
-
-     <draw:frame draw:style-name="gr16" draw:text-style-name="P2" draw:layer="layout"
-            svg:width="3.389cm"
-            svg:height="0.954cm"
-            svg:x="11.517cm"
-            svg:y="14.397cm">
-      <draw:text-box>
-       <text:p>.crocodile.</text:p>
-      </draw:text-box>
-     </draw:frame>
-
-
-     <draw:frame draw:style-name="gr1" draw:text-style-name="P1" draw:layer="layout"
-            svg:width="4cm"
-            svg:height="3cm"
-            svg:x="11.503cm"
-            svg:y="11.208cm">
-      <draw:image xlink:href="pictures/c10/crocodile.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad">
-       <text:p/>
-      </draw:image>
-     </draw:frame>
-
-    </draw:g>
-    <draw:frame draw:style-name="gr17" draw:text-style-name="P5" draw:layer="layout"
-            svg:width="8.001cm"
-            svg:height="0.683cm"
-            svg:x="1.001cm"
-            svg:y="26.447cm">
-     <draw:text-box>
-      <text:p><text:span text:style-name="T1">.filename.</text:span></text:p>
-     </draw:text-box>
-    </draw:frame>
    </draw:page>
-   <draw:page draw:name="page2" draw:style-name="dp2" draw:master-page-name="Default">
 
+
+
+
+
+   <draw:page draw:name="page2" draw:style-name="dp2" draw:master-page-name="Default">
 
 
 
