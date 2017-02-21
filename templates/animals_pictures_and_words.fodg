@@ -180,7 +180,6 @@
 
 
 
-
  <office:styles>
   <draw:marker draw:name="Arrow" svg:viewBox="0 0 20 30" svg:d="M10 0l-10 30h20z"/>
 
@@ -470,285 +469,263 @@
 
 
 
+
+
  <office:automatic-styles>
-  <style:page-layout style:name="PM0">
 
-
+ <style:page-layout style:name="PM0">
    <style:page-layout-properties fo:margin-top="1cm" fo:margin-bottom="1cm" fo:margin-left="1cm" fo:margin-right="1cm" fo:page-width="21.59cm" fo:page-height="27.94cm" style:print-orientation="portrait"/>
   </style:page-layout>
+
   <style:style style:name="dp1" style:family="drawing-page">
-
-
    <style:drawing-page-properties draw:background-size="border" draw:fill="none"/>
   </style:style>
-  <style:style style:name="dp2" style:family="drawing-page"/>
+
+  <style:style style:name="dp2" style:family="drawing-page"/> 
+
   <style:style style:name="gr1" style:family="graphic" style:parent-style-name="Object_20_with_20_no_20_fill_20_and_20_no_20_line">
-
-
-   <style:graphic-properties draw:stroke="none" draw:fill="none" draw:textarea-vertical-align="middle" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:image-opacity="100%" style:mirror="none"/>
+     <style:graphic-properties draw:stroke="none" draw:fill="none" draw:textarea-vertical-align="middle" draw:color-mode="standard" draw:luminance="0%" draw:contrast="0%" draw:gamma="100%" draw:red="0%" draw:green="0%" draw:blue="0%" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:image-opacity="100%" style:mirror="none"/>
   </style:style>
+
   <style:style style:name="gr2" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.466cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.466cm"/>
   </style:style>
+
   <style:style style:name="gr3" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="0.704cm" fo:min-width="0cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="0.704cm" fo:min-width="0cm"/>
   </style:style>
+
   <style:style style:name="gr4" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" fo:min-height="0.704cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" fo:min-height="0.704cm"/>
   </style:style>
+
   <style:style style:name="gr5" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.31cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.31cm"/>
   </style:style>
+
   <style:style style:name="gr6" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.421cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.421cm"/>
   </style:style>
+
   <style:style style:name="gr7" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.175cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.175cm"/>
   </style:style>
+
   <style:style style:name="gr8" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.757cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.757cm"/>
   </style:style>
+
   <style:style style:name="gr9" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.437cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.437cm"/>
   </style:style>
+
   <style:style style:name="gr10" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.344cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="1.344cm"/>
   </style:style>
+
   <style:style style:name="gr11" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.098cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.098cm"/>
   </style:style>
+
   <style:style style:name="gr12" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.842cm"/>
+    <style:graphic-properties draw:stroke="none" 
+	svg:stroke-color="#000000" draw:fill="none" 
+	draw:fill-color="#ffffff" 
+	draw:textarea-horizontal-align="left" 
+	draw:auto-grow-height="true" 
+	draw:auto-grow-width="true" 
+	fo:min-height="0.704cm" 
+	fo:min-width="3.842cm"/>
   </style:style>
+
   <style:style style:name="gr13" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.452cm"/>
+    <style:graphic-properties draw:stroke="none" 
+	svg:stroke-color="#000000" draw:fill="none" 
+	draw:fill-color="#ffffff" 
+	draw:textarea-horizontal-align="left" 
+	draw:auto-grow-height="true" 
+	draw:auto-grow-width="true" 
+	fo:min-height="0.704cm" 
+	fo:min-width="3.452cm"/>
   </style:style>
+
   <style:style style:name="gr14" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.783cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.783cm"/>
   </style:style>
+
   <style:style style:name="gr15" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.186cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.186cm"/>
   </style:style>
+
   <style:style style:name="gr16" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.889cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.889cm"/>
   </style:style>
+
   <style:style style:name="gr17" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="0.433cm" fo:min-width="0cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="0.433cm" fo:min-width="0cm"/>
   </style:style>
+
   <style:style style:name="gr18" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.498cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.498cm"/>
   </style:style>
+
   <style:style style:name="gr19" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="4.333cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="4.333cm"/>
   </style:style>
+
   <style:style style:name="gr20" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.802cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.802cm"/>
   </style:style>
+
   <style:style style:name="gr21" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.033cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.033cm"/>
   </style:style>
+
   <style:style style:name="gr22" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.371cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.371cm"/>
   </style:style>
+
   <style:style style:name="gr23" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.929cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.929cm"/>
   </style:style>
+
   <style:style style:name="gr24" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.675cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="2.675cm"/>
   </style:style>
+
   <style:style style:name="gr25" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.397cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.397cm"/>
   </style:style>
+
   <style:style style:name="gr26" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.176cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.176cm"/>
   </style:style>
+
   <style:style style:name="gr27" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.289cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.289cm"/>
   </style:style>
+
   <style:style style:name="gr28" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.224cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.224cm"/>
   </style:style>
+
   <style:style style:name="gr29" style:family="graphic" style:parent-style-name="standard">
-
-
-   <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.056cm"/>
+    <style:graphic-properties draw:stroke="none" svg:stroke-color="#000000" draw:fill="none" draw:fill-color="#ffffff" draw:textarea-horizontal-align="left" draw:auto-grow-height="true" draw:auto-grow-width="true" fo:min-height="0.704cm" fo:min-width="3.056cm"/>
   </style:style>
+
   <style:style style:name="P1" style:family="paragraph">
    <loext:graphic-properties draw:fill="none"/>
-
-
    <style:paragraph-properties fo:text-align="center"/>
   </style:style>
+
   <style:style style:name="P2" style:family="paragraph">
    <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
   </style:style>
+
   <style:style style:name="P3" style:family="paragraph">
-
-
-   <style:paragraph-properties fo:text-align="center" style:writing-mode="lr-tb">
- 
-
-   <style:tab-stops/>
+    <style:paragraph-properties fo:text-align="center" style:writing-mode="lr-tb">
+    <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
+
   <style:style style:name="P4" style:family="paragraph">
    <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
-
-
    <style:paragraph-properties fo:text-align="center" style:writing-mode="lr-tb">
- 
-
    <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
+
   <style:style style:name="P5" style:family="paragraph">
    <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
-
-
    <style:text-properties fo:font-size="11pt" style:font-size-asian="18pt" style:font-size-complex="18pt"/>
   </style:style>
+
   <style:style style:name="T1" style:family="text">
-
-
    <style:text-properties fo:font-size="11pt" style:font-size-asian="18pt" style:font-size-complex="18pt"/>
   </style:style>
+
+  
+  
+  
+  
+  
+  
   <text:list-style style:name="L1">
+  
    <text:list-level-style-bullet text:level="1" text:bullet-char="●">
- 
-
    <style:list-level-properties text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
+   
    <text:list-level-style-bullet text:level="2" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="0.6cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
+   
+   
    <text:list-level-style-bullet text:level="3" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="1.2cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
+   
    <text:list-level-style-bullet text:level="4" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="1.8cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
+   
    <text:list-level-style-bullet text:level="5" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="2.4cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
    <text:list-level-style-bullet text:level="6" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="3cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
    <text:list-level-style-bullet text:level="7" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="3.6cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
    <text:list-level-style-bullet text:level="8" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="4.2cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
    <text:list-level-style-bullet text:level="9" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="4.8cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+   
    <text:list-level-style-bullet text:level="10" text:bullet-char="●">
- 
-
    <style:list-level-properties text:space-before="5.4cm" text:min-label-width="0.6cm"/>
- 
-
    <style:text-properties fo:font-family="StarSymbol" style:use-window-font-color="true" fo:font-size="45%"/>
    </text:list-level-style-bullet>
+  
   </text:list-style>
+  
  </office:automatic-styles>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
