@@ -39,3 +39,6 @@ _id,word,translate,tags,picture
 38,toad,die Kröte,animal,c10/toad.jpg
 39,vulture,der Geier,animal,c10/vulture.jpg
 40,warthog,das Warzenschwein,animal,c10/warthog.jpg
+41,ostrich,der Strauss,animal,c10/ostrich.jpg
+42,tiger,der Tiger,animal,c10/tiger.jpg
+43,newt,der Molch,animal,c10/newt.jpg

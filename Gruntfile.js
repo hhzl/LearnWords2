@@ -5,7 +5,7 @@ Aim:
    http://gruntjs.com/
 
 Date:
-   16th February 2017
+   23rd February 2017
 
 
 
@@ -61,6 +61,7 @@ Structure of the file:
 
 
 Available tasks
+Available tasks
                 clean  Clean files and folders. *                              
                jshint  Validate files with JSHint. *                           
               connect  Start a connect web server. *                           
@@ -73,11 +74,12 @@ Available tasks
         json2htmlList  Converts JSON to HTML *                                 
     json2htmlSpelling  Converts JSON to a HTML presentation with spelling demo 
                        *                                                       
+            imagesize  creates a file descriptions.csv in picture/c10 with     
+                       image sizes *                                           
     json2htmlCardList  Converts JSON to HTML *                                 
              json2odg  Converts JSON to a LO Draw file *                       
              csv2json  Converts CSV to JSON *                                  
              json2csv  Converts JSON to CSV *                                  
-             dir2json
             json2yaml  Converts JSON to YAML *                                 
              csv2anki  Converts CSV to Anki *                                  
            htmlreport  Alias for "csv2json", "json2htmlList", "copy:pictures"  
@@ -93,8 +95,7 @@ Available tasks
                 build  Alias for "clean:build", "jshint:es5", "js" tasks.      
                  demo  Alias for "build", "data", "copy:data", "copy:js" tasks.
                  test  Alias for "clean:test", "jasmine" tasks.                
-              default  Alias for "demo", "test", "connect", "watch" tasks.  
-
+              default  Alias for "demo", "test", "connect", "watch" tasks. 
 
 Tasks run in the order specified. Arguments may be passed to tasks that accept
 them by using colons, like "lint:files". Tasks marked with * are "multi tasks"
@@ -146,6 +147,7 @@ module.exports = function(grunt) {
       js: [path.join(p.BUILD_DIR,'**')],
       test: [path.join(p.BUILD_DIR,'jasmine-bundle.js')]
     },
+
     jshint: {
       es5: ['src/*.js'],
       es6: {options: {
@@ -162,42 +164,57 @@ module.exports = function(grunt) {
         dest: path.join(p.OUTPUT_DIR,'anki')
       }
     },
+
     csv2json: {
       data: {
         src: path.join(p.INPUT_DIR,'csv','**/*.csv'),
         dest: path.join(p.INPUT_DIR,'json')
       }
     },
+
     json2csv: {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
         dest: path.join(p.INPUT_DIR,'csv')
       }
     },
+
+    imagesize: {
+      data: {
+        src:  [path.join(p.INPUT_DIR,'pictures','c10','*.*'),
+               '!'+path.join(p.INPUT_DIR,'pictures','c10','description.csv')],
+        dest: path.join(p.INPUT_DIR,'pictures','c10')
+      }
+    },
+
     dir2json: {
       data: {
         root: path.join(p.INPUT_DIR,'json'),
         dest: path.join(p.INPUT_DIR,'single-json/all.json')
       }
     },
+
     json2dir: {
       data: {
         src: path.join(p.INPUT_DIR,'single-json/all.json'),
         dest: path.join(p.INPUT_DIR,'json2')
       }
     },
+
     json2yaml: {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
         dest: path.join(p.OUTPUT_DIR,'yaml')
       }
     },
+
     json2htmlList: {
       data: {
         src: path.join(p.INPUT_DIR,'json','**/*.json'),
         dest: path.join(p.OUTPUT_DIR,'html')
       }
     },
+
     json2htmlCardList: {
       data: {
         src: path.join(p.INPUT_DIR,'json','wordlist_animals*.json'),

@@ -11,8 +11,8 @@ function defineCustomTasks(grunt,pathParam) {
     browserify = require('browserify'),
     LWjson2html = require("./src/data-conversion/LWjson2html"),
     LWjson2htmlSlides = require("./src/data-conversion/LWjson2htmlSlides"),
-    Jasmine = require('jasmine');
-
+    Jasmine = require('jasmine'),
+    sizeOf = require('image-size');
 
 
 
@@ -203,6 +203,47 @@ function defineCustomTasks(grunt,pathParam) {
     }
 
   });
+
+
+
+
+
+
+
+
+
+
+
+  grunt.registerMultiTask('imagesize','creates a file descriptions.csv in picture/c10 with image sizes',function(){
+
+    var csvString = 'filename, width, height\n';
+
+    for(var i = 0; i < this.files.length; i++){
+      var src = this.files[i].src;
+      for(var h = 0; h < src.length; h++){
+        var f = src[h];
+ 
+        var dimensions = sizeOf(f);
+
+        csvString += `${path.basename(f)},${dimensions.width},${dimensions.height}\n`;
+
+
+        var dest = path.join(this.files[i].dest,'description.csv');
+
+        grunt.file.write(dest, csvString);
+        grunt.verbose.write(`Created ${dest}`);
+      }
+    }
+
+  });
+
+
+
+
+
+
+
+
 
 
 };
