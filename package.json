@@ -38,6 +38,7 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-dir2json": "^0.1.6",
+    "image-size": "^0.5.1",
     "jasmine": "^2.5.2",
     "jasmine-expect": "^3.0.1",
     "js-yaml": "^3.7.0",
