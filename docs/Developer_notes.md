@@ -1,14 +1,15 @@
 # Developer notes
 
+## 2018-01-22 Notes on Anki concept and data model
+Update of Notes on Anki concept and data model, see below.
+
 ## 2017-01-19 Notes on Anki concept and data model
 
-Anki uses a two SQLite databases for data storage. One for the text information and the other one for media. Both are packed into a zip file which has the extension `apkg`.
+Anki uses a two SQLite databases for data storage. One called ``collection.anki2`` for the text information and another one called ` media`` for referencing pictures and sound files. The two database files and the media files are packed into a zip file which has the extension `apkg`.
 
-Most prominent are the **notes** and the **cards** tables. Notes are for the data and on which the cards are based. The cards are presented to the user as questions and answers.
+Within the ``collection.anki2`` database there are the **notes** and the **cards** tables. Notes are for the data and on which the cards are based. The cards are presented to the user as questions and answers.
 
-This issue is about writing a summary of the documentation how the Anki app works. 
-
-It  will serve as a basis for comparing / finding a mapping / requests for the LearnWords file format. It will as well serve as a basis for extending adapting the  LearnWords file format.
+This following are notes about how Anki works and how the data model is related / may be mapped to the LearnWords file format. It will as well serve as a basis for extending adapting the  LearnWords file format.
 
 
 Elements used by Anki
