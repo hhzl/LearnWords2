@@ -3,6 +3,8 @@
 ## 2018-01-23 CSV to Anki apkg format conversion
 - https://github.com/albertix/csv2anki
 - https://github.com/zgulde/markdown-to-anki
+- https://github.com/hhzl/anki-apkg-export-app
+- https://github.com/JoshuaGross/md2anki
 
 ## 2018-01-22 Notes on Anki concept and data model
 Update of Notes on Anki concept and data model, see below.
