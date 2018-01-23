@@ -1,7 +1,8 @@
 # Developer notes
 
 ## 2018-01-23 CSV to Anki apkg format conversion
-https://github.com/albertix/csv2anki
+- https://github.com/albertix/csv2anki
+- https://github.com/zgulde/markdown-to-anki
 
 ## 2018-01-22 Notes on Anki concept and data model
 Update of Notes on Anki concept and data model, see below.
