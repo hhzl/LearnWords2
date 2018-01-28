@@ -1,5 +1,8 @@
 # Developer notes
 
+https://github.com/bdunnette/pptx2anki
+Convert a PPTX file (with notes and/or annotated images) to an Anki-compatible flashcard deck. 
+
 ## 2018-01-23 CSV to Anki apkg format conversion
 - https://github.com/albertix/csv2anki
 - https://github.com/zgulde/markdown-to-anki
