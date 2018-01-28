@@ -1,5 +1,7 @@
 # Developer notes
 
+https://github.com/fasiha/fuzzy-anki
+
 https://github.com/ankidroid/Anki-Android/wiki/Database-Structure
 https://www.juliensobczak.com/tell/2016/12/26/anki-scripting.html
 
