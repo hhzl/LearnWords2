@@ -5,6 +5,9 @@ https://github.com/ankidroid/Anki-Android/wiki/Database-Structure
 https://github.com/bdunnette/pptx2anki
 Convert a PPTX file (with notes and/or annotated images) to an Anki-compatible flashcard deck. 
 
+https://github.com/repolho/anki_tool
+
+
 ## 2018-01-23 CSV to Anki apkg format conversion
 - https://github.com/albertix/csv2anki
 - https://github.com/zgulde/markdown-to-anki
