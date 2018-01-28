@@ -1,6 +1,7 @@
 # Developer notes
 
 https://github.com/ankidroid/Anki-Android/wiki/Database-Structure
+https://www.juliensobczak.com/tell/2016/12/26/anki-scripting.html
 
 https://github.com/bdunnette/pptx2anki
 Convert a PPTX file (with notes and/or annotated images) to an Anki-compatible flashcard deck. 
