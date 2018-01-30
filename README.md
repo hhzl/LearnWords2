@@ -24,12 +24,16 @@ HTML and LibreOffice Draw reports are provided for flash cards to be printed (ex
 ## Setup 
 
 
-Assuming ``grunt-cli``
+The command ``grunt-cli`` is a prerequisite.
+
+Global installation is done with
+
 ````	
 npm install -g grunt-cli
 ````
-is installed globally, do
 
+
+Installation of LearnWords2
 
 ````	
 git clone https://github.com/hhzl/LearnWords2.git
@@ -38,16 +42,23 @@ npm install
 grunt
 ````
 
+
+Then change into the ``LearnWords2`` directory and do
+
+````
+npm install
+````
+
+
+Draft of more documentation [here](https://github.com/hhzl/LearnWords2/blob/master/docs/Developer_notes.md#2018-01-30). 
+
+
+Note: 
 The ``grunt`` command generates the files in the ``dist`` directory. These JavaScript files are the debug and minified versions of the LearnWords2 library (``dist/LW.js`` and ``dist/LW-debug.js``). They are copied to the ``public/js`` directory so the demo and Jasmine tests are using the "latest version" (i.e. derived from the JavaScript in ``src``) of the library. The directory `public/data/json` contains the output data to be used by the library.
 
 
-Note that maybe you have to do
 
-````
-sudo npm install -g grunt-cli
-sudo npm install
-````
-
+____
 To use the library:
 
 ```
