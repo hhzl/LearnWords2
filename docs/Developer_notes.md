@@ -8,7 +8,9 @@ Draft of a documentation for the LearnWords2 (this repository) CLI program.
 
 This repository contains a command line program to convert [SRS](https://github.com/repeat-space/srs-knowledge) data from and to other formats. The following notes assume you have installed the program ([Installation notes](https://github.com/hhzl/LearnWords2#setup))
 
-The CLI program also creates a template of a SRS program (HTML/CSS/JavaScript) which then needs to be copied and adapted.
+In addtion the CLI program also creates a template of a SRS program (HTML/CSS/JavaScript) which then needs to be copied and adapted.
+
+This template references a file called ``LW.js`` which contains typical functions needed in a SRS program.
 
 
 ### Usage
