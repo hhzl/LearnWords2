@@ -1,8 +1,51 @@
 # Developer notes
 
+## 2018-01-30
+
+Draft of a documentation for the LearnWords2 (this repository) CLI program.
+
+### Aim
+
+This repository contains a command line program to convert [SRS](https://github.com/repeat-space/srs-knowledge) data from and to other formats. The following notes assume you have installed the program.
+
+The CLI program also creates a template of a SRS program (HTML/CSS/JavaScript) which then needs to be copied and adapted.
+
+
+### Usage
+
+To use the program you need to have downloadec, copied or cloned the LearnWords2 folder (directory). (TODO Add details about installation)
+
+To use the program you need to open a terminal window and change into the LearnWords2 directory.
+
+There is a input data folder and an output data folder
+
+The call
+
+    grunt --help
+    
+gives the available options.
+
+### LearnWords2 parameters
+
+You need to edit the file
+
+    Grunt_parameters_ini.yml
+
+to set the parameters of the cli program. 
+
+*.yml stands for [YAML](https://en.wikipedia.org/wiki/YAML).
+
+The default input folder is the ``data`` folder.
+
+
+### LearnWords2 commands
+
+
+
+### Link collection
 https://github.com/repeat-space/srs-knowledge
 
-## Converting data to Anki apkg format
+### Converting data to Anki apkg format
 
 - https://github.com/fasiha/fuzzy-anki An Anki browser: upload your APKG decks or ANKI2 collections and see what's inside
 - https://github.com/ankidroid/Anki-Android/wiki/Database-Structure
