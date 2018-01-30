@@ -1,21 +1,29 @@
 # Developer notes
 
-https://github.com/fasiha/fuzzy-anki
+https://github.com/repeat-space/srs-knowledge
 
-https://github.com/ankidroid/Anki-Android/wiki/Database-Structure
-https://www.juliensobczak.com/tell/2016/12/26/anki-scripting.html
+## Converting data to Anki apkg format
 
-https://github.com/bdunnette/pptx2anki
-Convert a PPTX file (with notes and/or annotated images) to an Anki-compatible flashcard deck. 
+- https://github.com/fasiha/fuzzy-anki An Anki browser: upload your APKG decks or ANKI2 collections and see what's inside
+- https://github.com/ankidroid/Anki-Android/wiki/Database-Structure
+- https://www.juliensobczak.com/tell/2016/12/26/anki-scripting.html
+- https://github.com/repolho/anki_tool (Low level manipulation of anki collections with Python)
 
-https://github.com/repolho/anki_tool
-
-
-## 2018-01-23 CSV to Anki apkg format conversion
-- https://github.com/albertix/csv2anki
-- https://github.com/zgulde/markdown-to-anki
+Line-based format
 - https://github.com/hhzl/anki-apkg-export-app
+
+
+CSV
+- https://github.com/albertix/csv2anki
+
+Markdown
 - https://github.com/JoshuaGross/md2anki
+- https://github.com/zgulde/markdown-to-anki
+
+Powerpoint
+- https://github.com/bdunnette/pptx2anki Convert a PPTX file (with notes and/or annotated images) to an Anki-compatible flashcard deck. 
+
+
 
 ## 2018-01-22 Notes on Anki concept and data model
 Update of Notes on Anki concept and data model, see below.
