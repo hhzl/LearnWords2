@@ -6,18 +6,14 @@ Draft of a documentation for the LearnWords2 (this repository) CLI program.
 
 ### Aim
 
-This repository contains a command line program to convert [SRS](https://github.com/repeat-space/srs-knowledge) data from and to other formats. The following notes assume you have installed the program.
+This repository contains a command line program to convert [SRS](https://github.com/repeat-space/srs-knowledge) data from and to other formats. The following notes assume you have installed the program ([Installation notes](https://github.com/hhzl/LearnWords2#setup))
 
 The CLI program also creates a template of a SRS program (HTML/CSS/JavaScript) which then needs to be copied and adapted.
 
 
 ### Usage
 
-To use the program you need to have downloadec, copied or cloned the LearnWords2 folder (directory). (TODO Add details about installation)
-
-To use the program you need to open a terminal window and change into the LearnWords2 directory.
-
-There is a input data folder and an output data folder
+To use the program you need to open a terminal window and change into the LearnWords2 directory. The cli program uses a ``data`` input folder and generates products in the ``output`` and ``public`` data folder.
 
 The call
 
@@ -37,10 +33,19 @@ to set the parameters of the cli program.
 
 The default input folder is the ``data`` folder.
 
+### The LearnWord2 input data folder
+
 
 ### LearnWords2 commands
 
+- odgreport - generate LibreOffice Draw document with inventory of pictures and labels
+- htmlcards - generate HTML inventory of cards (picture with labels)
+- htmlreports (similar to htmlreport TODO: what is the difference)
+- json2htmlCardList (another report, TODO: what is the difference)
+- ...
+- ...
 
+___
 
 ### Link collection
 https://github.com/repeat-space/srs-knowledge
