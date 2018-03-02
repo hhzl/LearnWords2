@@ -2,22 +2,22 @@
 
 ## 2018-03-02 Learning to spell slide show
 
-The file ``templates/learning-to-spell.html`` was produced with `` the ``cleaver`` utility
-    npm install -g cleaver
+The file ``templates/learning-to-spell.html`` was produced with the [``cleaver`` utility](https://github.com/jdan/cleaver) 
 
+    npm install -g cleaver
 
 
 ## 2018-01-30
 
-Draft of a documentation for the LearnWords2 (this repository) CLI program.
+Draft of a documentation for the LearnWords2 CLI program implemented in this repository.
 
 ### Aim
 
-This repository contains a command line program to convert [SRS](https://github.com/repeat-space/srs-knowledge) data from and to other formats. The following notes assume you have installed the program ([Installation notes](https://github.com/hhzl/LearnWords2#setup))
+This repository contains a command line program to which serves three purposes.
 
-In addtion the CLI program also creates a template of a SRS program (HTML/CSS/JavaScript) which then needs to be copied and adapted.
-
-This template references a file called ``LW.js`` which contains typical functions needed in a SRS program.
+1. It creates a spaced-repetition ([SRS](https://github.com/repeat-space/srs-knowledge)) JavaScript libary ``LW.js`` to be used in a web client program. The library ``LW.js`` contains typical functions needed in a SRS program.
+2. It converts SRS data from and to other formats. 
+3. It creates a template of an SRS web client program (HTML/CSS/JavaScript) which then needs to be copied and adapted. This template makes use of `LW.js``.
 
 
 ### Usage
