@@ -1,5 +1,12 @@
 # Developer notes
 
+## 2018-03-02 Learning to spell slide show
+
+The file ``templates/learning-to-spell.html`` was produced with `` the ``cleaver`` utility
+    npm install -g cleaver
+
+
+
 ## 2018-01-30
 
 Draft of a documentation for the LearnWords2 (this repository) CLI program.
