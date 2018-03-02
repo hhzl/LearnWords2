@@ -179,7 +179,8 @@ The project here is based on ideas and originally on code from LearnWords but
 * Jasmine specs are set up and work both in the browser and on the command line.
 * The LWdb (database layer) specification is set up and implemented with an MVP set of specs. 
 * [release 0.2.2-beta](https://github.com/hhzl/LearnWords2/releases/tag/v0.2.2-beta) has a MVP implementation for the Leitner box and may be used for development work.
-* release 0.3beta2 will come soon.
+* Documentation [update](https://github.com/hhzl/LearnWords2/blob/master/docs/Developer_notes.md) in progress
+* release 0.3.1 will come soon.
 
 
 
