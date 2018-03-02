@@ -87,13 +87,24 @@ The library ``LW.js`` uses what is in the ``json`` directory.
 
 An example
 
-    [{"_id":1,"word":"antelope","translate":"une antilope","tags":"animal","picture":"c10/antelope.jpg"},{"_id":2,"word":"ant","translate":"une fourmi","tags":"animal","picture":"c10/ant.jpg"},{"_id":3,"word":"baboon","translate":"un babouin","tags":"animal","picture":"c10/baboon.jpg"},{"_id":4,"word":"bat","translate":"une chauve-souris ","tags":"animal","picture":"c10/bat.jpg"},{"_id":5,"word":"butterfly","translate":"un papillon","tags":"animal","picture":"c10/butterfly.jpg"},{"_id":6,"word":"calf","translate":"un veau","tags":"animal","picture":"c10/calf.jpg"},{"_id":7,"word":"camel","translate":"un chameau","tags":"animal","picture":"c10/camel.jpg"},{"_id":8,"word":"cat","translate":"un chat","tags":"animal","picture":"c10/cat.jpg"},{"_id":9,"word":"chameleon","translate":"un chaméléon","tags":"animal","picture":"c10/chameleon.jpg"},{"_id":10,"word":"coucal","translate":"un coucal","tags":"animal","picture":"c10/coucal_bird.jpg"},{"_id":11,"word":"crocodile","translate":"un crocodile","tags":"animal","picture":"c10/crocodile.jpg"},{"_id":12,"word":"dog","translate":"un chien","tags":"animal","picture":"c10/dog.jpg"}]
+    [{"_id":1,"word":"antelope","translate":"une antilope","tags":"animal","picture":"c10/antelope.jpg"},
+    {"_id":2,"word":"ant","translate":"une fourmi","tags":"animal","picture":"c10/ant.jpg"},
+    {"_id":3,"word":"baboon","translate":"un babouin","tags":"animal","picture":"c10/baboon.jpg"},
+    {"_id":4,"word":"bat","translate":"une chauve-souris ","tags":"animal","picture":"c10/bat.jpg"},
+    {"_id":5,"word":"butterfly","translate":"un papillon","tags":"animal","picture":"c10/butterfly.jpg"},
+    {"_id":6,"word":"calf","translate":"un veau","tags":"animal","picture":"c10/calf.jpg"},
+    {"_id":7,"word":"camel","translate":"un chameau","tags":"animal","picture":"c10/camel.jpg"},
+    {"_id":8,"word":"cat","translate":"un chat","tags":"animal","picture":"c10/cat.jpg"},
+    {"_id":9,"word":"chameleon","translate":"un chaméléon","tags":"animal","picture":"c10/chameleon.jpg"},
+    {"_id":10,"word":"coucal","translate":"un coucal","tags":"animal","picture":"c10/coucal_bird.jpg"},
+    {"_id":11,"word":"crocodile","translate":"un crocodile","tags":"animal","picture":"c10/crocodile.jpg"},
+    {"_id":12,"word":"dog","translate":"un chien","tags":"animal","picture":"c10/dog.jpg"}]
         
 
 
-### LearnWords2 commands
+### LearnWords2 report generation commands
 
-- odgreport - generate LibreOffice Draw document with inventory of pictures and labels
+- odgreport - generate LibreOffice Draw document with an inventory of pictures and labels
 - htmlcards - generate HTML inventory of cards (picture with labels)
 - htmlreports (similar to htmlreport TODO: what is the difference)
 - json2htmlCardList (another report, TODO: what is the difference)
