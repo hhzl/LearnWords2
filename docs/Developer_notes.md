@@ -17,7 +17,7 @@ This repository contains a command line program which serves three purposes.
 
 1. It creates a spaced-repetition ([SRS](https://github.com/repeat-space/srs-knowledge)) JavaScript libary ``LW.js`` to be used in a web client program. The library ``LW.js`` contains typical functions needed in a SRS program.
 2. It converts SRS data from and to other formats. The main data format for ``LW.js`` is a JSON file.
-3. It creates a template of an SRS web client program (HTML/CSS/JavaScript) which then needs to be copied and adapted. This template makes use of `LW.js``.
+3. It creates a template of an SRS web client program (HTML/CSS/JavaScript) which then needs to be copied and adapted. This template makes use of ``LW.js``.
 
 
 ### Usage
@@ -32,11 +32,11 @@ gives the available options.
 
 To build the library ``LW.js`` use
 
-   grunt build
+    grunt build
    
 To may also use 
 
-   grunt build --verbose
+    grunt build --verbose
    
 to see in detail what is produced. The product is the file ``LW.js`` in the ``dist`` folder.
 
@@ -86,6 +86,7 @@ The library ``LW.js`` uses what is in the ``json`` directory.
 ### The LearnWord2 JSON data format
 
 An example
+
     [{"_id":1,"word":"antelope","translate":"une antilope","tags":"animal","picture":"c10/antelope.jpg"},{"_id":2,"word":"ant","translate":"une fourmi","tags":"animal","picture":"c10/ant.jpg"},{"_id":3,"word":"baboon","translate":"un babouin","tags":"animal","picture":"c10/baboon.jpg"},{"_id":4,"word":"bat","translate":"une chauve-souris ","tags":"animal","picture":"c10/bat.jpg"},{"_id":5,"word":"butterfly","translate":"un papillon","tags":"animal","picture":"c10/butterfly.jpg"},{"_id":6,"word":"calf","translate":"un veau","tags":"animal","picture":"c10/calf.jpg"},{"_id":7,"word":"camel","translate":"un chameau","tags":"animal","picture":"c10/camel.jpg"},{"_id":8,"word":"cat","translate":"un chat","tags":"animal","picture":"c10/cat.jpg"},{"_id":9,"word":"chameleon","translate":"un chaméléon","tags":"animal","picture":"c10/chameleon.jpg"},{"_id":10,"word":"coucal","translate":"un coucal","tags":"animal","picture":"c10/coucal_bird.jpg"},{"_id":11,"word":"crocodile","translate":"un crocodile","tags":"animal","picture":"c10/crocodile.jpg"},{"_id":12,"word":"dog","translate":"un chien","tags":"animal","picture":"c10/dog.jpg"}]
         
 
