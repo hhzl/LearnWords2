@@ -7,7 +7,7 @@ The file ``templates/learning-to-spell.html`` was produced with the [``cleaver``
     npm install -g cleaver
 
 
-## 2018-01-30
+## 2018-03-02
 
 Draft of a documentation for the LearnWords2 CLI program implemented in this repository.
 
@@ -30,6 +30,31 @@ The call
     
 gives the available options.
 
+To build the library ``LW.js`` use
+
+   grunt build
+   
+To may also use 
+
+   grunt build --verbose
+   
+to see in detail what is produced. The product is the file ``LW.js`` in the ``dist`` folder.
+
+This command uses default paramters. To see how these parameters are changed see the next paragraph.
+
+The command
+
+    grunt demo --verbose
+    
+generates the ``public/demo.html`` file. This file uses the ``LW.js`` library.   
+
+The demo command uses the 
+
+    grunt copy:js --verbose
+
+task which may be called independantly.
+
+
 ### LearnWords2 parameters
 
 You need to edit the file
@@ -42,7 +67,27 @@ to set the parameters of the cli program.
 
 The default input folder is the ``data`` folder.
 
+
 ### The LearnWord2 input data folder
+
+The input data folder as indicated in the parameter file (see previous paragraph) has two subdirectories
+
+    csv
+    pictures
+
+These directories contains the source data. The command line program then generates a third folder
+
+    json
+    
+which contains the converted data from the ``csv`` directory.
+
+The library ``LW.js`` uses what is in the ``json`` directory.
+
+### The LearnWord2 JSON data format
+
+An example
+    [{"_id":1,"word":"antelope","translate":"une antilope","tags":"animal","picture":"c10/antelope.jpg"},{"_id":2,"word":"ant","translate":"une fourmi","tags":"animal","picture":"c10/ant.jpg"},{"_id":3,"word":"baboon","translate":"un babouin","tags":"animal","picture":"c10/baboon.jpg"},{"_id":4,"word":"bat","translate":"une chauve-souris ","tags":"animal","picture":"c10/bat.jpg"},{"_id":5,"word":"butterfly","translate":"un papillon","tags":"animal","picture":"c10/butterfly.jpg"},{"_id":6,"word":"calf","translate":"un veau","tags":"animal","picture":"c10/calf.jpg"},{"_id":7,"word":"camel","translate":"un chameau","tags":"animal","picture":"c10/camel.jpg"},{"_id":8,"word":"cat","translate":"un chat","tags":"animal","picture":"c10/cat.jpg"},{"_id":9,"word":"chameleon","translate":"un chaméléon","tags":"animal","picture":"c10/chameleon.jpg"},{"_id":10,"word":"coucal","translate":"un coucal","tags":"animal","picture":"c10/coucal_bird.jpg"},{"_id":11,"word":"crocodile","translate":"un crocodile","tags":"animal","picture":"c10/crocodile.jpg"},{"_id":12,"word":"dog","translate":"un chien","tags":"animal","picture":"c10/dog.jpg"}]
+        
 
 
 ### LearnWords2 commands
