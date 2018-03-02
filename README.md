@@ -166,12 +166,13 @@ The data to be used by the library is in `public/data/json`.
 ## Credits
 
 Anatol Marezhanyi, for the https://github.com/e1r0nd/LearnWords project
-which implements data storage, Leitner box mechanism and a GUI.
+which implements data storage, Leitner box mechanism and a GUI. That project is under reconstruction.
 
-The project here is based on ideas and originally on code from LearnWords but
-1. implements the non-gui part only to allow other projects to use a library
-2. is rewritten to a large extent
-3. adds data conversion functions for word list preparation and production of printed flash cards.
+This project here is based on ideas and originally on code from LearnWords but has a different aim:
+1. It implements the non-gui part only to allow other projects to use the [SRS](https://github.com/repeat-space/srs-knowledge) and datastorage part as a library
+2. It adds data conversion functions to be used through a CLI for word list preparation and production of printed flash cards.
+3. Most of it is rewritten.
+4. It uses Jasmine tests.
 
 
 ## Status
@@ -181,6 +182,3 @@ The project here is based on ideas and originally on code from LearnWords but
 * [release 0.2.2-beta](https://github.com/hhzl/LearnWords2/releases/tag/v0.2.2-beta) has a MVP implementation for the Leitner box and may be used for development work.
 * Documentation [update](https://github.com/hhzl/LearnWords2/blob/master/docs/Developer_notes.md) in progress
 * release 0.3.1 will come soon.
-
-
-
