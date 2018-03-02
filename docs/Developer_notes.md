@@ -13,10 +13,10 @@ Draft of a documentation for the LearnWords2 CLI program implemented in this rep
 
 ### Aim
 
-This repository contains a command line program to which serves three purposes.
+This repository contains a command line program which serves three purposes.
 
 1. It creates a spaced-repetition ([SRS](https://github.com/repeat-space/srs-knowledge)) JavaScript libary ``LW.js`` to be used in a web client program. The library ``LW.js`` contains typical functions needed in a SRS program.
-2. It converts SRS data from and to other formats. 
+2. It converts SRS data from and to other formats. The main data format for ``LW.js`` is a JSON file.
 3. It creates a template of an SRS web client program (HTML/CSS/JavaScript) which then needs to be copied and adapted. This template makes use of `LW.js``.
 
 
