@@ -83,9 +83,25 @@ which contains the converted data from the ``csv`` directory.
 
 The library ``LW.js`` uses what is in the ``json`` directory.
 
-### The LearnWord2 JSON data format
+### The LearnWord2 CSV and JSON data format
 
-An example
+An example (CSV)
+
+    ﻿_id,word,translate,tags,picture
+    1,antelope,une antilope,animal,c10/antelope.jpg
+    2,ant,une fourmi,animal,c10/ant.jpg
+    3,baboon,un babouin,animal,c10/baboon.jpg
+    4,bat,une chauve-souris ,animal,c10/bat.jpg
+    5,butterfly,un papillon,animal,c10/butterfly.jpg
+    6,calf,un veau,animal,c10/calf.jpg
+    7,camel,un chameau,animal,c10/camel.jpg
+    8,cat,un chat,animal,c10/cat.jpg
+    9,chameleon,un chaméléon,animal,c10/chameleon.jpg
+    10,coucal,un coucal,animal,c10/coucal_bird.jpg
+    11,crocodile,un crocodile,animal,c10/crocodile.jpg
+    12,dog,un chien,animal,c10/dog.jpg
+
+This is converted to JSON
 
     [{"_id":1,"word":"antelope","translate":"une antilope","tags":"animal","picture":"c10/antelope.jpg"},
     {"_id":2,"word":"ant","translate":"une fourmi","tags":"animal","picture":"c10/ant.jpg"},
