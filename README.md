@@ -42,21 +42,10 @@ npm install
 grunt
 ````
 
-
-Then change into the ``LearnWords2`` directory and do
-
-````
-npm install
-````
-
-
-Draft of more documentation [here](https://github.com/hhzl/LearnWords2/blob/master/docs/Developer_notes.md#2018-01-30). 
-
-
 Note: 
 The ``grunt`` command generates the files in the ``dist`` directory. These JavaScript files are the debug and minified versions of the LearnWords2 library (``dist/LW.js`` and ``dist/LW-debug.js``). They are copied to the ``public/js`` directory so the demo and Jasmine tests are using the "latest version" (i.e. derived from the JavaScript in ``src``) of the library. The directory `public/data/json` contains the output data to be used by the library.
 
-
+Draft of more documentation [here](https://github.com/hhzl/LearnWords2/blob/master/docs/Developer_notes.md#2018-01-30). 
 
 ____
 To use the library:
