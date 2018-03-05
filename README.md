@@ -1,5 +1,5 @@
 # LearnWords2
-A vocabulary learning component for flash cards using the Leitner system
+A vocabulary learning component for flash cards implementing the Leitner system
 
 ## Aim
 
