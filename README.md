@@ -4,13 +4,13 @@ A vocabulary learning component for flash cards implementing the Leitner system
 ## Aim
 
 The aim of the project is twofold
-1. Provide a JavaScript library called ``LW.js`` which maintains and uses a collection of vocabulary questions in a database. "Database" means here JSON data to be kept in the localStorage.
+1. Provide a JavaScript library called ``LW.js`` which maintains and uses a collection of vocabulary questions in a database. "Database" means here JSON data to be kept in the localStorage. A simple demo GUI is provided which illustrates how  ``LW.js`` is to be set up and used.
 2. Provide data conversion and report functions for lists of words to learn (the JSON files). This includes the conversion to the [Anki](https://apps.ankiweb.net/) file format.
 
-It also provides a simple demo GUI. 
-
 ## What does the library ``LW.js`` implement?
-The library offers a learning session. Within that session a vocabulary question is  picked at random and then depending on the answer a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
+The library offers a learning session which means that a certain number of questions is asked. The number is specified by a setting value. There are questions in the database which have never been asked, questions which are to be _learned_ and questions which are to be reviewed. 
+
+A vocabulary question for review is  picked at random and then depending on the answer a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
 
 This is known as [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition).
 ![Leitner system](docs/230px-Leitner_system_alternative.svg.png)
