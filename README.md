@@ -4,26 +4,32 @@ A vocabulary learning component for flash cards using the Leitner system
 ## Aim
 
 The aim of the project is twofold
-1. Provide a JavaScript library which keeps a collection of vocabulary questions in a database. 
-2. Provide data conversion and report functions for lists of words to learn.
+1. Provide a JavaScript library called ``LW.js`` which maintains and uses a collection of vocabulary questions in a database. "Database" means here JSON data to be kept in the localStorage.
+2. Provide data conversion and report functions for lists of words to learn (the JSON files). This includes the conversion to the [Anki](https://apps.ankiweb.net/) file format.
 
-It does not provide a GUI though it has a demo how a GUI could be constructed. 
+It also provides a simple demo GUI. 
 
-A vocabulary question may be picked at random and then depending on the answer a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
+## What does the library ``LW.js`` implement?
+The library offers a learning session. Within that session a vocabulary question is  picked at random and then depending on the answer a new date is noted for the question to be asked again. The time interval increases if the question has been answered correctly. To do this a step (or level) value is maintained for each question to determine the time period after which the question might be asked again.
 
 This is known as [spaced repetition](https://en.wikipedia.org/wiki/Spaced_repetition).
-
-HTML and LibreOffice Draw reports are provided for flash cards to be printed (experimental feature).
-
 ![Leitner system](docs/230px-Leitner_system_alternative.svg.png)
 
+It is as well possible to do the selection of questions according to tags given to each vocabulary entry.
 
+The library implements the two lower levels as shown in the diagram:
 ![learnwords2-layers](docs/LW2-context.png)
 
 
-## Setup 
+## Reports
+
+This repository includes CLI programs to generate HTML and LibreOffice Draw reports for  flash cards to be printed.
 
 
+
+# Setup and usage
+
+## Installation of the development environment
 The command ``grunt-cli`` is a prerequisite.
 
 Global installation is done with
@@ -33,7 +39,7 @@ npm install -g grunt-cli
 ````
 
 
-Installation of LearnWords2
+Installation of LearnWords2 repository
 
 ````	
 git clone https://github.com/hhzl/LearnWords2.git
@@ -47,8 +53,9 @@ The ``grunt`` command generates the files in the ``dist`` directory. These JavaS
 
 Draft of more documentation [here](https://github.com/hhzl/LearnWords2/blob/master/docs/Developer_notes.md#2018-01-30). 
 
-____
-To use the library:
+## Use of the library ``LW.js`` in client program
+
+To use the library you just need to copy ``LW.js`` to the code repo of your app and add it as follows.
 
 ```
 <script src="<path>/LW.js"></script>
@@ -56,7 +63,7 @@ To use the library:
 The file ``public/demo.html`` illustrates this.
 
 
-## API
+## API of ``LW.js``
 
 ![learnwords2-layers](docs/learnwords2-layers.png)
 
