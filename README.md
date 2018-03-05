@@ -63,12 +63,12 @@ To use the library you just need to copy ``LW.js`` to the code repo of your app 
 The file ``public/demo.html`` illustrates this.
 
 
-## API of ``LW.js``
+## API 2 of ``LW.js``
 
 ![learnwords2-layers](docs/learnwords2-layers.png)
 
 - LWdb is the data access layer.
-- LWBoxOfQuestions contains the application logic for a Leitner box
+- LWBoxOfQuestions contains the logic for "accessing and moving the cards" (e.g. voculary entries) in the Leitner box
 
 
 Code:
@@ -125,7 +125,7 @@ lw.moveQuestionForward();
  
 Note: If `lw.moveQuestionBackwards()` and `lw.moveQuestionForward()` are called repeatedly on the same question it has only an effect the first time. The next time `lw.question()` is called a new question is provided.
 
-TODO: Add more usage examples.
+TODO: Add more usage examples and link to the full API description.
 
 
 ## Input data
