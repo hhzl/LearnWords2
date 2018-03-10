@@ -379,9 +379,17 @@ module.exports = function(grunt) {
   grunt.registerTask('data',['clean:data','csv2json','csv2anki','htmlreport']);
   grunt.registerTask('build', ['clean:build','jshint:es5','js']);
   grunt.registerTask('demo',['build','data','copy:data','copy:js']);
-  grunt.registerTask('test', ['clean:test','jasmine']);
+
+  // deactivate the jasmine tests as there is a problem with the browser version
+  // directly call ``jasmine`` from the CLI to get the node version
+  // grunt.registerTask('test', ['clean:test','jasmine']);
+  grunt.registerTask('test', ['clean:test']);
+
 
   // The default task is executed if grunt is called without giving a task name
-  grunt.registerTask('default', ['demo','test','connect','watch']);
+  // grunt.registerTask('default', ['demo','test','connect','watch']);
+  // connect and watch task disabled because of the deactivation of the jasmine tests in the browser
+  grunt.registerTask('default', ['demo','test']);
+
 
 };

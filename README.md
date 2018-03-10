@@ -23,16 +23,20 @@ The library implements the two lower levels as shown in the diagram:
 
 ## Reports
 
-This repository includes CLI programs to generate HTML and LibreOffice Draw reports for  flash cards to be printed.
+This repository includes [CLI](https://en.wikipedia.org/wiki/Command-line_interface) programs to generate HTML and LibreOffice Draw reports for  flash cards to be printed.
 
 
 
 # Setup and usage
 
 ## Installation of the development environment
-The command ``grunt-cli`` is a prerequisite.
+The command ``grunt-cli`` is a prerequisite. Check with 
 
-Global installation is done with
+````	
+grunt --version
+````
+
+If it is not installed - a global installation is done with
 
 ````	
 npm install -g grunt-cli
@@ -51,6 +55,14 @@ grunt
 Note: 
 The ``grunt`` command generates the files in the ``dist`` directory. These JavaScript files are the debug and minified versions of the LearnWords2 library (``dist/LW.js`` and ``dist/LW-debug.js``). They are copied to the ``public/js`` directory so the demo and Jasmine tests are using the "latest version" (i.e. derived from the JavaScript in ``src``) of the library. The directory `public/data/json` contains the output data to be used by the library.
 
+
+Note2:
+The generation of the browser version of the jasmine tests is currently disabled. Just use
+````
+    jasmine
+````
+to run the tests on the command line.
+
 Draft of more documentation [here](https://github.com/hhzl/LearnWords2/blob/master/docs/Developer_notes.md#2018-01-30). 
 
 ## Use of the library ``LW.js`` in client program
@@ -58,7 +70,7 @@ Draft of more documentation [here](https://github.com/hhzl/LearnWords2/blob/mast
 To use the library you just need to copy ``LW.js`` to the code repo of your app and add it as follows.
 
 ```
-<script src="<path>/LW.js"></script>
+<script src="pathTo/LW.js"></script>
 ```
 The file ``public/demo.html`` illustrates this.
 
