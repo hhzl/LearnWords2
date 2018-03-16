@@ -1,13 +1,11 @@
 "use strict";
-
 var LWdb = require('../../src/LWdb');
 
 if (typeof localStorage === "undefined" || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
   global.localStorage = new LocalStorage('./scratch');
 }
-
-describe("Database LWdb", function() {
+describe("a LWdb supports API1", function() {
 
   var lwdb, wordlist;
 
@@ -71,8 +69,51 @@ describe("Database LWdb", function() {
     expect(lwdb).toHaveMethod("keysOfAllWords");
     expect(lwdb).toHaveMethod("allWords");
  
-
   });
+
+
+ });
+
+
+
+
+describe("a LWdb is created", function() {
+
+  var lwdb, wordlist;
+
+  beforeAll(function(done){
+    this.getGermanWordList(function(err,data){
+      if(err){
+        console.log(err);
+      }else{
+        wordlist = data;
+      }
+      done();
+    });
+  });
+
+  beforeEach(function() {
+    // clear properties that didn't exist in original wordList
+    for(var i = 0; i < wordlist.length; i++){
+      var aWord = wordlist[i];
+      for(var key in aWord){
+        if(key != "word" && key != "translate" && key != "_id"){
+          delete aWord[key];
+        }
+      }
+    }
+
+    localStorage.clear();
+    lwdb = LWdb("LearnWords");
+  });
+
+
+  afterEach(function(){
+    lwdb.destroy();
+  });
+
+
+
 
 
 
@@ -141,12 +182,125 @@ describe("Database LWdb", function() {
     
     // FIXME add expect
 
+  });
+
+});
+
+
+
+describe("a LWdb may be chosen among several others", function() {
+
+  var lwdb, wordlist;
+
+  beforeAll(function(done){
+    this.getGermanWordList(function(err,data){
+      if(err){
+        console.log(err);
+      }else{
+        wordlist = data;
+      }
+      done();
+    });
+  });
+
+  beforeEach(function() {
+    // clear properties that didn't exist in original wordList
+    for(var i = 0; i < wordlist.length; i++){
+      var aWord = wordlist[i];
+      for(var key in aWord){
+        if(key != "word" && key != "translate" && key != "_id"){
+          delete aWord[key];
+        }
+      }
+    }
+
+    localStorage.clear();
+    lwdb = LWdb("LearnWords");
+  });
+
+
+  afterEach(function(){
+    lwdb.destroy();
+  });
+
+
+
+
+
+
+  it("should be able to create a DB", function() {
+
+    expect(lwdb).toBeObject();
+    
+    expect(lwdb).toHaveString("dbName");
+    expect(lwdb.dbName).toBe("LearnWords");
+
+
+    expect(lwdb).toHaveMethod("putWord");
+    expect(lwdb).toHaveMethod("getWord");
+    expect(lwdb).toHaveMethod("importFrom");
+    expect(lwdb).toHaveMethod("loadWords");
+    expect(lwdb).toHaveMethod("keysOfAllWords");
+
+    // FIXME
+    // add more methods
 
   });
 
 
 
-  describe("deals with words;", function() {
+  it("should be able to answer if persistent storage is available", function() {
+
+    expect(lwdb).toHaveMethod("persistentStorageOK");
+    expect(lwdb.persistentStorageOK()).toBeTrue();
+
+  });
+
+
+  it("should be able to remove all words storage", function() {
+    
+    var n = (wordlist).length;
+    expect(n>0).toBe(true);
+
+    lwdb.loadWords(wordlist);
+
+    expect(lwdb.numberOfWords()>0).toBe(true);
+
+
+    lwdb.removeWords();
+    
+    expect(lwdb).toHaveMethod("numberOfWords"); 
+    expect(lwdb.numberOfWords()).toBe(0);
+
+    var keys = lwdb.keysOfAllWords();
+    expect(keys.length).toBe(0);
+
+  });
+
+
+  xit("should be able to reinitialize the persistent storage", function() {
+    
+    var n = (wordlist).length;
+    expect(n>0).toBe(true);
+
+    lwdb.loadWords(wordlist);
+
+    expect(lwdb.numberOfWords()>0).toBe(true);
+
+
+    lwdb.destroy();
+    
+    // FIXME add expect
+
+  });
+
+
+});
+
+
+
+
+describe("deals with words;", function() {
 
     it("should be able to answer the number of words", function() {
       expect(lwdb.numberOfWords()).toBe(0);
@@ -491,14 +645,12 @@ describe("Database LWdb", function() {
     });
 
 
-  });
+});
 
 
 
 
-
-
-  describe("LWdb deals with settings", function() {
+describe("LWdb deals with settings", function() {
 
     it("should be able to answer settings", function() {
       var settings = lwdb.getSettings();
@@ -524,10 +676,36 @@ describe("Database LWdb", function() {
       expect(settings).not.toBe(null);
       expect(settings).toBeObject();
       expect(settings.defaultInitialStepValue).toBe(-1);
-
     });
 
 
+ });
+
+
+
+
+describe("an LWdb  allows a selection of cards by tags", function() {
+  var a;
+
+  it("allows a group of cards to be selected by a tag", function() {
+    a = false;
+    expect(a).toBe(true);
+  });
+
+  it("shows what happens if the tag does not exists", function() {
+    a = false;
+    expect(a).toBe(true);
+  });
+
+
+  it("defines what happens to the database if a _group_ of cards is selected by tags", function() {
+    // it could be that nothing happens.....
+    a = false;
+
+    expect(a).toBe(true);
   });
 
 });
+
+
+

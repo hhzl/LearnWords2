@@ -4,9 +4,6 @@ var BoxOfQuestions = require('../../src/BoxOfQuestions');
 var LWdb = require('../../src/LWdb');
 
 var lw, wordlist;
-
-
-
 describe("BoxOfQuestions construction", function() {
 
    // construction of empty db
@@ -22,6 +19,9 @@ describe("BoxOfQuestions construction", function() {
     });
   });
 
+
+
+
   it("should indicate the correct library version", function() {
 
     expect(lw).toHaveString("version");
@@ -31,7 +31,7 @@ describe("BoxOfQuestions construction", function() {
 
 
 
-  it("should be able to create a BoxOfQuestions object (var 1a)", function() {
+  it("should be able to create a BoxOfQuestions object (variant 1a)", function() {
 
     // construction of empty db
     var lw = BoxOfQuestions(LWdb('learnWords')); 
@@ -54,7 +54,7 @@ describe("BoxOfQuestions construction", function() {
 
 
 
-  it("should be able to create a BoxOfQuestions object (var 1b)", function() {
+  it("should be able to create a BoxOfQuestions object (variant 1b)", function() {
 
     // construction of empty db
     var lw = BoxOfQuestions(LWdb('learnWords'));
@@ -73,20 +73,15 @@ describe("BoxOfQuestions construction", function() {
 
 
 
-  it("should be able to create a BoxOfQuestions object (var 2)", function() {
+  it("should be able to create a BoxOfQuestions object (variant 2)", function() {
 
     // construction
 
     var lw = function(){
-
 		var db = LWdb('learnWords');
-
 		db.loadWords(wordlist);
-
 		var box = BoxOfQuestions(db);
-
                 // if necessary more configuration later
-
 		return box
         }();
 
@@ -133,15 +128,10 @@ describe("BoxOfQuestions construction", function() {
     expect(lw).toHaveMethod("config");
     expect(lw).toHaveMethod("status");
 
-
   });
 
 
-
 });
-
-
-
 
 
 
@@ -585,4 +575,88 @@ describe("BoxOfQuestions", function() {
 
   });
 
+
 });
+
+
+
+
+describe("BoxOfQuestions - practice mode", function() {
+  var a;
+  // practice means that the words/cards may be worked on intensively on demand.
+  // it needs to be defined if and how this affects the ``review`` mode
+
+
+  it("allows inactive but loaded words/cards to be made active for practice", function() {
+    a = false;
+    expect(a).toBe(true);
+  });
+
+  it("takes note of words which have been already practiced", function() {
+    a = false;
+    expect(a).toBe(true);
+  });
+
+
+  it("allows words/cards to to be practiced", function() {
+    a = false;
+    expect(a).toBe(true);
+  });
+
+
+});
+
+
+
+
+describe("BoxOfQuestions - review mode", function() {
+  var a;
+  // review mode means that the cards are presented again in the following days.
+  it("allows cards to be reviewed as the move through the boxes", function() {
+    a = true;
+
+    expect(a).toBe(true);
+  });
+
+
+  it("allows to create a session with a group of cards to be reviewed", function() {
+    a = true;
+
+    expect(a).toBe(true);
+  });
+
+
+  it("presents a card to be reviewed", function() {
+    a = true;
+
+    expect(a).toBe(true);
+  });
+
+
+  it("presents a group of cards to be used as an answer options", function() {
+    a = true;
+
+    expect(a).toBe(true);
+  });
+
+
+
+  it("processes a card to be reviewed - wrong answer", function() {
+    a = true;
+
+    expect(a).toBe(true);
+  });
+
+
+  it("processes a card to be reviewed - correct answer", function() {
+    a = true;
+
+    expect(a).toBe(true);
+  });
+
+
+});
+
+
+
+
