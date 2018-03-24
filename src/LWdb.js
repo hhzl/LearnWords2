@@ -9,16 +9,19 @@
 //    Definition of an LWdb object
 //
 // Date:
-//    3rd February 2017
+//    24th March 2018
 //
 // ----------------------------------------------------------------------
 
 
+
+// start of nodejs specific code
 if (typeof localStorage === "undefined" || localStorage === null) {
   // we run in node thus we need to have a simulation of LocalStorage
   var LocalStorage = require("node-localstorage").LocalStorage;
   global.localStorage = new LocalStorage("./scratch");
 }
+// end of nodejs specific code
 
 
 
@@ -150,10 +153,14 @@ var LWdb = function(name) {
 
 
     destroy : function() {
+    // completely remove all objects stored under the db name
 
          var aKeyPrefix = dbName;  
+
+    // these objects all have a key starting with the db name 
          _removeObjects(aKeyPrefix);
     },
+
 
 
 
@@ -252,7 +259,8 @@ var LWdb = function(name) {
 
 
     importFrom : function(obj) {
-      
+    // takes an array of words currently
+    // should allow for a more general object which includes settings later.      
       var key;
       var theWords;
 
@@ -325,6 +333,27 @@ var LWdb = function(name) {
         for(var i = 0; i < keys.length; i++){
             var str = localStorage.getItem(keys[i]);
             words.push(JSON.parse(str));
+        }
+        return words;
+    },
+
+
+
+    allWordsWithTag : function(tag) {
+        var stringToMatch = tag+' ';
+        // we assume that tags are separated by space
+        // adding a space to the stringToMatch makes sure that we have a full match
+        // otherwise we might have a match if tag is a prefix of another tag.
+        var keys = this.keysOfAllWords();
+        var words = [];
+        for(var i = 0; i < keys.length; i++){
+            var strWord = localStorage.getItem(keys[i]);
+            var word = JSON.parse( strWord );
+            if (word.hasOwnProperty('tags')) {
+                if ((word.tags+' ').indexOf(stringToMatch)>-1) {
+                    words.push(word)
+                }
+            };
         }
         return words;
     },

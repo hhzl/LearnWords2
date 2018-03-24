@@ -1,10 +1,11 @@
 "use strict";
+// File: LWBoxOfQuestionsSpec.js
 
 var BoxOfQuestions = require('../../src/BoxOfQuestions');
 var LWdb = require('../../src/LWdb');
 
 var lw, wordlist;
-describe("BoxOfQuestions construction", function() {
+xdescribe("BoxOfQuestions construction", function() {
 
    // construction of empty db
   beforeAll(function(done){
@@ -135,7 +136,7 @@ describe("BoxOfQuestions construction", function() {
 
 
 
-describe("BoxOfQuestions", function() {
+xdescribe("BoxOfQuestions", function() {
 
     
   beforeEach(function() {
@@ -581,7 +582,7 @@ describe("BoxOfQuestions", function() {
 
 
 
-describe("BoxOfQuestions - practice mode", function() {
+xdescribe("BoxOfQuestions - practice mode", function() {
   var a;
   // practice means that the words/cards may be worked on intensively on demand.
   // it needs to be defined if and how this affects the ``review`` mode
@@ -609,7 +610,7 @@ describe("BoxOfQuestions - practice mode", function() {
 
 
 
-describe("BoxOfQuestions - review mode", function() {
+xdescribe("BoxOfQuestions - review mode", function() {
   var a;
   // review mode means that the cards are presented again in the following days.
   it("allows cards to be reviewed as the move through the boxes", function() {
