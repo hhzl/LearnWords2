@@ -112,8 +112,11 @@ function defineCustomTasksDataConversion(grunt) {
 
 
 
+
+
   grunt.registerMultiTask('csv2anki','Converts CSV to Anki',function(){
 
+    var picturesPath = "data/pictures/";
     var done = this.async();
 
     var promises = [];
@@ -133,14 +136,30 @@ function defineCustomTasksDataConversion(grunt) {
 
           for(var j = 1; j < arrayOfObjects.length; j++){
             var wordObj = arrayOfObjects[j];
-            var front = wordObj.word;
-            var back = wordObj.translate;
+            var front = wordObj.word;  // this refers to the 'front' of the "card".
+            var back = wordObj.translate; // this refers to the 'back' of the "card".
             var tags = wordObj.tags;
             var tagsObj = {};
             if(tags && tags.length > 0){
               tagsObj.tags = tags.trim().split(" ");
-            }
+            };
+            var pictureFileNamePath = picturesPath+wordObj.picture;
+            var pathComponents = pictureFileNamePath.split("/");
+            var pictureFileName = pathComponents[pathComponents.length-1]; // the last item
+
+            // the content of the 'front' field refers to the picture through a HTML img tag
+            // depending on the use case the content front and back field have to be adapted.
+            // For example just add the picture to the front (no English label).
+
+            front = '<img src="'  + pictureFileName + '"/><br />'+ front;
+            grunt.verbose.write("front="+front+"\n");
+
             apkg.addCard(front, back, tagsObj);
+
+            // the picture file needs to be added separatly
+            apkg.addMedia(pictureFileName, fs.readFileSync(pictureFileNamePath));
+            // the picture files get numbered in the apkg file and an index file called 
+            // 'media' in JSON format is created
           }
 
           var dest = path.join(this.files[i].dest,path.basename(f,'.csv')+'.apkg');
@@ -174,6 +193,18 @@ function defineCustomTasksDataConversion(grunt) {
       });
 
   });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,13 +1,108 @@
-"use strict";
 // File: LWBoxOfQuestionsSpec.js
+// Date: 29 March 2018
+// List of Jasmine suites with tests in this file:
+//    
+//    describe("BoxOfQuestions construction", function() {
+//      it("should indicate the correct library version", function() {
+//      it("should be able to create a BoxOfQuestions object (variant 1a)", function() {
+//      it("should be able to create a BoxOfQuestions object (variant 1b)", function() {
+//      it("should be able to create a BoxOfQuestions object (variant 2)", function() {
+//      it("should support the Box API 2", function() {
+//    
+//    describe("BoxOfQuestions", function() {
+//      it("should be able to import questions", function() {
+//      it("should have a helper function to get random integers", function(){
+//      it("should be able to indicate which words are to be repeated", function() {
+//      it("should give an array of words having particular step values", function() {
+//      it("should be able to give a question", function() {
+//      it("should be able to give questions until there are no more questions", function() {
+//      it("should be able to give an answer", function() {
+//      it("should be able to give answer options", function() {
+//      it("should be able to move an incorrect question back in the box", function() {
+//      it("should be able to move an answer forward", function() {
+//      it("should be able to choose a random object from a collection", function() {
+//      it("should be able to make use of settings information", function() {
+//      it("should be able to give status information", function() {
+//    
+//    xdescribe("BoxOfQuestions - learn mode", function() {
+//      it("it allows a group of cards to be queried by a tag", function() {
+//    
+//    xdescribe("BoxOfQuestions - practice mode", function() {
+//      it("allows inactive but loaded words/cards to be made active for practice", function() {
+//      it("takes note of words which have been already practiced", function() {
+//      it("allows words/cards to to be practiced", function() {
+//    
+//    xdescribe("BoxOfQuestions - review mode", function() {
+//      it("allows cards to be reviewed as the move through the boxes", function() {
+//      it("allows to create a session with a group of cards to be reviewed", function() {
+//      it("presents a card to be reviewed", function() {
+//      it("presents a group of cards to be used as an answer options", function() {
+//      it("processes a card to be reviewed - wrong answer", function() {
+//      it("processes a card to be reviewed - correct answer", function() {
+
+
+
+
+
+// paste the code between the dotted lines 
+// with comment indicator // removed
+// into
+//       https://www.planttext.com/
+// to get a state chart
+// ........................................
+// 
+// @startuml
+// 
+// title LearnWords2 App State Model
+// [*] --> AppStart
+// 
+// NoDB : No database created yet
+// EmptyDB : Empty database created
+// DBLoaded : Words imported
+// LearnMode : ???
+// PracticeMode : ???
+// ReviewMode : ???
+// 
+// 
+// AppStart --> DBLoaded
+// AppStart --> NoDB
+// 
+// NoDB --> EmptyDB
+// EmptyDB --> DBLoaded
+// 
+// DBLoaded --> LearnMode
+// DBLoaded --> PracticeMode
+// DBLoaded --> ReviewMode
+// 
+// LearnMode --> PracticeMode
+// PracticeMode --> ReviewMode
+// 
+// LearnMode --> [*]
+// PracticeMode --> [*]
+// ReviewMode --> [*]
+// 
+// note right
+// End state
+// end note
+// 
+// @enduml
+// 
+//  ...............................................................................
+
+
+
+
+"use strict";
 
 var BoxOfQuestions = require('../../src/BoxOfQuestions');
 var LWdb = require('../../src/LWdb');
 
 var lw, wordlist;
-xdescribe("BoxOfQuestions construction", function() {
 
-   // construction of empty db
+
+describe("BoxOfQuestions construction", function() {
+
+   // construction of empty db and wordlist to be imported
   beforeAll(function(done){
     lw = BoxOfQuestions(LWdb('learnWords')); 
     this.getGermanWordList(function(err,data){
@@ -136,7 +231,7 @@ xdescribe("BoxOfQuestions construction", function() {
 
 
 
-xdescribe("BoxOfQuestions", function() {
+describe("BoxOfQuestions", function() {
 
     
   beforeEach(function() {
@@ -402,7 +497,7 @@ xdescribe("BoxOfQuestions", function() {
 
 
 
- it("should be able to give answer options", function() {
+  it("should be able to give answer options", function() {
 
 
     // Check API
@@ -574,6 +669,22 @@ xdescribe("BoxOfQuestions", function() {
     // FIXME
     // add more expect statements
 
+  });
+
+
+});
+
+
+
+
+xdescribe("BoxOfQuestions - learn mode", function() {
+  var a;
+  // learn means that groups of cards may be presented one after the other.
+  // The database is not affected.
+
+  it("it allows a group of cards to be queried by a tag", function() {
+    a = false;
+    expect(a).toBe(true);
   });
 
 

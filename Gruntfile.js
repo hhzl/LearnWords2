@@ -158,6 +158,12 @@ module.exports = function(grunt) {
                   }
            }
     },
+    csv2ankiPrevious: {
+      data: {
+        src: path.join(p.INPUT_DIR,'csv','**/*.csv'),
+        dest: path.join(p.OUTPUT_DIR,'anki')
+      }
+    },
     csv2anki: {
       data: {
         src: path.join(p.INPUT_DIR,'csv','**/*.csv'),

@@ -9,7 +9,7 @@
 //    Definition of an LWdb object
 //
 // Date:
-//    24th March 2018
+//    28th March 2018
 //
 // ----------------------------------------------------------------------
 
@@ -352,6 +352,35 @@ var LWdb = function(name) {
             if (word.hasOwnProperty('tags')) {
                 if ((word.tags+' ').indexOf(stringToMatch)>-1) {
                     words.push(word)
+                }
+            };
+        }
+        return words;
+    },
+
+
+
+
+    allWordsWithAnyTagOf : function(aTagList) {
+
+        // we assume that tags are separated by space
+        // adding a space to the stringToMatch makes sure that we have a full match
+        // otherwise we might have a match if tag is a prefix of another tag.
+
+        var tagList = aTagList.trim().split(' ');
+
+        var keys = this.keysOfAllWords();
+        var words = [];
+        for(var i = 0; i < keys.length; i++){
+            var strWord = localStorage.getItem(keys[i]);
+            var word = JSON.parse( strWord );
+            if (word.hasOwnProperty('tags')) {
+
+                for (var k = 0; k < tagList.length; k++){
+                    if ((word.tags+' ').indexOf(tagList[k]+' ')>-1) {
+                    words.push(word);
+                    break; // no need for more checks as we have found a match
+                    }
                 }
             };
         }

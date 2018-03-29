@@ -1,19 +1,20 @@
 // File: LWdbSpec
-//
-// Date: 25 March 2018
-//
+// Date: 29 March 2018
 // List of Jasmine suites with tests in this file:
 //    
 //    describe("A LWdb deals with words and settings and offers API1. ", function() {
-//    xdescribe("A LWdb supports API1.", function() {
+//    
+//    describe("A LWdb supports API1.", function() {
 //      it("should support API 1", function() {
-//    xdescribe("A LWdb is created.", function() {
+//    
+//    describe("A LWdb is created.", function() {
 //      it("should be able to create a DB", function() {
 //      it("should be able to answer if persistent storage is available", function() {
 //     it("should be able load words", function() {
 //      it("should be able to remove all words in the storage", function() {
 //      it("should be able to reinitialize the persistent storage", function() {
-//    xdescribe("Words may be stored.", function() {
+//    
+//    describe("Words may be stored.", function() {
 //        it("should be able to answer the number of words", function() {
 //        it("should be able to store a new word", function() {
 //        it("should be able to get back a stored word", function() {  
@@ -26,7 +27,8 @@
 //        it("should be able to import an object with words", function() {
 //        it("should be able to import a dbdump object", function() {
 //        it("should be able to maintain an index", function() {
-//    xdescribe("A LWdb deals with words.", function() {
+//    
+//    describe("A LWdb deals with words.", function() {
 //        it("should be able to answer the number of words", function() {
 //        it("should be able to remove all words", function() {
 //        it("should be able to answer a list of all keys of all words", function() {
@@ -35,15 +37,18 @@
 //        it("should be able to import an object with words", function() {
 //        it("should be able to import a dbdump object", function() {
 //        it("should be able to maintain an index", function() {
-//    xdescribe("A LWdb may be chosen among several others.", function() {
+//    
+//    describe("A LWdb may be chosen among several others.", function() {
 //      it("should be able to create a DB and then another DB", function() {
 //    
 //    describe("A LWdb  allows a selection of cards by tags.", function() {
 //      it("allows a group of cards to be selected by a tag", function() {
-//      xit("shows what happens if the tag does not exists", function() {
-//      xit("defines what happens to the database if a _group_ of cards is selected by tags", function() {
+//      it("allows a group of cards to be selected having any tag of a tag list", function() {
+//      it("shows what happens if the tag does not exists", function() {
+//      it("defines what happens to the database if a _group_ of cards is selected by tags", function() {
 //      xit("it allows to add cards selected by a tag to be added to an existing collection", function() {
-//    xdescribe("A LWdb deals with settings objects as well.", function() {
+//    
+//    describe("A LWdb deals with settings objects as well.", function() {
 //        it("should be able to answer settings", function() {
 //        it("should be able to store settings", function() {
 //        it("should be able to answer a default intial step value", function() {
@@ -110,7 +115,7 @@ describe("A LWdb deals with words and settings and offers API1. ", function() {
 
 
 
-xdescribe("A LWdb supports API1.", function() {
+describe("A LWdb supports API1.", function() {
 
   var lwdb;
 
@@ -160,7 +165,7 @@ xdescribe("A LWdb supports API1.", function() {
 
 
 
-xdescribe("A LWdb is created.", function() {
+describe("A LWdb is created.", function() {
 
 
   it("should be able to create a DB", function() {
@@ -261,7 +266,7 @@ xdescribe("A LWdb is created.", function() {
 
 
 
-xdescribe("Words may be stored.", function() {
+describe("Words may be stored.", function() {
 
  
 
@@ -651,7 +656,7 @@ xdescribe("Words may be stored.", function() {
 
 
 
-xdescribe("A LWdb deals with words.", function() {
+describe("A LWdb deals with words.", function() {
 
     it("should be able to answer the number of words", function() {
       expect(lwdb.numberOfWords()).toBe(0);
@@ -890,7 +895,7 @@ xdescribe("A LWdb deals with words.", function() {
 
 
 
-xdescribe("A LWdb may be chosen among several others.", function() {
+describe("A LWdb may be chosen among several others.", function() {
 
 
 
@@ -1058,33 +1063,71 @@ describe("A LWdb  allows a selection of cards by tags.", function() {
 
   it("allows a group of cards to be selected by a tag", function() {
     expect(lwdb.numberOfWords()).toBe(5);
-console.log("select by tag");
+ 
     var listOfWordsWithTag;
  
-   listOfWordsWithTag = lwdb.allWordsWithTag("fruit");
+    listOfWordsWithTag = lwdb.allWordsWithTag("fruit");
     expect(listOfWordsWithTag.length).toBe(3);
   
 
-   listOfWordsWithTag = lwdb.allWordsWithTag("family");
+    listOfWordsWithTag = lwdb.allWordsWithTag("family");
     expect(listOfWordsWithTag.length).toBe(1);
 
-   listOfWordsWithTag = lwdb.allWordsWithTag("8");
+    listOfWordsWithTag = lwdb.allWordsWithTag("8");
     expect(listOfWordsWithTag.length).toBe(2);
 
 
 
   });
 
-  xit("shows what happens if the tag does not exists", function() {
-    a = false;
-    expect(a).toBe(true);
+
+
+
+  it("allows a group of cards to be selected having any tag of a tag list", function() {
+    expect(lwdb.numberOfWords()).toBe(5);
+ 
+    var listOfWordsWithTag;
+ 
+    listOfWordsWithTag = lwdb.allWordsWithAnyTagOf("fruit vegetable");
+    expect(listOfWordsWithTag.length).toBe(4);
+  
+    // var a = false;
+
+    // expect(a).toBe(true);
+
+
   });
 
-  xit("defines what happens to the database if a _group_ of cards is selected by tags", function() {
-    // it could be that nothing happens.....
-    a = false;
 
-    expect(a).toBe(true);
+
+
+
+
+  it("shows what happens if the tag does not exists", function() {
+    expect(lwdb.numberOfWords()).toBe(5);
+ 
+    var listOfWordsWithTag;
+ 
+    listOfWordsWithTag = lwdb.allWordsWithTag("vehicle");
+
+    expect(listOfWordsWithTag).toBeArray();
+    expect(listOfWordsWithTag.length).toBe(0);
+  
+  });
+
+  it("defines what happens to the database if a _group_ of cards is selected by tags", function() {
+    // nothing happens to the database. No updates.
+    // The selection of cards having a particular tag is held in another variable; here listOfWordsWithTag
+
+    expect(lwdb.numberOfWords()).toBe(5);
+ 
+    var listOfWordsWithTag;
+ 
+    listOfWordsWithTag = lwdb.allWordsWithTag("fruit");
+    expect(listOfWordsWithTag.length).toBe(3);
+
+    expect(lwdb.numberOfWords()).toBe(5);
+
   });
 
   xit("it allows to add cards selected by a tag to be added to an existing collection", function() {
@@ -1100,25 +1143,63 @@ console.log("select by tag");
 
 
 
-xdescribe("A LWdb deals with settings objects as well.", function() {
+describe("A LWdb deals with settings objects as well.", function() {
 
     it("should be able to answer settings", function() {
+
+     // read the settings object
       var settings = lwdb.getSettings();
+
       expect(settings).not.toBe(null);
       expect(settings).toBeObject();
+
+      // the settings object has default values
+      expect(settings.numberOfOptions).toBe(4);
+      expect(settings.delay).toBe(8640000);
+      expect(settings.factorForDelayValue).toBeArray();
+      expect(settings.factorForDelayValue[0]).toBe(1);
+      expect(settings.factorForDelayValue[1]).toBe(1);
+      expect(settings.factorForDelayValue[2]).toBe(3);
+      expect(settings.factorForDelayValue[3]).toBe(7);
+      expect(settings.factorForDelayValue[4]).toBe(45);
+      expect(settings.factorForDelayValue[5]).toBe(90);
+      expect(settings.factorForDelayValue[6]).toBe(360);
+      expect(settings.factorForDelayValue[7]).toBe(1000);
+      //                       "defaultInitialStepValue" : _defaultInitialStepValue,
+     // for the value defaultInitialStepValue see separate test below
+      expect(settings.sessionExpiryTimeInSeconds).toBe(1800);
+      expect(settings.suggestedNumberOfWordsInASession).toBe(20);
+      expect(settings.lowestStepValue).toBe(-10000);
+
+
+
     });
 
 
     it("should be able to store settings", function() {
       // test needs improvement
+
       var settings = lwdb.getSettings();
+
+      // assign a new settings value
       settings.factorForDelayValue[3] = 6;
+
+
+      // store the settings object
       lwdb.putSettings(settings);
+
+
+      // read the settings object again
       settings = lwdb.getSettings();
+
+
+      // check the result
       expect(settings).toBeObject();
       expect(settings).toHaveArray("factorForDelayValue");
       expect(settings.factorForDelayValue[3]).toBe(6);
     });
+
+
 
 
     it("should be able to answer a default intial step value", function() {
