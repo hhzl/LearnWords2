@@ -30,17 +30,6 @@ This repository includes [CLI](https://en.wikipedia.org/wiki/Command-line_interf
 # Setup and usage
 
 ## Installation of the development environment
-The command ``grunt-cli`` is a prerequisite. Check with 
-
-````	
-grunt --version
-````
-
-If it is not installed - a global installation is done with
-
-````	
-npm install -g grunt-cli
-````
 
 
 Installation of LearnWords2 repository
