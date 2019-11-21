@@ -1,0 +1,8 @@
+_id,word,translate,tags,picture,audio
+5,butterfly,der Schmetterling,animal,c10/butterfly.jpg,En-uk-a_butterfly.ogg.mp3
+8,cat,die Katze,animal,c10/cat.jpg,En-uk-a_cat.ogg.mp3
+12,dog,der Hund,animal,c10/dog.jpg,En-uk-a_dog.ogg.mp3
+18,fish,der Fisch,animal,c10/fish.jpg,En-uk-fish.ogg.mp3
+20,grasshopper,die Heuschrecke,animal,c10/grasshopper.jpg,En-uk-grasshopper.ogg.mp3
+35,sheep,das Schaf,animal,c10/sheep.jpg,En-uk-a_sheep.ogg.mp3
+
