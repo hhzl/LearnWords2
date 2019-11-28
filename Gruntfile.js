@@ -161,6 +161,8 @@ module.exports = function(grunt) {
     csv2anki: {
       data: {
         src: path.join(p.INPUT_DIR,'csv','**/*.csv'),
+        picinputdir: path.join(p.INPUT_DIR,'pictures'),
+        audioinputdir: path.join(p.INPUT_DIR,'audio'),
         dest: path.join(p.OUTPUT_DIR,'anki')
       }
     },

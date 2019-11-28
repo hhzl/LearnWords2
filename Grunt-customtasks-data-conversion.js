@@ -113,8 +113,13 @@ function defineCustomTasksDataConversion(grunt) {
 
 
   grunt.registerMultiTask('csv2anki','Converts CSV to Anki',function(){
+    // This task may be adapted to specific file Anki card front and back configuration needs.
 
     var done = this.async();
+    var picFileName = '';
+    var audioFileName = '';
+    var picFilePath = this.files[0].picinputdir;  // see Gruntfile.js  csv2anki config
+    var audioFilePath = this.files[0].audioinputdir; // see Gruntfile.js  csv2anki config
 
     var promises = [];
     // Grunt provides a normalized list of src/destination files in this.files
@@ -129,10 +134,18 @@ function defineCustomTasksDataConversion(grunt) {
           var apkgName = path.basename(f,'.csv');
           var apkg = new AnkiExport(apkgName);
   
-          grunt.verbose.write("create deck: " + apkgName);
+          grunt.verbose.writeln("create deck: " + apkgName);
 
-          for(var j = 1; j < arrayOfObjects.length; j++){
+          for(var j = 0; j < arrayOfObjects.length; j++){
             var wordObj = arrayOfObjects[j];
+
+	    picFileName = wordObj.picture;
+	    audioFileName = wordObj.audio;
+
+            apkg.addMedia(picFileName, fs.readFileSync(picFilePath+'/'+picFileName));
+            apkg.addMedia(audioFileName, fs.readFileSync(audioFilePath+'/'+audioFileName));
+
+
             var front = wordObj.word;
             var back = wordObj.translate;
             var tags = wordObj.tags;
@@ -140,6 +153,16 @@ function defineCustomTasksDataConversion(grunt) {
             if(tags && tags.length > 0){
               tagsObj.tags = tags.trim().split(" ");
             }
+   
+            // Redefine front and back field for specific TeachMeWords purpose
+            // Adapt the code below for other needs.
+            // Later use a conversion type flag in Grunt_parameters_ini.yml
+            // might be used for different conversion type needs
+
+            front = '[sound:'+audioFileName+']';
+            back = '<img src="'+picFileName+'"/>';
+            grunt.verbose.writeln(front+','+back);  
+
             apkg.addCard(front, back, tagsObj);
           }
 
@@ -175,9 +198,9 @@ function defineCustomTasksDataConversion(grunt) {
 
   });
 
-
-
 };
+
+
 
 
 module.exports = defineCustomTasksDataConversion;
